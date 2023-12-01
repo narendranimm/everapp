@@ -1,0 +1,72 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  /* z-index: 1; */
+}
+.menu-content{
+  display: flex;
+width: 1440px;
+padding: 16px 84px;
+justify-content: space-between;
+align-items: center;
+
+}
+.link-container{
+  display: flex;
+align-items: center;
+gap: 12px;
+}
+.logo-container{
+  display: flex;
+justify-content: center;
+align-items: center;
+gap: -4px;
+}
+.nav-items{
+color: #FFF;
+font-family: Archivo;
+font-size: 18px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+text-decoration: none;
+}
+
+@media screen and (max-width:400px) {
+  .link-container{
+    display: none;
+  }
+ 
+}
+
+.login-btn{
+  width: 120px;
+  height: 49px;
+  border-radius: 24px;
+  color: white;
+  background: none;
+border: 1px solid #FFF;
+}
+.register-btn{
+  width: 170px;
+  height: 49px;
+  border-radius: 24px;
+  color: var(--Primary, #3355B9);
+font-family: Archivo;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}

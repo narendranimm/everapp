@@ -1,0 +1,62 @@
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+font-size: 48px;
+font-family: Archivo;
+font-weight: 700;
+word-wrap: break-word
+
+}
+
+.footer-container{
+  background: #202C51;
+  height: 224px;
+}
+.rights-reserved{
+  background: #193178;
+  height: 38px;
+}
+.footer-p{
+  display: flex;
+  flex-flow: wrap row;
+  align-items: center;
+  justify-content: center;
+  row-gap: 20px;
+  column-gap: 20px;
+ padding: 2%;
+}
+.footer-c{
+  width:300px;
+  height: 150px;
+  border:2px solid red;
+}
+.footer-c-links{
+  width:809px;
+  height: 150px;
+  border: 2px solid red;
+}
+.contact-form-container{
+  display: flex;
+  background: #F2F2F2;
+height: 840px;
+padding: 96px 224px;
+flex-direction: column;
+align-items: flex-start;
+gap: 24px;
+}
+.faq-container{
+  display: flex;
+
+padding: 120px 224px 96px 224px;
+flex-direction: column;
+align-items: flex-start;
+gap: 10px;
+}
