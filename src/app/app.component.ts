@@ -26,11 +26,11 @@ export class AppComponent implements OnInit {
       this.setvalue()
     }
    getvalue(){
-    this.value= this.appstore.get('mobileno')
+    this.value= this.appstore.get()
     console.log(this.value)
   }
    setvalue(){
-     this.appstore.set('mobileno','8519899222')
+     this.appstore.set('8519899222')
 
   }
   openDialog() {

@@ -9,6 +9,7 @@ import { ToastController } from '@ionic/angular';
 import { IonLoaderService } from 'services/Ionic_Loader/ionic_Loader.service';
 
 import { CommunicationAllowPermissionComponent } from 'src/app/communication-allow-permission/communication-allow-permission.component';
+import { UserData } from 'src/app/providers/user-data';
 import { PostResult } from 'src/app/registration-models/postresult';
 import { RegisterService } from 'src/app/registration-services/register.service';
 import { ValidationService } from 'src/app/validationservice/validation.service';
@@ -20,7 +21,11 @@ import { ValidationService } from 'src/app/validationservice/validation.service'
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private ionLoaderService: IonLoaderService, public dialog: MatDialog, public toast: ToastController, private router: Router, private _rf: FormBuilder, private authService: SocialAuthService, private reg: RegisterService, private customValidators: ValidationService) {
+  constructor(private userdata:UserData,
+    private ionLoaderService: IonLoaderService, public dialog: MatDialog, public toast: ToastController, private router: Router, private _rf: FormBuilder, private authService: SocialAuthService, private reg: RegisterService, private customValidators: ValidationService) {
+    this.userdata.get().then( res => 
+      alert(res)
+      )
     this.registerForm = this._rf.group({
       FirstName: ['', Validators.compose([Validators.required,])],
       LastName: ['', Validators.compose([Validators.required])],
