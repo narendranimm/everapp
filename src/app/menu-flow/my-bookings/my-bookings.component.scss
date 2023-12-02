@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
+.parent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-container{
+    padding: 4%;
+}
+.mybooking{
+   color: #363636; font-size: 12px; font-family: 'Open Sans', sans-serif;  font-weight: 400; word-wrap: break-word;
+}
+.currentbooking{
+   color: #363636; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 700; word-wrap: break-word
+}

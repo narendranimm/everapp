@@ -1,0 +1,69 @@
+<div class="btn-container">
+<div style="width: 100%; height: 100%; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
+  <div style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 90px; display: inline-flex">
+      <div style="width: 24px; height: 24px; padding-top: 4.41px; padding-bottom: 4.42px; padding-left: 4.42px; padding-right: 4px; justify-content: center; align-items: center; display: flex">
+        <div class="container">
+            <div class="btn-container">
+              <button style="background: transparent;border: none;" routerLink="/payment-ongoing-b"><img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
+              </div>
+            
+            </div>
+      </div>
+      <div style="color: black; font-size: 12px; font-family: Archivo; font-weight: 400; word-wrap: break-word">Booking summary</div>
+  </div>
+  <div style="align-self: stretch; height: 193px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: flex">
+      <div style="align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
+          <img style="width: 86px; height: 74px; position: relative; background: linear-gradient(180deg, rgba(168, 181, 187, 0) 0%, #A6B3B9 100%); border-radius: 12px" src="https://s3-alpha-sig.figma.com/img/9996/861c/93445abf09334895c6f3c6e21fe888c8?Expires=1700438400&Signature=EA2mkEhDs8EBCVL7alsIRmKwIHkYmoIy74HyCh5B9RC7J6OYCCZECMQ48TP~bbBtkAaxor14czpzM5myzMeTgcOsJ6gXDTUpJNEKyhM6CrerrgfsMT0eazemoaXEpODWYNomD3TejYtZYhuu0zu~Nlu6hdNuXFq1AmWovA2C98nk-0rpA~cY~MhJkZ~uI6AsdvcWHgHFjL258RYYuVJd3QQGyjkk2cf6etMlBuIlO8l4H-X2qRWe40SJSV~c9xQYEqkd8OjHBmRsPSup7H24Hv~9zuDNR42XK5gA~YZ0KfnrWvSzNSo1uglNho-jZcLKXfizFMG39hert5~e2sw7zQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" />
+          <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
+              <div style="align-self: stretch; color: #363636; font-size: 18px; font-family: Archivo; font-weight: 600; word-wrap: break-word">Battery model 1</div>
+              <div style="align-self: stretch; color: black; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">1.8 KWH Li</div>
+          </div>
+      </div>
+      <div style="align-self: stretch; height: 103px; padding: 12px; background: #F2F2F2; border-radius: 10px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 17px; display: flex">
+          <div style="align-self: stretch; color: #3355B9; font-size: 18px; font-family: Archivo; font-weight: 600; word-wrap: break-word">Reservation details</div>
+          <div style="align-self: stretch; height: 42px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
+              <div style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
+                  <div><span style="color: black; font-size: 14px; font-family: Archivo; font-weight: 600; word-wrap: break-word">Booking id</span><span style="color: black; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word"> : BS-1234</span></div>
+              </div>
+              <div style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
+                  <div><span style="color: black; font-size: 14px; font-family: Archivo; font-weight: 600; word-wrap: break-word">Hub centre</span><span style="color: black; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word"> : Ameerpet metro EV battery station </span></div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div style="align-self: stretch; height: 121px; opacity: 0.60; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
+      <div style="color: black; font-size: 12px; font-family: Archivo; font-weight: 700; word-wrap: break-word">Rules & regulations</div>
+      <div style="align-self: stretch; color: black; font-size: 12px; font-family: Archivo; font-weight: 400; line-height: 16.32px; word-wrap: break-word">Please bring your government ids - aadhar card, pan card and driving license while you come to hub.<br/>Cash is not accepted here.<br/>Carefully check the battery id number before taking the reserved battery.<br/>Contact support if you face any issues.</div>
+  </div>
+  <button id="open-modal" style="width: 328px; height: 48px; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: center; align-items: center; display: inline-flex">
+      <div style="color: white; font-size: 14px; font-family: Archivo; font-weight: 700; word-wrap: break-word">Direction to the pickup point</div>
+  </button>
+  <ion-modal #modal trigger="open-modal">
+    <ng-template>
+      <ion-content>
+
+<div style="width: 100%; height: 100%; padding-left: 24px; padding-right: 24px; padding-top: 36px; padding-bottom: 36px; background: white; box-shadow: 0px 1px 4px rgba(86.88, 128.89, 236.94, 0.25); border-radius: 16px; flex-direction: column; justify-content: center; align-items: center; gap: 16px; display: inline-flex">
+    <div style="width: 24px; height: 24px; position: relative">
+        <div style="width: 24px; height: 24px; display: flex; justify-content: flex-end;">
+            <div style="width: 24px; height: 24px; left: 0px; top: 0px; position: absolute;"></div>
+            <img src="./assets/mingcute_close-line.svg" style="width: 14.73px; height: 14.73px; left: 4.62px; top: 4.65px; position: absolute; ">
+        </div>
+    </div>
+    <div style="width: 51.62px; height: 74px; position: relative">
+       <img src="./assets/logos_google-maps.svg" alt="">
+    </div>
+    <div style="color: #3F3F3F; font-size: 24px; font-family: Archivo; font-weight: 700; word-wrap: break-word">Google maps</div>
+    <div style="width: 232px; text-align: center; color: #717171; font-size: 16px; font-family: Archivo; font-weight: 400; word-wrap: break-word">Open google maps to view direction to Meghna hills EV hub.</div>
+    <div routerLink="/homepage-after-booking" style="align-self: stretch; height: 48px; padding-left: 24px; padding-right: 24px; padding-top: 16px; padding-bottom: 16px; background: #3355B9; border-radius: 100px; overflow: hidden; flex-direction: column; justify-content: center; align-items: center; gap: 10px; display: flex">
+        <div style="text-align: center; color: white; font-size: 14px; font-family: Archivo; font-weight: 700; letter-spacing: 0.10px; word-wrap: break-word">Open google maps</div>
+    </div>
+</div>
+
+</ion-content>
+</ng-template>
+</ion-modal>
+  <div style="width: 328px; height: 48px; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; border-radius: 24px; overflow: hidden; justify-content: center; align-items: center; display: inline-flex">
+      <a routerLink="/homepage" style="color: #3355B9; font-size: 14px; font-family: Archivo; font-weight: 700; text-decoration: underline; word-wrap: break-word">Go to home</a>
+  </div>
+</div>
+</div>

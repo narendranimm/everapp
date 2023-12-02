@@ -1,0 +1,8 @@
+{
+  "name": "everapp",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

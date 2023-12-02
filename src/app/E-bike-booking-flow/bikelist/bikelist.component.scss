@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
+.search{
+    width:328px;
+    height: 42px;
+    border-radius: 20px;
+  background: #F2F2F2;
+  
+  border:none;
+  }
+  ::placeholder{
+    color: var(--Primary, #3355B9);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .container{
+    display: flex;
+  align-items: center;
+  gap: 106px;
+  align-self: stretch;
+  }
+  .btn-container{
+    padding: 2%;
+  }
+  .search-conatiner{
+    display: flex;
+  padding: 12px;
+  align-items: center;
+  justify-content: center;
+  }
+  .card-parent{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: wrap column;
+    column-gap: 20px;
+    row-gap: 20px;
+
+  }
+  .card-child{
+    width:328px;
+    height: 163px;
+    
+  }
+  .bike-img{
+   width: 110px;
+   height: 123px;
+    align-self: stretch;
+    border-radius: 12px
+  }
+  .inner-parent{
+    display:flex;
+    align-items: center;
+    flex-flow: wrap row;
+   column-gap: 20px;
+   padding: 2%;
+  }
+  .inner-child{
+    width: 135px;
+    height: 133px;
+    
+  }
+  .view-btn{
+    width: 180px;
+  height: 36px;
+  border-radius: 24px;
+  background: var(--Primary, #3355B9);
+  color: #FFF;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  }
+
+  .sidenav-container {
+    height: 100%;
+  }
+  
+  .sidenav {
+    width: 80%;
+    height: 100rem;
+    overflow-y: auto;
+  }
+  .scroll{
+    height: 108rem;
+  }
+
+  // @media screen and (min-width:800px) {
+  //   .scroll{
+  //     height: 120rem;
+  //   }
+  // }
+  .bike-details{
+    color: #000; font-size: 12px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
+ 
+
+;
+  }
+  .bike-details1{
+    color: #000;
+
+    font-family: 'Open Sans', sans-serif;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+  }

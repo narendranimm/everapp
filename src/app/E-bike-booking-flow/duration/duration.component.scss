@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
+.btn-container{
+  padding:4%;
+}
+.container{
+    display: flex;
+align-items: center;
+gap: 106px;
+align-self: stretch;
+}
+.book-Now{
+    width: 328px;
+    height: 48px;
+    border-radius: 24px;
+background: var(--Primary, #3355B9);
+}
+.custom-duration{
+  color: #363636; font-size: 12px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
+}
+.total{
+  color: black; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
+}
+.later{
+  color: #3355B9; font-size: 12px; font-family: 'Open Sans', sans-serif; font-weight: 700; word-wrap: break-word
+}
+.amount{color: black; font-size: 20px; font-family: 'Open Sans', sans-serif; font-weight: 600; word-wrap: break-word}
+.btn-container{
+padding: 2%;
+}
+.book{
+ color: white; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 700; word-wrap: break-word
+}
+.start{
+  color: white; font-size: 12px; font-family: 'Open Sans', sans-serif; font-weight: 700; word-wrap: break-word
+}
+.duration{color: black; font-size: 12px;  font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word}
+.how{
+align-self: stretch; color: #363636; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 600; word-wrap: break-word
+}
+ion-modal {
+    --height: 50%;
+    --border-radius: 16px;
+    --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+  
+  ion-modal::part(backdrop) {
+    background: rgba(209, 213, 219);
+    opacity: 1;
+  }
+  
+  ion-modal ion-toolbar {
+    --background: rgb(14 116 144);
+    --color: white;
+  }
+  .wrapper{
+   
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 150px;
+    border: none;
+ }
+ .wrapper .selection{
+   width:150px;
+   height: 60px;
+   border: none;
+ text-align: center;
+color: black;
+font-size: 24px;
+font-family: Archivo;
+font-weight: 600;
+word-wrap: break-word
+ }
+ .wrapper1{
+   
+  height: 60px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 150px;
+  border: none;
+}
+.wrapper1 .selection1{
+ width:150px;
+border: none;
+text-align: center;
+color: black;
+font-size: 24px;
+font-family: Archivo;
+font-weight: 600;
+word-wrap: break-word
+}
+ 

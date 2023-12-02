@@ -1,0 +1,48 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');.btn-container{
+    padding: 4%;
+}
+.booking-summary{
+   color: black; font-size: 12px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
+}
+.heading{
+   color: #363636; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 600; word-wrap: break-word
+}
+.details{
+   flex: 1 1 0; color: #3355B9; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 700; word-wrap: break-word
+}
+.bike-model{
+    color: black; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 600; word-wrap: break-word
+}
+.models{
+   color: black; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
+}
+.offers{
+   color: #363636; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 600; line-height: 28px; word-wrap: break-word
+}
+.apply{
+   color: #363636; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
+}
+.pay{
+    color: white; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 700; word-wrap: break-word
+}
+.pay1{
+    color:#3355B9 ; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 700; word-wrap: break-word
+}
+.booking-summary-details{
+    display: flex;
+    flex-flow: wrap row;
+    align-items: center;
+    justify-content: center;
+    row-gap: 20px;
+   
+}
+.btn-container{
+    padding: 4%;
+}
+.pay-now{
+    color: white; font-size: 14px;  font-weight: 700; word-wrap: break-word;font-family: 'Open Sans', sans-serif;display: flex;align-items: center;justify-content: center;
+}
+.pay-now1{
+    color: #3355B9; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 700; word-wrap: break-word;display: flex;align-items: center;justify-content: center;
+}

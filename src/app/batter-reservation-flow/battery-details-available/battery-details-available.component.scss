@@ -1,0 +1,33 @@
+.battery-deatails-p{
+    display: flex;
+    flex-flow: wrap row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+.btn-container{
+    padding: 2%;
+}
+.battery-details{
+   color: black; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 700; word-wrap: break-word
+ 
+}
+.battery-properties{
+    color: black; font-size: 12px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
+}
+.bike-details{
+    color: white; font-size: 12px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
+}
+.available{
+color: #116B14; font-size: 12px; font-family: 'Open Sans', sans-serif; font-weight: 700; line-height: 28px; word-wrap: break-word
+}
+.details{
+   color: black; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 600; word-wrap: break-word
+}
+.battery-station{
+   color: black; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
+}
+.battery-btn{
+    color: white; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 700; word-wrap: break-word
+}

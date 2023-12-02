@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
+.btn-container{
+    padding: 4%;
+
+}
+.mobile{
+    color: var(--Primary, #3355B9);
+    font-family: 'Open Sans', sans-serif;
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: 20px; /* 83.333% */
+}
+.selfie-content{
+    color: #363636;
+    font-family: 'Open Sans', sans-serif;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.selfie-btn-container{
+    display: flex;
+
+padding: 16px 24px;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 10px;
+}
+.selfie-btn{
+    color:white;
+    width: 328px;
+height: 48px;
+border-radius: 100px;
+background: var(--Primary, #3355B9);
+}
+.another-photo-container{
+    display: flex;
+
+padding: 16px 24px;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 10px;
+}
+
+
+
+.preview-content{
+    color: var(--Primary, #3355B9);
+    font-family: Archivo;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px; 
+    }
+    .selfie-container{
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+    
+    }
+    .preview-btn-container{
+    display: flex;
+    padding: 16px 24px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    }
+
+    p {
+        position:absolute;
+        top:50px;
+        left:900px;
+        font-size: 120px;
+        font-weight: bold;
+        z-index:10;
+      }
+      .takePicture {
+        font-size: 100px;
+        cursor: pointer;
+      }
+    .another-photo-container{
+        display: flex;
+    
+    padding: 16px 24px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    
+    }
+    .another-photo{
+        width: 328px;
+    height: 48px;
+    background: white;
+        border-radius: 100px;
+    border: 1px solid #3355B9;
+    color: #3355B9;
+    
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    }
+    .save-container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+    align-self: stretch;
+    }
+    .save-btn{
+        display: flex;
+    height: 48px;
+    padding: 16px 24px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    border-radius: 100px;
+    border: 1px solid #3355B9;
+    }
+    .cancel-btn{
+        display: flex;
+        height: 48px;
+        padding: 16px 24px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        flex: 1 0 0;
+        border-radius: 100px;
+        border: 1px solid #3355B9;
+    color: #3355B9;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    }
+    .intro-photo{
+    color: #3355B9; font-size: 24px; font-family: 'Open Sans', sans-serif; font-weight: 700; line-height: 20px; word-wrap: break-word
+    }
+    .preview-btn{
+        color: #3355B9; font-size: 24px; font-family: 'Open Sans', sans-serif;  font-weight: 700; line-height: 20px; word-wrap: break-word
+    }
+    .go{
+       text-align: center; color: white; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 700; letter-spacing: 0.10px; word-wrap: break-word
+    }
+    .take{
+  text-align: center; color: #3355B9;text-decoration: none; font-size: 14px; font-family: 'Open Sans', sans-serif;  font-weight: 700; letter-spacing: 0.10px; word-wrap: break-word
+    }

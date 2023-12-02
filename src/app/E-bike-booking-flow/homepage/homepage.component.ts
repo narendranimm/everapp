@@ -1,0 +1,72 @@
+import { Component, HostListener, OnInit, inject } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
+import {  ViewChild, ElementRef } from '@angular/core';
+import { IonContent, PopoverController } from '@ionic/angular';
+
+import { PopoverComponent } from 'src/app/popover/popover.component';
+
+
+
+@Component({
+  selector: 'app-homepage',
+  templateUrl: './homepage.component.html',
+  styleUrls: ['./homepage.component.scss'],
+})
+export class HomepageComponent  implements OnInit {
+  location:any={}
+  keys:string[]=[];
+
+  slides:any=[];
+  slider:any=[]
+  private breakpointObserver = inject(BreakpointObserver);
+
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
+  constructor( public popoverController: PopoverController
+ ) { }
+
+  ngOnInit() {
+  
+    
+    this.slides=[
+      {image:'./assets/hub.png',content:'Megha hills EV hub',icon:'',time:'8 min by walk',link:'/hub-details'},
+      {image:'./assets/hub1.png',content:'Madhapur check post EV hub',icon:'',time:'14 min by walk'},
+      {image:'./assets/hub2.png',content:'Kavuri hills EV hub',icon:'',time:'11 min by walk'},
+      {image:'./assets/hub3.png',content:'Hi-tech hills EV hub',icon:'',time:'8 min by walk'},
+    ]
+
+    this.slider=[
+      {image:'./assets/battery.png',content:'Ameerpet metro EV battery station'},
+      {image:'./assets/battery1.png',content:'Tolichowki EV battery station'},
+      {image:'./assets/battery2.png',content:'Kondapur EV battery station'},
+      {image:'./assets/battery3.png',content:'Kavuri hills EV battery station'},
+    ]
+  }
+  @ViewChild(IonContent) content!: IonContent;
+
+  scrollToBottom() {
+    // Passing a duration to the method makes it so the scroll slowly
+    // goes to the bottom instead of instantly
+    this.content.scrollToBottom(500);
+  }
+
+  scrollToTop() {
+    // Passing a duration to the method makes it so the scroll slowly
+    // goes to the top instead of instantly
+    this.content.scrollToTop(500);
+  }
+
+public sidebar:boolean=true;
+ 
+  
+  
+ 
+   
+
+
+}

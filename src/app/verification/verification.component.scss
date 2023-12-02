@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
+.otp{
+    flex: 1 1 0; height: 44px; border-bottom: 2px #E2E1E5 solid
+    
+}
+.otp-container{
+
+display: flex;
+flex-flow: wrap row;
+align-items: center;
+justify-content: center;
+gap: 8px;
+
+}
+.main{
+    display: inline-flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 36px;
+}
+.btn-container{
+    padding-left: 4%;
+    padding-top: 2%;
+}
+
+ion-modal {
+    --width:300px;
+  --height:320px ;
+  --border-radius: 16px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+  
+  ion-modal::part(backdrop) {
+  background: rgba(209, 213, 219);
+  opacity: 1;
+  }
+  
+  ion-modal ion-toolbar {
+  --background: rgb(14 116 144);
+  --color: white;
+  }
+.continue-btn{
+    width: 100%; height: 100%; padding-left: 24px; padding-right: 24px; padding-top: 16px; padding-bottom: 16px; background: #3355B9; border-radius: 100px; overflow: hidden; flex-direction: column; justify-content: center; align-items: center; gap: 10px; display: inline-flex;
+    text-align: center; color: white; font-size: 14px;    font-family: 'Open Sans', sans-serif; font-weight: 700; letter-spacing: 0.10px; word-wrap: break-word
+}
+
+.resend-container{
+    text-align: center;
+}
+.mobile{
+    color: #3355B9; font-size: 24px;    font-family: 'Open Sans', sans-serif; font-weight: 700; line-height: 20px; word-wrap: break-word
+}
+.intro-content{
+    font-family: 'Open Sans', sans-serif;
+    width: 100%; color: #363636; font-size: 16px;  font-weight: 400; word-wrap: break-word
+}
+.resend-container{
+    padding: 5%;
+}

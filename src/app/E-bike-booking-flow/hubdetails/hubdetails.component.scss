@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
+
+.container{
+    display: flex;
+align-items: center;
+gap: 106px;
+align-self: stretch;
+}
+.btn-container{
+    padding: 2%;
+}
+@mixin flex{
+    display: flex;
+    flex-flow:wrap row;
+    align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+  row-gap: 20px;
+  
+}
+.hub-list-container{
+@include flex;
+}
+.hub-list-container-content{
+    
+color: black;
+font-size: 20px;
+font-family: 'Open Sans', sans-serif;
+font-weight: 400;
+word-wrap: break-word;
+}
+.title-container{
+    width: 100%; height: 100%; justify-content: space-between; align-items: center; display: inline-flex;
+}
+
+.title-container-content{
+color: #363636;
+font-size: 18px;
+font-family: 'Open Sans', sans-serif;
+font-weight: 600;
+word-wrap: break-word;
+}
+.distance-container{
+    
+color: #363636;
+font-size: 14px;
+font-family: 'Open Sans', sans-serif;
+font-weight: 400;
+line-height: 28px;
+word-wrap: break-word;
+}
+.vehicle-btn{
+display: flex;
+height: 36px;
+padding: 14px 12px;
+justify-content: center;
+align-items: center;
+text-align: center;
+flex: 1 0 0;
+color:white;
+border-radius: 24px;
+background: #3355B9;
+}
+.vehicle-btn-container{
+display: flex;
+align-items: center;
+gap: 24px;
+flex-shrink: 0;
+}
+.bike-container{
+  @include flex;
+padding: 2%;
+}
+.bike-card{
+    width:300px;
+    height: 300px;
+}
+.more-pictures-container{
+    @include flex;
+   
+}
+.more-pictures{
+    width: 300px;
+    height:100% ;
+   
+}
+@media screen and (max-width:400px) {
+    .more-pictures{
+        width: 108px;
+        height:100% ;
+       
+    }
+    .bike-card{
+        width:300px;
+        height: 230px;
+    }
+}
+.intro-content{
+    color: black; font-size: 12px;  font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
+}
+.container{
+    padding: 4%;
+}
+.hub-name{
+    color: #363636; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 600; word-wrap: break-word
+}
+.vehicle{
+   color: white; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 700; word-wrap: break-word
+}
+.view{
+    color: black;
+font-size: 12px;
+font-family: 'Open Sans', sans-serif;
+font-weight: 700;
+word-wrap: break-word
+}
+.walk{
+   color: #363636; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 400; line-height: 28px; word-wrap: break-word
+}
