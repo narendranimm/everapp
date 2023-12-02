@@ -9,15 +9,21 @@ import { ProductServicesService } from 'services/product-services/product-servic
 })
 export class BikedetailsComponent  implements OnInit {
    taskId:any;
+   @ViewChild(IonContent) content!: IonContent;
   constructor(private route: ActivatedRoute,private _pd:ProductServicesService) {
     this.taskId = route.snapshot.params["ID"];
     console.log("this is taskId value = "+ this.taskId);
 }
 ProductDetails:any;
   ngOnInit() {
-    this.ProductDetails;
+    this.getDetails();
   }
-  @ViewChild(IonContent) content!: IonContent;
+  getDetails(){
+    this._pd.productDetails(this.taskId).subscribe((res)=>{
+      console.log(res)
+      this.ProductDetails=res;
+    })
+  }
 
   scrollToBottom() {
     // Passing a duration to the method makes it so the scroll slowly
@@ -29,12 +35,6 @@ ProductDetails:any;
     // Passing a duration to the method makes it so the scroll slowly
     // goes to the top instead of instantly
     this.content.scrollToTop(500);
-  }
-  getDetails(){
-    this._pd.productDetails(this.taskId).subscribe((res)=>{
-      console.log(res)
-      this.ProductDetails=res;
-    })
   }
 
  

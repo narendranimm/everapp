@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { IonContent } from '@ionic/angular';
 
 import { ToastController } from '@ionic/angular';
+import { IonLoaderService } from 'services/Ionic_Loader/ionic_Loader.service';
 
 import { CommunicationAllowPermissionComponent } from 'src/app/communication-allow-permission/communication-allow-permission.component';
 import { PostResult } from 'src/app/registration-models/postresult';
@@ -19,8 +20,7 @@ import { ValidationService } from 'src/app/validationservice/validation.service'
 })
 export class RegisterComponent implements OnInit {
 
-
-  constructor(public dialog: MatDialog, public toast: ToastController, private router: Router, private _rf: FormBuilder, private authService: SocialAuthService, private reg: RegisterService, private customValidators: ValidationService) {
+  constructor(private ionLoaderService: IonLoaderService, public dialog: MatDialog, public toast: ToastController, private router: Router, private _rf: FormBuilder, private authService: SocialAuthService, private reg: RegisterService, private customValidators: ValidationService) {
     this.registerForm = this._rf.group({
       FirstName: ['', Validators.compose([Validators.required,])],
       LastName: ['', Validators.compose([Validators.required])],
@@ -28,8 +28,7 @@ export class RegisterComponent implements OnInit {
       country: '+91',
       MobileNo: ['', Validators.compose([Validators.required])],
       DateofBirth: ['', Validators.compose([Validators.required])],
-      gender: 'null',
-      Password: ['', Validators.compose([Validators.required])],
+      Password: ['12345', Validators.compose([Validators.required])],
       MemberType: '1000',
       OTP: '146789',
       IsOTPSent: 'true',
@@ -41,7 +40,7 @@ export class RegisterComponent implements OnInit {
       Token: 'null',
       ParentID: '1000',
       IsRegisteredByMobile: 'true',
-      userId: '1000',
+      userId: 0,
       Gender: 1000
     })
   }
@@ -49,7 +48,6 @@ export class RegisterComponent implements OnInit {
   openDialog() {
     const dialogRef = this.dialog.open(CommunicationAllowPermissionComponent,
     );
-
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -84,46 +82,50 @@ export class RegisterComponent implements OnInit {
     this.content.scrollToTop(500);
   }
   register() {
-const data=this.registerForm.value
-    
+    const data = this.registerForm.value
+    alert('')
     this.reg.signup(data).subscribe((res: PostResult) => {
-    
       console.log(res)
       if (res.status) {
-        this.message=res.message
-        this.showToast();
+        this.hideLoader();
 
+        this.message = res.message
+        this.showToast();
 
       } else {
-        this.message=res.message
+        this.hideLoader();
+
+        this.message = res.message
         this.showToast();
-
-
       }
-     
+
     })
-    
-
-
-
-
   }
-  showToast() {
-    this.toast.create({
-      
-    message:  this.message,
-    }).then((toastData) => {
-      console.log(toastData);
-      toastData.present();
-    });
-  }
+
   submit() {
-    
+
     if (this.registerForm.valid) {
+      this.showLoader();
+
       this.register();
     }
     else {
       this.registerForm.markAllAsTouched();
     }
+  }
+  showLoader() {
+    this.ionLoaderService.simpleLoader();
+  }
+  hideLoader() {
+    this.ionLoaderService.dismissLoader();
+  }
+  showToast() {
+    this.toast.create({
+
+      message: this.message,
+    }).then((toastData) => {
+      console.log(toastData);
+      toastData.present();
+    });
   }
 }

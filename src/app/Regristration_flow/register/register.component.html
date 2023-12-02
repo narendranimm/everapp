@@ -4,6 +4,8 @@
 <button style="background: transparent;border: none;" routerLink="/get"><img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
 <h1 class="intro-head">Welcome!</h1>
 <p class="intro-para">Create an account to continue</p>
+
+
 </div>
 <div class="btn-container">
   <div class="parent">
@@ -13,7 +15,8 @@
       <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
           <div class="name-f" >First name</div>
           
-          <input placeholder="First name" type="text" required formControlName="MemberType" style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: white; border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex;display:none;">
+          <input placeholder="First name" type="text" required  style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: white; border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex;display:none;">
+
           <input placeholder="First name" formControlName="FirstName" style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: white; border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
           <div *ngIf="registerForm.get('FirstName')?.invalid && registerForm.get('FirstName')?.touched" class="error">
             <div  *ngIf="registerForm.get('FirstName')?.hasError('required')">FirstName is required.</div>
@@ -111,18 +114,18 @@
       </div>
       <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
           <div class="gender">Gender</div>
-          <select formControlName="gender" placeholder="select" value="select" place style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: white; border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: space-between; align-items: center; display: inline-flex">
+          <select formControlName="Gender" placeholder="select" value="select" place style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: white; border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: space-between; align-items: center; display: inline-flex">
           
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Others">Prefer not say</option>
+              <option value="1000">Male</option>
+              <option value="1001">Female</option>
+              <option value="0">Prefer not say</option>
             </select>
            
 
       </div>
   </div>
-  <button class="register-btn" (click)="register()" type="submit" id="open-toast" expand="block" >Register</button>
-
+  <button class="register-btn"  type="submit"  expand="block" >Register</button>
+  <!-- <ion-button type="submit" type="submit" expand="block">Register Guest</ion-button> -->
   <!-- <ion-toast trigger="open-toast" message={{message}} [duration]="5000"></ion-toast> -->
 
 </div>
@@ -134,3 +137,4 @@
 <p style="display: flex;justify-content: center;justify-content: center;text-align: center;">Already have an account? <a href="/log"> Log in </a></p>
 </div>
 </form>
+<ion-spinner name="lines-sharp"></ion-spinner>
