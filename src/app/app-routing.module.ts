@@ -86,7 +86,7 @@ const routes: Routes = [
 {path:'allow-permissions',component:AllowPermissionsComponent},
 {path:'get',component:GetComponent},
 {path:'register',component:RegisterComponent},
-{path:'log',component:LogComponent},
+{path:'login',component:LogComponent},
 {path:'communication-allow-permission',component:CommunicationAllowPermissionComponent},
 {path:'nav',component:NavComponent},
 {path:'',component:SplashComponent,pathMatch:'full'},

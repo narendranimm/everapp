@@ -5,6 +5,7 @@ import { OverlayEventDetail } from '@ionic/core/components';
 import { CommunicationAllowPermissionComponent } from './communication-allow-permission/communication-allow-permission.component';
 import { SocialAuthService } from '@abacritt/angularx-social-login';
 import { register } from 'swiper/element/bundle';
+import { UserData } from './providers/user-data';
 
 
 register();
@@ -14,13 +15,24 @@ register();
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  value: any;
   
 
 
 
 
-  constructor(public dialog: MatDialog,private authService: SocialAuthService) {}
+  constructor(public appstore:UserData,
+    public dialog: MatDialog,private authService: SocialAuthService) {
+      this.setvalue()
+    }
+   getvalue(){
+    this.value= this.appstore.get('mobileno')
+    console.log(this.value)
+  }
+   setvalue(){
+     this.appstore.set('mobileno','8519899222')
 
+  }
   openDialog() {
     const dialogRef = this.dialog.open(CommunicationAllowPermissionComponent);
 
@@ -32,7 +44,7 @@ export class AppComponent implements OnInit {
 
   user:any;
   loggedIn:any;
-
+ 
   ngOnInit() {
     this.authService.authState.subscribe((user) => {
       this.user = user;

@@ -106,9 +106,9 @@ import { VerificationComponent } from './verification/verification.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { IonicStorageModule } from '@ionic/storage-angular';
 
-
-
+providers: [Storage]
 @NgModule({
   declarations: [AppComponent,SplashComponent,GetComponent,RegisterComponent,LogComponent,AadharComponent,SelfieComponent ,NavComponent,PreviewComponent,CropComponent,AllowPermissionsComponent,CongratulationsComponent,VerificationsuccessComponent,EnablelocationComponent,HomepageComponent,HubdetailsComponent,HublistsComponent,BookingdetailsComponent,CommunicationAllowPermissionComponent,HublistsComponent,BikedetailsComponent,DurationComponent,DatetimeComponent,BatteryStationListComponent,BatteryStationComponent,BatteryListComponent,BatteryDetailsAvailableComponent,BatteryDetailsUnavailableComponent,BookingDetailsComponent,OffersComponent,CouponAppliedComponent,CouponAppliedDashboardComponent,PaymentGatewaysComponent,AddUpiIdComponent,AddCardComponent,AddEWalletComponent,PaymentOngoingComponent,AddPaymentOngoingComponent,BookingSuccessComponent,BookingDetailsAfterComponent,BikelistComponent,DurationComponent,DurationLaterComponent,BookingsummaryComponent,OffersComponent,CouponappliedComponent,PaymentComponent,PaymentgatewaysComponent,AddUPIIDComponent,AddcardComponent,EWalletComponent,BookingDetailsComponent,HomepageAfterbookingComponent,TimedetailsComponent,BookingsuccessComponent,
    HublistsComponent,
@@ -151,7 +151,8 @@ VerificationComponent
   
   ],
  
-  imports: [BrowserModule,MatExpansionModule,ReactiveFormsModule, MatBottomSheetModule,HttpClientModule, CommonModule,IonicModule.forRoot({ mode: 'md' }), AppRoutingModule,SocialLoginModule,MatToolbarModule,MatDialogModule,MatSidenavModule,MatButtonModule,MatCardModule,RouterModule ,MatInputModule,MatFormFieldModule,BrowserAnimationsModule,MatIconModule,FormsModule,ReactiveFormsModule, provideFirebaseApp(() => initializeApp({"projectId":"otp-project-eb64c","appId":"1:459119525785:web:b8c64ab6b6daaf7e941d08","databaseURL":"https://otp-project-eb64c-default-rtdb.firebaseio.com","storageBucket":"otp-project-eb64c.appspot.com","apiKey":"AIzaSyA_lRy00xcn2oOICSOMEakyVpgNSoFopUk","authDomain":"otp-project-eb64c.firebaseapp.com","messagingSenderId":"459119525785","measurementId":"G-4BRTCEDX5J"})), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
+  imports: [BrowserModule,MatExpansionModule,IonicStorageModule.forRoot(),
+    ReactiveFormsModule, MatBottomSheetModule,HttpClientModule, CommonModule,IonicModule.forRoot({ mode: 'md' }), AppRoutingModule,SocialLoginModule,MatToolbarModule,MatDialogModule,MatSidenavModule,MatButtonModule,MatCardModule,RouterModule ,MatInputModule,MatFormFieldModule,BrowserAnimationsModule,MatIconModule,FormsModule,ReactiveFormsModule, provideFirebaseApp(() => initializeApp({"projectId":"otp-project-eb64c","appId":"1:459119525785:web:b8c64ab6b6daaf7e941d08","databaseURL":"https://otp-project-eb64c-default-rtdb.firebaseio.com","storageBucket":"otp-project-eb64c.appspot.com","apiKey":"AIzaSyA_lRy00xcn2oOICSOMEakyVpgNSoFopUk","authDomain":"otp-project-eb64c.firebaseapp.com","messagingSenderId":"459119525785","measurementId":"G-4BRTCEDX5J"})), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
   providers: [ {
     provide: 'SocialAuthServiceConfig',
     useValue: {
@@ -175,4 +176,6 @@ VerificationComponent
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule {}
+export class AppModule {
+  
+}
