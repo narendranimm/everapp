@@ -6,6 +6,9 @@ import {  ViewChild, ElementRef } from '@angular/core';
 import { IonContent, PopoverController } from '@ionic/angular';
 
 import { PopoverComponent } from 'src/app/popover/popover.component';
+import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
+import { ActivatedRoute } from '@angular/router';
+import { ProductServicesService } from 'services/product-services/product-services.service';
 
 
 
@@ -17,35 +20,38 @@ import { PopoverComponent } from 'src/app/popover/popover.component';
 export class HomepageComponent  implements OnInit {
   location:any={}
   keys:string[]=[];
-
+  bikeHubID:any=3502;
   slides:any=[];
   slider:any=[]
-  private breakpointObserver = inject(BreakpointObserver);
 
+  private breakpointObserver = inject(BreakpointObserver);
+   
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
     );
-  constructor( public popoverController: PopoverController
- ) { }
+  constructor( public popoverController: PopoverController,private _bh:BookingService,private route: ActivatedRoute,private _pd:ProductServicesService
+ ) {
+
+  }
 
   ngOnInit() {
   
+    this.getbikehubs()
     
-    this.slides=[
-      {image:'./assets/hub.png',content:'Megha hills EV hub',icon:'',time:'8 min by walk',link:'/hub-details'},
-      {image:'./assets/hub1.png',content:'Madhapur check post EV hub',icon:'',time:'14 min by walk'},
-      {image:'./assets/hub2.png',content:'Kavuri hills EV hub',icon:'',time:'11 min by walk'},
-      {image:'./assets/hub3.png',content:'Hi-tech hills EV hub',icon:'',time:'8 min by walk'},
-    ]
-
-    this.slider=[
-      {image:'./assets/battery.png',content:'Ameerpet metro EV battery station'},
-      {image:'./assets/battery1.png',content:'Tolichowki EV battery station'},
-      {image:'./assets/battery2.png',content:'Kondapur EV battery station'},
-      {image:'./assets/battery3.png',content:'Kavuri hills EV battery station'},
-    ]
+    // this.slides=[
+    //   // {image:'./assets/hub.png',content:'Megha hills EV hub',icon:'',time:'8 min by walk',link:'/hub-details'},
+    //   // {image:'./assets/hub1.png',content:'Madhapur check post EV hub',icon:'',time:'14 min by walk'},
+    //   // {image:'./assets/hub2.png',content:'Kavuri hills EV hub',icon:'',time:'11 min by walk'},
+    //   // {image:'./assets/hub3.png',content:'Hi-tech hills EV hub',icon:'',time:'8 min by walk'},
+    // ]
+    // this.slider=[
+    //   {image:'./assets/battery.png',content:'Ameerpet metro EV battery station'},
+    //   {image:'./assets/battery1.png',content:'Tolichowki EV battery station'},
+    //   {image:'./assets/battery2.png',content:'Kondapur EV battery station'},
+    //   {image:'./assets/battery3.png',content:'Kavuri hills EV battery station'},
+    // ]
   }
   @ViewChild(IonContent) content!: IonContent;
 
@@ -63,10 +69,14 @@ export class HomepageComponent  implements OnInit {
 
 public sidebar:boolean=true;
  
-  
-  
- 
-   
+getbikehubs(){
+  this._bh.getbikehubs(this.bikeHubID).subscribe((res)=>{
+    console.log(res)
+    this.bikeHubID=res;
+})
+}  
+getbatteryhubs(){
 
+}
 
 }

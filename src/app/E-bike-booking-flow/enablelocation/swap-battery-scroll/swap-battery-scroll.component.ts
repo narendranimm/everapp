@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IonicSlides } from '@ionic/angular';
+import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
 
 @Component({
   selector: 'app-swap-battery-scroll',
@@ -7,11 +8,17 @@ import { IonicSlides } from '@ionic/angular';
   styleUrls: ['./swap-battery-scroll.component.scss'],
 })
 export class SwapBatteryScrollComponent  implements OnInit {
-   @Input() slides:any[] =[]
+   @Input() slides:any;
    swiperModules = [IonicSlides];
-  constructor() { }
+  constructor(private _bh:BookingService) { }
 
   ngOnInit() {
+  this.getbatteryhubs()
   }
-
+  getbatteryhubs(){
+    this._bh.getbattery(this.slides).subscribe((res)=>{
+      console.log(res)
+      this.slides=res;
+  })
+  }  
 }

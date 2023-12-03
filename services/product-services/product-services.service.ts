@@ -15,4 +15,7 @@ export class ProductServicesService {
   productDetails(taskId:any): Observable<any> {
     return this.http.get(`http://localhost:8080/api/product/get/${taskId}`)
 }
+productListBybranchId(taskId:any): Observable<any> {
+  return this.http.get(`http://localhost:8080/api/product/bybranch/${taskId}`)
+}
 }

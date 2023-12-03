@@ -98,9 +98,9 @@ const routes: Routes = [
 //E-Booking-flow Routes
 {path:'duration',component: DurationComponent},
 {path:'enableloaction',component:EnablelocationComponent},
-{path:'hub-details',component:HubdetailsComponent},
+{path:'hub-details/:ID',component:HubdetailsComponent},
 {path:'homepage',component:HomepageComponent},
-{path:'bikelist',component:BikelistComponent},
+{path:'bikelist/:ID',component:BikelistComponent},
 {path:'bikedetails/:ID',component:BikedetailsComponent},
 {path:'duration',component:DurationComponent},
 {path:'datetime',component:DatetimeComponent},

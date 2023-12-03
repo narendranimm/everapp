@@ -41,7 +41,7 @@ export class BookingdetailsComponent  implements OnInit {
     const data = this.bookingForm.value;
     delete data['confirm'];
     this.booking.book(data).subscribe((res:any)=>{
-       alert('user register successfully')
+       alert('booking successfully')
     })
     console.log(this.bookingForm.value)
     

@@ -22,7 +22,7 @@ import { ValidationService } from 'src/app/validationservice/validation.service'
 export class RegisterComponent implements OnInit {
 
   constructor(private userdata:UserData,
-    private ionLoaderService: IonLoaderService, public dialog: MatDialog, public toast: ToastController, private router: Router, private _rf: FormBuilder, private authService: SocialAuthService, private reg: RegisterService, private customValidators: ValidationService) {
+    public dialog: MatDialog, public toast: ToastController, private router: Router, private _rf: FormBuilder, private authService: SocialAuthService, private reg: RegisterService, private customValidators: ValidationService) {
     this.userdata.get().then( res => 
       alert(res)
       )
@@ -92,13 +92,13 @@ export class RegisterComponent implements OnInit {
     this.reg.signup(data).subscribe((res: PostResult) => {
       console.log(res)
       if (res.status) {
-        this.hideLoader();
+        // this.hideLoader();
 
         this.message = res.message
         this.showToast();
 
       } else {
-        this.hideLoader();
+        // this.hideLoader();
 
         this.message = res.message
         this.showToast();
@@ -110,7 +110,7 @@ export class RegisterComponent implements OnInit {
   submit() {
 
     if (this.registerForm.valid) {
-      this.showLoader();
+      // this.showLoader();
 
       this.register();
     }
@@ -118,12 +118,12 @@ export class RegisterComponent implements OnInit {
       this.registerForm.markAllAsTouched();
     }
   }
-  showLoader() {
-    this.ionLoaderService.simpleLoader();
-  }
-  hideLoader() {
-    this.ionLoaderService.dismissLoader();
-  }
+  // showLoader() {
+  //   this.ionLoaderService.simpleLoader();
+  // }
+  // hideLoader() {
+  //   this.ionLoaderService.dismissLoader();
+  // }
   showToast() {
     this.toast.create({
 

@@ -11,4 +11,11 @@ export class BookingService {
   book(data:any):Observable<any>{
     return this.http.post(`http://localhost:8080/api/orders/orderbooking`,data)
   }
+
+  getbikehubs(bikeHubID:any){
+    return this.http.get(`http://localhost:8080/api/hubs/get/${3503}`,bikeHubID)
+  }
+  getbattery(batteryStaionID:any){
+    return this.http.get('http://localhost:8080/api/hubs/get/3502',batteryStaionID)
+  }
 }
