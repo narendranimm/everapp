@@ -18,9 +18,9 @@ public  get(){
     return this._storage.get(S_KEY)
      
 }
-set(username:any) {
+set(mobileno:any) {
    
-    return this._storage.set(S_KEY,username);
+    return this._storage.set(S_KEY,mobileno);
   }
 
 //   logout() {

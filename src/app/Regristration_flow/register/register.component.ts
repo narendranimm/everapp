@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
   constructor(private userdata:UserData,
     public dialog: MatDialog, public toast: ToastController, private router: Router, private _rf: FormBuilder, private authService: SocialAuthService, private reg: RegisterService, private customValidators: ValidationService) {
     this.userdata.get().then( res => 
-      alert(res)
+      {}
       )
     this.registerForm = this._rf.group({
       FirstName: ['', Validators.compose([Validators.required,])],

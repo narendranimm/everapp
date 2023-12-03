@@ -34,13 +34,18 @@ nav(){
   this.router.navigate(['/verification'])
 }
 verifyotp(){
+  //need to handle error 
+  //1. if otp failed
+  //2.if network issue.
   const data = this.otpForm.value;
 
   console.log(data)
-  // this.userdata.setUsername(data.mobileno)
-  // this.reg.otp(data).subscribe((res:any)=>{
+  this.userdata.set(data.mobileno)
+  this.reg.otp(data).subscribe((res:any)=>{
+//if verfied success then save mobileno to localstoragte.
+//after logged in success moved to home page
 
-  // })
+  })
       
       
     }

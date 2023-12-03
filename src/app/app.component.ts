@@ -21,18 +21,11 @@ export class AppComponent implements OnInit {
 
 
 
-  constructor(public appstore:UserData,
+  constructor(
     public dialog: MatDialog,private authService: SocialAuthService) {
-      this.setvalue()
     }
-   getvalue(){
-    this.value= this.appstore.get()
-    console.log(this.value)
-  }
-   setvalue(){
-     this.appstore.set('8519899222')
-
-  }
+ 
+ 
   openDialog() {
     const dialogRef = this.dialog.open(CommunicationAllowPermissionComponent);
 
