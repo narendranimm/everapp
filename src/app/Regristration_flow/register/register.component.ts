@@ -133,4 +133,6 @@ export class RegisterComponent implements OnInit {
       toastData.present();
     });
   }
+
+
 }

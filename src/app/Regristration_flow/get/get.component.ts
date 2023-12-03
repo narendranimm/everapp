@@ -25,5 +25,12 @@ export class GetComponent  implements OnInit {
        this.splashScreenStateService.stop();
     }, 5000);
   }
+  log = 1000;
+  showLog = false;
 
+  onShowLog(){
+       this.showLog = true;
+        this.log = this.log + 1;
+       console.log(this.log)
+  }
 }

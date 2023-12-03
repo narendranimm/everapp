@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
 
 @Component({
@@ -8,8 +9,11 @@ import { BookingService } from 'src/app/E-booking-flow-services/booking.service'
   styleUrls: ['./bookingdetails.component.scss'],
 })
 export class BookingdetailsComponent  implements OnInit {
+  taskId=123;
   bookingForm!:FormGroup;  
-  constructor( private booking:BookingService,private bk:FormBuilder) {
+  constructor( private booking:BookingService,private bk:FormBuilder,private route: ActivatedRoute) {
+    this.taskId = route.snapshot.params["ID"];
+    console.log("this is taskId value = "+ this.taskId);
     this.bookingForm=this.bk.group({
       "OrderID": 123,
       "ProductID": 456,

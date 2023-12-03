@@ -14,6 +14,7 @@ export class BikedetailsComponent  implements OnInit {
     this.taskId = route.snapshot.params["ID"];
     console.log("this is taskId value = "+ this.taskId);
 }
+
 ProductDetails:any;
   ngOnInit() {
     this.getDetails();
