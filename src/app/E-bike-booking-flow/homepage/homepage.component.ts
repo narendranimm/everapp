@@ -2,13 +2,14 @@ import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import {  ViewChild, ElementRef } from '@angular/core';
+import { ViewChild, ElementRef } from '@angular/core';
 import { IonContent, PopoverController } from '@ionic/angular';
 
 import { PopoverComponent } from 'src/app/popover/popover.component';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProductServicesService } from 'services/product-services/product-services.service';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -17,29 +18,29 @@ import { ProductServicesService } from 'services/product-services/product-servic
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss'],
 })
-export class HomepageComponent  implements OnInit {
-  location:any={}
-  keys:string[]=[];
-  bikeHubID:any=3502;
-  slides:any=[];
-  slider:any=[]
-
+export class HomepageComponent implements OnInit {
+  location: any = {}
+  keys: string[] = [];
+  bikeHubID: any = 3502;
+  slides: any = [];
+  slider: any = []
+  azimageUrl:any='https://everdevuat.blob.core.windows.net/';
   private breakpointObserver = inject(BreakpointObserver);
-   
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
     );
-  constructor( public popoverController: PopoverController,private _bh:BookingService,private route: ActivatedRoute,private _pd:ProductServicesService
- ) {
-
+  constructor(public popoverController: PopoverController, private _bh: BookingService, private route: ActivatedRoute, private _pd: ProductServicesService
+  ) {
+    
   }
 
   ngOnInit() {
-  
+
     this.getbikehubs()
-    
+
     // this.slides=[
     //   // {image:'./assets/hub.png',content:'Megha hills EV hub',icon:'',time:'8 min by walk',link:'/hub-details'},
     //   // {image:'./assets/hub1.png',content:'Madhapur check post EV hub',icon:'',time:'14 min by walk'},
@@ -67,16 +68,16 @@ export class HomepageComponent  implements OnInit {
     this.content.scrollToTop(500);
   }
 
-public sidebar:boolean=true;
- 
-getbikehubs(){
-  this._bh.getbikehubs(this.bikeHubID).subscribe((res)=>{
-    console.log(res)
-    this.bikeHubID=res;
-})
-}  
-getbatteryhubs(){
+  public sidebar: boolean = true;
 
-}
+  getbikehubs() {
+    this._bh.getbikehubs(this.bikeHubID).subscribe((res) => {
+      console.log(res)
+      this.bikeHubID = res;
+    })
+  }
+  getbatteryhubs() {
+
+  }
 
 }

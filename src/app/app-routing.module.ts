@@ -77,6 +77,7 @@ import { OfferCouponComponent } from './offer-coupon/offer-coupon.component';
 import { BookingSummaryAfterCoupanComponent } from './booking-summary-after-coupan/booking-summary-after-coupan.component';
 import { HublistsComponent } from './E-bike-booking-flow/hublists/hublists.component';
 import { VerificationComponent } from './verification/verification.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 
@@ -99,7 +100,7 @@ const routes: Routes = [
 {path:'duration',component: DurationComponent},
 {path:'enableloaction',component:EnablelocationComponent},
 {path:'hub-details/:ID',component:HubdetailsComponent},
-{path:'homepage',component:HomepageComponent},
+{path:'homepage',component:HomepageComponent,canActivate: [AuthGuard]},
 {path:'bikelist/:ID',component:BikelistComponent},
 {path:'bikedetails/:ID',component:BikedetailsComponent},
 {path:'duration',component:DurationComponent},
