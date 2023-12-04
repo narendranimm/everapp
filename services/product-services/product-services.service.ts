@@ -10,12 +10,12 @@ export class ProductServicesService {
   constructor(private http:HttpClient) { }
 
   productList():Observable<any>{
-    return this.http.get(`http://localhost:8080/api/product/get`)
+    return this.http.get(`http://172.188.80.209:8080/api/product/get`)
   }
   productDetails(taskId:any): Observable<any> {
-    return this.http.get(`http://localhost:8080/api/product/get/${taskId}`)
+    return this.http.get(`http://172.188.80.209:8080/api/product/get/${taskId}`)
 }
 productListBybranchId(taskId:any): Observable<any> {
-  return this.http.get(`http://localhost:8080/api/product/bybranch/${taskId}`)
+  return this.http.get(`http://172.188.80.209:8080/api/product/bybranch/${taskId}`)
 }
 }

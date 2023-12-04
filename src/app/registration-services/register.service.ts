@@ -11,14 +11,14 @@ export class RegisterService {
     return this.http.post(`http://172.188.80.209:8080/api/members`,data)
   }
   otp(data:any):Observable<any>{
-    return this.http.post(`http://localhost:8080/api/sendsms`,data)
+    return this.http.post(`http://172.188.80.209:8080/api/sendsms`,data)
   }
   
   verifyOTP(otp:string):Observable<any>{
-    return this.http.post(`http://localhost:8080/api/sendsms`,{otp})
+    return this.http.post(`http://172.188.80.209:8080/api/sendsms`,{otp})
   }
   signin(data:any):Observable<any>{
-    return this.http.post(`http://localhost:8080/auth/login`,data)
+    return this.http.post(`http://172.188.80.209:8080/auth/login`,data)
   }
   getProfile():Observable<any>{
     const headers ={

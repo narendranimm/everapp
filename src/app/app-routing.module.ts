@@ -100,7 +100,7 @@ const routes: Routes = [
 {path:'duration',component: DurationComponent},
 {path:'enableloaction',component:EnablelocationComponent},
 {path:'hub-details/:ID',component:HubdetailsComponent},
-{path:'homepage',component:HomepageComponent,canActivate: [AuthGuard]},
+{path:'homepage',component:HomepageComponent},
 {path:'bikelist/:ID',component:BikelistComponent},
 {path:'bikedetails/:ID',component:BikedetailsComponent},
 {path:'duration',component:DurationComponent},
