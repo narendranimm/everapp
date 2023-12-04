@@ -2,7 +2,7 @@
     <mat-sidenav #drawer class="sidenav" fixedInViewport
         [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
         [mode]="(isHandset$ | async) ? 'over' : 'side'"
-        [opened]="(isHandset$ | async) === true">
+        [opened]="(isHandset$ | async) === false">
   <div style="width: 100%; height: 100%; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
     <div style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 124px; display: inline-flex">
         <div style="width: 24px; height: 24px; position: relative">

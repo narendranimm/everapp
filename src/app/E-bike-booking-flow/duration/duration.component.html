@@ -100,7 +100,7 @@
             <div class="start">Start now</div>
         </div>
         <div style="width:100%;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: rgba(51, 85, 185, 0.20); border-radius: 24px; overflow: hidden; justify-content: center; align-items: center; gap: 12px; display: inline-flex">
-            <div routerLink="/datetime" class="later">Start later</div>
+            <div routerLink="/datetime/{{productId}}" class="later">Start later</div>
             <div style="width: 16px; height: 16px; position: relative">
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M4.49996 4.66602L8.49996 8.66602L12.5 4.66602L13.8333 5.99935L8.49996 11.3327L3.16663 5.99935L4.49996 4.66602Z" fill="#3355B9"/>
@@ -114,7 +114,7 @@
             <div class="amount">₹12,200</div>
         </div>
         <button  style="flex: 1 1 0; align-self: stretch; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: space-between; align-items: center; display: inline-flex">
-            <div class="book" (click)="book()">Book now</div>
+            <div class="book" (click)="book()" routeLink="/">Book now</div>
             <div style="width: 24px; height: 24px; padding-top: 1.82px; padding-bottom: 1.82px; justify-content: center; align-items: center; display: flex">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 22" fill="none">
                     <path d="M19.4064 9.80036L12.1212 2.51516L13.818 0.818359L24 11.0004L23.1516 11.8488L13.818 21.1824L12.1212 19.4856L19.4064 12.2004H0V9.80036H19.4064Z" fill="white"/>

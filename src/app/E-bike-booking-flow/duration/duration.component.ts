@@ -4,15 +4,16 @@ import {MatBottomSheet, MatBottomSheetModule} from '@angular/material/bottom-she
 import { ActivatedRoute } from '@angular/router';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
 import { BottomsheetComponent } from 'src/app/bottomsheet/bottomsheet.component';
+import { UserData } from 'src/app/providers/user-data';
 @Component({
   selector: 'app-duration',
   templateUrl: './duration.component.html',
   styleUrls: ['./duration.component.scss'],
 })
 export class DurationComponent  implements OnInit {
-
+  productId:any;
   bookingForm!:FormGroup;  
-  constructor( private booking:BookingService,private bk:FormBuilder,private route: ActivatedRoute,) {
+  constructor( private booking:BookingService,private bk:FormBuilder,private route: ActivatedRoute,private user:UserData) {
     this.bookingForm=this.bk.group({
       "OrderID": 123,
       "ProductID": 456,
@@ -41,7 +42,15 @@ export class DurationComponent  implements OnInit {
   }
 
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.user.getId('pId'))
+    this.user.getId('pId')
+    .then(data => 
+      this.productId=data
+      );
+
+    
+  }
   book(){
     const data = this.bookingForm.value;
     delete data['confirm'];
