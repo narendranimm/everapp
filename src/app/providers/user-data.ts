@@ -3,6 +3,8 @@ import { Storage } from '@ionic/storage';
 
 
 let S_KEY='mylist';
+
+
 @Injectable({
     providedIn: 'root'
   })
@@ -22,6 +24,18 @@ set(mobileno:any) {
    
     return this._storage.set(S_KEY,mobileno);
   }
+  setpId(mobileno:any) {
+   
+    return this._storage.set('pId',mobileno);
+  }
+  setmId(mobileno:any) {
+   
+    return this._storage.set('mId',mobileno);
+  }
+  public  getId(Id:any){
+    return this._storage.get(Id)
+     
+}
 
 //   logout() {
 //     this.storage.remove(this.HAS_LOGGED_IN);

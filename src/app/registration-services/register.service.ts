@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class RegisterService {
   constructor(private http:HttpClient) { }
   signup(data:any):Observable<any>{
-    return this.http.post(`http://localhost:8080/api/members`,data)
+    return this.http.post(`http://172.188.80.209:8080/api/members`,data)
   }
   otp(data:any):Observable<any>{
     return this.http.post(`http://localhost:8080/api/sendsms`,data)
