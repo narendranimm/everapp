@@ -10,15 +10,16 @@ import { BookingService } from 'src/app/E-booking-flow-services/booking.service'
 export class NearhubComponent  implements OnInit {
   @Input() slides:any;
   swiperModules = [IonicSlides];
+  azimageUrl:any='https://everdevuat.blob.core.windows.net/hubs/';
 
   constructor( private _bh:BookingService) { }
  bikeHubID:any=3502;
   ngOnInit() {
-  
   }
   getbikehubs(){
     this._bh.getbikehubs(this.slides).subscribe((res)=>{
       console.log(res)
+      //ProfileImage
       this.slides=res;
   })
   }  

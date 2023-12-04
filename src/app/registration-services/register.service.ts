@@ -30,4 +30,12 @@ export class RegisterService {
   logout(){
    localStorage.clear();
   }
+  uploadFile(file: File, userId: string, fileType: string){
+    const formData = new FormData();
+    formData.append('file', file, file.name);
+    formData.append('userid', userId);
+    formData.append('filetype', fileType);
+
+    return this.http.post<any>('http://localhost:8080/api/upload/'+fileType, formData);
+  }
 }

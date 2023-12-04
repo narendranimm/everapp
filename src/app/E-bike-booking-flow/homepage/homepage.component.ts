@@ -72,7 +72,7 @@ export class HomepageComponent implements OnInit {
 
   getbikehubs() {
     this._bh.getbikehubs(this.bikeHubID).subscribe((res) => {
-      console.log(res)
+      console.log('tests',res)
       this.bikeHubID = res;
     })
   }

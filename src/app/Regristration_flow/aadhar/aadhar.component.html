@@ -1,36 +1,35 @@
 <div class="btn-container">
-  <button style="background: transparent;border: none;" routerLink="/verification"><img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
-  </div>
-  <div class="container">
+  <button style="background: transparent;border: none;" routerLink="/verification"><img class="icon"
+      src="./assets/zondicons_arrow-left.svg" alt=""></button>
+</div>
+<div class="container">
   <p class="mobile">KYC details</p>
   <p class="intro-content">Please do your kyc to book your vehicle.</p><br>
   <form action="" [formGroup]="personalForm">
-<ion-label class="f-name">Aadhar no.</ion-label>
-<ion-input placeholder="0000 0000 0000" class="otp" formControlName="adharno"></ion-input>
-  <div class="button-wrap">
-    <label class="button" for="upload">Upload File</label>
-    <input id="upload" type="file" formControlName="adharfile">
-  </div>
+    <ion-label class="f-name">Aadhar no.</ion-label>
+    <ion-input placeholder="0000 0000 0000" class="otp" formControlName="adharno"></ion-input>
+    <div class="button-wrap">
+      <label class="button" for="adhar">Upload File</label>
+      <input id="adhar" type="file" (change)="onFileSelected($event,'adhar')" formControlName="adharfile" >
+    </div>
+    <ion-label class="f-name">Driving license no.</ion-label>
+    <ion-input placeholder="0000 0000 0000" class="otp" formControlName="licenseno"></ion-input>
+    <div class="button-wrap">
+      <label class="button" for="license">Upload Files</label>
+      <input id="license" type="file" (change)="onFileSelected($event,'licence')" formControlName="licensefile" >
+    </div>
+      
+    <ion-label class="f-name">Pan/ passport no..</ion-label>
+    <ion-input placeholder="0000 0000 0000" class="otp" formControlName="panno"></ion-input>
+      <div class="button-wrap">
+        <label class="button" for="pan">Upload File</label>
+      <input id="pan" type="file" (change)="onFileSelected($event,'voter')" formControlName="panfile" >
+    </div>
 
-
-<ion-label class="f-name">Driving license no.</ion-label>
-
-<ion-input placeholder="0000 0000 0000" class="otp" formControlName="licenseno"></ion-input>
-<div class="button-wrap">
-  <label class="button" for="upload">Upload File</label>
-  <input id="upload" type="file" formControlName="licensefile">
-<ion-label class="f-name">Pan/ passport no..</ion-label>
-<ion-input placeholder="0000 0000 0000" class="otp" formControlName="panno"></ion-input>
-<div class="button-wrap">
-  <label class="button" for="upload">Upload File</label>
-  <input id="upload" type="file" formControlName="panfile">
-</div>
-</div>
-
-<div class="continue-btn-container">
-  <button class="continue" routerLink="/selfie"  (click)="onSubmit()" >Continue</button>
-</div>
-<!-- <ion-modal #modal trigger="open-modal">
+    <div class="continue-btn-container">
+      <button class="continue" routerLink="/selfie" (click)="onSubmit()">Continue</button>
+    </div>
+    <!-- <ion-modal #modal trigger="open-modal">
   <ng-template>
     <ion-content>
       
