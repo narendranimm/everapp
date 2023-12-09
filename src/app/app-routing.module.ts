@@ -81,11 +81,13 @@ import { AuthGuard } from './guards/auth.guard';
 
 
 
+
 const routes: Routes = [
 //Registration-flow 
 {path:'splash', component:SplashComponent},
 {path:'allow-permissions',component:AllowPermissionsComponent},
 {path:'get',component:GetComponent},
+
 {path:'register',component:RegisterComponent},
 {path:'login',component:LogComponent},
 {path:'communication-allow-permission',component:CommunicationAllowPermissionComponent},
@@ -103,8 +105,8 @@ const routes: Routes = [
 {path:'homepage',component:HomepageComponent},
 {path:'bikelist/:ID',component:BikelistComponent},
 {path:'bikedetails/:ID',component:BikedetailsComponent},
-{path:'duration',component:DurationComponent},
-{path:'datetime',component:DatetimeComponent},
+{path:'duration/:ID',component:DurationComponent},
+{path:'datetime/:ID',component:DatetimeComponent},
 {path:'duration-later',component:DurationLaterComponent},
 {path:'booking-summary',component:BookingsummaryComponent},
 {path:'offer-coupan',component:OfferCouponComponent},

@@ -1,4 +1,4 @@
-<form action="" [formGroup]="registerForm" (ngSubmit)="submit()">
+<form action="" [formGroup]="registerForm" >
 <div class="main">
 <div class="btn-container">
 <button style="background: transparent;border: none;" routerLink="/get">
@@ -107,7 +107,7 @@
           <input type="date" required formControlName="DateofBirth" placeholder="dd/mm/yyyy" style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: white; border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: space-between; align-items: center; display: inline-flex">
           <div *ngIf="registerForm.get('DateofBirth')?.invalid && registerForm.get('DateofBirth')?.touched" class="error">
             <div  *ngIf="registerForm.get('DateofBirth')?.hasError('required')">DateofBirth required</div>
-            <!-- <div *ngIf="registerForm.get('DateofBirth').hasError('DateofBirth')">invalid DateofBirth</div> -->
+            <div *ngIf="registerForm.get('DateofBirth')?.hasError('DateofBirth')">invalid DateofBirth</div> 
           </div>
    
               <div style="width: 18px; height: 18px; position: relative">
@@ -127,17 +127,30 @@
 
       </div>
   </div>
-  <button class="register-btn" routerLink="/login" type="submit"  expand="block" >Register</button>
-  <!-- <ion-button type="submit" type="submit" expand="block">Register Guest</ion-button> -->
-  <!-- <ion-toast trigger="open-toast" message={{message}} [duration]="5000"></ion-toast> -->
+<button class="register-btn"  type="submit"  (click)="register()" [disabled]="!registerForm.valid">Register</button>
+ 
+<!-- <mat-form-field style="display:none">
 
+  <input matInput value="{{data | json}}" #message>
+</mat-form-field> -->
 </div>
 </div>
 </div>
 </div>
 </div>
 <div style="padding:15%">
-<p style="display: flex;justify-content: center;justify-content: center;text-align: center;">Already have an account? <a href="/log"> Log in </a></p>
+<p style="display: flex;justify-content: center;justify-content: center;text-align: center;">Already have an account? <button style="background: none;margin: none;color: blue;" routerLink="/login"> Log in </button></p>
 </div>
-</form>
-<ion-spinner name="lines-sharp"></ion-spinner>
+</form> 
+
+<!-- <div>{{data | json}}</div> -->
+<div *ngIf="showLoader">
+  
+  <div class="showbox">
+    <div class="loader">
+      <svg class="circular" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/>
+      </svg>
+    </div>
+  </div>
+  </div>

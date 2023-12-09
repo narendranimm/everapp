@@ -14,7 +14,7 @@ import { AadharComponent } from './Regristration_flow/aadhar/aadhar.component';
 import { SelfieComponent } from './Regristration_flow/selfie/selfie.component';
 
 import { CropComponent } from './Regristration_flow/crop/crop.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AllowPermissionsComponent } from './Regristration_flow/allow-permissions/allow-permissions.component';
 import { CongratulationsComponent } from './congratulations/congratulations.component';
 
@@ -22,19 +22,19 @@ import { VerificationsuccessComponent } from './verificationsuccess/verification
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { EnablelocationComponent } from './E-bike-booking-flow/enablelocation/enablelocation.component';
 
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { EBikeBookingModule } from './E-bike-booking-flow/e-bike-booking/e-bike-booking.module';
 import { HomepageComponent } from './E-bike-booking-flow/homepage/homepage.component';
 import { HubdetailsComponent } from './E-bike-booking-flow/hubdetails/hubdetails.component';
 import { HublistsComponent } from './E-bike-booking-flow/hublists/hublists.component';
 import { BookingdetailsComponent } from './E-bike-booking-flow/bookingdetails/bookingdetails.component';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import {MatInputModule} from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
 import { CommunicationAllowPermissionComponent } from './communication-allow-permission/communication-allow-permission.component';
 import { NavComponent } from './nav/nav.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { BikedetailsComponent } from './E-bike-booking-flow/bikedetails/bikedetails.component';
 import { DurationComponent } from './E-bike-booking-flow/duration/duration.component';
 import { DatetimeComponent } from './E-bike-booking-flow/datetime/datetime.component';
@@ -78,19 +78,20 @@ import { OffersMComponent } from './offers-m/offers-m.component';
 import { BookingSummaryAppliedCouponComponent } from './menu-flow/booking-summary-applied-coupon/booking-summary-applied-coupon.component';
 import { BookingMComponent } from './booking-m/booking-m.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatIconModule} from '@angular/material/icon';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SplashServiceService } from './splash-service.service';
 
-import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
 import { BookingSummaryAfterCoupanComponent } from './booking-summary-after-coupan/booking-summary-after-coupan.component';
-
+import { Http } from '@capacitor-community/http';
 import {
   GoogleLoginProvider,
-  
+
 } from '@abacritt/angularx-social-login';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/material/snack-bar';
 import { SwapBatteryScrollComponent } from './E-bike-booking-flow/enablelocation/swap-battery-scroll/swap-battery-scroll.component';
 import { NearhubComponent } from './E-bike-booking-flow/homepage/nearhub/nearhub.component';
 import { SearchresultsBikeComponent } from './E-bike-booking-flow/searchresults-bike/searchresults-bike.component';
@@ -110,50 +111,50 @@ import { IonicStorageModule } from '@ionic/storage-angular';
 
 providers: [Storage]
 @NgModule({
-  declarations: [AppComponent,SplashComponent,GetComponent,RegisterComponent,LogComponent,AadharComponent,SelfieComponent ,NavComponent,PreviewComponent,CropComponent,AllowPermissionsComponent,CongratulationsComponent,VerificationsuccessComponent,EnablelocationComponent,HomepageComponent,HubdetailsComponent,HublistsComponent,BookingdetailsComponent,CommunicationAllowPermissionComponent,HublistsComponent,BikedetailsComponent,DurationComponent,DatetimeComponent,BatteryStationListComponent,BatteryStationComponent,BatteryListComponent,BatteryDetailsAvailableComponent,BatteryDetailsUnavailableComponent,BookingDetailsComponent,OffersComponent,CouponAppliedComponent,CouponAppliedDashboardComponent,PaymentGatewaysComponent,AddUpiIdComponent,AddCardComponent,AddEWalletComponent,PaymentOngoingComponent,AddPaymentOngoingComponent,BookingSuccessComponent,BookingDetailsAfterComponent,BikelistComponent,DurationComponent,DurationLaterComponent,BookingsummaryComponent,OffersComponent,CouponappliedComponent,PaymentComponent,PaymentgatewaysComponent,AddUPIIDComponent,AddcardComponent,EWalletComponent,BookingDetailsComponent,HomepageAfterbookingComponent,TimedetailsComponent,BookingsuccessComponent,
-   HublistsComponent,
+  declarations: [AppComponent, SplashComponent, GetComponent, RegisterComponent, LogComponent, AadharComponent, SelfieComponent, NavComponent, PreviewComponent, CropComponent, AllowPermissionsComponent, CongratulationsComponent, VerificationsuccessComponent, EnablelocationComponent, HomepageComponent, HubdetailsComponent, HublistsComponent, BookingdetailsComponent, CommunicationAllowPermissionComponent, HublistsComponent, BikedetailsComponent, DurationComponent, DatetimeComponent, BatteryStationListComponent, BatteryStationComponent, BatteryListComponent, BatteryDetailsAvailableComponent, BatteryDetailsUnavailableComponent, BookingDetailsComponent, OffersComponent, CouponAppliedComponent, CouponAppliedDashboardComponent, PaymentGatewaysComponent, AddUpiIdComponent, AddCardComponent, AddEWalletComponent, PaymentOngoingComponent, AddPaymentOngoingComponent, BookingSuccessComponent, BookingDetailsAfterComponent, BikelistComponent, DurationComponent, DurationLaterComponent, BookingsummaryComponent, OffersComponent, CouponappliedComponent, PaymentComponent, PaymentgatewaysComponent, AddUPIIDComponent, AddcardComponent, EWalletComponent, BookingDetailsComponent, HomepageAfterbookingComponent, TimedetailsComponent, BookingsuccessComponent,
+    HublistsComponent,
     //battery-reservation-flow
-   BatteryStationListComponent,
-   BatteryStationComponent,
-   BatteryListComponent,
-   BatteryDetailsAvailableComponent,
-   BatteryDetailsUnavailableComponent,
-   BookingDetailsComponent,
-   OffersComponent,
-   CouponAppliedComponent,
-   PaymentGatewaysComponent,
-   AddUPIIDComponent,
-   AddCardComponent,
-   //menu-flow
- ProfileComponent,
- MyBookingsComponent,
-BatterySwappingComponent,
-WashStationListComponent,
-WashStationDetailsComponent,
-DateTimeComponent,
-BookingSummaryComponent,CouponappliedComponent,
-OffersMComponent,
-BookingSummaryAppliedCouponComponent,
-BookingMComponent,
+    BatteryStationListComponent,
+    BatteryStationComponent,
+    BatteryListComponent,
+    BatteryDetailsAvailableComponent,
+    BatteryDetailsUnavailableComponent,
+    BookingDetailsComponent,
+    OffersComponent,
+    CouponAppliedComponent,
+    PaymentGatewaysComponent,
+    AddUPIIDComponent,
+    AddCardComponent,
+    //menu-flow
+    ProfileComponent,
+    MyBookingsComponent,
+    BatterySwappingComponent,
+    WashStationListComponent,
+    WashStationDetailsComponent,
+    DateTimeComponent,
+    BookingSummaryComponent, CouponappliedComponent,
+    OffersMComponent,
+    BookingSummaryAppliedCouponComponent,
+    BookingMComponent,
 
-SwapBatteryScrollComponent,
-NearhubComponent,
-SearchresultsBikeComponent,
-BookingSummaryAfterCoupanComponent,
-CouponAppliedComponent,
-BookingSummaryAppliedCouponComponent,
-OfferCouponComponent,
-TimeDetailsComponent,
-TimeDetailsVehicleComponent,
-TimeDetailsVehicleFromComponent,
-VerificationComponent
+    SwapBatteryScrollComponent,
+    NearhubComponent,
+    SearchresultsBikeComponent,
+    BookingSummaryAfterCoupanComponent,
+    CouponAppliedComponent,
+    BookingSummaryAppliedCouponComponent,
+    OfferCouponComponent,
+    TimeDetailsComponent,
+    TimeDetailsVehicleComponent,
+    TimeDetailsVehicleFromComponent,
+    VerificationComponent
 
-  
+
   ],
- 
-  imports: [BrowserModule,MatExpansionModule,IonicStorageModule.forRoot({name:"mylocaldb"}),
-    ReactiveFormsModule, MatBottomSheetModule,HttpClientModule, CommonModule,IonicModule.forRoot({ mode: 'md' }), AppRoutingModule,SocialLoginModule,MatToolbarModule,MatDialogModule,MatSidenavModule,MatButtonModule,MatCardModule,RouterModule ,MatInputModule,MatFormFieldModule,BrowserAnimationsModule,MatIconModule,FormsModule,ReactiveFormsModule, provideFirebaseApp(() => initializeApp({"projectId":"otp-project-eb64c","appId":"1:459119525785:web:b8c64ab6b6daaf7e941d08","databaseURL":"https://otp-project-eb64c-default-rtdb.firebaseio.com","storageBucket":"otp-project-eb64c.appspot.com","apiKey":"AIzaSyA_lRy00xcn2oOICSOMEakyVpgNSoFopUk","authDomain":"otp-project-eb64c.firebaseapp.com","messagingSenderId":"459119525785","measurementId":"G-4BRTCEDX5J"})), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
-  providers: [ {
+
+  imports: [BrowserModule, MatExpansionModule, IonicStorageModule.forRoot({ name: "mylocaldb" }), MatSnackBarModule,
+    ReactiveFormsModule, MatBottomSheetModule, HttpClientModule, CommonModule, IonicModule.forRoot({ mode: 'md' }), AppRoutingModule, SocialLoginModule, MatToolbarModule, MatDialogModule, MatSidenavModule, MatButtonModule, MatCardModule, RouterModule, MatInputModule, MatFormFieldModule, BrowserAnimationsModule, MatIconModule, FormsModule, ReactiveFormsModule, provideFirebaseApp(() => initializeApp({ "projectId": "otp-project-eb64c", "appId": "1:459119525785:web:b8c64ab6b6daaf7e941d08", "databaseURL": "https://otp-project-eb64c-default-rtdb.firebaseio.com", "storageBucket": "otp-project-eb64c.appspot.com", "apiKey": "AIzaSyA_lRy00xcn2oOICSOMEakyVpgNSoFopUk", "authDomain": "otp-project-eb64c.firebaseapp.com", "messagingSenderId": "459119525785", "measurementId": "G-4BRTCEDX5J" })), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
+  providers: [{
     provide: 'SocialAuthServiceConfig',
     useValue: {
       autoLogin: false,
@@ -164,18 +165,18 @@ VerificationComponent
             '969954827338-4il00hojt2kgndkbbnl7441l51m72gkv.apps.googleusercontent.com'
           )
         },
-     
+
       ],
       onError: (err) => {
         console.error(err);
       }
     } as SocialAuthServiceConfig,
   },
-  
-],
+  { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 3000 } }
+  ],
   bootstrap: [AppComponent],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {
-  
+
 }

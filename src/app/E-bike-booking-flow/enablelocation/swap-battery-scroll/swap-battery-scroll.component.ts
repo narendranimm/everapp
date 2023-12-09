@@ -11,7 +11,7 @@ export class SwapBatteryScrollComponent  implements OnInit {
    @Input() slides:any;
    swiperModules = [IonicSlides];
   constructor(private _bh:BookingService) { }
-
+  azimageUrl:any='https://everdevuat.blob.core.windows.net/hubs/';
   ngOnInit() {
   this.getbatteryhubs()
   }

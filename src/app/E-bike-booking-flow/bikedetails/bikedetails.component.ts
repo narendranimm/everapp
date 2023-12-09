@@ -24,7 +24,7 @@ ProductDetails:any;
   
   gotobooking(){
     this.user.setpId(this.ProductDetails.ProductID)
-    this.router.navigateByUrl('/duration/{{productId}}')
+    this.router.navigateByUrl('/duration/{{ProductDetails.ProductID}}')
   }
 
   getDetails(){

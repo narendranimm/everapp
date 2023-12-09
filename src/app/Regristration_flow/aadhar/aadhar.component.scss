@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
 .btn-container{
-    padding-left: 4%;
+    padding: 4%;
 
 }
 .container{
@@ -130,4 +130,208 @@ font-size: 16px;
 font-family: 'Open Sans', sans-serif;
 font-weight: 700;
 word-wrap: break-word
+}
+
+.spinner {
+  -webkit-animation: rotator 1.4s linear infinite;
+          animation: rotator 1.4s linear infinite;
+}
+
+@-webkit-keyframes rotator {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg);
+  }
+}
+
+@keyframes rotator {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg);
+  }
+}
+.path {
+  stroke-dasharray: 187;
+  stroke-dashoffset: 0;
+  -webkit-transform-origin: center;
+      -ms-transform-origin: center;
+          transform-origin: center;
+  -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+          animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+}
+
+@-webkit-keyframes colors {
+  0% {
+    stroke: #4285F4;
+  }
+  25% {
+    stroke: #DE3E35;
+  }
+  50% {
+    stroke: #F7C223;
+  }
+  75% {
+    stroke: #1B9A59;
+  }
+  100% {
+    stroke: #4285F4;
+  }
+}
+
+@keyframes colors {
+  0% {
+    stroke: #4285F4;
+  }
+  25% {
+    stroke: #DE3E35;
+  }
+  50% {
+    stroke: #F7C223;
+  }
+  75% {
+    stroke: #1B9A59;
+  }
+  100% {
+    stroke: #4285F4;
+  }
+}
+@-webkit-keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    -webkit-transform: rotate(450deg);
+            transform: rotate(450deg);
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    -webkit-transform: rotate(450deg);
+            transform: rotate(450deg);
+  }
+}
+.spinner {
+  position: fixed;
+  z-index: 1031;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+$green: #008744;
+$blue: #0057e7;
+$red: #d62d20;
+$yellow: #ffa700;
+$white: #eee;
+
+// scaling... any units
+$width: 100px;
+
+.loader {
+position: relative;
+margin: 0 auto;
+width: $width;
+&:before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+position: fixed;
+z-index: 1031;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+border: 10px;
+}
+
+.circular {
+animation: rotate 2s linear infinite;
+height: 100%;
+transform-origin: center center;
+width: 100%;
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+margin: auto;
+}
+
+.path {
+stroke-dasharray: 1, 200;
+stroke-dashoffset: 0;
+animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+stroke-linecap: round;
+}
+
+@keyframes rotate {
+100% {
+  transform: rotate(360deg);
+}
+}
+
+@keyframes dash {
+0% {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+}
+50% {
+  stroke-dasharray: 89, 200;
+  stroke-dashoffset: -35px;
+}
+100% {
+  stroke-dasharray: 89, 200;
+  stroke-dashoffset: -124px;
+}
+}
+
+@keyframes color {
+100%,
+0% {
+  stroke: $red;
+}
+40% {
+  stroke: $blue;
+}
+66% {
+  stroke: $green;
+}
+80%,
+90% {
+  stroke: $yellow;
+}
+}
+
+// demo-specific
+
+.showbox {
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+padding: 5%;
 }

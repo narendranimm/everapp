@@ -13,8 +13,9 @@ export class NearhubComponent  implements OnInit {
   azimageUrl:any='https://everdevuat.blob.core.windows.net/hubs/';
 
   constructor( private _bh:BookingService) { }
- bikeHubID:any=3502;
+
   ngOnInit() {
+    this.getbikehubs()
   }
   getbikehubs(){
     this._bh.getbikehubs(this.slides).subscribe((res)=>{

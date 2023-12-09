@@ -2,12 +2,12 @@ import { SocialAuthService } from '@abacritt/angularx-social-login';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IonContent } from '@ionic/angular';
 
 import { ToastController } from '@ionic/angular';
 import { IonLoaderService } from 'services/Ionic_Loader/ionic_Loader.service';
-
+import {MatSnackBar} from '@angular/material/snack-bar';
 import { CommunicationAllowPermissionComponent } from 'src/app/communication-allow-permission/communication-allow-permission.component';
 import { UserData } from 'src/app/providers/user-data';
 import { PostResult } from 'src/app/registration-models/postresult';
@@ -20,11 +20,15 @@ import { ValidationService } from 'src/app/validationservice/validation.service'
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-
-  constructor(private userdata:UserData,
-    public dialog: MatDialog, public toast: ToastController, private router: Router, private _rf: FormBuilder, private authService: SocialAuthService, private reg: RegisterService, private customValidators: ValidationService) {
+  showLoader!: boolean;
+  message:any;
+  UserID:any;
+  duration:any
+  constructor(private router: Router,private userdata:UserData,private _snackBar: MatSnackBar,
+    public dialog: MatDialog,private snackBar: MatSnackBar,private loaderService:IonLoaderService , public toast: ToastController, private route: ActivatedRoute, private _rf: FormBuilder, private authService: SocialAuthService, private reg: RegisterService, private customValidators: ValidationService) {
     this.userdata.get().then( res => 
       {}
+      // console.log(res)
       )
     this.registerForm = this._rf.group({
       FirstName: ['', Validators.compose([Validators.required,])],
@@ -48,8 +52,10 @@ export class RegisterComponent implements OnInit {
       userId: 0,
       Gender: 1000
     })
+    // const taskId = route.snapshot.params["ID"];
+    // console.log("this is taskId value = "+ taskId);
   }
-  message: any
+
   openDialog() {
     const dialogRef = this.dialog.open(CommunicationAllowPermissionComponent,
     );
@@ -60,6 +66,7 @@ export class RegisterComponent implements OnInit {
     });
   }
   registerForm!: FormGroup;
+  data:any
   user: any;
   loggedIn: any;
   ngOnInit() {
@@ -68,8 +75,18 @@ export class RegisterComponent implements OnInit {
       this.loggedIn = (user != null);
       console.log(user)
     });
-  }
 
+    // this.register();
+    // this.getregister();
+    this.loaderService.status.subscribe((val: boolean) => {
+      this.showLoader = val;
+    });
+  }
+  isModalOpen = false;
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
   // onSubmit(){
   //   if(this.registerForm.valid){
   //  console.log(this.registerForm.value)
@@ -88,50 +105,47 @@ export class RegisterComponent implements OnInit {
   }
   register() {
     const data = this.registerForm.value
-    alert('')
-    this.reg.signup(data).subscribe((res: PostResult) => {
+  //   setTimeout(() => {
+  //   this.loaderService.display(false);
+  // }, 800);
+    this.reg.signup(data).subscribe((res: any) => {
+      this.data = res;
       console.log(res)
-      if (res.status) {
-        // this.hideLoader();
-
-        this.message = res.message
-        this.showToast();
-
-      } else {
-        // this.hideLoader();
-
-        this.message = res.message
-        this.showToast();
-      }
-
+      // this.loaderService.display(true);
+    
+      this.snackBar.open(JSON.stringify(res.message)
+      );
+      this.router.navigate(['/login'])
+     
     })
+    
+   
   }
+ 
+
+ 
+  // getregister() {
+  //   const data = this.registerForm.value
+    
+  //   this.reg.getsignup(data).subscribe((res: any) => {
+  //     this.data = res;
+  //     console.log(res)
+ 
+  //   })
+  
+   
+  // }
 
   submit() {
 
     if (this.registerForm.valid) {
       // this.showLoader();
 
-      this.register();
+    
     }
     else {
       this.registerForm.markAllAsTouched();
     }
-  }
-  // showLoader() {
-  //   this.ionLoaderService.simpleLoader();
-  // }
-  // hideLoader() {
-  //   this.ionLoaderService.dismissLoader();
-  // }
-  showToast() {
-    this.toast.create({
-
-      message: this.message,
-    }).then((toastData) => {
-      console.log(toastData);
-      toastData.present();
-    });
   }
 
 

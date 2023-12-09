@@ -1,5 +1,5 @@
 <div style="width: 100%; height: 100%; position: relative; ">
-    <img src="https://s3-alpha-sig.figma.com/img/a91a/1d17/0c438f240f0f2e36738aaa4b750d1b0e?Expires=1700438400&Signature=d7eO1sLUQyoz2hM4eCXvl~YHlsY4njO1qVi9J-KYdphV2WqgWgjIAlkjUibiTGtkVnQcxQ6lK0mCXTsmAn7YOi~~jwMOFQqzOWzf9UbRRsryOeIMga-fvLHQbgjRK-AS8Rk4QuYo1JdmjrvTZ2R66oO5eroM4IsfW0OP1PkITfqNntURNoI6nd54RGU-bCJ1ax~~p9hBeKW8Qziw~WgKSVudUXm5AGc9ylo-FfkSk-G6JUd5C62c-YKLrKWjMtpCAoks4QfMH6sAY6H~jHzJef3~nu5iSpzxk~lCnpUsk0PAxAej5bhzT0P2itlv9eGJWgJrVN83zvzkmbqW6GM2kQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+    <img src="https://s3-alpha-sig.figma.com/img/a91a/1d17/0c438f240f0f2e36738aaa4b750d1b0e?Expires=1702857600&Signature=DsDUDhtipgu7sP6Ewea4467EGP5hbVCJGu-9IyqtGSc094xihZMoxAoIQIl3rL8NkDNKtgC85mGJ9qh9u125C~cK9jRNecLB0DCAhhwBB~-l3rRPKt~tUcxRh-W7tUW8t0q4VpLFUlpY7tfZb5dkAWIcGrQmgwQLNnXdBgR7IbZL8lJed9AxR4~tCh5BiVHqBgxUwrxLw7egMdvCWEbxk4VJlBVwgA6aVKvhLVE-brJmG5TA6-axGPYp5vITYWDV17LS1PcnFEEecAdRCUlN~u1VZqulEH0ZUba1z-yi5oNhz14JmxEtqNa9lxTqi7ET-fwF6clLfddatH8zO~nftg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
         style=" height: 300px;  top: -16px; position: absolute; ">
     <div
         style="width: 328px; left: 0px; top: 0px; position: absolute; justify-content: flex-start; align-items: center; gap: 116px; display: inline-flex">
@@ -15,11 +15,11 @@
         </div>
         <!-- <ion-content class="scroller"> -->
         <ion-content class="scroller">
-            <div class="btn-container">
+            <div class="btn-container" >
                 <div
                     style="width:300px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 6px; display: inline-flex;border-radius: 20px 20px 0px 0px;">
 
-                    <div class="model">Bike model 1</div>
+                    <div class="model">{{ProductDetails.ProductName}}</div>
                     <div style="justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
                         <div class="rating">4.5</div>
                         <div style="justify-content: flex-start; align-items: center; display: flex">
@@ -62,7 +62,7 @@
                                 </svg>
                                 <div style="width: 16px; height: 16px; left: 0px; top: 0px; position: absolute"></div>
                             </div>
-                            <div class="battery-details">1.8 KWH Li</div>
+                            <div class="battery-details">{{ProductDetails.Size}}</div>
                             <div class="milege">Battery</div>
                         </div>
                         <div class="details-card">
@@ -110,7 +110,7 @@
                                         fill="#3355B9" />
                                 </svg>
                             </div>
-                            <div class="battery-details">25 KMPH</div>
+                            <div class="battery-details">{{ProductDetails.Color}}</div>
                             <div class="milege">Speed</div>
                         </div>
                     </div>
@@ -148,7 +148,7 @@
                             style="flex: 1 1 0; align-self: stretch; background: white; border-bottom: 1px #E2E1E5 solid; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
                             <div
                                 style="align-self: stretch; padding-left: 12px; padding-right: 12px; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: center; display: inline-flex">
-                                <div class="model1">1.8 Kwh Li</div>
+                                <div class="model1">{{ProductDetails.Size}}</div>
                             </div>
                         </div>
                     </div>
@@ -182,7 +182,7 @@
                             style="flex: 1 1 0; align-self: stretch; background: white; border-bottom: 1px #E2E1E5 solid; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
                             <div
                                 style="align-self: stretch; padding-left: 12px; padding-right: 12px; padding-top: 10px; padding-bottom: 10px; justify-content: flex-start; align-items: center; display: inline-flex">
-                                <div class="model1">25 Kmph</div>
+                                <div class="model1">{{ProductDetails.Color}}</div>
                             </div>
                         </div>
                     </div>

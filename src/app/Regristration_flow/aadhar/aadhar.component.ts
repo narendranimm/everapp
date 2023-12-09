@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { IonContent } from '@ionic/angular';
+import { IonLoaderService } from 'services/Ionic_Loader/ionic_Loader.service';
 import { RegisterService } from 'src/app/registration-services/register.service';
 import { environment } from 'src/environments/environment';
 
@@ -11,7 +14,8 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./aadhar.component.scss'],
 })
 export class AadharComponent  implements OnInit {
-  constructor(private _pf:FormBuilder,private http:HttpClient,private rs:RegisterService) {
+  showLoader!: boolean;
+  constructor(private router: Router,private _pf:FormBuilder,private http:HttpClient,private rs:RegisterService,private snackBar: MatSnackBar,private loaderService:IonLoaderService ) {
     this.personalForm=this._pf.group({
       adharno:'',
       adharfile:'',
@@ -28,7 +32,11 @@ export class AadharComponent  implements OnInit {
    console.log(this.personalForm.value)
     }
   }
-  ngOnInit() {}
+  ngOnInit() {
+    this.loaderService.status.subscribe((val: boolean) => {
+      this.showLoader = val;
+    });
+  }
   @ViewChild(IonContent) content!: IonContent;
 
   scrollToBottom() {
@@ -73,16 +81,24 @@ export class AadharComponent  implements OnInit {
       alert("Please select a file first")
     }
   }
-  uploadtoBackend(file:any,fileName:any){debugger
+  file:any;
+  fileName:any;
+  uploadtoBackend(file:any,fileName:any){
     var formdata = new FormData();
 formdata.append("file", file);
 formdata.append("userid", "1000");
 formdata.append("filetype", "voter");
-
+// setTimeout(() => {
+//   this.loaderService.display(false);
+// }, 800);
 
 this.rs.uploadFile(file, '1000', fileName).subscribe(
   response => {
   console.log('File uploaded successfully:', response);
+  // this.loaderService.display(true);
+  this.snackBar.open(JSON.stringify(response));
+  this.router.navigate(['/selfie'])
+
 }
 
 )

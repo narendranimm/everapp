@@ -12,17 +12,19 @@
       </div>
       <div class="date-time">Date & time</div>
   </div>
+  <form action="" [formGroup]="datetimeForm" >
   <div style="height: 156px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 24px; display: flex">
       <div style="align-self: stretch; height: 40px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
           <div class="when">When do you want to start your booking duration?</div>
       </div>
       <div style="align-self: stretch; height: 92px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 12px; display: flex">
-        <input type="date" id="appt" class="time" placeholder="Select time">
-          <input type="time" id="appt" class="time" placeholder="Select time">
+        <input type="datetime-local" id="appt" class="time" placeholder="Select time" formControlName="BookingStartDate">
+          <input type="datetime-local" id="appt" class="time" placeholder="Select time" formControlName="BookingEndDate">
       </div>
   </div>
-  <button routerLink="/booking-summary" style="width: 328px; height: 42px; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: center; align-items: center; display: inline-flex">
+  <button routerLink="/booking-summary" (click)="book()" style="width: 328px; height: 42px; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: center; align-items: center; display: inline-flex">
       <div class="start-time">Set starting time</div>
   </button>
-</div>
+
+</form>
 </div>

@@ -21,10 +21,11 @@ import { environment } from 'src/environments/environment';
 export class HomepageComponent implements OnInit {
   location: any = {}
   keys: string[] = [];
-  bikeHubID: any = 3502;
+  bikeHubID: any =3502;
   slides: any = [];
   slider: any = []
-  azimageUrl:any='https://everdevuat.blob.core.windows.net/';
+  bikeHub:any
+  azimageUrl:any='https://everdevuat.blob.core.windows.net/hubs/';
   private breakpointObserver = inject(BreakpointObserver);
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -39,8 +40,8 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit() {
 
-    this.getbikehubs()
-
+    // this.getbatteryhubs()
+   this.getbikehubs()
     // this.slides=[
     //   // {image:'./assets/hub.png',content:'Megha hills EV hub',icon:'',time:'8 min by walk',link:'/hub-details'},
     //   // {image:'./assets/hub1.png',content:'Madhapur check post EV hub',icon:'',time:'14 min by walk'},
@@ -55,7 +56,7 @@ export class HomepageComponent implements OnInit {
     // ]
   }
   @ViewChild(IonContent) content!: IonContent;
-
+data=[];
   scrollToBottom() {
     // Passing a duration to the method makes it so the scroll slowly
     // goes to the bottom instead of instantly
@@ -71,13 +72,18 @@ export class HomepageComponent implements OnInit {
   public sidebar: boolean = true;
 
   getbikehubs() {
-    this._bh.getbikehubs(this.bikeHubID).subscribe((res) => {
+    this._bh.getbikehubs(this.bikeHubID).subscribe((res:any) => {
       console.log('tests',res)
-      this.bikeHubID = res;
+      this.bikeHub = res;
+    
     })
   }
-  getbatteryhubs() {
+//   getbatteryhubs() {
+// this._bh.getDate(this.data).subscribe((res:any) => {
+//   console.log('tests',res)
+//   this.data = res;
 
-  }
+// })
+//   }
 
 }

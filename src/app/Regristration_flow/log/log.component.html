@@ -67,10 +67,20 @@
 </div>
 <br><br>
 <div class="otp-container">
-<button class="continue-btn" routerLink="/verification"  (click)="verifyotp()"  >Get OTP</button>
+<button class="continue-btn"   (click)="verifyotp()"  [disabled]="!otpForm.valid" >Get OTP</button>
 </div>
 </form> 
 
 </div>
 </div>
 
+<div *ngIf="showLoader">
+  
+  <div class="showbox">
+    <div class="loader">
+      <svg class="circular" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/>
+      </svg>
+    </div>
+  </div>
+  </div>

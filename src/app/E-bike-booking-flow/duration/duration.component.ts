@@ -11,7 +11,9 @@ import { UserData } from 'src/app/providers/user-data';
   styleUrls: ['./duration.component.scss'],
 })
 export class DurationComponent  implements OnInit {
+  daysform!:FormGroup;
   productId:any;
+  productDetails:any
   bookingForm!:FormGroup;  
   constructor( private booking:BookingService,private bk:FormBuilder,private route: ActivatedRoute,private user:UserData) {
     this.bookingForm=this.bk.group({
@@ -55,13 +57,25 @@ export class DurationComponent  implements OnInit {
     const data = this.bookingForm.value;
     delete data['confirm'];
     this.booking.book(data).subscribe((res:any)=>{
-       alert('user register successfully')
+      this.productDetails=res
     })
     console.log(this.bookingForm.value)
     
         
         
       }
+      getbook(){
+        const data = this.bookingForm.value;
+        delete data['confirm'];
+        this.booking.getbook(data).subscribe((res:any)=>{
+          this.productDetails=res
+          console.log(res)
+        })
+        console.log(this.bookingForm.value)
+        
+            
+            
+          }
   // constructor(private _bottomSheet: MatBottomSheet) {}
 
   // openBottomSheet(): void {
