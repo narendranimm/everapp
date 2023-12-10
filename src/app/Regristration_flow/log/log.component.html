@@ -1,86 +1,152 @@
 <div class="main">
-<div class="btn-container">
-  <button style="background: transparent;border: none;" routerLink="/register"><img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
-</div>
-
-<div class="btn-container">
-
-
-  <p class="mobile">Enter mobile no.</p>
-  <div class="mobile-content" >Continue with your mobile number to get started</div><br>
-  <form action="" [formGroup]="otpForm">
-  <div class="container">
-  <div style="align-self: stretch; height: 65px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex;">
-    <div style="align-self: stretch; color: #363636; font-size: 16px; font-family: Archivo; font-weight: 600; word-wrap: break-word;display:flex;align-items: flex-start;">Mobile no.</div>
-    <div style="align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: white; border-radius: 28px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex;width: 100%;">
-        <div style="justify-content: flex-start; align-items: center; gap: 6px; display: flex;">
-            <div style="width: 18px; height: 18px; position: relative">
-                <div style="width: 18px; height: 4.50px; left: 0px; top: 11px; position: absolute; background: #138808"></div>
-                <div style="width: 18px; height: 4.50px; left: -0px; top: 2.50px; position: absolute; background: #FF9933"></div>
-                <div style="width: 18px; height: 4.33px; left: 0px; top: 6.83px; position: absolute; background: #F7F7F7"></div>
-                <div style="width: 4px; height: 4px; left: 7px; top: 7px; position: absolute; background: #3355B9"></div>
-                <div style="width: 3.38px; height: 3.38px; left: 7.31px; top: 7.31px; position: absolute; background: #F7F7F7"></div>
-                <div style="width: 3.20px; height: 3.20px; left: 7.40px; top: 7.40px; position: absolute; background: #6666B3"></div>
-                <div style="width: 3.54px; height: 3.54px; left: 7.23px; top: 7.23px; position: absolute">
-                    <div style="width: 0.20px; height: 0.20px; left: 1.45px; top: -0px; position: absolute; background: #3355B9"></div>
-                    <div style="width: 0.20px; height: 0.20px; left: 1.03px; top: 0.11px; position: absolute; background: #3355B9"></div>
-                    <div style="width: 0.20px; height: 0.20px; left: 0.64px; top: 0.33px; position: absolute; background: #3355B9"></div>
-                    <div style="width: 0.20px; height: 0.20px; left: 0.33px; top: 0.64px; position: absolute; background: #3355B9"></div>
-                    <div style="width: 0.20px; height: 0.20px; left: 0.11px; top: 1.03px; position: absolute; background: #3355B9"></div>
-                    <div style="width: 0.20px; height: 0.20px; left: -0px; top: 1.45px; position: absolute; background: #3355B9"></div>
-                    <div style="width: 0.20px; height: 0.20px; left: -0px; top: 1.89px; position: absolute; background: #3355B9"></div>
-                    <div style="width: 0.20px; height: 0.20px; left: 0.11px; top: 2.32px; position: absolute; background: #3355B9"></div>
-                    <div style="width: 0.20px; height: 0.20px; left: 0.33px; top: 2.70px; position: absolute; background: #3355B9"></div>
-                    <div style="width: 0.20px; height: 0.20px; left: 0.64px; top: 3.01px; position: absolute; background: #3355B9"></div>
-                    <div style="width: 0.20px; height: 0.20px; left: 1.03px; top: 3.23px; position: absolute; background: #3355B9"></div>
-                    <div style="width: 0.20px; height: 0.20px; left: 1.45px; top: 3.34px; position: absolute; background: #3355B9"></div>
-                    <div style="width: 0.20px; height: 0.20px; left: 1.89px; top: 3.34px; position: absolute; background: #3355B9"></div>
-                    <div style="width: 0.20px; height: 0.20px; left: 2.32px; top: 3.23px; position: absolute; background: #3355B9"></div>
-                    <div style="width: 0.20px; height: 0.20px; left: 2.70px; top: 3.01px; position: absolute; background: #3355B9"></div>
-                    <div style="width: 0.20px; height: 0.20px; left: 3.01px; top: 2.70px; position: absolute; background: #3355B9"></div>
-                    <div style="width: 0.20px; height: 0.20px; left: 3.23px; top: 2.32px; position: absolute; background: #3355B9"></div>
-                    <div style="width: 0.20px; height: 0.20px; left: 3.34px; top: 1.89px; position: absolute; background: #3355B9"></div>
-                    <div style="width: 0.20px; height: 0.20px; left: 3.34px; top: 1.45px; position: absolute; background: #3355B9"></div>
-                    <div style="width: 0.20px; height: 0.20px; left: 3.23px; top: 1.03px; position: absolute; background: #3355B9"></div>
-                    <div style="width: 0.20px; height: 0.20px; left: 3.01px; top: 0.64px; position: absolute; background: #3355B9"></div>
-                    <div style="width: 0.20px; height: 0.20px; left: 2.70px; top: 0.33px; position: absolute; background: #3355B9"></div>
-                    <div style="width: 0.20px; height: 0.20px; left: 2.32px; top: 0.11px; position: absolute; background: #3355B9"></div>
-                    <div style="width: 0.20px; height: 0.20px; left: 1.89px; top: -0px; position: absolute; background: #3355B9"></div>
-                    <div style="width: 0.90px; height: 0.90px; left: 1.32px; top: 1.32px; position: absolute; background: #3355B9"></div>
-                </div>
-            </div>
-  <div style="color: #363636; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">
-    <ion-select  aria-label="" value="+91">
-      <ion-select-option value="+91">+91</ion-select-option>
-    </ion-select>
+  <div class="btn-container">
+    <button style="background: transparent;border: none;" routerLink="/register"><img class="icon"
+        src="./assets/zondicons_arrow-left.svg" alt=""></button>
   </div>
-</div>
-<ion-input type="tel"  class="phone" placeholder="0000000" formControlName="mobileno" ></ion-input>
 
-</div>
-</div>
+  <div class="btn-container">
 
-</div>
-<div *ngIf="otpForm.get('mobileno')?.invalid && otpForm.get('mobileno')?.touched" class="error">
-  <div  *ngIf="otpForm.get('mobileno')?.hasError('required')">Mobile required</div>
-  <div  *ngIf="otpForm.get('mobileno')?.hasError('mobileno')">invalid Email address</div>
-</div>
-<br><br>
-<div class="otp-container">
-<button class="continue-btn"   (click)="verifyotp()"  [disabled]="!otpForm.valid" >Get OTP</button>
-</div>
-</form> 
 
-</div>
+    <p class="mobile">Enter mobile no.</p>
+    <div class="mobile-content">Continue with your mobile number to get started</div><br>
+    <form action="" [formGroup]="otpForm">
+      <div class="container">
+        <div
+          style="align-self: stretch; height: 65px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex;">
+          <div
+            style="align-self: stretch; color: #363636; font-size: 16px; font-family: Archivo; font-weight: 600; word-wrap: break-word;display:flex;align-items: flex-start;">
+            Mobile no.</div>
+          <div
+            style="align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: white; border-radius: 28px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex;width: 100%;">
+            <div style="justify-content: flex-start; align-items: center; gap: 6px; display: flex;">
+              <div style="width: 18px; height: 18px; position: relative">
+                <div style="width: 18px; height: 4.50px; left: 0px; top: 11px; position: absolute; background: #138808">
+                </div>
+                <div
+                  style="width: 18px; height: 4.50px; left: -0px; top: 2.50px; position: absolute; background: #FF9933">
+                </div>
+                <div
+                  style="width: 18px; height: 4.33px; left: 0px; top: 6.83px; position: absolute; background: #F7F7F7">
+                </div>
+                <div style="width: 4px; height: 4px; left: 7px; top: 7px; position: absolute; background: #3355B9">
+                </div>
+                <div
+                  style="width: 3.38px; height: 3.38px; left: 7.31px; top: 7.31px; position: absolute; background: #F7F7F7">
+                </div>
+                <div
+                  style="width: 3.20px; height: 3.20px; left: 7.40px; top: 7.40px; position: absolute; background: #6666B3">
+                </div>
+                <div style="width: 3.54px; height: 3.54px; left: 7.23px; top: 7.23px; position: absolute">
+                  <div
+                    style="width: 0.20px; height: 0.20px; left: 1.45px; top: -0px; position: absolute; background: #3355B9">
+                  </div>
+                  <div
+                    style="width: 0.20px; height: 0.20px; left: 1.03px; top: 0.11px; position: absolute; background: #3355B9">
+                  </div>
+                  <div
+                    style="width: 0.20px; height: 0.20px; left: 0.64px; top: 0.33px; position: absolute; background: #3355B9">
+                  </div>
+                  <div
+                    style="width: 0.20px; height: 0.20px; left: 0.33px; top: 0.64px; position: absolute; background: #3355B9">
+                  </div>
+                  <div
+                    style="width: 0.20px; height: 0.20px; left: 0.11px; top: 1.03px; position: absolute; background: #3355B9">
+                  </div>
+                  <div
+                    style="width: 0.20px; height: 0.20px; left: -0px; top: 1.45px; position: absolute; background: #3355B9">
+                  </div>
+                  <div
+                    style="width: 0.20px; height: 0.20px; left: -0px; top: 1.89px; position: absolute; background: #3355B9">
+                  </div>
+                  <div
+                    style="width: 0.20px; height: 0.20px; left: 0.11px; top: 2.32px; position: absolute; background: #3355B9">
+                  </div>
+                  <div
+                    style="width: 0.20px; height: 0.20px; left: 0.33px; top: 2.70px; position: absolute; background: #3355B9">
+                  </div>
+                  <div
+                    style="width: 0.20px; height: 0.20px; left: 0.64px; top: 3.01px; position: absolute; background: #3355B9">
+                  </div>
+                  <div
+                    style="width: 0.20px; height: 0.20px; left: 1.03px; top: 3.23px; position: absolute; background: #3355B9">
+                  </div>
+                  <div
+                    style="width: 0.20px; height: 0.20px; left: 1.45px; top: 3.34px; position: absolute; background: #3355B9">
+                  </div>
+                  <div
+                    style="width: 0.20px; height: 0.20px; left: 1.89px; top: 3.34px; position: absolute; background: #3355B9">
+                  </div>
+                  <div
+                    style="width: 0.20px; height: 0.20px; left: 2.32px; top: 3.23px; position: absolute; background: #3355B9">
+                  </div>
+                  <div
+                    style="width: 0.20px; height: 0.20px; left: 2.70px; top: 3.01px; position: absolute; background: #3355B9">
+                  </div>
+                  <div
+                    style="width: 0.20px; height: 0.20px; left: 3.01px; top: 2.70px; position: absolute; background: #3355B9">
+                  </div>
+                  <div
+                    style="width: 0.20px; height: 0.20px; left: 3.23px; top: 2.32px; position: absolute; background: #3355B9">
+                  </div>
+                  <div
+                    style="width: 0.20px; height: 0.20px; left: 3.34px; top: 1.89px; position: absolute; background: #3355B9">
+                  </div>
+                  <div
+                    style="width: 0.20px; height: 0.20px; left: 3.34px; top: 1.45px; position: absolute; background: #3355B9">
+                  </div>
+                  <div
+                    style="width: 0.20px; height: 0.20px; left: 3.23px; top: 1.03px; position: absolute; background: #3355B9">
+                  </div>
+                  <div
+                    style="width: 0.20px; height: 0.20px; left: 3.01px; top: 0.64px; position: absolute; background: #3355B9">
+                  </div>
+                  <div
+                    style="width: 0.20px; height: 0.20px; left: 2.70px; top: 0.33px; position: absolute; background: #3355B9">
+                  </div>
+                  <div
+                    style="width: 0.20px; height: 0.20px; left: 2.32px; top: 0.11px; position: absolute; background: #3355B9">
+                  </div>
+                  <div
+                    style="width: 0.20px; height: 0.20px; left: 1.89px; top: -0px; position: absolute; background: #3355B9">
+                  </div>
+                  <div
+                    style="width: 0.90px; height: 0.90px; left: 1.32px; top: 1.32px; position: absolute; background: #3355B9">
+                  </div>
+                </div>
+              </div>
+              <div
+                style="color: #363636; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">
+                <ion-select aria-label="" value="+91">
+                  <ion-select-option value="+91">+91</ion-select-option>
+                </ion-select>
+              </div>
+            </div>
+            <ion-input type="tel" class="phone" placeholder="0000000" formControlName="mobileno"></ion-input>
+
+          </div>
+        </div>
+
+      </div>
+      <div *ngIf="otpForm.get('mobileno')?.invalid && otpForm.get('mobileno')?.touched" class="error">
+        <div *ngIf="otpForm.get('mobileno')?.hasError('required')">Mobile required</div>
+        <div *ngIf="otpForm.get('mobileno')?.hasError('mobileno')">invalid Email address</div>
+      </div>
+      <br><br>
+      <div class="otp-container">
+        <button class="continue-btn" (click)="verifyotp()" [disabled]="!otpForm.valid">Get OTP</button>
+      </div>
+    </form>
+
+  </div>
 </div>
 
 <div *ngIf="showLoader">
-  
+
   <div class="showbox">
     <div class="loader">
       <svg class="circular" viewBox="25 25 50 50">
-        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/>
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10" />
       </svg>
     </div>
   </div>
-  </div>
+</div>

@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, from } from 'rxjs';
 import { CapacitorHttp,  HttpResponse } from '@capacitor/core';
-import { Http } from '@capacitor-community/http';
+// import { Http } from '@capacitor-community/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,19 +15,21 @@ export class RegisterService {
     'userid':'1'
   })
 };
+// baseUrl:string='https://172.188.80.209:8443/api/',
+baseUrl:string='http://localhost:8080/api/'
   constructor(private http:HttpClient) { }
   signup(data:any):Observable<any>{
-    return this.http.post(`https://172.188.80.209:8443/api/members`,data)
+    return this.http.post(this.baseUrl+`members`,data)
   }
   getsignup(data:any):Observable<any>{
-    return this.http.get(`https://172.188.80.209:8443/api/members`,data)
+    return this.http.get(this.baseUrl+`members`,data)
   }
   otp(data:any):Observable<any>{
-    return this.http.post(`https://172.188.80.209:8443/api/sendsms`,data)
+    return this.http.post(this.baseUrl+`sendsms`,data)
   }
   
   verifyOTP(otp:string):Observable<any>{
-    return this.http.post(`https://172.188.80.209:8443/api/sendsms`,{otp})
+    return this.http.post(this.baseUrl+`sendsms`,{otp})
   }
   signin(data:any):Observable<any>{
     return this.http.post(`https://172.188.80.209:8443/auth/login`,data)
@@ -41,10 +43,14 @@ export class RegisterService {
     formData.append('userid', userId);
     formData.append('filetype', fileType);
 
-    return this.http.post<any>('https://172.188.80.209:8443/api/upload/'+fileType, formData);
+    return this.http.post<any>(this.baseUrl+'upload/'+fileType, formData);
   }
   // sendOtp(data:any):Observable<any>{
     
   //   return this.http.post(`https://2factor.in/API/V1/${this.api_key}/SMS/+91${data}/AUTOGEN`,data,this.httpOptions);
   // }
+
+  getbymobileno(mobileno:any){
+    return this.http.get(this.baseUrl+`getbymobileno/`+mobileno);
+  }
 }

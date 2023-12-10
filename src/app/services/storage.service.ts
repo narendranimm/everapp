@@ -9,15 +9,6 @@ export const INTRO_KEY ='intro-slides';
 export class StorageService {
   create: any;
 
-  // constructor(private _storage:Storage,private router:Router) { }
-  // setStorage(key:any,value:any){
-  //  return this._storage.set(
-  //        key,
-  //        value
-  //     )
-    
-  // }
-  // getStorage(key:any){
-  //   return this._storage.get(key)
-  // }
+  constructor(private _storage:Storage,private router:Router) { }
+
 }

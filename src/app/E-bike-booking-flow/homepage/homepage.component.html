@@ -17,10 +17,13 @@
     </div>
     <div style="align-self: stretch; padding: 12px; background: #F2F2F2; border-radius: 10px;  justify-content: space-between; align-items: center; display: inline-flex">
         <div  style="justify-content: flex-start; align-items: center; gap: 17px; display: flex">
-            <img style="width: 48px; height: 48px; position: relative; border-radius: 100px" src="https://s3-alpha-sig.figma.com/img/6b28/8b70/aa1d46cdb7f480be9a720d5b0bfe6db6?Expires=1700438400&Signature=YP8qhgpNsKDhqBWRJK1YTwslYA0jDaiaTsTrxSbnTFuI1f6Y8X8uFF01DfQy~DElDwb~mnriieCr-fdP7Fnm9Ht6jedIG4CELK9V1Jd7Q3rnqEnhEw1X1tLtfg95HVL1OJ2g0Suxt-thHAk2VFl2F9Zws2TP6lCmTUT8aNPZlx3tUFid5p4mYTFQg~FJq1eML0FVLqlw~eSCfU5yG3QbF74h2cs9EnFDFNRxxHPuKB3mhKJEcozn36ELyfc~guYYOwcG~v-oMoBnjBXHjxMuM4dbdKTLVAhRQW~VX1pVpCkpEg-Oac2NHylYwt8vjCd04BWFL2AvHJXBBI0XpjJi3A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" />
+            <img style="width: 48px; height: 48px; position: relative; border-radius: 100px" 
+            src="{{profileUrl}} {{logindata.ProfilePhoto}}"
+            />
             <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 6px; display: inline-flex">
-                <div style="color: #ece2e2; font-size: 18px; font-family: Archivo; font-weight: 500; word-wrap: break-word"><a class="links" href="/profile">Manish Paul</a></div>
-                <div style="opacity: 0.80; color: #363636; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">9876543210</div>
+                <div style="color: #ece2e2; font-size: 18px; font-family: Archivo; font-weight: 500; word-wrap: break-word">
+                  <a class="links" href="/profile">{{logindata.FirstName}} {{logindata.LastName}}</a></div>
+                <div style="opacity: 0.80; color: #363636; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">{{logindata.MobileNo}}</div>
             </div>
         </div>
         <button  style="width: 24px; height: 24px; position: relative; background: #3355B9; border-radius: 24px; overflow: hidden">
@@ -141,7 +144,7 @@
       </mat-toolbar>
       <ion-content class="scroller">
         <div class="btn-container">
-        <h1 class="greeting-head">Good morning, Meghna</h1>
+        <h1 class="greeting-head">Welcome {{username}}</h1>
         <button ><img src="./assets/mdi_location.svg" alt=""></button>
         
         <!-- <div *ngFor="let key of keys">

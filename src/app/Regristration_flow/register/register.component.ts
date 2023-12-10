@@ -108,9 +108,9 @@ export class RegisterComponent implements OnInit {
   //   setTimeout(() => {
   //   this.loaderService.display(false);
   // }, 800);
-    this.reg.signup(data).subscribe((res: any) => {
-      this.data = res;
+    this.reg.signup(data).subscribe((res: PostResult) => {
       console.log(res)
+      this.data = res;
       // this.loaderService.display(true);
     
       this.snackBar.open(JSON.stringify(res.message)
