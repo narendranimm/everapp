@@ -15,26 +15,33 @@ let S_KEY='mylist';
 async init(){
     this._storage.create();
 }
-
 public  get(){
-    return this._storage.get(S_KEY)
-     
+    return this._storage.get(S_KEY)     
 }
-set(mobileno:any) {
-   
+set(mobileno:any) {   
     return this._storage.set(S_KEY,mobileno);
   }
-  setpId(mobileno:any) {
-   
+setMain(key:any,data:any) {   
+    return this._storage.set(key,data);
+  }
+  setpId(mobileno:any) {   
     return this._storage.set('pId',mobileno);
   }
-  setmId(mobileno:any) {
-   
+  setmId(mobileno:any) {   
     return this._storage.set('mId',mobileno);
   }
+  getuser(){
+   return this._storage.get("loginuser")
+  }
+  getusername(){
+   this._storage.get("loginuser").then(res=>{
+     console.log(res)
+    return (res.FirstName + res.LastName);
+
+   })
+  }
   public  getId(Id:any){
-    return this._storage.get(Id)
-     
+    return this._storage.get(Id)     
 }
 
 //   logout() {

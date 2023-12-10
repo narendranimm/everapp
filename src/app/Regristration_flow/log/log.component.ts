@@ -52,9 +52,7 @@ verifyotp(){
   //1. if otp failed
   //2.if network issue.
   const data = this.otpForm.value;
-  // setTimeout(() => {
-  //   this.loaderService.display(false);
-  // }, 800);
+
   console.log(data)
   this.userdata.set(data.mobileno)
   this.reg.otp(data).subscribe((res:any)=>{
@@ -62,14 +60,22 @@ verifyotp(){
 //after logged in success moved to home page
 // this.loaderService.display(true);
     console.log(res)
+    this.getuserbymobileno();
     this.snackBar.open(JSON.stringify(res.message));
     this.router.navigate(['/verification'])
-    if(!res){
+    if(res.status){
+
     
     }
-  })
-      
-      
+    })
+  }
+getuserbymobileno(){
+  this.reg.getbymobileno(this.otpForm.value.mobileno).subscribe(
+    res=>{
+      console.log(res)
+      this.userdata.setMain("loginuser",res)
     }
+  )
+}
 
 }

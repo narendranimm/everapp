@@ -10,6 +10,7 @@ import { BookingService } from 'src/app/E-booking-flow-services/booking.service'
 import { ActivatedRoute } from '@angular/router';
 import { ProductServicesService } from 'services/product-services/product-services.service';
 import { environment } from 'src/environments/environment';
+import { UserData } from 'src/app/providers/user-data';
 
 import { Geolocation, GeolocationPlugin } from '@capacitor/geolocation';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -29,15 +30,23 @@ export class HomepageComponent implements OnInit {
   slider: any = []
   bikeHub:any
   azimageUrl:any='https://everdevuat.blob.core.windows.net/hubs/';
+  profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
+  username='';
+  logindata!:any;
   private breakpointObserver = inject(BreakpointObserver);
-
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
     );
-  constructor(public popoverController: PopoverController, private _bh: BookingService, private route: ActivatedRoute, private _pd: ProductServicesService,private http:HttpClient
+  constructor(public popoverController: PopoverController, private _bh: BookingService, private route: ActivatedRoute, 
+    private _pd: ProductServicesService,private userdata:UserData
   ) {
+  
+        this.userdata.getuser().then(res=>{
+          this.logindata=res;
+            this.username=res.FirstName +' ' +res.LastName;
+        })
     
   }
 
