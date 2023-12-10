@@ -7,12 +7,13 @@ import { IonContent } from '@ionic/angular';
 
 import { ToastController } from '@ionic/angular';
 import { IonLoaderService } from 'services/Ionic_Loader/ionic_Loader.service';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatSnackBar, MatSnackBarConfig} from '@angular/material/snack-bar';
 import { CommunicationAllowPermissionComponent } from 'src/app/communication-allow-permission/communication-allow-permission.component';
 import { UserData } from 'src/app/providers/user-data';
 import { PostResult } from 'src/app/registration-models/postresult';
 import { RegisterService } from 'src/app/registration-services/register.service';
 import { ValidationService } from 'src/app/validationservice/validation.service';
+
 
 @Component({
   selector: 'app-register',
@@ -112,7 +113,8 @@ export class RegisterComponent implements OnInit {
       this.data = res;
       console.log(res)
       // this.loaderService.display(true);
-    
+      const config = new MatSnackBarConfig();
+      config.panelClass = ['background-red'];
       this.snackBar.open(JSON.stringify(res.message)
       );
       this.router.navigate(['/login'])

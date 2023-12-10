@@ -6,6 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RegisterService {
+  uploadfile: any;
+  profilepic: any;
+  uploadFile(file: any, arg1: string, fileName: any) {
+    throw new Error('Method not implemented.');
+  }
   mobile(data: any) {
     throw new Error('Method not implemented.');
   }

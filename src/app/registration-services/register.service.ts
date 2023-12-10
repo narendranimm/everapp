@@ -35,16 +35,20 @@ export class RegisterService {
  getProduct(data:any):Observable<any>{
     return this.http.post(`https://api.publicapis.org/entries`,data)
   }
-  uploadFile(file: File, userId: string, fileType: string){
+  uploadFile(file: File, userId: string, fileType: string):Observable<any>{
     const formData = new FormData();
     formData.append('file', file, file.name);
     formData.append('userid', userId);
     formData.append('filetype', fileType);
 
-    return this.http.post<any>('https://172.188.80.209:8443/api/upload/'+fileType, formData);
+    return this.http.post<any>('https://172.188.80.209:8443/api/upload/'+fileType, formData,this.httpOptions);
   }
   // sendOtp(data:any):Observable<any>{
     
   //   return this.http.post(`https://2factor.in/API/V1/${this.api_key}/SMS/+91${data}/AUTOGEN`,data,this.httpOptions);
   // }
+
+  profilepic(data:any):Observable<any>{
+  return this.http.post(`https://172.188.80.209:8443/api/members`,data)
+}
 }

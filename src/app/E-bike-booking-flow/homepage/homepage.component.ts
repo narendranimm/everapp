@@ -11,7 +11,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductServicesService } from 'services/product-services/product-services.service';
 import { environment } from 'src/environments/environment';
 
-
+import { Geolocation, GeolocationPlugin } from '@capacitor/geolocation';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-homepage',
@@ -19,6 +20,8 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./homepage.component.scss'],
 })
 export class HomepageComponent implements OnInit {
+  lat: any = '';  
+  lng: any = '';  
   location: any = {}
   keys: string[] = [];
   bikeHubID: any =3502;
@@ -33,13 +36,14 @@ export class HomepageComponent implements OnInit {
       map(result => result.matches),
       shareReplay()
     );
-  constructor(public popoverController: PopoverController, private _bh: BookingService, private route: ActivatedRoute, private _pd: ProductServicesService
+  constructor(public popoverController: PopoverController, private _bh: BookingService, private route: ActivatedRoute, private _pd: ProductServicesService,private http:HttpClient
   ) {
     
   }
 
   ngOnInit() {
 
+   this.printCurrentPosition()
     // this.getbatteryhubs()
    this.getbikehubs()
     // this.slides=[
@@ -85,5 +89,16 @@ data=[];
 
 // })
 //   }
+printCurrentPosition() {
+  var coordinates = Geolocation.getCurrentPosition().then((resp) => { 
+  this.lat = resp.coords.latitude;  
+    this.lng = resp.coords.longitude;  
+  })
+  console.log('Current position:', coordinates);
+  
+};
+ createHeader(contentType: string): any {
+  return { headers: new HttpHeaders({ 'Content-Type': contentType }), responseType: 'text' };
+}
 
 }

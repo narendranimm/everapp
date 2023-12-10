@@ -63,8 +63,9 @@ verifyotp(){
 // this.loaderService.display(true);
     console.log(res)
     this.snackBar.open(JSON.stringify(res.message));
-    if(!res){
     this.router.navigate(['/verification'])
+    if(!res){
+    
     }
   })
       
