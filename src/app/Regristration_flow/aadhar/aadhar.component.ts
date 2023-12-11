@@ -91,9 +91,11 @@ formdata.append("filetype", "voter");
 // setTimeout(() => {
 //   this.loaderService.display(false);
 // }, 800);
-
+if(!this.personalForm.valid) {
+  this.personalForm.markAllAsTouched();
+}
 this.rs.uploadFile(file, '1000', fileName).subscribe(
-  response => {
+ (response) => {
   console.log('File uploaded successfully:', response);
   // this.loaderService.display(true);
   this.snackBar.open(JSON.stringify(response));

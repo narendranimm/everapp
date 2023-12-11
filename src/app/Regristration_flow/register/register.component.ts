@@ -105,7 +105,10 @@ export class RegisterComponent implements OnInit {
     this.content.scrollToTop(500);
   }
   register() {
-    const data = this.registerForm.value
+    const data = this.registerForm.value;
+    if(!this.registerForm.valid) {
+      this.registerForm.markAllAsTouched();
+    }
   //   setTimeout(() => {
   //   this.loaderService.display(false);
   // }, 800);
@@ -113,8 +116,7 @@ export class RegisterComponent implements OnInit {
       console.log(res)
       this.data = res;
       // this.loaderService.display(true);
-      const config = new MatSnackBarConfig();
-      config.panelClass = ['background-red'];
+    
       this.snackBar.open(JSON.stringify(res.message)
       );
       this.router.navigate(['/login'])

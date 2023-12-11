@@ -17,7 +17,7 @@
             style="align-self: stretch; color: #363636; font-size: 16px; font-family: Archivo; font-weight: 600; word-wrap: break-word;display:flex;align-items: flex-start;">
             Mobile no.</div>
           <div
-            style="align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: white; border-radius: 28px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex;width: 100%;">
+            style="align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: white; border-radius: 28px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: center; align-items: center; gap: 12px; display: inline-flex;width: 100%;">
             <div style="justify-content: flex-start; align-items: center; gap: 6px; display: flex;">
               <div style="width: 18px; height: 18px; position: relative">
                 <div style="width: 18px; height: 4.50px; left: 0px; top: 11px; position: absolute; background: #138808">
@@ -128,12 +128,12 @@
 
       </div>
       <div *ngIf="otpForm.get('mobileno')?.invalid && otpForm.get('mobileno')?.touched" class="error">
-        <div *ngIf="otpForm.get('mobileno')?.hasError('required')">Mobile required</div>
+        <div *ngIf="otpForm.get('mobileno')?.hasError('required')">Mobile no. required</div>
         <div *ngIf="otpForm.get('mobileno')?.hasError('mobileno')">invalid Email address</div>
       </div>
       <br><br>
       <div class="otp-container">
-        <button class="continue-btn" (click)="verifyotp()" [disabled]="!otpForm.valid">Get OTP</button>
+        <button class="continue-btn" (click)="verifyotp()" [disabled]="!otpForm.valid" >Get OTP</button>
       </div>
     </form>
 

@@ -22,7 +22,7 @@ export class LogComponent  implements OnInit {
 otpForm!:FormGroup;
 taskId:any;
 showLoader!: boolean;
-
+logindata:any
   constructor(private router: Router,private route:ActivatedRoute,private userdata:UserData,private snackBar: MatSnackBar,private loaderService:IonLoaderService ,
     private _of:FormBuilder,private modalCtrl:ModalController ,private reg:RegisterService,private http:HttpClient){
       this.taskId = route.snapshot.params["ID"];
@@ -32,6 +32,10 @@ showLoader!: boolean;
       mobileno:['',[ Validators.required,
         Validators.pattern("^[0-9]*$"),
         ]]
+    })
+    this.userdata.getuser().then(res=>{
+      this.logindata=res;
+      
     })
   }
   get mobno(){  
@@ -52,7 +56,9 @@ verifyotp(){
   //1. if otp failed
   //2.if network issue.
   const data = this.otpForm.value;
-
+  if(!this.otpForm.valid) {
+    this.otpForm.markAllAsTouched();
+  }
   console.log(data)
   this.userdata.set(data.mobileno)
   this.reg.otp(data).subscribe((res:any)=>{
@@ -63,10 +69,7 @@ verifyotp(){
     this.getuserbymobileno();
     this.snackBar.open(JSON.stringify(res.message));
     this.router.navigate(['/verification'])
-    if(res.status){
-
-    
-    }
+  
     })
   }
 getuserbymobileno(){
