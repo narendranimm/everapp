@@ -2,27 +2,30 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CapacitorHttp } from '@capacitor/core';
 import { Observable, from } from 'rxjs';
+import{environment} from '../../environments/environment.prod'
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookingService {
+ baseurl=environment.apiurl;
 
-
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) { 
+    console.log(this.baseurl)
+  }
 
   book(data:any):Observable<any>{
-    return this.http.post(`https://172.188.80.209:8443/api/orders/orderbooking`,data)
+    return this.http.post(this.baseurl+'orders/orderbooking',data)
   }
   
   getbook(data:any):Observable<any>{
-    return this.http.get(`https://172.188.80.209:8443/api/orders/orderbooking`,data)
+    return this.http.get(this.baseurl+'orders/orderbooking',data);
   }
   getbikehubs(bikeHubID:any){
-    return this.http.get(`https://172.188.80.209:8443/api/hubs/get/${3503}`,bikeHubID)
+    return this.http.get(this.baseurl+`hubs/get/${3503}`,bikeHubID)
   }
   getbattery(batteryStaionID:any){
-    return this.http.get('https://172.188.80.209:8443/api/hubs/get/3502',batteryStaionID)
+    return this.http.get(this.baseurl+`hubs/get/3502`,batteryStaionID)
   }
  
 }
