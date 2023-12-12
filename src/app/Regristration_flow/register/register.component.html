@@ -116,13 +116,16 @@
       </div>
       <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
           <div class="gender">Gender</div>
-          <select formControlName="Gender" placeholder="select" value="select" place style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: white; border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: space-between; align-items: center; display: inline-flex">
-          
+          <select formControlName="Gender" placeholder="select" value="select" style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: white; border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: space-between; align-items: center; display: inline-flex">
+             
               <option value="1000">Male</option>
               <option value="1001">Female</option>
               <option value="0">Prefer not say</option>
             </select>
-           
+            <div *ngIf="registerForm.get('Gender')?.invalid && registerForm.get('Gender')?.touched" class="error">
+              <div  *ngIf="registerForm.get('Gender')?.hasError('required')">Gender required</div>
+       
+            </div>
 
       </div>
   </div>

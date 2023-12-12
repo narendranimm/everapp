@@ -19,7 +19,7 @@ export class BookingService {
     return this.http.get(`https://172.188.80.209:8443/api/orders/orderbooking`,data)
   }
   getbikehubs(bikeHubID:any){
-    return this.http.get(`https://172.188.80.209:8443/api/hubs/get/${3503}`,bikeHubID)
+    return this.http.get(`https://172.188.80.209:8443/api/hubs/get/3503`,bikeHubID)
   }
   getbattery(batteryStaionID:any){
     return this.http.get('https://172.188.80.209:8443/api/hubs/get/3502',batteryStaionID)

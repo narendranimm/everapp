@@ -1,10 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { LoadingController, ModalController } from '@ionic/angular';
 import { RegisterService } from 'services/registration-flow-services/register.service';
 import { NavbarService } from 'src/app/navbar.service';
+import { UserData } from 'src/app/providers/user-data';
 
 
 
@@ -20,10 +22,17 @@ export class SelfieComponent  implements OnInit {
   imageSource:any;
   imageUrl:any
   data:any
-  constructor( private _rf: FormBuilder,private reg: RegisterService,private http:HttpClient) { 
+  logindata:any;
+  ProfilePhoto:any;
+  fact:any;
+  constructor(private router: Router, private _rf: FormBuilder,private reg: RegisterService,private http:HttpClient,private userdata:UserData) { 
    this.imagesend=this._rf.group({
     Token:''
    })
+   this.userdata.getuser().then(res=>{
+    this.logindata=res;
+    console.log(this.logindata)
+  })
   }
   imgFile:any
 
@@ -38,18 +47,17 @@ export class SelfieComponent  implements OnInit {
    
    this.imageSource=image.dataUrl;
 
-  //  console.log(this.imageSource)
-  var imgFile = new File([this.imageSource], 'MyFileName.png');
-   console.log(imgFile)
+   console.log(this.imageSource)
+  // var imgFile = new File([this.imageSource], 'MyFileName.png');
+  //  console.log(imgFile)
 
   };
 upload(){
-  const data = this.imagesend.value
-  console.log(this.imagesend.value);
-  this.http.post(`https://172.188.80.209:8443/api/members`,data).subscribe((res: any) => {
-    this.data = res;
-    console.log(JSON.stringify(res))
-  })
+  if(!this.imageSource){
+  this.router.navigate(['/selfie'])
+  }else{
+    this.router.navigate(['/homepage'])
+  }
 }
 
 

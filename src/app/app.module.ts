@@ -18,7 +18,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AllowPermissionsComponent } from './Regristration_flow/allow-permissions/allow-permissions.component';
 import { CongratulationsComponent } from './congratulations/congratulations.component';
 
-import { VerificationsuccessComponent } from './verificationsuccess/verificationsuccess.component';
+
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { EnablelocationComponent } from './E-bike-booking-flow/enablelocation/enablelocation.component';
 
@@ -111,7 +111,7 @@ import { IonicStorageModule } from '@ionic/storage-angular';
 
 providers: [Storage]
 @NgModule({
-  declarations: [AppComponent, SplashComponent, GetComponent, RegisterComponent, LogComponent, AadharComponent, SelfieComponent, NavComponent, PreviewComponent, CropComponent, AllowPermissionsComponent, CongratulationsComponent, VerificationsuccessComponent, EnablelocationComponent, HomepageComponent, HubdetailsComponent, HublistsComponent, BookingdetailsComponent, CommunicationAllowPermissionComponent, HublistsComponent, BikedetailsComponent, DurationComponent, DatetimeComponent, BatteryStationListComponent, BatteryStationComponent, BatteryListComponent, BatteryDetailsAvailableComponent, BatteryDetailsUnavailableComponent, BookingDetailsComponent, OffersComponent, CouponAppliedComponent, CouponAppliedDashboardComponent, PaymentGatewaysComponent, AddUpiIdComponent, AddCardComponent, AddEWalletComponent, PaymentOngoingComponent, AddPaymentOngoingComponent, BookingSuccessComponent, BookingDetailsAfterComponent, BikelistComponent, DurationComponent, DurationLaterComponent, BookingsummaryComponent, OffersComponent, CouponappliedComponent, PaymentComponent, PaymentgatewaysComponent, AddUPIIDComponent, AddcardComponent, EWalletComponent, BookingDetailsComponent, HomepageAfterbookingComponent, TimedetailsComponent, BookingsuccessComponent,
+  declarations: [AppComponent, SplashComponent, GetComponent, RegisterComponent, LogComponent, AadharComponent, SelfieComponent, NavComponent, PreviewComponent, CropComponent, AllowPermissionsComponent, CongratulationsComponent,  EnablelocationComponent, HomepageComponent, HubdetailsComponent, HublistsComponent, BookingdetailsComponent, CommunicationAllowPermissionComponent, HublistsComponent, BikedetailsComponent, DurationComponent, DatetimeComponent, BatteryStationListComponent, BatteryStationComponent, BatteryListComponent, BatteryDetailsAvailableComponent, BatteryDetailsUnavailableComponent, BookingDetailsComponent, OffersComponent, CouponAppliedComponent, CouponAppliedDashboardComponent, PaymentGatewaysComponent, AddUpiIdComponent, AddCardComponent, AddEWalletComponent, PaymentOngoingComponent, AddPaymentOngoingComponent, BookingSuccessComponent, BookingDetailsAfterComponent, BikelistComponent, DurationComponent, DurationLaterComponent, BookingsummaryComponent, OffersComponent, CouponappliedComponent, PaymentComponent, PaymentgatewaysComponent, AddUPIIDComponent, AddcardComponent, EWalletComponent, BookingDetailsComponent, HomepageAfterbookingComponent, TimedetailsComponent, BookingsuccessComponent,
     HublistsComponent,
     //battery-reservation-flow
     BatteryStationListComponent,
@@ -148,7 +148,6 @@ providers: [Storage]
     TimeDetailsVehicleComponent,
     TimeDetailsVehicleFromComponent,
     VerificationComponent
-
 
   ],
 

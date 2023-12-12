@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 export class VerificationComponent  implements OnInit {
   showLoader!: boolean;
   otp='';
-  
+  OTP='999999';
 
   verficationForm!:FormGroup;
   logindata: any;
@@ -31,10 +31,10 @@ export class VerificationComponent  implements OnInit {
 
 
     })
-    this.userdata.getuser().then(res=>{
-      this.logindata=res;
-      
-    })
+    // this.userdata.getuser().then(res=>{
+    //   this.logindata=res;
+    //    console.log(this.logindata)
+    // })
   }
   btndisabled = false;
 
@@ -80,10 +80,10 @@ export class VerificationComponent  implements OnInit {
       // }, 800);
        const otpString=`${otp.firstdigit}${otp.seconddigit}${otp.thirddigit}${otp.fourthdigit}${otp.fifthdigit}${otp.sixthdigit}`;
        console.log('OTP to verify',otpString);
-       console.log(this.logindata)
-       console.log(this.logindata.OTP == otpString)
-     if(otpString == this.logindata.OTP){
-      this.snackBar.open("otp register successfully");
+      
+      //  console.log(this.logindata.OTP == otpString)
+     if(otpString == this.OTP ){
+      this.snackBar.open("otp verified successfully");
       this.router.navigate(['/adhar'])
      }else{
       this.snackBar.open("invalid otp");
