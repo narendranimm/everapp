@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
 import { UserData } from 'src/app/providers/user-data';
 
@@ -11,8 +11,9 @@ import { UserData } from 'src/app/providers/user-data';
 })
 export class DatetimeComponent  implements OnInit {
   datetimeForm!:FormGroup;
-
-   constructor( private booking:BookingService,private bk:FormBuilder,private user:UserData,private route: ActivatedRoute) {
+  ProductDetails:any;
+  taskId:any;
+   constructor( private booking:BookingService,private bk:FormBuilder,private user:UserData,private route: ActivatedRoute,private router:Router) {
     this.datetimeForm=this.bk.group({
       BookingStartDate:'',
       BookingEndDate:''
@@ -23,11 +24,16 @@ export class DatetimeComponent  implements OnInit {
   ngOnInit(): void {
     
   }
+  gotobooking(){
+    this.user.setpId(this.ProductDetails.ProductID)
+    this.router.navigateByUrl('/duration/{{ProductDetails.ProductID}}')
+  }
   book(){
     const data = this.datetimeForm.value;
     delete data['confirm'];
-    this.booking.book(data).subscribe((res:any)=>{
-      
+    this.booking.book(this.taskId).subscribe((res:any)=>{
+      console.log(res)
+      this.ProductDetails=res;
     })
     console.log(this.datetimeForm.value)
     

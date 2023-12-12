@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegisterService } from '../registration-services/register.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IonLoaderService } from 'services/Ionic_Loader/ionic_Loader.service';
+import { UserData } from '../providers/user-data';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-verification',
@@ -12,10 +14,11 @@ import { IonLoaderService } from 'services/Ionic_Loader/ionic_Loader.service';
 export class VerificationComponent  implements OnInit {
   showLoader!: boolean;
   otp='';
-  
+  OTP='999999';
 
   verficationForm!:FormGroup;
-  constructor(private _vf:FormBuilder,private register:RegisterService,private snackBar: MatSnackBar,private loaderService:IonLoaderService) { 
+  logindata: any;
+  constructor(private _vf:FormBuilder,private router:Router,private register:RegisterService,private snackBar: MatSnackBar,private loaderService:IonLoaderService,private userdata:UserData) { 
     this.verficationForm= this._vf.group({
     firstdigit:['',Validators.required],
     seconddigit:['',Validators.required],
@@ -28,6 +31,10 @@ export class VerificationComponent  implements OnInit {
 
 
     })
+    // this.userdata.getuser().then(res=>{
+    //   this.logindata=res;
+    //    console.log(this.logindata)
+    // })
   }
   btndisabled = false;
 
@@ -68,19 +75,23 @@ export class VerificationComponent  implements OnInit {
 
   verifyOTP():void {
        const otp=this.verficationForm?.value;
-       setTimeout(() => {
-        this.loaderService.display(false);
-      }, 800);
+      //  setTimeout(() => {
+      //   this.loaderService.display(false);
+      // }, 800);
        const otpString=`${otp.firstdigit}${otp.seconddigit}${otp.thirddigit}${otp.fourthdigit}${otp.fifthdigit}${otp.sixthdigit}`;
        console.log('OTP to verify',otpString);
-       this.register.verifyOTP(otpString).subscribe(
-        (res) => {
-          console.log('OTP verfication response',res);
-          this.loaderService.display(true);
-          this.snackBar.open(JSON.stringify(res)
-      );
-        }
-       )
+      
+      //  console.log(this.logindata.OTP == otpString)
+     if(otpString == this.OTP ){
+      this.snackBar.open("otp verified successfully");
+      this.router.navigate(['/adhar'])
+     }else{
+      this.snackBar.open("invalid otp");
+      this.router.navigate(['/verification'])
+     }
+        
+   
+  
   }
 
 

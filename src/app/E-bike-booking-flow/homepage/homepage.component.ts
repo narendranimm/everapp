@@ -7,7 +7,7 @@ import { IonContent, PopoverController } from '@ionic/angular';
 
 import { PopoverComponent } from 'src/app/popover/popover.component';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationStart, Router } from '@angular/router';
 import { ProductServicesService } from 'services/product-services/product-services.service';
 import { environment } from 'src/environments/environment';
 import { UserData } from 'src/app/providers/user-data';
@@ -21,8 +21,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./homepage.component.scss'],
 })
 export class HomepageComponent implements OnInit {
-  lat: any = '';  
-  lng: any = '';  
+  
+  // lat: any = '';  
+  // lng: any = '';  
   location: any = {}
   keys: string[] = [];
   bikeHubID: any =3502;
@@ -39,10 +40,19 @@ export class HomepageComponent implements OnInit {
       map(result => result.matches),
       shareReplay()
     );
-  constructor(public popoverController: PopoverController, private _bh: BookingService, private route: ActivatedRoute, 
+  constructor(public popoverController: PopoverController, private _bh: BookingService, private route: ActivatedRoute, private router:Router,
     private _pd: ProductServicesService,private userdata:UserData
   ) {
-  
+    if( this.router.navigate(['/selfie'])=== this.router.navigate(['/homepage'])){
+
+      const currentRoute = this.router.routerState;
+    
+      this.router.navigateByUrl(currentRoute.snapshot.url, { skipLocationChange: true });
+      // this try to go to currentRoute.url but don't change the location.
+    
+    }else{
+      // do nothing;
+    }
         this.userdata.getuser().then(res=>{
           this.logindata=res;
             this.username=res.FirstName +' ' +res.LastName;
@@ -51,8 +61,8 @@ export class HomepageComponent implements OnInit {
   }
 
   ngOnInit() {
-
-   this.printCurrentPosition()
+    this.router.navigate(['sign-in'])
+  //  this.printCurrentPosition()
     // this.getbatteryhubs()
    this.getbikehubs()
     // this.slides=[
@@ -83,7 +93,6 @@ data=[];
   }
 
   public sidebar: boolean = true;
-
   getbikehubs() {
     this._bh.getbikehubs(this.bikeHubID).subscribe((res:any) => {
       console.log('tests',res)
@@ -98,16 +107,14 @@ data=[];
 
 // })
 //   }
-printCurrentPosition() {
-  var coordinates = Geolocation.getCurrentPosition().then((resp) => { 
-  this.lat = resp.coords.latitude;  
-    this.lng = resp.coords.longitude;  
-  })
-  console.log('Current position:', coordinates);
+// printCurrentPosition() {
+//   var coordinates = Geolocation.getCurrentPosition().then((resp) => { 
+//   this.lat = resp.coords.latitude;  
+//     this.lng = resp.coords.longitude;  
+//   })
+//   console.log('Current position:', coordinates);
   
-};
- createHeader(contentType: string): any {
-  return { headers: new HttpHeaders({ 'Content-Type': contentType }), responseType: 'text' };
-}
+// };
+
 
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import {MatBottomSheet, MatBottomSheetModule} from '@angular/material/bottom-sheet';
-import { ActivatedRoute } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
 import { BottomsheetComponent } from 'src/app/bottomsheet/bottomsheet.component';
 import { UserData } from 'src/app/providers/user-data';
@@ -15,7 +16,7 @@ export class DurationComponent  implements OnInit {
   productId:any;
   productDetails:any
   bookingForm!:FormGroup;  
-  constructor( private booking:BookingService,private bk:FormBuilder,private route: ActivatedRoute,private user:UserData) {
+  constructor(private snackBar: MatSnackBar, private router:Router,private booking:BookingService,private bk:FormBuilder,private route: ActivatedRoute,private user:UserData) {
     this.bookingForm=this.bk.group({
       "OrderID": 123,
       "ProductID": 456,
@@ -58,24 +59,28 @@ export class DurationComponent  implements OnInit {
     delete data['confirm'];
     this.booking.book(data).subscribe((res:any)=>{
       this.productDetails=res
+      this.snackBar.open(JSON.stringify(res.message)
+      );
     })
     console.log(this.bookingForm.value)
     
-        
+    this.router.navigate(['/booking-summary'])
         
       }
-      getbook(){
-        const data = this.bookingForm.value;
-        delete data['confirm'];
-        this.booking.getbook(data).subscribe((res:any)=>{
-          this.productDetails=res
-          console.log(res)
-        })
-        console.log(this.bookingForm.value)
+      // getbook(){
+      //   const data = this.bookingForm.value;
+      //   delete data['confirm'];
+      //   this.booking.getbook(data).subscribe((res:any)=>{
+      //     this.productDetails=res
+      //     console.log(res)
+      //     this.snackBar.open(JSON.stringify(res.message)
+      //     );
+      //   })
+        // console.log(this.bookingForm.value)
         
+      
             
-            
-          }
+        //   }
   // constructor(private _bottomSheet: MatBottomSheet) {}
 
   // openBottomSheet(): void {

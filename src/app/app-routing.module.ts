@@ -103,6 +103,7 @@ const routes: Routes = [
 {path:'enableloaction',component:EnablelocationComponent},
 {path:'hub-details/:ID',component:HubdetailsComponent},
 {path:'homepage',component:HomepageComponent},
+
 {path:'bikelist/:ID',component:BikelistComponent},
 {path:'bikedetails/:ID',component:BikedetailsComponent},
 {path:'duration/:ID',component:DurationComponent},

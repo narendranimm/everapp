@@ -53,8 +53,7 @@ export class RegisterComponent implements OnInit {
       userId: 0,
       Gender: 1000
     })
-    // const taskId = route.snapshot.params["ID"];
-    // console.log("this is taskId value = "+ taskId);
+ 
   }
 
   openDialog() {
@@ -105,7 +104,11 @@ export class RegisterComponent implements OnInit {
     this.content.scrollToTop(500);
   }
   register() {
-    const data = this.registerForm.value
+    const data = this.registerForm.value;
+    if(!this.registerForm.valid) {
+      this.registerForm.markAllAsTouched();
+      this.snackBar.open(" All fields are required ");
+    }
   //   setTimeout(() => {
   //   this.loaderService.display(false);
   // }, 800);
@@ -113,8 +116,7 @@ export class RegisterComponent implements OnInit {
       console.log(res)
       this.data = res;
       // this.loaderService.display(true);
-      const config = new MatSnackBarConfig();
-      config.panelClass = ['background-red'];
+    
       this.snackBar.open(JSON.stringify(res.message)
       );
       this.router.navigate(['/login'])

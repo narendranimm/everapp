@@ -22,7 +22,7 @@
 
           <input placeholder="First name" formControlName="FirstName" style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: white; border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
           <div *ngIf="registerForm.get('FirstName')?.invalid && registerForm.get('FirstName')?.touched" class="error">
-            <div  *ngIf="registerForm.get('FirstName')?.hasError('required')">FirstName is required.</div>
+            <div  *ngIf="registerForm.get('FirstName')?.hasError('required')">First name is required.</div>
           
           </div>
       </div>
@@ -30,7 +30,7 @@
           <div class="name-l" >Last name</div>
           <input placeholder="Surname" type="text" required formControlName="LastName" style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: white; border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
           <div *ngIf="registerForm.get('LastName')?.invalid && registerForm.get('LastName')?.touched" class="error">
-            <div  *ngIf="registerForm.get('LastName')?.hasError('required')">LastName is required.</div>
+            <div  *ngIf="registerForm.get('LastName')?.hasError('required')">Last name is required.</div>
         
           </div>
       </div>
@@ -86,8 +86,7 @@
               <div style="color: #363636; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">
                 <ion-select class="" aria-readonly="true"  aria-label="" value="+91" formControlName="country" >
                   <ion-select-option value="+91">+91</ion-select-option>
-                  <ion-select-option value="+1">+1</ion-select-option>
-                  <ion-select-option value="+7">+7</ion-select-option>
+               
                 </ion-select>
               </div>
           </div>
@@ -98,15 +97,15 @@
 
   </div>
   <div *ngIf="registerForm.get('MobileNo')?.invalid && registerForm.get('MobileNo')?.touched" class="error">
-    <div  *ngIf="registerForm.get('MobileNo')?.hasError('required')">Mobile Number required</div>
-    <div  *ngIf="registerForm.get('MobileNo')?.hasError('minlength')">Mobile Number required 10 numbers</div>
+    <div  *ngIf="registerForm.get('MobileNo')?.hasError('required')">Mobile no required</div>
+    <div  *ngIf="registerForm.get('MobileNo')?.hasError('minlength')">Mobile no required 10 numbers</div>
   </div>
   <div style="align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
       <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
           <div class="dob">Date of birth</div>
           <input type="date" required formControlName="DateofBirth" placeholder="dd/mm/yyyy" style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: white; border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: space-between; align-items: center; display: inline-flex">
           <div *ngIf="registerForm.get('DateofBirth')?.invalid && registerForm.get('DateofBirth')?.touched" class="error">
-            <div  *ngIf="registerForm.get('DateofBirth')?.hasError('required')">DateofBirth required</div>
+            <div  *ngIf="registerForm.get('DateofBirth')?.hasError('required')">Date of birth required</div>
             <div *ngIf="registerForm.get('DateofBirth')?.hasError('DateofBirth')">invalid DateofBirth</div> 
           </div>
    
@@ -117,17 +116,20 @@
       </div>
       <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
           <div class="gender">Gender</div>
-          <select formControlName="Gender" placeholder="select" value="select" place style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: white; border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: space-between; align-items: center; display: inline-flex">
-          
+          <select formControlName="Gender" placeholder="select" value="select" style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: white; border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: space-between; align-items: center; display: inline-flex">
+             
               <option value="1000">Male</option>
               <option value="1001">Female</option>
               <option value="0">Prefer not say</option>
             </select>
-           
+            <div *ngIf="registerForm.get('Gender')?.invalid && registerForm.get('Gender')?.touched" class="error">
+              <div  *ngIf="registerForm.get('Gender')?.hasError('required')">Gender required</div>
+       
+            </div>
 
       </div>
   </div>
-<button class="register-btn"  type="submit"  (click)="register()" [disabled]="!registerForm.valid">Register</button>
+<button class="register-btn"  type="submit"  (click)="register()" >Register</button>
  
 <!-- <mat-form-field style="display:none">
 
