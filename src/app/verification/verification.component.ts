@@ -14,7 +14,6 @@ import { Router } from '@angular/router';
 export class VerificationComponent  implements OnInit {
   showLoader!: boolean;
   otp='';
-  OTP='999999';
 
   verficationForm!:FormGroup;
   logindata: any;
@@ -27,14 +26,12 @@ export class VerificationComponent  implements OnInit {
     fifthdigit:['',Validators.required],
     sixthdigit:['',Validators.required]
 
-     
-
-
     })
-    // this.userdata.getuser().then(res=>{
-    //   this.logindata=res;
-    //    console.log(this.logindata)
-    // })
+    this.userdata.getuser().then(res=>{
+      this.logindata=res;
+       console.log(this.logindata)
+       alert(this.logindata.OTP)
+    })
   }
   btndisabled = false;
 
@@ -82,7 +79,7 @@ export class VerificationComponent  implements OnInit {
        console.log('OTP to verify',otpString);
       
       //  console.log(this.logindata.OTP == otpString)
-     if(otpString == this.OTP ){
+     if(otpString == this.logindata.OTP  ){
       this.snackBar.open("otp verified successfully");
       this.router.navigate(['/adhar'])
      }else{

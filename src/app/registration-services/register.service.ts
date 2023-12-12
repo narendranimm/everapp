@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, from } from 'rxjs';
 import { CapacitorHttp,  HttpResponse } from '@capacitor/core';
+import { environment } from 'src/environments/environment.prod';
 // import { Http } from '@capacitor-community/http';
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { CapacitorHttp,  HttpResponse } from '@capacitor/core';
 export class RegisterService {
  api_key:string=`4d7853a2-965f-11ee-8cbb-0200cd936042`;
 
-baseUrl:string=`https://172.188.80.209:8443/api/`
+baseUrl:any=environment.apiurl;
 // baseUrl:string='http://localhost:8080/api/'
   constructor(private http:HttpClient) { }
   signup(data:any):Observable<any>{

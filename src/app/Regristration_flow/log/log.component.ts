@@ -49,7 +49,6 @@ no=''
     this.loaderService.status.subscribe((val: boolean) => {
       this.showLoader = val;
     });
-    this.getuserbymobileno();
   }
 nav(){
   this.router.navigate(['/verification'])
