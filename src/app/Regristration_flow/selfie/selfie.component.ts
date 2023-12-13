@@ -25,16 +25,17 @@ export class SelfieComponent  implements OnInit {
   logindata:any;
   ProfilePhoto:any;
   fact:any;
+  imgFile:any
   constructor(private router: Router, private _rf: FormBuilder,private reg: RegisterService,private http:HttpClient,private userdata:UserData) { 
    this.imagesend=this._rf.group({
-    Token:''
+    imageSource:''
    })
    this.userdata.getuser().then(res=>{
     this.logindata=res;
     console.log(this.logindata)
   })
   }
-  imgFile:any
+
 
   ngOnInit() {}
   takePicture = async () => {
@@ -48,21 +49,17 @@ export class SelfieComponent  implements OnInit {
    this.imageSource=image.dataUrl;
 
    console.log(this.imageSource)
-  // var imgFile = new File([this.imageSource], 'MyFileName.png');
-  //  console.log(imgFile)
+  var imgFile = new File([this.imageSource], 'MyFileName.png');
+   console.log(imgFile)
 
   };
 upload(){
-  if(!this.imageSource){
+  console.log(this.imagesend.value)
+  if(!this.imagesend.valid){
   this.router.navigate(['/selfie'])
   }else{
-    this.router.navigate(['/homepage'])
+    this.router.navigate(['/enableloaction'])
   }
 }
-
-
-
-
-
 show: boolean = true;  
 }

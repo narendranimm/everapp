@@ -8,19 +8,17 @@ import{environment} from '../../environments/environment.prod'
   providedIn: 'root'
 })
 export class BookingService {
- baseurl=environment.apiurl;
+  baseurl:any=environment.apiurl;
 
   constructor(private http:HttpClient) { 
-    console.log(this.baseurl)
+ 
   }
 
-  book(data:any):Observable<any>{
-    return this.http.post(this.baseurl+'orders/orderbooking',data)
+  book(productId:any):Observable<any>{
+    return this.http.post(this.baseurl+'orders/orderbooking',productId)
   }
   
-  getbook(data:any):Observable<any>{
-    return this.http.get(this.baseurl+'orders/orderbooking',data);
-  }
+
   getbikehubs(bikeHubID:any){
     return this.http.get(this.baseurl+`hubs/get/${3503}`,bikeHubID)
   }

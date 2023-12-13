@@ -9,7 +9,7 @@ import { ProductServicesService } from 'services/product-services/product-servic
   styleUrls: ['./bikelist.component.scss'],
 })
 export class BikelistComponent  implements OnInit {
-  ProductList:any;
+  ProductList:any=[];
   taskId:any;
 
   constructor(private route: ActivatedRoute,private _pd:ProductServicesService) { 
@@ -21,17 +21,6 @@ export class BikelistComponent  implements OnInit {
 
   ngOnInit() {
     this.getList();
-  }
-  @ViewChild(IonContent) content!: IonContent;
-
-  scrollToBottom() {
-  
-    this.content.scrollToBottom(500);
-  }
-
-  scrollToTop() {
-
-    this.content.scrollToTop(500);
   }
 
   getList(){

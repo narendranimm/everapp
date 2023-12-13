@@ -109,7 +109,7 @@ const routes: Routes = [
 {path:'duration/:ID',component:DurationComponent},
 {path:'datetime/:ID',component:DatetimeComponent},
 {path:'duration-later',component:DurationLaterComponent},
-{path:'booking-summary',component:BookingsummaryComponent},
+{path:'booking-summary/:ID',component:BookingsummaryComponent},
 {path:'offer-coupan',component:OfferCouponComponent},
 {path:'booking-summary-after-coupan',component:BookingSummaryAfterCoupanComponent},
 {path:'payment-gateway',component:PaymentgatewaysComponent},

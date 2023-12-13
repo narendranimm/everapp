@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit, inject } from '@angular/core';
+import { Component, HostListener, Input, OnInit, inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -14,16 +14,16 @@ import { UserData } from 'src/app/providers/user-data';
 
 import { Geolocation, GeolocationPlugin } from '@capacitor/geolocation';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+declare var google:any
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss'],
 })
 export class HomepageComponent implements OnInit {
-  
-  // lat: any = '';  
-  // lng: any = '';  
+
+  lat: any = '';  
+  lng: any = '';  
   location: any = {}
   keys: string[] = [];
   bikeHubID: any =3502;
@@ -40,19 +40,11 @@ export class HomepageComponent implements OnInit {
       map(result => result.matches),
       shareReplay()
     );
+  marker: any;
   constructor(public popoverController: PopoverController, private _bh: BookingService, private route: ActivatedRoute, private router:Router,
     private _pd: ProductServicesService,private userdata:UserData
   ) {
-    if( this.router.navigate(['/selfie'])=== this.router.navigate(['/homepage'])){
-
-      const currentRoute = this.router.routerState;
-    
-      this.router.navigateByUrl(currentRoute.snapshot.url, { skipLocationChange: true });
-      // this try to go to currentRoute.url but don't change the location.
-    
-    }else{
-      // do nothing;
-    }
+ 
         this.userdata.getuser().then(res=>{
           this.logindata=res;
             this.username=res.FirstName +' ' +res.LastName;
@@ -62,7 +54,8 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit() {
     this.router.navigate(['sign-in'])
-  //  this.printCurrentPosition()
+   this.printCurrentPosition();
+ 
     // this.getbatteryhubs()
    this.getbikehubs()
     // this.slides=[
@@ -96,7 +89,7 @@ data=[];
   getbikehubs() {
     this._bh.getbikehubs(this.bikeHubID).subscribe((res:any) => {
       console.log('tests',res)
-      this.bikeHub = res;
+      this.bikeHub = res.slice(0,4);
     
     })
   }
@@ -107,14 +100,14 @@ data=[];
 
 // })
 //   }
-// printCurrentPosition() {
-//   var coordinates = Geolocation.getCurrentPosition().then((resp) => { 
-//   this.lat = resp.coords.latitude;  
-//     this.lng = resp.coords.longitude;  
-//   })
-//   console.log('Current position:', coordinates);
+printCurrentPosition() {
+  var coordinates = Geolocation.getCurrentPosition().then((resp) => { 
+  this.lat = resp.coords.latitude;  
+    this.lng = resp.coords.longitude;  
+  })
+  console.log('Current position:', coordinates);
   
-// };
+};
 
 
 }

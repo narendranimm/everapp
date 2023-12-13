@@ -7,6 +7,7 @@ import { SocialAuthService } from '@abacritt/angularx-social-login';
 import { IonContent, NavController } from '@ionic/angular';
 import { Geolocation, GeolocationPlugin } from '@capacitor/geolocation';
 import { LocationService } from 'src/app/location.service';
+import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
 
 @Component({
   selector: 'app-enablelocation',
@@ -17,8 +18,12 @@ export class EnablelocationComponent  implements OnInit {
   slides:any=[]
   lati: any = '';  
   longi: any = '';  
+  bikeHub:any;
 user:any;
+bikeHubID:any;
 loggedIn:any;
+azimageUrl:any='https://everdevuat.blob.core.windows.net/hubs/';
+profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
   private breakpointObserver = inject(BreakpointObserver);
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -40,12 +45,15 @@ loggedIn:any;
         {image:'./assets/battery3.png',content:'Kavuri hills EV battery station'},
       ]
     }
-  constructor(private element: ElementRef,private authService: SocialAuthService,public navCtrl: NavController,private location:LocationService,private geolocation: Geolocation ) {}
+  constructor(private _bh:BookingService,private element: ElementRef,private authService: SocialAuthService,public navCtrl: NavController,private location:LocationService,private geolocation: Geolocation ) {
+    this.getbikehubs()
+  }
 
   @HostListener("wheel", ["$event"])
   public onScroll(event: WheelEvent) {
     this.element.nativeElement.scrollLeft += event.deltaY;
   }
+
 
   @ViewChild(IonContent) content!: IonContent;
 
@@ -119,6 +127,12 @@ loggedIn:any;
       .catch((e) => window.alert("Geocoder failed due to: " + e));
   }
   
-  
+  getbikehubs() {
+    this._bh.getbikehubs(this.bikeHubID).subscribe((res:any) => {
+      console.log('tests',res)
+      this.bikeHub = res.slice(0,4);
+    
+    })
+  }
 
 }

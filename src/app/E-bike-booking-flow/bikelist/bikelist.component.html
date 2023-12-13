@@ -1,9 +1,8 @@
-<mat-sidenav-container class="sidenav-container" style="background: none;">
-    <mat-sidenav-content style="height: 100rem; background: none;">
+
 
         <div class="container">
             <div class="btn-container">
-                <button style="background: transparent;border: none;" routerLink="/hub-details"><img class="icon"
+                <button style="background: transparent;border: none;" routerLink="/hub-details/{{taskId}}"><img class="icon"
                         src="./assets/zondicons_arrow-left.svg" alt=""></button>
             </div>
             <div class="hub-list-container">
@@ -13,7 +12,7 @@
 
 
 
-        <ion-content class="scroll">
+        
             <form class="example-form">
                 <div class="search-conatiner">
                     <input matInput placeholder="Search by vehicle model or performance" class="search">
@@ -25,8 +24,9 @@
                     <div class="inner-parent">
                         <div class="inner-child">
                             <img class="bike-img"
-                                src="https://s3-alpha-sig.figma.com/img/a91a/1d17/0c438f240f0f2e36738aaa4b750d1b0e?Expires=1700438400&Signature=d7eO1sLUQyoz2hM4eCXvl~YHlsY4njO1qVi9J-KYdphV2WqgWgjIAlkjUibiTGtkVnQcxQ6lK0mCXTsmAn7YOi~~jwMOFQqzOWzf9UbRRsryOeIMga-fvLHQbgjRK-AS8Rk4QuYo1JdmjrvTZ2R66oO5eroM4IsfW0OP1PkITfqNntURNoI6nd54RGU-bCJ1ax~~p9hBeKW8Qziw~WgKSVudUXm5AGc9ylo-FfkSk-G6JUd5C62c-YKLrKWjMtpCAoks4QfMH6sAY6H~jHzJef3~nu5iSpzxk~lCnpUsk0PAxAej5bhzT0P2itlv9eGJWgJrVN83zvzkmbqW6GM2kQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                                src="{{p.ImageID}}"
                                 alt="">
+                               
                         </div>
                         <div class="inner-child">
                             <p class="bike-details1">{{p.ProductName}}</p>
@@ -65,6 +65,5 @@
                 </div>
                
             </div>
-        </ion-content>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+       
+ 

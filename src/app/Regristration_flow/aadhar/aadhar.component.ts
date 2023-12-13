@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder ,FormGroup, Validators} from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { IonContent } from '@ionic/angular';
@@ -14,41 +14,24 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./aadhar.component.scss'],
 })
 export class AadharComponent  implements OnInit {
-  showLoader!: boolean;
+  personalForm!:FormGroup;
   constructor(private router: Router,private _pf:FormBuilder,private http:HttpClient,private rs:RegisterService,private snackBar: MatSnackBar,private loaderService:IonLoaderService ) {
     this.personalForm=this._pf.group({
-      adharno:'',
-      adharfile:'',
-      licenseno:'',
-      licensefile:'',
-      panno:'',
-      panfile:''  
+      adharno:['',Validators.required],
+      adharfile:['',Validators.required],
+      licenseno:['',Validators.required],
+      licensefile:['',Validators.required],
+      panno:['',Validators.required],
+      panfile:['',Validators.required]  
 
     })
    }
-   personalForm:any;
-   onSubmit(){
-    if(this.personalForm.valid){
-   console.log(this.personalForm.value)
-    }
-  }
+  
+
   ngOnInit() {
-    this.loaderService.status.subscribe((val: boolean) => {
-      this.showLoader = val;
-    });
+   
   }
-  @ViewChild(IonContent) content!: IonContent;
-
-  scrollToBottom() {
-    // Passing a duration to the method makes it so the scroll slowly
-    // goes to the bottom instead of instantly
-    this.content.scrollToBottom(500);
-  }
-
-  scrollToTop() {
  
-    this.content.scrollToTop(500);
-  }
 
 
 
@@ -91,32 +74,33 @@ formdata.append("filetype", "voter");
 // setTimeout(() => {
 //   this.loaderService.display(false);
 // }, 800);
-if(!this.personalForm.valid) {
-  this.personalForm.markAllAsTouched();
 
-}else{
-  this.snackBar.open("All files need to upload");
-}
 
 this.rs.uploadFile(file, '1000', fileName).subscribe(
  (response) => {
   console.log('File uploaded successfully:', response);
   // this.loaderService.display(true);
   this.snackBar.open(JSON.stringify(response));
-  this.router.navigate(['/selfie'])
+ 
+
   this.snackBar.open("upload succesfully");
 
-}
 
-)
-  // .then(response => response.text())
-  // .then(result => console.log(result))
-  // .catch(error => console.log('error', error));
+
+
+})
   }
-  upload(){
-   
-      this.router.navigate(['/selfie'])
-      this.snackBar.open("upload succesfully");
+    myupload(){
+      if(!this.personalForm.valid) {
+    
+        console.log(this.personalForm.value)
+        this.snackBar.open(" All fields are required ");
+        this.router.navigate(['/adhar'])
+     
+      }else{
+        this.snackBar.open(" uploaded successfully");
+        this.router.navigate(['/selfie'])
+      }
     }
 
 }

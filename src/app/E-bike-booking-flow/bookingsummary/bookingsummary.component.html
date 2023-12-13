@@ -4,7 +4,7 @@
       <div style="width: 24px; height: 24px; position: relative">
         <div class="container">
             <div class="btn-container">
-              <button style="background: transparent;border: none;" routerLink="/datetime/:ID"><img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
+              <button style="background: transparent;border: none;" routerLink="/datetime/{{productId}}"><img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
               </div>
             
             </div>
@@ -25,13 +25,13 @@
               </div>
               <div style="align-self: stretch; height: 69px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
                   <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
-                      <div><span class="bike-model">Bike model </span><span class="models">: Model 1</span></div>
+                      <div><span class="bike-model">Bike model </span><span class="models">{{ProductDetails.ProductName}}</span></div>
                   </div>
                   <div style="align-self: stretch;; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
-                      <div><span class="bike-model">Bike type </span><span class="models">: Type 1</span></div>
+                      <div><span class="bike-model">Bike type </span><span class="models">: {{ProductDetails.Brand}}</span></div>
                   </div>
                   <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
-                      <div><span class="bike-model">Battery</span><span class="models"> : 11,000 watts</span></div>
+                      <div><span class="bike-model">Battery</span><span class="models"> : {{ProductDetails.Size}}</span></div>
                   </div>
               </div>
           </div>
@@ -44,12 +44,12 @@
                   </div>
                   <div class="details">Duration</div>
               </div>
-              <div style="align-self: stretch; height: 69px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
+              <div style="align-self: stretch; height: 69px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex" *ngFor="let p of bikeHub">
                   <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
-                      <div><span class="bike-model">Start from </span><span class="models">: 22nd Sep | 11.00 am</span></div>
+                      <div><span class="bike-model">Start from </span><span class="models">: {{p.OpenTime | date: 'dd/MM/yyyy hh:mm a'}} </span></div>
                   </div>
                   <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
-                      <div><span class="bike-model">End on </span><span class="models">: 29th Sep | 10.59 am</span></div>
+                      <div><span class="bike-model">End on </span><span class="models">: {{p.CloseTime | date: 'dd/MM/yyyy hh:mm a'}} </span></div>
                   </div>
                   <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
                       <div><span class="bike-model">Booked for </span><span class="models">: 7 days</span></div>
@@ -65,9 +65,9 @@
                   </div>
                   <div class="details">Location</div>
               </div>
-              <div style="align-self: stretch; height: 15px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 20px; display: flex">
+              <div style="align-self: stretch; height: 15px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 20px; display: flex" *ngFor="let p of bikeHub">
                   <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
-                      <div><span class="bike-model">Hub centre</span><span class="models"> : Megha hills EV hub</span></div>
+                      <div><span class="bike-model">Hub centre</span><span class="models"> : {{p.BranchName | lowercase}}</span></div>
                   </div>
               </div>
           </div>
@@ -80,7 +80,7 @@
       </button>
   </div>
   <button routerLink="/offer-coupan" style="width: 328px; height: 48px; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: center; align-items: center; display: inline-flex">
-      <div class="pay">Pay now ₹12,200</div>
+      <div class="pay">Pay now {{ProductDetails.TotalAmount}}</div>
   </button>
   <div style="width: 328px; height: 48px; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; border-radius: 24px; overflow: hidden; border: 1px #3355B9 solid; justify-content: center; align-items: center; display: inline-flex">
       <div class="pay1">Pay now ₹199 & rest at the pickup</div>

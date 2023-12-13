@@ -30,6 +30,9 @@ setMain(key:any,data:any) {
   setmId(mobileno:any) {   
     return this._storage.set('mId',mobileno);
   }
+  setbId(mobileno:any) {   
+    return this._storage.set('bId',mobileno);
+  }
   getuser(){
    return this._storage.get("loginuser")
   }
@@ -43,6 +46,11 @@ setMain(key:any,data:any) {
   public  getId(Id:any){
     return this._storage.get(Id)     
 }
+public  getbId(Id:any){
+  return this._storage.get(Id)     
+}
+
+
 
 //   logout() {
 //     this.storage.remove(this.HAS_LOGGED_IN);

@@ -102,7 +102,7 @@ verifyotp(){
 //       this.snackBar.open("mobile no incorrect");
 //     }
   
-//     // })
+//     })
 //   }
 getuserbymobileno(){
   this.reg.getbymobileno(this.otpForm.value.mobileno).subscribe(

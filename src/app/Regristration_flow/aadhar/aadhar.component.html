@@ -8,94 +8,31 @@
   <form action="" [formGroup]="personalForm">
     <ion-label class="f-name">Aadhar no.</ion-label>
     <ion-input placeholder="0000 0000 0000" class="otp" formControlName="adharno"></ion-input>
-    <div *ngIf="personalForm.get('adharno')?.invalid && personalForm.get('adharno')?.touched" class="error">
-      <div  *ngIf="personalForm.get('adharno')?.hasError('required')">Aadhar no. required</div>
-      <div *ngIf="personalForm.get('adharno')?.hasError('adharno')">invalid adharno</div> 
-    </div>
+   
     <div class="button-wrap">
       <label class="button" for="adhar">Upload File</label>
       <input id="adhar" type="file" (change)="onFileSelected($event,'adhar')" formControlName="adharfile" >
-      <div *ngIf="personalForm.get('adharfile')?.invalid && personalForm.get('adharfile')?.touched" class="error">
-        <div  *ngIf="personalForm.get('adharfile')?.hasError('required')">Aadhar file required</div>
-        <div *ngIf="personalForm.get('adharfile')?.hasError('adharfile')">invalid adharno</div> 
-      </div>
+     
     </div>
     <ion-label class="f-name">Driving license no.</ion-label>
     <ion-input placeholder="0000 0000 0000" class="otp" formControlName="licenseno"></ion-input>
-    <div *ngIf="personalForm.get('licenseno')?.invalid && personalForm.get('licenseno')?.touched" class="error">
-      <div  *ngIf="personalForm.get('licenseno')?.hasError('required')">Driving license no. required</div>
-      <div *ngIf="personalForm.get('licenseno')?.hasError('licenseno')">invalid adharno</div> 
-    </div>
+   
     <div class="button-wrap">
       <label class="button" for="license">Upload Files</label>
       <input id="license" type="file" (change)="onFileSelected($event,'licence')" formControlName="licensefile" >
-      <div *ngIf="personalForm.get('licensefile')?.invalid && personalForm.get('licensefile')?.touched" class="error">
-        <div  *ngIf="personalForm.get('licensefile')?.hasError('required')">licensefile required</div>
-        <div *ngIf="personalForm.get('licensefile')?.hasError('licensefile')">invalid adharno</div> 
-      </div>
+  
     </div>
       
     <ion-label class="f-name">Pan/ passport no..</ion-label>
     <ion-input placeholder="0000 0000 0000" class="otp" formControlName="panno"></ion-input>
-    <div *ngIf="personalForm.get('panno')?.invalid && personalForm.get('panno')?.touched" class="error">
-      <div  *ngIf="personalForm.get('panno')?.hasError('panno')">pan no. required</div>
-      <div *ngIf="personalForm.get('panno')?.hasError('panno')">invalid adharno</div> 
-    </div>
+   
       <div class="button-wrap">
         <label class="button" for="pan">Upload File</label>
       <input id="pan" type="file" (change)="onFileSelected($event,'adhar')" formControlName="panfile" >
-      <div *ngIf="personalForm.get('panfile')?.invalid && personalForm.get('panfile')?.touched" class="error">
-        <div  *ngIf="personalForm.get('panfile')?.hasError('panfile')">panfile required</div>
-        <div *ngIf="personalForm.get('panfile')?.hasError('panfile')">invalid adharno</div> 
-      </div>
+    
     </div>
 
     <div class="continue-btn-container">
-      <button  class="continue" (click)="uploadtoBackend(file,fileName)"  id="open-modal" expand="block">Continue</button>
+      <button  class="continue" (click)="myupload()"  >Continue</button>
     </div>
     </form>
-    <!-- <ion-modal #modal trigger="open-modal">
-  <ng-template>
-    <ion-content>
-      
-      <div style="width: 100%; height: 100%; padding-left: 24px; padding-right: 24px; padding-top: 36px; padding-bottom: 36px; background: white; box-shadow: 0px 1px 4px rgba(86.88, 128.89, 236.94, 0.25); border-radius: 16px; flex-direction: column; justify-content: center; align-items: center; gap: 12px; display: inline-flex">
-        <div style="padding-top: 25px; padding-bottom: 23px; padding-left: 20px; padding-right: 18px; background: #6EDF72; border-radius: 120px; justify-content: center; align-items: center; display: inline-flex">
-            <div style="width: 36px; height: 26px; position: relative; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
-                <div style="width: 18.04px; height: 0px; transform: rotate(45deg); transform-origin: 0 0; border: 5px white solid"></div>
-                <div style="width: 32.71px; height: 0px; transform: rotate(-45deg); transform-origin: 0 0; border: 5px white solid"></div>
-            </div>
-        </div>
-        <div style="color: #3F3F3F; font-size: 18px; font-family: Archivo; font-weight: 700; word-wrap: break-word" routerLink="/selfie">Congratulation!</div>
-        <div style="width: 232px; text-align: center; color: #717171; font-size: 16px; font-family: Archivo; font-weight: 400; word-wrap: break-word">Verification is successful.</div>
-    </div>
-       
-    </ion-content>
-  </ng-template>
-</ion-modal> -->
-<!-- <ion-modal #modal trigger="open-modal">
-  <ng-template>
-    <ion-content>
-<div style="width: 100%; height: 100%; padding-left: 24px; padding-right: 24px; padding-top: 36px; padding-bottom: 36px; background: white; box-shadow: 0px 1px 4px rgba(86.88, 128.89, 236.94, 0.25); border-radius: 16px; flex-direction: column; justify-content: center; align-items: center; gap: 12px; display: inline-flex">
-  <div style="padding-top: 25px; padding-bottom: 23px; padding-left: 20px; padding-right: 18px; background: #6EDF72; border-radius: 120px; justify-content: center; align-items: center; display: inline-flex">
-  <div style="width: 36px; height: 26px; position: relative; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
-  <div style="width: 18.04px; height: 0px; transform: rotate(45deg); transform-origin: 0 0; border: 5px white solid"></div>
-  <div style="width: 32.71px; height: 0px; transform: rotate(-45deg); transform-origin: 0 0; border: 5px white solid"></div>
-  </div>
-  </div>
-  <div style="color: #3F3F3F; font-size: 18px; font-family: Archivo; font-weight: 700; word-wrap: break-word" routerLink="/selfie" (click)="modal.dismiss()">Documents uploaded</div>
-  <div style="width: 232px; text-align: center; color: #717171; font-size: 16px; font-family: Archivo; font-weight: 400; word-wrap: break-word">You have successfully uploaded all the documents.</div>
-  </div>
-</ion-content>
-</ng-template>
-</ion-modal> -->
-
-<div *ngIf="showLoader">
-  
-  <div class="showbox">
-    <div class="loader">
-      <svg class="circular" viewBox="25 25 50 50">
-        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/>
-      </svg>
-    </div>
-  </div>
-  </div>

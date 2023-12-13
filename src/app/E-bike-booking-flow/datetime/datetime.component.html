@@ -4,7 +4,7 @@
       <div style="width: 24px; height: 24px; position: relative">
         <div class="container">
             <div class="btn-container">
-              <button style="background: transparent;border: none;" routerLink="/duration"><img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
+              <button style="background: transparent;border: none;" routerLink="/duration/1000"><img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
               </div>
             
             </div>
@@ -21,10 +21,11 @@
         <input type="datetime-local" id="appt" class="time" placeholder="Select time" formControlName="BookingStartDate">
           <input type="datetime-local" id="appt" class="time" placeholder="Select time" formControlName="BookingEndDate">
       </div>
-  </div>
-  <button routerLink="/booking-summary" (click)="book()" style="width: 328px; height: 42px; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: center; align-items: center; display: inline-flex">
+  </div><br>
+  <div style="display: flex;align-items: center;justify-content: center;">
+  <button  (click)="book()"  style="width: 328px; height: 42px; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: center; align-items: center; display: inline-flex">
       <div class="start-time">Set starting time</div>
   </button>
-
+</div>
 </form>
 </div>
