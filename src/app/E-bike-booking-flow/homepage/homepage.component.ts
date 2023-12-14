@@ -33,7 +33,9 @@ export class HomepageComponent implements OnInit {
   bikeHubID: any =3502;
   slides: any = [];
   slider: any = []
-  bikeHub:any
+  bikeHub:any;
+
+
   azimageUrl:any=environment.azimageUrl_hub;
   profileUrl:any=environment.azimageUrl_pic;
   username='';

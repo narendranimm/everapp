@@ -15,8 +15,7 @@ bikeHubID:any;
 bikeHub:any;
   constructor(private route: ActivatedRoute,private _pd:ProductServicesService,private _bh:BookingService) {
     this.taskId = route.snapshot.params["ID"];
-    console.log("this is taskId value = "+ this.taskId);
-   
+    console.log("this is taskId value = "+ this.taskId);   
  }
 
   ngOnInit() {
