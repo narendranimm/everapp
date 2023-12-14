@@ -2,6 +2,6 @@ export class PostResult
 
     {
         ID! :Number;
-        status! : Boolean;
+        status! : string;
         message!: String
     }

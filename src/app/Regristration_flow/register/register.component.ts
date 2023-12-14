@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
       {}
       // console.log(res)
       )
-    this.registerForm = this._rf.group({
+    this.regForm = this._rf.group({
       FirstName: ['', Validators.compose([Validators.required,])],
       LastName: ['', Validators.compose([Validators.required])],
       EmailID: ['', Validators.compose([Validators.required])],
@@ -50,6 +50,7 @@ export class RegisterComponent implements OnInit {
       Token: 'null',
       ParentID: '1000',
       IsRegisteredByMobile: 'true',
+      ProfilePhoto:"test.png",
       userId: 0,
       Gender: 1000
     })
@@ -65,7 +66,7 @@ export class RegisterComponent implements OnInit {
 
     });
   }
-  registerForm!: FormGroup;
+  regForm!: FormGroup;
   data:any
   user: any;
   loggedIn: any;
@@ -88,8 +89,8 @@ export class RegisterComponent implements OnInit {
     this.isModalOpen = isOpen;
   }
   // onSubmit(){
-  //   if(this.registerForm.valid){
-  //  console.log(this.registerForm.value)
+  //   if(this.regForm.valid){
+  //  console.log(this.regForm.value)
   //   }
   // }
   @ViewChild(IonContent) content!: IonContent;
@@ -104,22 +105,30 @@ export class RegisterComponent implements OnInit {
     this.content.scrollToTop(500);
   }
   register() {
-    const data = this.registerForm.value;
-    if(!this.registerForm.valid) {
-      this.registerForm.markAllAsTouched();
+    this.regForm.value.ProfilePhoto.s
+    const picname = this.regForm.get('FirstName')!.value +'_'+ this.regForm.get('LastName')!.value;
+    this.regForm.controls.ProfilePhoto.setValue(picname);
+    const data = this.regForm.value;
+    if(!this.regForm.valid) {
+      this.regForm.markAllAsTouched();
       this.snackBar.open(" All fields are required ");
     }
   //   setTimeout(() => {
   //   this.loaderService.display(false);
   // }, 800);
-    this.reg.signup(data).subscribe((res: PostResult) => {
-      console.log(res)
-      this.data = res;
-      // this.loaderService.display(true);
-    
-      this.snackBar.open(JSON.stringify(res.message)
-      );
-      this.router.navigate(['/login'])
+    this.reg.signup(data).subscribe(
+      (res: PostResult) => {
+        if(res.status == 'true'){
+          console.log(res)
+          this.data = res;
+          // this.loaderService.display(true);
+          this.snackBar.open(res.message.toString());
+          this.router.navigate(['/login'])
+        }else{
+          this.snackBar.open(JSON.stringify(res.message));
+
+          
+        }
      
     })
     
@@ -129,7 +138,7 @@ export class RegisterComponent implements OnInit {
 
  
   // getregister() {
-  //   const data = this.registerForm.value
+  //   const data = this.regForm.value
     
   //   this.reg.getsignup(data).subscribe((res: any) => {
   //     this.data = res;
@@ -142,13 +151,13 @@ export class RegisterComponent implements OnInit {
 
   submit() {
 
-    if (this.registerForm.valid) {
+    if (this.regForm.valid) {
       // this.showLoader();
 
     
     }
     else {
-      this.registerForm.markAllAsTouched();
+      this.regForm.markAllAsTouched();
     }
   }
 

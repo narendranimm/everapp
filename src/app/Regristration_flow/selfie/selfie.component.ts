@@ -27,7 +27,7 @@ export class SelfieComponent implements OnInit {
   fact: any;
   imgFile: any;
   blob: any;
-  show:boolean=true;
+  show: boolean = true;
   constructor(private router: Router, private _rf: FormBuilder, private reg: RegisterService, private http: HttpClient, private userdata: UserData) {
     this.imagesend = this._rf.group({
       imageSource: ''
@@ -38,9 +38,13 @@ export class SelfieComponent implements OnInit {
   }
 
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.userdata.getuser().then(res=>{
+      console.log(res);
+        this.ProfilePhoto=res.ProfilePhoto;
+    })
+   }
   takePicture = async () => {
-    debugger
     const image = await Camera.getPhoto({
       quality: 90,
       allowEditing: true,
@@ -49,32 +53,36 @@ export class SelfieComponent implements OnInit {
     });
 
     this.imageSource = image.dataUrl;
-    if (/^data:image\/[a-zA-Z]+;base64,/.test(this.imageSource)) {
-      const base64Content = this.imageSource.split(';base64,').pop();
-
-      // Create a Blob from the Base64 Image
-      this.blob = new Blob([atob(base64Content)], { type: 'image/png' });
-      console.log(this.blob)
-      this.upload();
-    }
-
-
-
+    const base64Content = this.imageSource.split(';base64,').pop();
+    const imageName = this.ProfilePhoto;
+    const imageBlob = this.dataURItoBlob(base64Content);
+    const imageFile = new File([imageBlob], imageName, { type: 'image/png' });
+    console.log(imageFile)
+    this.upload(imageFile);
   };
-  upload() {
-    this.reg.uploadFile(this.blob, '1000', 'profilepic').subscribe(res => {
-      if (res) {
-
-        this.router.navigate(['/selfie'])
+  upload(file: any) {
+    this.reg.uploadFile(file, '1000', 'profilepic').subscribe(res => {
+      console.log(res)
+      if (res.status == 'true') {
+        // this.router.navigate(['/selfie'])
+        this.router.navigate(['/homepage'])
       }
       else {
         this.router.navigate(['/enableloaction'])
       }
     })
-
   }
-  gotonext(){
+  dataURItoBlob(dataURI: any) {
+    const byteString = window.atob(dataURI);
+    const arrayBuffer = new ArrayBuffer(byteString.length);
+    const int8Array = new Uint8Array(arrayBuffer);
+    for (let i = 0; i < byteString.length; i++) {
+      int8Array[i] = byteString.charCodeAt(i);
+    }
+    const blob = new Blob([int8Array], { type: 'image/png' });
+    return blob;
+  }
+  gotonext() {
     this.router.navigate(['/homepage'])
-    
   }
 }

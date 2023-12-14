@@ -61,7 +61,7 @@ export class DatetimeComponent  implements OnInit {
     this.booking.book(this.taskId).subscribe((res:any)=>{
       console.log(res)
       this.ProductDetails=res;
-      this.router.navigate(['/duration/1000'])
+      this.router.navigate(['/duration'])
     
     })
     console.log(this.datetimeForm.value)

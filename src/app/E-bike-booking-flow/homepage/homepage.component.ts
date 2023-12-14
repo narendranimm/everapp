@@ -52,6 +52,7 @@ export class HomepageComponent implements OnInit {
   ) {
  
         this.userdata.getuser().then(res=>{
+          console.log(res)
           this.logindata=res;
             this.username=res.FirstName +' ' +res.LastName;
         })
