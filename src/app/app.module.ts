@@ -37,7 +37,7 @@ import { NavComponent } from './nav/nav.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BikedetailsComponent } from './E-bike-booking-flow/bikedetails/bikedetails.component';
 import { DurationComponent } from './E-bike-booking-flow/duration/duration.component';
-import { DatetimeComponent } from './E-bike-booking-flow/bookingsummary/datetime/datetime.component';
+import { DatetimeComponent } from './E-bike-booking-flow/datetime/datetime.component';
 import { BatteryStationListComponent } from './batter-reservation-flow/battery-station-list/battery-station-list.component';
 import { BatteryStationComponent } from './batter-reservation-flow/battery-station/battery-station.component';
 import { BatteryListComponent } from './batter-reservation-flow/battery-list/battery-list.component';

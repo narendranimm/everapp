@@ -5,7 +5,7 @@
         style="width: 328px; left: 0px; top: 0px; position: absolute; justify-content: flex-start; align-items: center; gap: 116px; display: inline-flex">
         <div class="btn-container">
             <button style="background: transparent;border: none;" routerLink="/bikelist/24"><img class="icon"
-                    src="./assets/zondicons_arrow-left.svg" alt=""></button>
+                    src="./assets/ic_round-arrow-back.png" alt=""></button>
         </div>
         <div class="container">
 
@@ -13,11 +13,10 @@
 
 
         </div>
-        <!-- <ion-content class="scroller"> -->
+      </div>
         <ion-content class="scroller">
             <div class="btn-container" >
-                <div
-                    style="width:300px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 6px; display: inline-flex;border-radius: 20px 20px 0px 0px;">
+                <div class="details">
 
                     <div class="model">{{ProductDetails?.ProductName}}</div>
                     <div style="justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
@@ -258,7 +257,7 @@
     </div>
 
 
-</div>
+
 <div class="book-btn">
     <button (click)="gotobooking()" class="submit-btn">
     Book Now

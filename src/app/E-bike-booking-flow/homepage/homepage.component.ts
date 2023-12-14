@@ -33,17 +33,9 @@ export class HomepageComponent implements OnInit {
   bikeHubID: any =3502;
   slides: any = [];
   slider: any = []
-<<<<<<< HEAD
-  bikeHub:any;
-
-
-  azimageUrl:any='https://everdevuat.blob.core.windows.net/hubs/';
-  profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
-=======
   bikeHub:any
   azimageUrl:any=environment.azimageUrl_hub;
   profileUrl:any=environment.azimageUrl_pic;
->>>>>>> ede13e1c5599b07525450bcf5b240170d9cec95e
   username='';
   logindata!:any;
   private breakpointObserver = inject(BreakpointObserver);

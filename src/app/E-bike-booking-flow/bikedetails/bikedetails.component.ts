@@ -27,8 +27,8 @@ ProductDetails:any;
   
   gotobooking(){
     this.user.setpId(this.ProductDetails.ProductID)
-    // this.router.navigateByUrl('/duration/'+this.ProductDetails.ProductID)
-    this.router.navigateByUrl('/duration')
+    this.router.navigateByUrl('/duration/'+this.ProductDetails.ProductID)
+    // this.router.navigateByUrl('/duration')
   }
 
   getDetails(){
@@ -39,12 +39,12 @@ ProductDetails:any;
 
   scrollToBottom() {
   
-    this.content.scrollToBottom(500);
+    this.content.scrollToBottom(800);
   }
 
   scrollToTop() {
     
-    this.content.scrollToTop(500);
+    this.content.scrollToTop(800);
   }
 
  

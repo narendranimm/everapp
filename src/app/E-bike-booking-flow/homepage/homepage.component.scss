@@ -1,5 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
+
 .container{display: flex;
     width: 328px;
     flex-direction: column;
@@ -261,6 +262,9 @@ border:none;
     .btn-container{
       padding: 4%;
   
+  }
+  .menu{
+    color: #363636; font-size: 12px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
   }
   .hub-content{
     align-self: stretch; color: #363636; font-size: 12px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word

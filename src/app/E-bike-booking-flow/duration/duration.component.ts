@@ -21,34 +21,29 @@ export class DurationComponent  implements OnInit {
   ProductDetails:any
 
   taskId:any; 
-<<<<<<< HEAD
+  constructor(private snackBar: MatSnackBar, private router:Router,private bookingservice:BookingService,private bk:FormBuilder,private route: ActivatedRoute,private user:UserData) {
+    this.customDate=this.bk.group({
+      date:['',Validators.required],
+      time:['',Validators.required]
+    })
+  }
   selectedValue!: string;
   selectedValue1!: string;
-
   foods: Food[] = [
     {value: '1', viewValue: '1'},
     {value: '2', viewValue: '2'},
     {value: '3', viewValue: '3'},
     {value: '4', viewValue: '4'},
     {value: '5', viewValue: '5'},
-    {value: '6', viewValue: '6'},
+    {value: '7', viewValue: '6'},
+    {value: '8', viewValue: '7'},
+    {value: '9', viewValue: '9'},
   ];
   foods1: Food[] = [
-    {value: 'hours', viewValue: 'hours'},
-    {value: 'days', viewValue: 'days'},
-    {value: 'weeks', viewValue: 'weeks'},
-
+    {value: 'Hours', viewValue: 'Hours'},
+    {value: 'Days', viewValue: 'Days'},
+    {value: 'Weeks', viewValue: 'Weeks'},
   ];
-  constructor(private snackBar: MatSnackBar, private router:Router,private booking:BookingService,private bk:FormBuilder,private route: ActivatedRoute,private user:UserData) {
-=======
-  constructor(private snackBar: MatSnackBar, private router:Router,private bookingservice:BookingService,private bk:FormBuilder,private route: ActivatedRoute,private user:UserData) {
->>>>>>> ede13e1c5599b07525450bcf5b240170d9cec95e
-    this.customDate=this.bk.group({
-      date:['',Validators.required],
-      time:['',Validators.required]
-    })
-  }
-
   toppings = new FormControl('');
 
   toppingList: string[] = ['hours','days','weeks'];
@@ -68,31 +63,19 @@ export class DurationComponent  implements OnInit {
     if(!this.customDate.valid) {
       this.customDate.markAllAsTouched();
       this.snackBar.open(" All fields are required ");
+      this.router.navigateByUrl('/duration/1000');
     }else{
     console.log(this.customDate.value)
     this.bookingservice.book(this.productId).subscribe(
       (res:any)=>{
       this.ProductDetails=res
-<<<<<<< HEAD
-      this.snackBar.open(JSON.stringify(res.message)
-      );
-      this.router.navigate(['/booking-summary/1000'])
-      this.snackBar.open(JSON.stringify('Booked successfully'));
-      
-    })
-   
-  
-  }
- 
-        
-=======
       this.snackBar.open(JSON.stringify(res.message));
       // this.snackBar.open(JSON.stringify('Booked successfully'));
-      this.router.navigateByUrl('/booking-summary');
+      this.router.navigateByUrl('/booking-summary/1000');
     }
     )
->>>>>>> ede13e1c5599b07525450bcf5b240170d9cec95e
       }
      
 
+}
 }

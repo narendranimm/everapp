@@ -30,4 +30,16 @@ bikeHub:any;
     
     })
   }
+  share(){
+    if(navigator){
+      navigator.share({
+        title:'madhapur ev station',
+        url:'https://everenergies.in/'
+      }).then(()=>{
+        console.log("thanks for sharing")
+      }).catch((err:any)=>{
+        console.log(err)
+      })
+    }
+  }
 }

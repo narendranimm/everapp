@@ -31,7 +31,7 @@ import { BookingdetailsComponent } from './E-bike-booking-flow/bookingdetails/bo
 import { HomepageAfterbookingComponent } from './E-bike-booking-flow/homepage-afterbooking/homepage-afterbooking.component';
 import { TimedetailsComponent } from './E-bike-booking-flow/timedetails/timedetails.component';
 import { DateTimeComponent } from './menu-flow/date-time/date-time.component';
-import { DatetimeComponent } from './E-bike-booking-flow/bookingsummary/datetime/datetime.component';
+import { DatetimeComponent } from './E-bike-booking-flow/datetime/datetime.component';
 import { PaymentgatewaysComponent } from './E-bike-booking-flow/paymentgateways/paymentgateways.component';
 import { BatteryListComponent } from './batter-reservation-flow/battery-list/battery-list.component';
 import { BatteryStationComponent } from './batter-reservation-flow/battery-station/battery-station.component';
@@ -78,6 +78,7 @@ import { BookingSummaryAfterCoupanComponent } from './booking-summary-after-coup
 import { HublistsComponent } from './E-bike-booking-flow/hublists/hublists.component';
 import { VerificationComponent } from './verification/verification.component';
 import { AuthGuard } from './guards/auth.guard';
+import { SearchPageComponent } from './batter-reservation-flow/search-page/search-page.component';
 
 
 
@@ -99,7 +100,7 @@ const routes: Routes = [
 {path:'preview',component:PreviewComponent},
 {path:'crop',component:CropComponent},
 //E-Booking-flow Routes
-{path:'duration',component: DurationComponent},
+{path:'duration/:ID',component: DurationComponent},
 {path:'enableloaction',component:EnablelocationComponent},
 {path:'hub-details/:ID',component:HubdetailsComponent},
 {path:'homepage',component:HomepageComponent},
@@ -124,6 +125,7 @@ const routes: Routes = [
 {path:'timedetails',component:TimedetailsComponent},
 {path:'search-result-bike',component:SearchresultsBikeComponent},
 {path:'hublist',component:HublistsComponent},
+{path:'searchpage',component:SearchPageComponent},
 //Battery-Reservation-flow
 {path:'battery-staion-list',component:BatteryStationListComponent},
 {path:'battery-station',component:BatteryStationComponent},
