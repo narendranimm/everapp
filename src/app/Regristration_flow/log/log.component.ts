@@ -17,14 +17,12 @@ import { RegisterService } from 'src/app/registration-services/register.service'
   providers:[UserData]
 })
 export class LogComponent  implements OnInit {
-  OTP='6281208432';
 
 otpForm!:FormGroup;
 taskId:any;
 showLoader!: boolean;
 logindata:any
-no=''
-
+userdatabyno:any
 
 
   constructor(private router: Router,private route:ActivatedRoute,private userdata:UserData,private snackBar: MatSnackBar,private loaderService:IonLoaderService ,
@@ -55,62 +53,41 @@ nav(){
 }
 
 
-verifyotp(){
+async verifyotp(){debugger
   //need to handle error
   //1. if otp failed
   //2.if network issue.
   const data = this.otpForm.value;
  
-  console.log(data)
+  let datad= await this.getuserbymobileno()
+  .then((data: any) => {
+    this.userdatabyno=data;
+    this.userdata.setMain("loginuser",data)
+  console.log('Data received:', data);
+});
+  console.log(datad)
+  if(this.userdatabyno){
+    data.otp=this.userdatabyno.OTP
+  }
   this.userdata.set(data.mobileno)
-  this.reg.otp(data).subscribe((res:any)=>{
-//if verfied success then save mobileno to localstoragte.
+  this.reg.sendsms(data).subscribe((res:any)=>{
+//if verfied success then savec mobileno to localstoragte.
 //after logged in success moved to home page
 // this.loaderService.display(true);
     console.log(res)
-    this.getuserbymobileno();
-    this.snackBar.open(JSON.stringify(res.message));
-    this.router.navigate(['/verification'])
     if(res.status){
- 
-   
+      this.snackBar.open(JSON.stringify(res.message));
+      this.router.navigate(['/verification'])   
+    }
+    else{
+      this.snackBar.open(JSON.stringify(res.message));
+
     }
     })
   }
-// verifyotp(){
-//   //need to handle error 
-//   //1. if otp failed
-//   //2.if network issue.
-//   const Mobileno = this.otpForm?.value;
-//   if(!this.otpForm.valid) {
-//     this.otpForm.markAllAsTouched();
-//   }
 
-//   const otpString=`${Mobileno.mobileno}`;
-//   console.log('OTP to verify',otpString);
+getuserbymobileno():Promise<any>{
+ return this.reg.getbymobileno(this.otpForm.value.mobileno).toPromise()}
 
-//  //  console.log(this.logindata.OTP == otpString)
-// if(otpString == this.OTP ){
-
-//     // if(this.no == this.MobileNumber){
-     
-//       this.router.navigate(['/verification'])
-//       this.snackBar.open("OTP sent successfully");
-//     }else{
-    
-//       this.router.navigate(['/login'])
-//       this.snackBar.open("mobile no incorrect");
-//     }
-  
-//     })
-//   }
-getuserbymobileno(){
-  this.reg.getbymobileno(this.otpForm.value.mobileno).subscribe(
-    res=>{
-      console.log(res)
-      this.userdata.setMain("loginuser",res)
-    }
-  )
-}
 
 }
