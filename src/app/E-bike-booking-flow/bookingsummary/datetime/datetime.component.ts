@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
@@ -11,6 +11,9 @@ import { UserData } from 'src/app/providers/user-data';
   styleUrls: ['./datetime.component.scss'],
 })
 export class DatetimeComponent  implements OnInit {
+  @Input() BookingStartDate:any
+  @Input() BookingEndDate:any
+
   datetimeForm!:FormGroup;
   ProductDetails:any;
   taskId:any;
@@ -19,8 +22,8 @@ export class DatetimeComponent  implements OnInit {
     this.datetimeForm=this.bk.group({
       "OrderID": 123,
       "ProductID":432 ,
-      BookingStartDate:'',
-      BookingEndDate:'',
+      BookingStartDate:['',Validators.required],
+      BookingEndDate:['',Validators.required],
       "IsActive": true,
       "BookingNo": "ABC123",
       "HubID": 1,
@@ -49,18 +52,21 @@ export class DatetimeComponent  implements OnInit {
  
   book(){
     const data = this.datetimeForm.value;
-    this.snackBar.open("Datetime set successfully"
-    );
+    if(!this.datetimeForm.valid){
+      this.router.navigate(['/datetime/1000'])
+      this.snackBar.open("All fields are required");
+    }
+   
+    else{
     this.booking.book(this.taskId).subscribe((res:any)=>{
       console.log(res)
       this.ProductDetails=res;
-      this.router.navigate(['/booking-summary/1000'])
-      this.snackBar.open(JSON.stringify(res.message)
-      );
+      this.router.navigate(['/duration/1000'])
+    
     })
     console.log(this.datetimeForm.value)
     
         
-        
+  }
       }
 }

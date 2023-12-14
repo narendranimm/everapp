@@ -37,7 +37,7 @@ import { NavComponent } from './nav/nav.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BikedetailsComponent } from './E-bike-booking-flow/bikedetails/bikedetails.component';
 import { DurationComponent } from './E-bike-booking-flow/duration/duration.component';
-import { DatetimeComponent } from './E-bike-booking-flow/datetime/datetime.component';
+import { DatetimeComponent } from './E-bike-booking-flow/bookingsummary/datetime/datetime.component';
 import { BatteryStationListComponent } from './batter-reservation-flow/battery-station-list/battery-station-list.component';
 import { BatteryStationComponent } from './batter-reservation-flow/battery-station/battery-station.component';
 import { BatteryListComponent } from './batter-reservation-flow/battery-list/battery-list.component';
@@ -108,7 +108,8 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { IonicStorageModule } from '@ionic/storage-angular';
-
+import { provideHttpClient, withJsonpSupport } from '@angular/common/http';
+import {MatSelectModule} from '@angular/material/select';
 providers: [Storage]
 @NgModule({
   declarations: [AppComponent, SplashComponent, GetComponent, RegisterComponent, LogComponent, AadharComponent, SelfieComponent, NavComponent, PreviewComponent, CropComponent, AllowPermissionsComponent, CongratulationsComponent,  EnablelocationComponent, HomepageComponent, HubdetailsComponent, HublistsComponent, BookingdetailsComponent, CommunicationAllowPermissionComponent, HublistsComponent, BikedetailsComponent, DurationComponent, DatetimeComponent, BatteryStationListComponent, BatteryStationComponent, BatteryListComponent, BatteryDetailsAvailableComponent, BatteryDetailsUnavailableComponent, BookingDetailsComponent, OffersComponent, CouponAppliedComponent, CouponAppliedDashboardComponent, PaymentGatewaysComponent, AddUpiIdComponent, AddCardComponent, AddEWalletComponent, PaymentOngoingComponent, AddPaymentOngoingComponent, BookingSuccessComponent, BookingDetailsAfterComponent, BikelistComponent, DurationComponent, DurationLaterComponent, BookingsummaryComponent, OffersComponent, CouponappliedComponent, PaymentComponent, PaymentgatewaysComponent, AddUPIIDComponent, AddcardComponent, EWalletComponent, BookingDetailsComponent, HomepageAfterbookingComponent, TimedetailsComponent, BookingsuccessComponent,
@@ -151,7 +152,7 @@ providers: [Storage]
 
   ],
 
-  imports: [BrowserModule, MatExpansionModule, IonicStorageModule.forRoot({ name: "mylocaldb" }), MatSnackBarModule,
+  imports: [BrowserModule, MatExpansionModule, IonicStorageModule.forRoot({ name: "mylocaldb" }), MatSnackBarModule,MatSelectModule,
     ReactiveFormsModule, MatBottomSheetModule, HttpClientModule, CommonModule, IonicModule.forRoot({ mode: 'md' }), AppRoutingModule, SocialLoginModule, MatToolbarModule, MatDialogModule, MatSidenavModule, MatButtonModule, MatCardModule, RouterModule, MatInputModule, MatFormFieldModule, BrowserAnimationsModule, MatIconModule, FormsModule, ReactiveFormsModule, provideFirebaseApp(() => initializeApp({ "projectId": "otp-project-eb64c", "appId": "1:459119525785:web:b8c64ab6b6daaf7e941d08", "databaseURL": "https://otp-project-eb64c-default-rtdb.firebaseio.com", "storageBucket": "otp-project-eb64c.appspot.com", "apiKey": "AIzaSyA_lRy00xcn2oOICSOMEakyVpgNSoFopUk", "authDomain": "otp-project-eb64c.firebaseapp.com", "messagingSenderId": "459119525785", "measurementId": "G-4BRTCEDX5J" })), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
   providers: [{
     provide: 'SocialAuthServiceConfig',
@@ -172,6 +173,7 @@ providers: [Storage]
     } as SocialAuthServiceConfig,
   },
   { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 3000 } },
+  provideHttpClient(withJsonpSupport())
 
   ],
   bootstrap: [AppComponent],

@@ -1,9 +1,10 @@
 import { Component, HostListener, Input, OnInit, inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { catchError, map, shareReplay } from 'rxjs/operators';
 import { ViewChild, ElementRef } from '@angular/core';
 import { IonContent, PopoverController } from '@ionic/angular';
+import {Injectable, NgZone} from '@angular/core';
 
 import { PopoverComponent } from 'src/app/popover/popover.component';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
@@ -14,7 +15,10 @@ import { UserData } from 'src/app/providers/user-data';
 
 import { Geolocation, GeolocationPlugin } from '@capacitor/geolocation';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-declare var google:any
+export interface MapGeocoderResponse {
+  status: google.maps.GeocoderStatus;
+  results: google.maps.GeocoderResult[];
+}
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -22,14 +26,16 @@ declare var google:any
 })
 export class HomepageComponent implements OnInit {
 
-  lat: any = '';  
-  lng: any = '';  
+  lat!: any;  
+  lng!:any;  
   location: any = {}
   keys: string[] = [];
   bikeHubID: any =3502;
   slides: any = [];
   slider: any = []
-  bikeHub:any
+  bikeHub:any;
+
+
   azimageUrl:any='https://everdevuat.blob.core.windows.net/hubs/';
   profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
   username='';
@@ -41,7 +47,7 @@ export class HomepageComponent implements OnInit {
       shareReplay()
     );
   marker: any;
-  constructor(public popoverController: PopoverController, private _bh: BookingService, private route: ActivatedRoute, private router:Router,
+  constructor(httpClient: HttpClient,public popoverController: PopoverController, private _bh: BookingService, private route: ActivatedRoute, private router:Router,
     private _pd: ProductServicesService,private userdata:UserData
   ) {
  
@@ -49,13 +55,16 @@ export class HomepageComponent implements OnInit {
           this.logindata=res;
             this.username=res.FirstName +' ' +res.LastName;
         })
+        
+
     
   }
 
   ngOnInit() {
     this.router.navigate(['sign-in'])
    this.printCurrentPosition();
- 
+  //  this.address();
+  
     // this.getbatteryhubs()
    this.getbikehubs()
     // this.slides=[
@@ -109,5 +118,31 @@ printCurrentPosition() {
   
 };
 
+address(){
 
+  const map = new google.maps.Map(document.getElementById('map') as HTMLInputElement,{
+    zoom:8,
+    center:{
+      lat:this.lat,
+      lng:this.lng
+    }
+  })
+ const geocoder =new google.maps.Geocoder()
+ const InfoWindow =new google.maps.InfoWindow()
+   this.geocodeLatLng(geocoder)
+
+
+ }
+ geocodeLatLng(geocoder:any){
+    const input = (document.getElementById("latlng") as HTMLInputElement).value;
+    const latlngstr=input.split('',2);
+    const latlng = {
+      lat: parseFloat(latlngstr[0]),
+      lng: parseFloat(latlngstr[1]),
+    };
+    geocoder.geocode({location:latlng})
+    .then((res:any)=>{
+      console.log(res)
+    })
+ }
 }
