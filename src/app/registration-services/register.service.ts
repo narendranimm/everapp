@@ -11,7 +11,6 @@ export class RegisterService {
  api_key:string=`4d7853a2-965f-11ee-8cbb-0200cd936042`;
 
 baseUrl:any=environment.apiurl;
-// baseUrl:string='http://localhost:8080/api/'
   constructor(private http:HttpClient) { }
   signup(data:any):Observable<any>{
     return this.http.post(this.baseUrl+`members`,data)
@@ -19,16 +18,17 @@ baseUrl:any=environment.apiurl;
   getsignup(data:any):Observable<any>{
     return this.http.get(this.baseUrl+`members`,data)
   }
-  otp(data:any):Observable<any>{
+  sendsms(data:any):Observable<any>{
     return this.http.post(this.baseUrl+`sendsms`,data)
   }
   
-  verifyOTP(otp:string):Observable<any>{
-    return this.http.post(this.baseUrl+`sendsms`,{otp})
-  }
+  // verifyOTP(otp:string):Observable<any>{
+  //   return this.http.post(this.baseUrl+`sendsms`,{otp})
+  // }
   signin(data:any):Observable<any>{
     return this.http.post(`https://172.188.80.209:8443/auth/login`,data)
   }
+  //dummy
  getProduct(data:any):Observable<any>{
     return this.http.post(`https://api.publicapis.org/entries`,data)
   }

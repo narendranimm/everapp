@@ -21,6 +21,7 @@ export class DurationComponent  implements OnInit {
   ProductDetails:any
 
   taskId:any; 
+<<<<<<< HEAD
   selectedValue!: string;
   selectedValue1!: string;
 
@@ -39,12 +40,13 @@ export class DurationComponent  implements OnInit {
 
   ];
   constructor(private snackBar: MatSnackBar, private router:Router,private booking:BookingService,private bk:FormBuilder,private route: ActivatedRoute,private user:UserData) {
+=======
+  constructor(private snackBar: MatSnackBar, private router:Router,private bookingservice:BookingService,private bk:FormBuilder,private route: ActivatedRoute,private user:UserData) {
+>>>>>>> ede13e1c5599b07525450bcf5b240170d9cec95e
     this.customDate=this.bk.group({
       date:['',Validators.required],
       time:['',Validators.required]
     })
-    const taskId = route.snapshot.params["ID"];
-    console.log("this is taskId value = "+ taskId);
   }
 
   toppings = new FormControl('');
@@ -54,15 +56,8 @@ export class DurationComponent  implements OnInit {
 
   toppingList1: string[] = ['1','2','3','4','5','6','7','8'];
   ngOnInit() {
-    console.log(this.user.getId('pId'))
-    this.user.getId('pId')
-    .then(data => 
-      this.productId=data
-     
-      );
-      console.log(this.productId)
+    this.user.getId('pId').then(data => this.productId=data);  
 
-    
   }
   duration(){
     const data = this.customDate.value;
@@ -75,8 +70,10 @@ export class DurationComponent  implements OnInit {
       this.snackBar.open(" All fields are required ");
     }else{
     console.log(this.customDate.value)
-    this.booking.book(this.productId).subscribe((res:any)=>{
+    this.bookingservice.book(this.productId).subscribe(
+      (res:any)=>{
       this.ProductDetails=res
+<<<<<<< HEAD
       this.snackBar.open(JSON.stringify(res.message)
       );
       this.router.navigate(['/booking-summary/1000'])
@@ -88,29 +85,14 @@ export class DurationComponent  implements OnInit {
   }
  
         
+=======
+      this.snackBar.open(JSON.stringify(res.message));
+      // this.snackBar.open(JSON.stringify('Booked successfully'));
+      this.router.navigateByUrl('/booking-summary');
+    }
+    )
+>>>>>>> ede13e1c5599b07525450bcf5b240170d9cec95e
       }
-      // getbook(){
-      //   const data = this.bookingForm.value;
-      //   delete data['confirm'];
-      //   this.booking.getbook(data).subscribe((res:any)=>{
-      //     this.productDetails=res
-      //     console.log(res)
-      //     this.snackBar.open(JSON.stringify(res.message)
-      //     );
-      //   })
-        // console.log(this.bookingForm.value)
-        
-      
-            
-        //   }
-  // constructor(private _bottomSheet: MatBottomSheet) {}
-
-  // openBottomSheet(): void {
-  //   this._bottomSheet.open(BottomsheetComponent);
-  // }
-  // customPopoverOptions = {
-
-  // };
-  // ngOnInit() {}
+     
 
 }

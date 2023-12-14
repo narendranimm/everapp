@@ -55,14 +55,14 @@ export class VerificationComponent  implements OnInit {
     
   }
   
-  onSubmit(){
-    const otp=this.verficationForm?.value;
-    this.register.verifyOTP(otp).subscribe(
-      (res) => {
-        console.log('OTP verfication response',res);
+  // onSubmit(){
+  //   const otp=this.verficationForm?.value;
+  //   // this.register.verifyOTP(otp).subscribe(
+  //   //   (res) => {
+  //   //     console.log('OTP verfication response',res);
         
-      })
-  }
+  //   //   })
+  // }
   onInputChange(event:any){
    this.otp=event;
    console.log(this.otp)
@@ -79,7 +79,7 @@ export class VerificationComponent  implements OnInit {
        console.log('OTP to verify',otpString);
       
       //  console.log(this.logindata.OTP == otpString)
-     if(otpString == '996368' ){
+     if(otpString == this.logindata.OTP ){
       this.snackBar.open("otp verified successfully");
       this.router.navigate(['/adhar'])
      }else{

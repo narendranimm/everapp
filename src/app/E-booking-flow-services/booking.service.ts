@@ -14,8 +14,8 @@ export class BookingService {
  
   }
 
-  book(productId:any):Observable<any>{
-    return this.http.post(this.baseurl+'orders/orderbooking',productId)
+  book(orderdata:any):Observable<any>{
+    return this.http.post(this.baseurl+'orders/orderbooking',orderdata)
   }
   
 

@@ -10,7 +10,7 @@ import { PopoverComponent } from 'src/app/popover/popover.component';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
 import { ActivatedRoute, NavigationStart, Router } from '@angular/router';
 import { ProductServicesService } from 'services/product-services/product-services.service';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
 import { UserData } from 'src/app/providers/user-data';
 
 import { Geolocation, GeolocationPlugin } from '@capacitor/geolocation';
@@ -33,11 +33,17 @@ export class HomepageComponent implements OnInit {
   bikeHubID: any =3502;
   slides: any = [];
   slider: any = []
+<<<<<<< HEAD
   bikeHub:any;
 
 
   azimageUrl:any='https://everdevuat.blob.core.windows.net/hubs/';
   profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
+=======
+  bikeHub:any
+  azimageUrl:any=environment.azimageUrl_hub;
+  profileUrl:any=environment.azimageUrl_pic;
+>>>>>>> ede13e1c5599b07525450bcf5b240170d9cec95e
   username='';
   logindata!:any;
   private breakpointObserver = inject(BreakpointObserver);
@@ -61,7 +67,7 @@ export class HomepageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.router.navigate(['sign-in'])
+    // this.router.navigate(['sign-in'])
    this.printCurrentPosition();
   //  this.address();
   

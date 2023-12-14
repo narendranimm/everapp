@@ -38,7 +38,7 @@
   <div style="flex-direction: column; justify-content: flex-start; align-items: center; gap: 12px; display: flex">
     <form action="" [formGroup]="imagesend">
     <input type="image" src="{{imageSource}}" [(ngModel)]="imageSource" formControlName="imageSource" style="display:none"  alt="">
-      <button (click)="upload()"  style="width: 328px; height: 48px; padding-left: 24px; padding-right: 24px; padding-top: 16px; padding-bottom: 16px; background: #3355B9; border-radius: 100px; overflow: hidden; flex-direction: column; justify-content: center; align-items: center; gap: 10px; display: flex">
+      <button (click)="gotonext()"  style="width: 328px; height: 48px; padding-left: 24px; padding-right: 24px; padding-top: 16px; padding-bottom: 16px; background: #3355B9; border-radius: 100px; overflow: hidden; flex-direction: column; justify-content: center; align-items: center; gap: 10px; display: flex">
           <div class="go"  >Go next</div>
       </button>
     </form>

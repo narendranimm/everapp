@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IonContent } from '@ionic/angular';
 import { ProductServicesService } from 'services/product-services/product-services.service';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-bikelist',
@@ -11,6 +12,7 @@ import { ProductServicesService } from 'services/product-services/product-servic
 export class BikelistComponent  implements OnInit {
   ProductList:any=[];
   taskId:any;
+  azimageUrl:any=environment.azimageUrl_hub;
 
   constructor(private route: ActivatedRoute,private _pd:ProductServicesService) { 
 
