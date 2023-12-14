@@ -17,66 +17,30 @@ export class DurationComponent  implements OnInit {
   ProductDetails:any
 
   taskId:any; 
-  constructor(private snackBar: MatSnackBar, private router:Router,private booking:BookingService,private bk:FormBuilder,private route: ActivatedRoute,private user:UserData) {
+  constructor(private snackBar: MatSnackBar, private router:Router,private bookingservice:BookingService,private bk:FormBuilder,private route: ActivatedRoute,private user:UserData) {
     this.customDate=this.bk.group({
       date:'',
       time:''
     })
-    const taskId = route.snapshot.params["ID"];
-    console.log("this is taskId value = "+ taskId);
   }
 
  
   ngOnInit() {
-    console.log(this.user.getId('pId'))
-    this.user.getId('pId')
-    .then(data => 
-      this.productId=data
-     
-      );
-      console.log(this.productId)
+    this.user.getId('pId').then(data => this.productId=data);  
 
-    
   }
   book(){
     const data = this.customDate.value;
     console.log(this.customDate.value)
-    this.booking.book(this.productId).subscribe((res:any)=>{
+    this.bookingservice.book(this.productId).subscribe(
+      (res:any)=>{
       this.ProductDetails=res
-      this.snackBar.open(JSON.stringify(res.message)
-      );
-  
-      this.snackBar.open(JSON.stringify('Booked successfully'));
-      
-    })
-   
-  
-    
- 
-        
+      this.snackBar.open(JSON.stringify(res.message));
+      // this.snackBar.open(JSON.stringify('Booked successfully'));
+      this.router.navigateByUrl('/booking-summary');
+    }
+    )
       }
-      // getbook(){
-      //   const data = this.bookingForm.value;
-      //   delete data['confirm'];
-      //   this.booking.getbook(data).subscribe((res:any)=>{
-      //     this.productDetails=res
-      //     console.log(res)
-      //     this.snackBar.open(JSON.stringify(res.message)
-      //     );
-      //   })
-        // console.log(this.bookingForm.value)
-        
-      
-            
-        //   }
-  // constructor(private _bottomSheet: MatBottomSheet) {}
-
-  // openBottomSheet(): void {
-  //   this._bottomSheet.open(BottomsheetComponent);
-  // }
-  // customPopoverOptions = {
-
-  // };
-  // ngOnInit() {}
+     
 
 }

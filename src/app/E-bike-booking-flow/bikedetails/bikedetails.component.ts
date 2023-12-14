@@ -10,14 +10,14 @@ import { BookingService } from 'src/app/E-booking-flow-services/booking.service'
   styleUrls: ['./bikedetails.component.scss'],
 })
 export class BikedetailsComponent  implements OnInit {
-   taskId:any;
+   productID:any;
    bikeHubID:any;
    bikeHub:any;
    @ViewChild(IonContent) content!: IonContent;
 
   constructor(private route: ActivatedRoute,private _pd:ProductServicesService,private router:Router,private user:UserData,private _bh:BookingService) {
-    this.taskId = route.snapshot.params["ID"];
-    console.log("this is taskId value = "+ this.taskId);
+    this.productID = route.snapshot.params["ID"];
+    console.log("this is productID value = "+ this.productID);
 }
 
 ProductDetails:any;
@@ -27,25 +27,23 @@ ProductDetails:any;
   
   gotobooking(){
     this.user.setpId(this.ProductDetails.ProductID)
-    this.router.navigateByUrl('/duration/'+this.ProductDetails.ProductID)
+    // this.router.navigateByUrl('/duration/'+this.ProductDetails.ProductID)
+    this.router.navigateByUrl('/duration')
   }
 
   getDetails(){
-    this._pd.productDetails(this.taskId).subscribe((res)=>{
-      console.log(res)
+    this._pd.productDetails(this.productID).subscribe((res)=>{
       this.ProductDetails=res;
     })
   }
 
   scrollToBottom() {
-    // Passing a duration to the method makes it so the scroll slowly
-    // goes to the bottom instead of instantly
+  
     this.content.scrollToBottom(500);
   }
 
   scrollToTop() {
-    // Passing a duration to the method makes it so the scroll slowly
-    // goes to the top instead of instantly
+    
     this.content.scrollToTop(500);
   }
 

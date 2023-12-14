@@ -106,10 +106,10 @@ const routes: Routes = [
 
 {path:'bikelist/:ID',component:BikelistComponent},
 {path:'bikedetails/:ID',component:BikedetailsComponent},
-{path:'duration/:ID',component:DurationComponent},
+{path:'duration',component:DurationComponent},
 {path:'datetime/:ID',component:DatetimeComponent},
 {path:'duration-later',component:DurationLaterComponent},
-{path:'booking-summary/:ID',component:BookingsummaryComponent},
+{path:'booking-summary',component:BookingsummaryComponent},
 {path:'offer-coupan',component:OfferCouponComponent},
 {path:'booking-summary-after-coupan',component:BookingSummaryAfterCoupanComponent},
 {path:'payment-gateway',component:PaymentgatewaysComponent},
