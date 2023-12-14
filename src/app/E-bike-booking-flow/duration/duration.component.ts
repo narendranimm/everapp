@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatBottomSheet, MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IonContent } from '@ionic/angular';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
 import { BottomsheetComponent } from 'src/app/bottomsheet/bottomsheet.component';
 import { UserData } from 'src/app/providers/user-data';
@@ -75,5 +76,17 @@ export class DurationComponent implements OnInit {
       )
     }
   }
-
+  @ViewChild(IonContent) content!: IonContent;
+  data=[];
+    scrollToBottom() {
+      // Passing a duration to the method makes it so the scroll slowly
+      // goes to the bottom instead of instantly
+      this.content.scrollToBottom(500);
+    }
+  
+    scrollToTop() {
+      // Passing a duration to the method makes it so the scroll slowly
+      // goes to the top instead of instantly
+      this.content.scrollToTop(500);
+    }
 }
