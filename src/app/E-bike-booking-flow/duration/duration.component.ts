@@ -19,8 +19,9 @@ interface Food {
 export class DurationComponent implements OnInit {
   customDate!: FormGroup;
   productId: any;
+  Number!:number;
   ProductDetails: any
-
+  totalHours!: number;
   taskId: any;
   selectedValue!: string;
   selectedValue1!: string;
@@ -43,8 +44,23 @@ export class DurationComponent implements OnInit {
       date: ['', Validators.required],
       time: ['', Validators.required]
     })
+    this.totalHours = this.convertToHours(this.Number);  
+    this.totalHours=this.convertToHoursin(this.Number);
   }
+  numbers=[
+    {count:'1'},
+    {count:'2'},
+    {count:'3'},
+    {count:'4'},
+    {count:'5'},
+    {count:'6'},
 
+  ]
+  days=[
+    {duration:'hours'},
+    {duration:'days'},
+    {duration:'weeks'},
+  ]
   toppings = new FormControl('');
 
   toppingList: string[] = ['hours', 'days', 'weeks'];
@@ -88,5 +104,21 @@ export class DurationComponent implements OnInit {
       // Passing a duration to the method makes it so the scroll slowly
       // goes to the top instead of instantly
       this.content.scrollToTop(500);
+    }
+    convertToHours( weeks: number): number {
+      const hoursInDay = 24;
+      const hoursInWeek = hoursInDay * 7;
+      
+      const totalHours =  (weeks * hoursInWeek);
+      console.log('totalhours in a 5weeks '+totalHours)
+      return totalHours;
+    }
+    convertToHoursin(day: number): number {
+      const hoursInDay = 24;
+      
+      
+      const totalHours = (day* hoursInDay) ;
+      console.log('total hours in 6 '+totalHours)
+      return totalHours;
     }
 }

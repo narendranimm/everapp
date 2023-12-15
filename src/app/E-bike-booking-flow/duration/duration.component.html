@@ -18,7 +18,7 @@
         <div style="align-self: stretch; height: 61px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
             <div class="how">How much time do you need?</div>
             <div style="justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
-                <button mat-button style="padding-left: 12px; padding-right: 12px; padding-top: 7px; padding-bottom: 7px; border-radius: 24px; border: 1px #E8E7E7 solid; flex-direction: column; justify-content: center; align-items: flex-start; gap: 10px; display: inline-flex">
+                <button  mat-button style="padding-left: 12px; padding-right: 12px; padding-top: 7px; padding-bottom: 7px; border-radius: 24px; border: 1px #E8E7E7 solid; flex-direction: column; justify-content: center; align-items: flex-start; gap: 10px; display: inline-flex">
                     <div class="custom-duration">6 hours</div>
                 </button>
                 <button mat-button style="padding-left: 12px; padding-right: 12px; padding-top: 7px; padding-bottom: 7px; border-radius: 24px; border: 1px #E8E7E7 solid; justify-content: flex-start; align-items: center; gap: 10px; display: flex">
@@ -33,9 +33,9 @@
             </div>
         </div>
        
-        <div style="align-self: stretch; color: #363636; font-size: 14px; font-family: Archivo; font-weight: 600; word-wrap: break-word">Or, set custom duration</div>
+        <div class="custom-duration">Or, set custom duration</div>
         <div style="width: 300px; justify-content: center; align-items: flex-start; display: inline-flex">
-            <!-- <mat-form-field appearance="outline">
+                <mat-form-field appearance="outline">
                 <mat-label>number of</mat-label>
                 <mat-select [(ngModel)]="selectedValue" name="food" formControlName="date">
                   <mat-option *ngFor="let food of foods" [value]="food.value" [selected]="7">
@@ -50,49 +50,22 @@
                     {{food.viewValue}}
                   </mat-option>
                 </mat-select>
-              </mat-form-field> -->
-              <!-- <ion-datetime-button datetime="datetime"></ion-datetime-button>
-
-              <ion-modal [keepContentsMounted]="true">
-                <ng-template>
-                  <ion-datetime id="datetime"></ion-datetime>
-                </ng-template>
-              </ion-modal> -->
-              <!-- <ion-list>
-                <ion-item>
-                  <ion-select>
-                    <ion-select-option value="apple">1</ion-select-option>
-                    <ion-select-option value="banana">2</ion-select-option>
-                    <ion-select-option value="orange">3</ion-select-option>
-                    <ion-select-option value="apple">4</ion-select-option>
-                    <ion-select-option value="banana">5</ion-select-option>
-                    <ion-select-option value="orange">6</ion-select-option>
-                  </ion-select>
-                </ion-item>
-  </ion-list>      
-  <ion-list>
-    <ion-item>
-      <ion-select >
-        <ion-select-option value="apple">Hours</ion-select-option>
-        <ion-select-option value="banana">days</ion-select-option>
-        <ion-select-option value="orange">weeks</ion-select-option>
-      </ion-select>
-    </ion-item>
-</ion-list>           -->
-<ion-content style="height: 60px;border: 2px solid whitesmoke;">
-    <button class="date"  [(ngModel)]="">1</button><br>
-    <button class="date" >2</button><br>
-    <button class="date" >3</button><br>
-    <button class="date" >4</button><br>
-    <button class="date" >5</button><br>
-    <button class="date" >6</button>
-</ion-content>
-<ion-content style="height: 60px;border: 2px solid whitesmoke;">
-    <button class="date" >Hours</button><br>
-    <button class="date" >days</button><br>
-    <button class="date" >weeks</button>
-</ion-content>
+              </mat-form-field>
+        
+<!-- <ion-content style="height: 60px;border: 2px solid whitesmoke;">
+  <div *ngFor="let number of numbers">
+    <button class="date" >{{number.count}}</button><br>
+ 
   
+    </div>
+</ion-content>
+<ion-content style="height: 60px;border: 2px solid whitesmoke;">
+<button class="days">hours</button><br>
+<button class="days" (click)="convertToHoursin(Number)">days</button><br>
+<button class="days" (click)="convertToHours(Number)">weeks</button><br>
+
+</ion-content> -->
+ 
         </div>
   
     <div style=" width:100%;height: 92px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 12px; display: flex">
@@ -116,7 +89,7 @@
             <div class="amount">₹12,800</div>
         </div>
         <button  style="flex: 1 1 0; align-self: stretch; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: space-between; align-items: center; display: inline-flex">
-            <div class="book"(click)="book()" routerLink="/booking-summary">Book now</div>
+            <div class="book"(click)="book()" >Book now</div>
             <div style="width: 24px; height: 24px; padding-top: 1.82px; padding-bottom: 1.82px; justify-content: center; align-items: center; display: flex">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 22" fill="none">
                     <path d="M19.4064 9.80036L12.1212 2.51516L13.818 0.818359L24 11.0004L23.1516 11.8488L13.818 21.1824L12.1212 19.4856L19.4064 12.2004H0V9.80036H19.4064Z" fill="white"/>
@@ -129,3 +102,4 @@
 </div>
 </div>
 
+</div>

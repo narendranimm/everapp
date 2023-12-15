@@ -142,6 +142,7 @@
           
       </mat-toolbar>
       <ion-content class="scroller">
+        <div class="btn-container">
         <div class="search-result-bike">      <h1 class="greeting-head">Welcome {{username}}</h1>
         <button id="submit"><img src="./assets/mdi_location.svg" alt="">{{lat}}{{lng}}</button>
       
@@ -193,7 +194,7 @@
 
                <app-swap-battery-scroll  [slides]="slider"></app-swap-battery-scroll>
            
-
+              </div>
             </ion-content>
         </mat-sidenav-content>
     </mat-sidenav-container>

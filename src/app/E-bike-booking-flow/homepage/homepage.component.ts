@@ -8,7 +8,7 @@ import {Injectable, NgZone} from '@angular/core';
 
 import { PopoverComponent } from 'src/app/popover/popover.component';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
-import { ActivatedRoute, NavigationStart, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { ProductServicesService } from 'services/product-services/product-services.service';
 import { environment } from 'src/environments/environment.prod';
 import { UserData } from 'src/app/providers/user-data';
@@ -34,7 +34,7 @@ export class HomepageComponent implements OnInit {
   slides: any = [];
   slider: any = []
   bikeHub:any;
-
+events:any;
 
   azimageUrl:any=environment.azimageUrl_hub;
   profileUrl:any=environment.azimageUrl_pic;
@@ -56,8 +56,6 @@ export class HomepageComponent implements OnInit {
           this.logindata=res;
             this.username=res.FirstName +' ' +res.LastName;
         })
-        
-
     
   }
 
