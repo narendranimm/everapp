@@ -6,6 +6,7 @@ import { CommunicationAllowPermissionComponent } from './communication-allow-per
 import { SocialAuthService } from '@abacritt/angularx-social-login';
 import { register } from 'swiper/element/bundle';
 import { UserData } from './providers/user-data';
+import { ModeService } from './mode.service';
 
 
 register();
@@ -22,7 +23,14 @@ export class AppComponent implements OnInit {
 
 
   constructor(
-    public dialog: MatDialog,private authService: SocialAuthService) {
+    public dialog: MatDialog,private authService: SocialAuthService,colorMode:ModeService) {
+      colorMode.darkMode$.subscribe((darkMode) => {
+        if (darkMode) {
+          document.body.classList.add('dark-theme');
+        } else {
+          document.body.classList.remove('dark-theme');
+        }
+      })
     }
  
  

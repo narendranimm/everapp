@@ -1,7 +1,30 @@
 
+
+<!-- <mat-sidenav-container class="sidenav-container" >
+   <mat-sidenav #drawer class="sidenav"   #sidenav
+       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+       [mode]="(isHandset$ | async) ? 'over' : 'side'"
+       [opened]="(isHandset$ | async) ===false">
+      </mat-sidenav>
+      <mat-sidenav-content style="height: 100rem;">
+        <mat-toolbar style="display: none;">
+          <button
+            type="button"
+            aria-label="Toggle sidenav"
+            mat-icon-button
+            (click)="drawer.toggle()"
+            *ngIf="isHandset$ | async">
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+          </button>
+</mat-toolbar>
+<router-outlet></router-outlet>
+         </mat-sidenav-content>
+      </mat-sidenav-container> -->
+
+
 <ion-menu contentId="mainContent" style="display: none;">
  
-   <!-- write your menu content here-->
+ <!-- write your menu content here -->
 </ion-menu>     
 <div  id = "mainContent" main>
      <ion-buttons slot="start" class="ion-page">

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Component, OnInit, inject } from '@angular/core';
+import { Observable, map, shareReplay } from 'rxjs';
 
 @Component({
   selector: 'app-nav',
@@ -8,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 export class NavComponent  implements OnInit {
 
   constructor() { }
-
+  private breakpointObserver = inject(BreakpointObserver);
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
   ngOnInit() {
    
   }

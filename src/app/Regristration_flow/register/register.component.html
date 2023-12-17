@@ -1,3 +1,4 @@
+<ion-content class="scroller">
 <form action="" [formGroup]="regForm" >
 <div class="main">
 <div class="btn-container">
@@ -18,9 +19,9 @@
       <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
           <div class="name-f" >First name</div>
           
-          <input placeholder="First name" type="text" required  style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: white; border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex;display:none;">
+          <input placeholder="First name" type="text" required  style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px;color:black; padding-bottom: 12px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex;display:none;">
 
-          <input placeholder="First name" formControlName="FirstName" style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: white; border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+          <input placeholder="First name" formControlName="FirstName" style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
           <div *ngIf="regForm.get('FirstName')?.invalid && regForm.get('FirstName')?.touched" class="error">
             <div  *ngIf="regForm.get('FirstName')?.hasError('required')">First name is required.</div>
           
@@ -28,7 +29,7 @@
       </div>
       <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
           <div class="name-l" >Last name</div>
-          <input placeholder="Surname" type="text" required formControlName="LastName" style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: white; border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+          <input placeholder="Surname" type="text" required formControlName="LastName" style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
           <div *ngIf="regForm.get('LastName')?.invalid && regForm.get('LastName')?.touched" class="error">
             <div  *ngIf="regForm.get('LastName')?.hasError('required')">Last name is required.</div>
         
@@ -37,7 +38,7 @@
   </div>
   <div style="align-self: stretch; height: 65px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
       <div class="email">Email</div>
-      <input type="email" required placeholder="xyz@email.com" formControlName="EmailID"  style="align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: white; border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+      <input type="email" required placeholder="xyz@email.com" formControlName="EmailID"  style="align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
       <div *ngIf="regForm.get('EmailID')?.invalid && regForm.get('EmailID')?.touched" class="error">
         <div  *ngIf="regForm.get('EmailID')?.hasError('required')">Email required</div>
   
@@ -46,7 +47,7 @@
   </div>
   <div style="align-self: stretch; height: 65px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
       <div class="mobile" >Mobile no.</div>
-      <div style="align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: white; border-radius: 28px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+      <div style="align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px;  border-radius: 28px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
           <div style="justify-content: flex-start; align-items: center; gap: 6px; display: flex">
               <div style="width: 18px; height: 18px; position: relative">
                   <div style="width: 18px; height: 4.50px; left: 0px; top: 11px; position: absolute; background: #138808"></div>
@@ -83,7 +84,7 @@
                       <div style="width: 0.90px; height: 0.90px; left: 1.32px; top: 1.32px; position: absolute; background: #3355B9"></div>
                   </div>
               </div>
-              <div style="color: #363636; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">
+              <div style=" font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">
                 <ion-select class="" aria-readonly="true"  aria-label="" value="+91" formControlName="country" >
                   <ion-select-option value="+91">+91</ion-select-option>
                
@@ -91,7 +92,7 @@
               </div>
           </div>
       
-          <ion-input  class="phone" placeholder="0000000" formControlName="MobileNo" ></ion-input>
+          <ion-input  type="mobile" class="phone" placeholder="0000000" formControlName="MobileNo" ></ion-input>
          
       </div>
 
@@ -103,7 +104,7 @@
   <div style="align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
       <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
           <div class="dob">Date of birth</div>
-          <input type="date" required formControlName="DateofBirth" placeholder="dd/mm/yyyy" style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: white; border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: space-between; align-items: center; display: inline-flex">
+          <input type="date" required formControlName="DateofBirth" placeholder="dd/mm/yyyy" style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: space-between; align-items: center; display: inline-flex">
           <div *ngIf="regForm.get('DateofBirth')?.invalid && regForm.get('DateofBirth')?.touched" class="error">
             <div  *ngIf="regForm.get('DateofBirth')?.hasError('required')">Date of birth required</div>
             <div *ngIf="regForm.get('DateofBirth')?.hasError('DateofBirth')">invalid DateofBirth</div> 
@@ -116,7 +117,7 @@
       </div>
       <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
           <div class="gender">Gender</div>
-          <select formControlName="Gender" placeholder="select" value="select" style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: white; border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: space-between; align-items: center; display: inline-flex">
+          <select formControlName="Gender" placeholder="select" value="select" style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: space-between; align-items: center; display: inline-flex">
              
               <option value="1000">Male</option>
               <option value="1001">Female</option>
@@ -156,3 +157,4 @@
     </div>
   </div>
   </div>
+</ion-content>

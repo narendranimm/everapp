@@ -45,7 +45,7 @@ line-height: normal;
     justify-content: center;
 }
 .intro-para{
-    color: #363636;
+    
     font-family: 'Open Sans', sans-serif;
 font-size: 14px;
 font-style: normal;
@@ -85,7 +85,7 @@ ion-item{
 .date-label{
     display: flex;
     align-items: flex-start;
-    color: #363636;
+    
     font-size: 16px;
     font-family: Archivo;
     font-weight: 600;
@@ -102,7 +102,7 @@ ion-item{
 .l-name-label{
     display: flex;
     align-items: flex-start;
-    color: #363636;
+    
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
@@ -114,7 +114,7 @@ ion-item{
 .f-name{
     display: flex;
     align-items: flex-start;
-    color: #363636;
+    
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
@@ -144,7 +144,7 @@ line-height: normal;
 
 }
 .email{
-    color: #363636;
+    
 font-size: 16px;
 font-family: 'Open Sans', sans-serif;
 font-weight: 600;
@@ -166,7 +166,7 @@ background: #F2F2F2;
 color: #6D6D6D;
 }
 .login-page{
-    color: #363636;
+    
 text-align: center;
 font-family: 'Open Sans', sans-serif;
 font-size: 14px;
@@ -205,23 +205,23 @@ tr{
     background: transparent;
 }
 .name-f{
-    width: 82px; color: #363636; font-size: 13px;  font-family: 'Open Sans', sans-serif; font-weight: 600; word-wrap: break-word
+    width: 82px;  font-size: 13px;  font-family: 'Open Sans', sans-serif; font-weight: 600; word-wrap: break-word
 }
 .name-l{
-    width: 79.90px; color: #363636; font-size: 13px; font-family: 'Open Sans', sans-serif; font-weight: 600; word-wrap: break-word 
+    width: 79.90px;  font-size: 13px; font-family: 'Open Sans', sans-serif; font-weight: 600; word-wrap: break-word 
 }
 .email{
-    align-self: stretch; color: #363636; font-size: 13px; font-family: 'Open Sans', sans-serif; font-weight: 600; word-wrap: break-word
+    align-self: stretch;  font-size: 13px; font-family: 'Open Sans', sans-serif; font-weight: 600; word-wrap: break-word
 }
 .mobile{
-    align-self: stretch; color: #363636; font-size: 13px; font-family: 'Open Sans', sans-serif; font-weight: 600; word-wrap: break-word
+    align-self: stretch;  font-size: 13px; font-family: 'Open Sans', sans-serif; font-weight: 600; word-wrap: break-word
 }
 //responsive
 .gender{
-    align-self: stretch; color: #363636; font-size: 13px;  font-family: 'Open Sans', sans-serif; font-weight: 600; word-wrap: break-word
+    align-self: stretch;  font-size: 13px;  font-family: 'Open Sans', sans-serif; font-weight: 600; word-wrap: break-word
 }
 .dob{
-    align-self: stretch; color: #363636; font-size: 13px;  font-family: 'Open Sans', sans-serif; font-weight: 600; word-wrap: break-word 
+    align-self: stretch;  font-size: 13px;  font-family: 'Open Sans', sans-serif; font-weight: 600; word-wrap: break-word 
 }
 @media screen and (max-width:360px) {
   
@@ -450,4 +450,16 @@ $width: 100px;
   left: 0;
   right: 0;
   padding: 5%;
+}
+
+::placeholder{
+  color: black;
+}
+.scroller{
+  height: 42rem;
+}
+@media screen and (max-width:700px) {
+  .scroller{
+    height: 100rem;
+  }
 }

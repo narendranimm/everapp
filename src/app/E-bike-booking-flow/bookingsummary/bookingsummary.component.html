@@ -53,13 +53,13 @@
               </div>
               <div style="align-self: stretch; height: 69px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex" *ngFor="let p of bikeHub">
                   <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
-                      <div><span class="bike-model">Start from </span><span class="models">: {{p.OpenTime | date: 'dd/MM/yyyy hh:mm a'}} </span></div>
+                      <div><span class="bike-model">Start from </span><span class="models">: {{startDate | date :'short'}} </span></div>
                   </div>
                   <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
-                      <div><span class="bike-model">End on </span><span class="models">: {{p.CloseTime | date: 'dd/MM/yyyy hh:mm a'}} </span></div>
+                      <div><span class="bike-model">End on </span><span class="models">:  {{endDate | date :'short' }}</span></div>
                   </div>
                   <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
-                      <div><span class="bike-model">Booked for </span><span class="models">: 7 days</span></div>
+                      <div><span class="bike-model">Booked for </span><span class="models">: {{timeDifference}}</span></div>
                   </div>
               </div>
           </div>
