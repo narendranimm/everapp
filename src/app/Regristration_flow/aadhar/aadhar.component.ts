@@ -69,25 +69,26 @@ export class AadharComponent implements OnInit {
 
     this.rs.uploadFile(file, '1000', fileName).subscribe(
       (response) => {
-        console.log(fileName`File uploaded successfully:`, response);
         // this.loaderService.display(true);
-        switch (fileName) {
-          case 'adhar':
-            this.isAdhar = true;
-            break;
-          case 'licence':
-            this.islicence = true;
-            break;
+        if(response.status){
 
-          case 'pass':
-            this.isvoter = true
-            break;
-
-          default:
-            break;
+          switch (fileName) {
+            case 'adhar':
+              this.isAdhar = true;
+              break;
+            case 'licence':
+              this.islicence = true;
+              break;
+  
+            case 'pass':
+              this.isvoter = true
+              break;
+  
+            default:
+              break;
+          }
+          this.snackBar.open(`File uploaded successfully`);
         }
-        this.snackBar.open(`File uploaded successfully`);
-        this.snackBar.open("upload succesfully");
       })
   }
   // myupload(){

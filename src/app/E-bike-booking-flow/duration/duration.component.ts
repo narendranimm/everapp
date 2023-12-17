@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatBottomSheet, MatBottomSheetModule } from '@angular/material/bottom-sheet';
@@ -15,6 +16,7 @@ interface Food {
   selector: 'app-duration',
   templateUrl: './duration.component.html',
   styleUrls: ['./duration.component.scss'],
+  providers: [DatePipe],
 })
 export class DurationComponent implements OnInit {
   customDate!: FormGroup;
@@ -39,7 +41,10 @@ export class DurationComponent implements OnInit {
     { value: 'weeks', viewValue: 'weeks' },
 
   ];
-  constructor(private snackBar: MatSnackBar, private router: Router, private bookingservice: BookingService, private bk: FormBuilder, private route: ActivatedRoute, private user: UserData) {
+  logindata: any;
+  constructor(private datePipe: DatePipe,private snackBar: MatSnackBar, private router: Router, private bookingservice: BookingService, private bk: FormBuilder, private route: ActivatedRoute, private user: UserData) {
+  console.log(Date.now())
+ console.log( this.datePipe.transform(Date.now(), 'yyyy-MM-dd HH:mm:ss'));
     this.customDate = this.bk.group({
       date: ['', Validators.required],
       time: ['', Validators.required]
@@ -69,20 +74,25 @@ export class DurationComponent implements OnInit {
   toppingList1: string[] = ['1', '2', '3', '4', '5', '6', '7', '8'];
   ngOnInit() {
     this.user.getId('pId').then(data => this.productId = data);
-
+    this.user.getId('pId').then(data => this.productId = data);
+    this.user.getuser().then(res=>{
+      console.log(res)
+      this.logindata=res;
+    })
+this.ordersaveData.ProductID=this.productId;
+this.ordersaveData.MemberID=this.logindata.UserID;
   }
   duration() {
     const data = this.customDate.value;
     console.log(this.customDate.value)
   }
-  book() {
+  book() {debugger
     const data = this.customDate.value;
-    if (!this.customDate.valid) {
+    if (this.customDate.valid) {
       this.customDate.markAllAsTouched();
       this.snackBar.open(" All fields are required ");
     } else {
-      console.log(this.customDate.value)
-      this.bookingservice.book(this.productId).subscribe(
+      this.bookingservice.book(this.ordersaveData).subscribe(
         (res: any) => {
           this.ProductDetails = res
           this.snackBar.open(JSON.stringify(res.message));
@@ -118,7 +128,32 @@ export class DurationComponent implements OnInit {
       
       
       const totalHours = (day* hoursInDay) ;
-      console.log('total hours in 6 '+totalHours)
+      console.log('total hours '+totalHours)
       return totalHours;
+    }
+
+
+    ordersaveData={
+      "OrderID": 123,
+      "ProductID": '0',
+      "BookingStartDate":  this.datePipe.transform(Date.now(), 'yyyy-MM-dd HH:mm:ss'),
+      "BookingEndDate": "2023-12-01T00:00:00",
+      "IsActive": true,
+      "BookingNo": "ABC123",
+      "HubID": 1,
+      "MemberID": 0,
+      "BookingStatus": 2,
+      "AddressID": 1011,
+      "BookingAmount": 1000.00,
+      "AdvanceAmount": 200.00,
+      "DiscountAmount": 100.00,
+      "TaxAmount": 180.00,
+      "TotalAmount": 1280.00,
+      "PaidAmount": 400.00,
+      "IsCancel": false,
+      "Remarks": "Good service",
+      "CreatedOn": "2023-11-28T00:30:42",
+      "DeliveredOn": "2023-11-30T00:30:42",
+      "PaymentConfirmedOn": "2023-11-29T00:30:42"
     }
 }
