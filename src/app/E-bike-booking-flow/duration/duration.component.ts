@@ -19,6 +19,9 @@ interface Food {
   providers: [DatePipe],
 })
 export class DurationComponent implements OnInit {
+  startDate:any;
+  endDate:any;
+  Amount:any;
   customDate!: FormGroup;
   productId: any;
   Number!:number;
@@ -86,7 +89,7 @@ this.ordersaveData.MemberID=this.logindata.UserID;
     const data = this.customDate.value;
     console.log(this.customDate.value)
   }
-  book() {debugger
+  book() {
     const data = this.customDate.value;
     if (this.customDate.valid) {
       this.customDate.markAllAsTouched();

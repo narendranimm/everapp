@@ -79,7 +79,7 @@ export class VerificationComponent  implements OnInit {
        console.log('OTP to verify',otpString);
       
       //  console.log(this.logindata.OTP == otpString)
-     if(otpString == '996863' ){
+     if(this.logindata.OTP == otpString ){
       this.snackBar.open("otp verified successfully");
       this.router.navigate(['/adhar'])
      }else{
