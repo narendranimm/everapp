@@ -85,7 +85,21 @@ async verifyotp(){debugger
     }
     })
   }
+//  mobileotp(){
+//     //need to handle error
+//     //1. if otp failed
+//     //2.if network issue.
+//     const data = this.otpForm.value;
+//     if(!this.otpForm.valid) {
+//       this.otpForm.markAllAsTouched();
+//       this.snackBar.open(" All fields are required ");
+//       this.router.navigate(['/login']) 
+//     }else{
+//       this.snackBar.open(" Otp sent successfully ");
+//       this.router.navigate(['/verification'])  
+//     }
 
+//     }
 getuserbymobileno():Promise<any>{
  return this.reg.getbymobileno(this.otpForm.value.mobileno).toPromise()}
 

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
+import { DataservicesService } from 'src/app/dataservices.service';
 import { UserData } from 'src/app/providers/user-data';
 
 @Component({
@@ -11,14 +12,16 @@ import { UserData } from 'src/app/providers/user-data';
   styleUrls: ['./datetime.component.scss'],
 })
 export class DatetimeComponent  implements OnInit {
+  title='nar'
   @Input() BookingStartDate:any
   @Input() BookingEndDate:any
-
+  inputValue: string = '';
+  inputValue1: string = '';
   datetimeForm!:FormGroup;
   ProductDetails:any;
   taskId:any;
   ProductID=1000;
-   constructor(private snackBar:MatSnackBar, private booking:BookingService,private bk:FormBuilder,private user:UserData,private route: ActivatedRoute,private router:Router) {
+   constructor(private snackBar:MatSnackBar, private booking:BookingService,private bk:FormBuilder,private user:UserData,private route: ActivatedRoute,private router:Router,private dataService:DataservicesService) {
     this.datetimeForm=this.bk.group({
       "OrderID": 123,
       "ProductID":432 ,
@@ -68,5 +71,14 @@ export class DatetimeComponent  implements OnInit {
     
         
   }
+      }
+
+      sendData() {
+        const combinedData = {
+          inputValue: this.inputValue,
+          inputValue1: this.inputValue1
+        };
+        this.dataService.setCombinedData(combinedData);
+      
       }
 }
