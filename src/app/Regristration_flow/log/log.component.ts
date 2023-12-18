@@ -53,7 +53,7 @@ nav(){
 }
 
 
-async verifyotp(){debugger
+async verifyotp(){
   //need to handle error
   //1. if otp failed
   //2.if network issue.

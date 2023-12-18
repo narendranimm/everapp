@@ -20,12 +20,12 @@ interface Food {
   providers: [DatePipe],
 })
 export class DurationComponent implements OnInit {
-  customDate!: FormGroup;
   startDate:any;
   endDate:any;
+  Amount:any;
+  customDate!: FormGroup;
   productId: any;
   Number!:number;
-  Amount:any;
   ProductDetails: any
   totalHours!: number;
   taskId: any;
@@ -78,43 +78,24 @@ export class DurationComponent implements OnInit {
 
   toppingList1: string[] = ['1', '2', '3', '4', '5', '6', '7', '8'];
   ngOnInit() {
-    this.user.getId('pId').then(data => this.productId = data);
-    this.user.getId('pId').then(data => this.productId = data);
+    this.user.getId('pId').then(data =>{
+
+      this.productId = data;
+      this.ordersaveData.ProductID=this.productId;
+    }
+       );
     this.user.getuser().then(res=>{
       console.log(res)
       this.logindata=res;
+      this.ordersaveData.MemberID=this.logindata.UserID;
+      console.log(this.ordersaveData)
     })
-
-this.dataService.combinedData$.subscribe(data => {
-  if (data) {
-    this.startDate = data.inputValue;
-    this.endDate = data.inputValue1;
-    const startTime = new Date(this.startDate).getTime();
-    const endTime = new Date(this.endDate).getTime();
-    if (!isNaN(startTime) && !isNaN(endTime)) {
-      const difference = Math.abs(endTime - startTime);
-    
-      // Calculate days, hours, minutes, seconds
-      const days = Math.floor(difference / (1000 * 3600 * 24));
-      const hours = Math.floor((difference % (1000 * 3600 * 24)) / (1000 * 3600));
-    
-      const minutes = Math.floor((difference % (1000 * 3600)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-      const ammount=Math.floor(hours*20);
-      // Construct the time difference string
-      this.timeDifference = `${days} days,${hours} hours `;
-      this.Amount=`${ammount}`
-    }
-  }
-  })
-    
-
   }
   duration() {
     const data = this.customDate.value;
     console.log(this.customDate.value)
   }
-  book() {debugger
+  book() {
     const data = this.customDate.value;
     if (!this.customDate.valid) {
       this.customDate.markAllAsTouched();

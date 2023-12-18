@@ -106,6 +106,8 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { provideHttpClient, withJsonpSupport } from '@angular/common/http';
 import {MatSelectModule} from '@angular/material/select';
+import { LoaderComponent } from './global_components/loader/loader.component';
+import { LoadingService } from './services/loading.service';
 providers: [Storage]
 @NgModule({
   declarations: [AppComponent, SplashComponent, GetComponent, RegisterComponent, LogComponent, AadharComponent, SelfieComponent, NavComponent, PreviewComponent, CropComponent, AllowPermissionsComponent, CongratulationsComponent,  EnablelocationComponent, HomepageComponent, HubdetailsComponent, HublistsComponent, BookingdetailsComponent, CommunicationAllowPermissionComponent, HublistsComponent, BikedetailsComponent, DurationComponent, DatetimeComponent, BatteryStationListComponent, BatteryStationComponent, BatteryListComponent, BatteryDetailsAvailableComponent, BatteryDetailsUnavailableComponent, BookingDetailsComponent, OffersComponent, CouponAppliedComponent, CouponAppliedDashboardComponent, PaymentGatewaysComponent, AddUpiIdComponent, AddCardComponent, AddEWalletComponent, PaymentOngoingComponent, AddPaymentOngoingComponent, BookingSuccessComponent, BookingDetailsAfterComponent, BikelistComponent, DurationComponent, DurationLaterComponent, BookingsummaryComponent, OffersComponent, CouponappliedComponent, PaymentComponent, PaymentgatewaysComponent, AddUPIIDComponent, AddcardComponent, EWalletComponent, BookingDetailsComponent, HomepageAfterbookingComponent, TimedetailsComponent, BookingsuccessComponent,
@@ -144,7 +146,8 @@ providers: [Storage]
     TimeDetailsComponent,
     TimeDetailsVehicleComponent,
     TimeDetailsVehicleFromComponent,
-    VerificationComponent
+    VerificationComponent,
+    LoaderComponent
 
   ],
 
