@@ -34,9 +34,9 @@ export class RegisterComponent implements OnInit {
     this.regForm = this._rf.group({
       FirstName: ['', Validators.compose([Validators.required,])],
       LastName: ['', Validators.compose([Validators.required])],
-      EmailID: ['', Validators.compose([Validators.required])],
+      EmailID: ['', Validators.compose([Validators.required,Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),Validators.email])],
       country: '+91',
-      MobileNo: ['', Validators.compose([Validators.required])],
+      MobileNo: ['', [Validators.required,Validators.pattern("^[0-9]*$")]],
       DateofBirth: ['', Validators.compose([Validators.required])],
       Password: ['12345', Validators.compose([Validators.required])],
       MemberType: '1000',

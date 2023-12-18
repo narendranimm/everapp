@@ -82,15 +82,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SplashServiceService } from './splash-service.service';
-
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
 import { BookingSummaryAfterCoupanComponent } from './booking-summary-after-coupan/booking-summary-after-coupan.component';
 import { Http } from '@capacitor-community/http';
-import {
-  GoogleLoginProvider,
-
-} from '@abacritt/angularx-social-login';
+import {GoogleLoginProvider} from '@abacritt/angularx-social-login';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/material/snack-bar';
 import { SwapBatteryScrollComponent } from './E-bike-booking-flow/enablelocation/swap-battery-scroll/swap-battery-scroll.component';
 import { NearhubComponent } from './E-bike-booking-flow/homepage/nearhub/nearhub.component';
@@ -159,6 +155,7 @@ providers: [Storage]
     useValue: {
       autoLogin: false,
       providers: [
+      
         {
           id: GoogleLoginProvider.PROVIDER_ID,
           provider: new GoogleLoginProvider(
@@ -173,7 +170,8 @@ providers: [Storage]
     } as SocialAuthServiceConfig,
   },
   { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 3000 } },
-  provideHttpClient(withJsonpSupport())
+  provideHttpClient(withJsonpSupport()),
+  
 
   ],
   bootstrap: [AppComponent],

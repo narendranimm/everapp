@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IonContent } from '@ionic/angular';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
 import { BottomsheetComponent } from 'src/app/bottomsheet/bottomsheet.component';
+import { DataservicesService } from 'src/app/dataservices.service';
 import { UserData } from 'src/app/providers/user-data';
 interface Food {
   value: string;
@@ -20,11 +21,15 @@ interface Food {
 })
 export class DurationComponent implements OnInit {
   customDate!: FormGroup;
+  startDate:any;
+  endDate:any;
   productId: any;
   Number!:number;
+  Amount:any;
   ProductDetails: any
   totalHours!: number;
   taskId: any;
+  timeDifference:any
   selectedValue!: string;
   selectedValue1!: string;
   foods: Food[] = [
@@ -42,7 +47,7 @@ export class DurationComponent implements OnInit {
 
   ];
   logindata: any;
-  constructor(private datePipe: DatePipe,private snackBar: MatSnackBar, private router: Router, private bookingservice: BookingService, private bk: FormBuilder, private route: ActivatedRoute, private user: UserData) {
+  constructor(private datePipe: DatePipe,private snackBar: MatSnackBar, private router: Router, private bookingservice: BookingService, private bk: FormBuilder, private route: ActivatedRoute, private user: UserData,private dataService:DataservicesService) {
   console.log(Date.now())
  console.log( this.datePipe.transform(Date.now(), 'yyyy-MM-dd HH:mm:ss'));
     this.customDate = this.bk.group({
@@ -79,8 +84,31 @@ export class DurationComponent implements OnInit {
       console.log(res)
       this.logindata=res;
     })
-this.ordersaveData.ProductID=this.productId;
-this.ordersaveData.MemberID=this.logindata.UserID;
+
+this.dataService.combinedData$.subscribe(data => {
+  if (data) {
+    this.startDate = data.inputValue;
+    this.endDate = data.inputValue1;
+    const startTime = new Date(this.startDate).getTime();
+    const endTime = new Date(this.endDate).getTime();
+    if (!isNaN(startTime) && !isNaN(endTime)) {
+      const difference = Math.abs(endTime - startTime);
+    
+      // Calculate days, hours, minutes, seconds
+      const days = Math.floor(difference / (1000 * 3600 * 24));
+      const hours = Math.floor((difference % (1000 * 3600 * 24)) / (1000 * 3600));
+    
+      const minutes = Math.floor((difference % (1000 * 3600)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+      const ammount=Math.floor(hours*20);
+      // Construct the time difference string
+      this.timeDifference = `${days} days,${hours} hours `;
+      this.Amount=`${ammount}`
+    }
+  }
+  })
+    
+
   }
   duration() {
     const data = this.customDate.value;
@@ -88,7 +116,7 @@ this.ordersaveData.MemberID=this.logindata.UserID;
   }
   book() {debugger
     const data = this.customDate.value;
-    if (this.customDate.valid) {
+    if (!this.customDate.valid) {
       this.customDate.markAllAsTouched();
       this.snackBar.open(" All fields are required ");
     } else {

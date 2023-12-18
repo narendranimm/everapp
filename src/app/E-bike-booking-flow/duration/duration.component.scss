@@ -32,7 +32,7 @@ background: var(--Primary, #3355B9);
   color: white; font-size: 12px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
 }
 .days{
- font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
+ font-size: 24px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word;background: none;
 }
 .duration{color: black; font-size: 12px;  font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word}
 .how{
@@ -102,4 +102,13 @@ word-wrap: break-word
  }
  input{
   color: #363636;
+ }
+ .book-btn-1{
+ width: 360px; padding-top: 200px; padding-bottom: 19px; padding-left: 16px; padding-right: 16px; justify-content: center; align-items: flex-start; gap: 70px; display: inline-flex
+ }
+ @media screen and (max-height:700px) {
+   .book-btn-1{
+
+padding-top: 160px;
+ }
  }

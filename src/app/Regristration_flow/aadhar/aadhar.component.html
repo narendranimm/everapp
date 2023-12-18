@@ -6,16 +6,20 @@
   <p class="mobile">KYC details</p>
   <p class="intro-content">Please do your kyc to book your vehicle.</p><br>
   <form action="" [formGroup]="personalForm">
-    <ion-label class="f-name">Aadhar no.</ion-label>
-    <ion-input placeholder="Enter Aadhar no." class="otp" formControlName="adharno"></ion-input>
+    <label class="f-name">Aadhar no.</label><br>
    
+    <input type= "number" placeholder="Enter Aadhar no." class="otp" formControlName="adharno" >
+    <div *ngIf="personalForm.get('adharno')?.invalid && personalForm.get('adharno')?.touched"  style="color: red;">
+      <div  *ngIf="personalForm.get('adharno')?.hasError('adharno')">adharno required</div>
+
+    </div>
     <div class="button-wrap">
       <label class="button" for="adhar">Upload File</label>
       <input id="adhar" type="file" (change)="onFileSelected($event,'adhar')" formControlName="adharfile" >
      
     </div>
-    <ion-label class="f-name">Driving license no.</ion-label>
-    <ion-input placeholder="0000 0000 0000" class="otp" formControlName="licenseno"></ion-input>
+    <label class="f-name">Driving license no.</label><br>
+    <input placeholder="0000 0000 0000" class="otp" formControlName="licenseno">
    
     <div class="button-wrap">
       <label class="button" for="license">Upload Files</label>
@@ -23,16 +27,17 @@
   
     </div>
       
-    <ion-label class="f-name">Pan no..</ion-label>
-    <ion-input placeholder="0000 0000 0000" class="otp" formControlName="panno"></ion-input>
+    <label class="f-name">Pan no..</label><br>
+    <input placeholder="0000 0000 0000" class="otp" formControlName="panno">
    
       <div class="button-wrap">
         <label class="button" for="pan">Upload File</label>
-      <input id="pan" type="file" (change)="onFileSelected($event,'pass')" formControlName="panfile" >
+      <input id="pan" type="file" (change)="onFileSelected($event,'adhar')" formControlName="panfile" >
     
     </div>
 
     <div class="continue-btn-container">
       <button  class="continue" (click)="myupload()"  >Continue</button>
     </div>
+   
     </form>

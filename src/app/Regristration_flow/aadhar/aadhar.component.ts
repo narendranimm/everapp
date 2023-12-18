@@ -20,7 +20,7 @@ export class AadharComponent implements OnInit {
   islicence: boolean = false
   constructor(private router: Router, private _pf: FormBuilder, private http: HttpClient, private rs: RegisterService, private snackBar: MatSnackBar, private loaderService: IonLoaderService) {
     this.personalForm = this._pf.group({
-      adharno: ['', Validators.required],
+      adharno: ['', [Validators.required,Validators.pattern("^[0-12]*$")]],
       adharfile: ['', Validators.required],
       licenseno: ['', Validators.required],
       licensefile: ['', Validators.required],
@@ -75,14 +75,15 @@ export class AadharComponent implements OnInit {
           switch (fileName) {
             case 'adhar':
               this.isAdhar = true;
+              this.isvoter=true;
               break;
             case 'licence':
               this.islicence = true;
               break;
   
-            case 'pass':
-              this.isvoter = true
-              break;
+            // case 'voter':
+            //   this.isvoter = true
+            //   break;
   
             default:
               break;
@@ -104,12 +105,17 @@ export class AadharComponent implements OnInit {
   //   }
   // }
   myupload() {
+   
     if (this.isAdhar && this.isvoter && this.islicence) {
       this.snackBar.open(" uploaded successfully");
       this.router.navigate(['/selfie'])
     }else{
+      this.personalForm.markAllAsTouched();
       this.snackBar.open(" Please upload All Files");
-
-    }
+     console.log( this.personalForm.value)
+        
+   
   }
+  
+}
 }

@@ -51,11 +51,11 @@
                   </mat-option>
                 </mat-select>
               </mat-form-field> -->
-  
+            <div style="display: none;">
             <input type="text" [(ngModel)]="startDate" formControlName="date"  style="border: none;height: 50px;">
             <input type="text" [(ngModel)]="endDate" formControlName="time" style="border: none;height: 50px;">
-     
-<!-- <ion-content style="height: 60px;border: 2px solid whitesmoke;">
+        </div>
+<ion-content style="height: 60px;border: 2px solid whitesmoke;">
   <div *ngFor="let number of numbers">
     <button class="date" >{{number.count}}</button><br>
  
@@ -67,7 +67,7 @@
 <button class="days" (click)="convertToHoursin(Number)">days</button><br>
 <button class="days" (click)="convertToHours(Number)">weeks</button><br>
 
-</ion-content> -->
+</ion-content>
  
         </div>
   
@@ -77,7 +77,7 @@
         </button>
    
         <div style="width:100%;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: rgba(51, 85, 185, 0.20); border-radius: 24px; overflow: hidden; justify-content: center; align-items: center; gap: 12px; display: inline-flex">
-            <div routerLink="/datetime/{{productId}}" class="later">Start later {{startDate | date :'short'}}</div>
+            <div routerLink="/datetime/{{productId}}" class="later">Start later <span style="color:white"> {{startDate | date :'short'}}</span></div>
             <div style="width: 16px; height: 16px; position: relative"> 
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" view Box="0 0 17 16" fill="none">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M4.49996 4.66602L8.49996 8.66602L12.5 4.66602L13.8333 5.99935L8.49996 11.3327L3.16663 5.99935L4.49996 4.66602Z" fill="#3355B9"/>
@@ -86,10 +86,10 @@
         </div>
     </div>
 
-    <div style="width: 360px; padding-top: 200px; padding-bottom: 19px; padding-left: 16px; padding-right: 16px; justify-content: center; align-items: flex-start; gap: 70px; display: inline-flex">
+    <div class="book-btn-1">
         <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
             <div class="total">Total</div>
-            <div class="amount">{{Amount}}</div>
+            <div class="amount">12,800 rs</div>
         </div>
         <button (click)="book()" style="flex: 1 1 0; align-self: stretch; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: space-between; align-items: center; display: inline-flex">
             <div class="book" >Book now</div>
