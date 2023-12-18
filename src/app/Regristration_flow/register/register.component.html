@@ -99,7 +99,7 @@
   </div>
   <div *ngIf="regForm.get('MobileNo')?.invalid && regForm.get('MobileNo')?.touched" class="error">
     <div  *ngIf="regForm.get('MobileNo')?.hasError('required')">Mobile no required</div>
-    <div  *ngIf="regForm.get('MobileNo')?.hasError('minlength')">Mobile no required 10 numbers</div>
+    <div  *ngIf="regForm.get('MobileNo')?.hasError('pattern')">Mobile no required 10 numbers</div>
   </div>
   <div style="align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
       <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">

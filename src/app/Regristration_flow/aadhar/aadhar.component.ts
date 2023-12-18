@@ -1,12 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { IonContent } from '@ionic/angular';
 import { IonLoaderService } from 'services/Ionic_Loader/ionic_Loader.service';
+import { UploadsuccessComponent } from 'src/app/popups/uploadsuccess/uploadsuccess.component';
 import { RegisterService } from 'src/app/registration-services/register.service';
 import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-aadhar',
@@ -18,7 +21,7 @@ export class AadharComponent implements OnInit {
   isAdhar: boolean = false
   isvoter: boolean = false;
   islicence: boolean = false
-  constructor(private router: Router, private _pf: FormBuilder, private http: HttpClient, private rs: RegisterService, private snackBar: MatSnackBar, private loaderService: IonLoaderService) {
+  constructor(public dialog: MatDialog,private router: Router, private _pf: FormBuilder, private http: HttpClient, private rs: RegisterService, private snackBar: MatSnackBar, private loaderService: IonLoaderService) {
     this.personalForm = this._pf.group({
       adharno: ['', [Validators.required,Validators.pattern("^[0-12]*$")]],
       adharfile: ['', Validators.required],
@@ -107,7 +110,7 @@ export class AadharComponent implements OnInit {
   myupload() {
    
     if (this.isAdhar && this.isvoter && this.islicence) {
-      this.snackBar.open(" uploaded successfully");
+      this.dialog.open(UploadsuccessComponent);
       this.router.navigate(['/selfie'])
     }else{
       this.personalForm.markAllAsTouched();
@@ -118,4 +121,5 @@ export class AadharComponent implements OnInit {
   }
   
 }
+
 }

@@ -28,6 +28,7 @@ export class SelfieComponent implements OnInit {
   imgFile: any;
   blob: any;
   show: boolean = true;
+  istakenpic: boolean=false;
   constructor(private router: Router, private _rf: FormBuilder, private reg: RegisterService, private http: HttpClient, private userdata: UserData) {
     this.imagesend = this._rf.group({
       imageSource: ''
@@ -61,6 +62,7 @@ export class SelfieComponent implements OnInit {
     this.upload(imageFile);
   };
   upload(file: any) {
+    this.istakenpic=true;;
     this.reg.uploadFile(file, '1000', 'profilepic').subscribe(res => {
       console.log(res)
       if (res.status == 'true') {
@@ -83,6 +85,9 @@ export class SelfieComponent implements OnInit {
     return blob;
   }
   gotonext() {
-    this.router.navigate(['/homepage'])
+    if(this.istakenpic){
+
+      this.router.navigate(['/homepage'])
+    }
   }
 }
