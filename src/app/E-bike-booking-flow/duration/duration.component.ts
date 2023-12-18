@@ -76,14 +76,18 @@ export class DurationComponent implements OnInit {
 
   toppingList1: string[] = ['1', '2', '3', '4', '5', '6', '7', '8'];
   ngOnInit() {
-    this.user.getId('pId').then(data => this.productId = data);
-    this.user.getId('pId').then(data => this.productId = data);
+    this.user.getId('pId').then(data =>{
+
+      this.productId = data;
+      this.ordersaveData.ProductID=this.productId;
+    }
+       );
     this.user.getuser().then(res=>{
       console.log(res)
       this.logindata=res;
+      this.ordersaveData.MemberID=this.logindata.UserID;
+      console.log(this.ordersaveData)
     })
-this.ordersaveData.ProductID=this.productId;
-this.ordersaveData.MemberID=this.logindata.UserID;
   }
   duration() {
     const data = this.customDate.value;

@@ -15,6 +15,7 @@ import { UserData } from 'src/app/providers/user-data';
 
 import { Geolocation, GeolocationPlugin } from '@capacitor/geolocation';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { LoadingService } from 'src/app/services/loading.service';
 export interface MapGeocoderResponse {
   status: google.maps.GeocoderStatus;
   results: google.maps.GeocoderResult[];
@@ -25,7 +26,7 @@ export interface MapGeocoderResponse {
   styleUrls: ['./homepage.component.scss'],
 })
 export class HomepageComponent implements OnInit {
-
+  loading: boolean = false;
   lat!: any;  
   lng!:any;  
   location: any = {}
@@ -47,9 +48,11 @@ events:any;
       shareReplay()
     );
   marker: any;
-  constructor(httpClient: HttpClient,public popoverController: PopoverController, private _bh: BookingService, private route: ActivatedRoute, private router:Router,
+  constructor(private ionLoaderService: LoadingService,
+    httpClient: HttpClient,public popoverController: PopoverController, private _bh: BookingService, private route: ActivatedRoute, private router:Router,
     private _pd: ProductServicesService,private userdata:UserData
   ) {
+    this.ionLoaderService.simpleLoader('Loading');
  
         this.userdata.getuser().then(res=>{
           console.log(res)
@@ -98,7 +101,7 @@ data=[];
     this._bh.getbikehubs(this.bikeHubID).subscribe((res:any) => {
       console.log('tests',res)
       this.bikeHub = res.slice(0,4);
-    
+      this.ionLoaderService.dismissLoader();
     })
   }
 //   getbatteryhubs() {
