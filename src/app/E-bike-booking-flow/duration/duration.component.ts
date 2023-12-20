@@ -165,4 +165,23 @@ export class DurationComponent implements OnInit {
       "DeliveredOn": "2023-11-30T00:30:42",
       "PaymentConfirmedOn": "2023-11-29T00:30:42"
     }
+
+    selectedOption: string = 'perHour'; // Default selected option
+  amount: number = 0; // Input amount
+  convertedCash: number | null = null; // Converted cash value
+
+  convertToCash() {
+    const hourlyRate = 10; // Example hourly rate
+    const dailyRate = 80; // Example daily rate
+    const weeklyRate=500;
+    if (this.selectedOption === 'perHour') {
+      this.convertedCash = this.amount * hourlyRate;
+    } else if (this.selectedOption === 'perDay') {
+      this.convertedCash = this.amount * dailyRate;
+    } else if(this.selectedOption === 'perWeek'){
+      this.convertedCash = this.amount * weeklyRate;
+    }else {
+      this.convertedCash = null; // Handle unexpected selections
+    }
+  }
 }

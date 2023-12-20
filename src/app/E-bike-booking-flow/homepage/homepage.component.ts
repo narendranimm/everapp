@@ -5,7 +5,7 @@ import { catchError, map, shareReplay } from 'rxjs/operators';
 import { ViewChild, ElementRef } from '@angular/core';
 import { IonContent, PopoverController } from '@ionic/angular';
 import {Injectable, NgZone} from '@angular/core';
-
+import {  filter, scan } from 'rxjs/operators';
 import { PopoverComponent } from 'src/app/popover/popover.component';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
 import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
@@ -52,20 +52,33 @@ events:any;
     httpClient: HttpClient,public popoverController: PopoverController, private _bh: BookingService, private route: ActivatedRoute, private router:Router,
     private _pd: ProductServicesService,private userdata:UserData
   ) {
-    this.ionLoaderService.simpleLoader('Loading');
+   
  
         this.userdata.getuser().then(res=>{
           console.log(res)
           this.logindata=res;
             this.username=res.FirstName +' ' +res.LastName;
         })
+
+      //   this.router.events.pipe(
+      // filter((event:any) => event instanceof NavigationStart))
+      // .subscribe((event: NavigationStart) => {
+      //   if (event.url == '/homepage') {
+      //     // basically this line stops the navigation to new route
+      //     router.navigateByUrl(router.url, {  replaceUrl: true });
+      //   } else{
+      //     // if you want do other things or leave empty
+      //   }
+      // });
+   
+  
     
   }
 
   ngOnInit() {
     // this.router.navigate(['sign-in'])
    this.printCurrentPosition();
-  //  this.address();
+   this.address();
   
     // this.getbatteryhubs()
    this.getbikehubs()
@@ -98,10 +111,13 @@ data=[];
 
   public sidebar: boolean = true;
   getbikehubs() {
+    this.ionLoaderService.simpleLoader('loading')
     this._bh.getbikehubs(this.bikeHubID).subscribe((res:any) => {
       console.log('tests',res)
       this.bikeHub = res.slice(0,4);
+
       this.ionLoaderService.dismissLoader();
+     
     })
   }
 //   getbatteryhubs() {
@@ -147,4 +163,7 @@ address(){
       console.log(res)
     })
  }
+
+
+ 
 }

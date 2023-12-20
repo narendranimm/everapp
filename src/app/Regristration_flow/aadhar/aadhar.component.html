@@ -20,7 +20,10 @@
     </div>
     <label class="f-name">Driving license no.</label><br>
     <input placeholder="0000 0000 0000" class="otp" formControlName="licenseno">
-   
+    <div *ngIf="personalForm.get('licenseno')?.invalid && personalForm.get('licenseno')?.touched"  style="color: red;">
+      <div  *ngIf="personalForm.get('licenseno')?.hasError('licenseno')">adharno required</div>
+
+    </div>
     <div class="button-wrap">
       <label class="button" for="license">Upload Files</label>
       <input id="license" type="file" (change)="onFileSelected($event,'licence')" formControlName="licensefile" >
@@ -29,7 +32,10 @@
       
     <label class="f-name">Pan no..</label><br>
     <input placeholder="0000 0000 0000" class="otp" formControlName="panno">
-   
+    <div *ngIf="personalForm.get('panno')?.invalid && personalForm.get('panno')?.touched"  style="color: red;">
+      <div  *ngIf="personalForm.get('panno')?.hasError('panno')">adharno required</div>
+
+    </div>
       <div class="button-wrap">
         <label class="button" for="pan">Upload File</label>
       <input id="pan" type="file" (change)="onFileSelected($event,'adhar')" formControlName="panfile" >

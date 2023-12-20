@@ -6,7 +6,7 @@ import { Plugins } from '@capacitor/core';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { StorageService } from 'src/app/services/storage.service';
-
+import {AndroidPermissions} from '@awesome-cordova-plugins/android-permissions/ngx'
 // export const INTRO_KEY ='intro-slides';
 @Component({
   selector: 'app-get',
@@ -15,7 +15,7 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class GetComponent  implements OnInit {
 
-  constructor(private storage:StorageService, public dialog: MatDialog,private splashScreenStateService:SplashServiceService,private router:Router,public _storage: Storage) {}
+  constructor(private storage:StorageService, public dialog: MatDialog,private splashScreenStateService:SplashServiceService,private router:Router,public _storage: Storage,private androidPermissions: AndroidPermissions) {}
 
   openDialog() {
     const dialogRef = this.dialog.open(AllowPermissionsComponent);
@@ -42,5 +42,18 @@ export class GetComponent  implements OnInit {
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
   }
-  
+  Permissions(){
+    this.androidPermissions.checkPermission( this.androidPermissions.PERMISSION.MANAGE_EXTERNAL_STORAGE,).then(
+      result => console.log('Has permission?',result.hasPermission),
+      err => this.androidPermissions.requestPermission( this.androidPermissions.PERMISSION.MANAGE_EXTERNAL_STORAGE,)
+    );
+    
+    this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.CAMERA, 
+      this.androidPermissions.PERMISSION.GET_ACCOUNTS,
+      this.androidPermissions.PERMISSION.WRITE_EXTERNAL_STORAGE,
+      this.androidPermissions.PERMISSION.READ_EXTERNAL_STORAGE,
+      this.androidPermissions.PERMISSION.MANAGE_EXTERNAL_STORAGE,
+      this.androidPermissions.PERMISSION.READ_MEDIA_IMAGE,
+    ]);
+  }
 }

@@ -108,6 +108,7 @@ import { provideHttpClient, withJsonpSupport } from '@angular/common/http';
 import {MatSelectModule} from '@angular/material/select';
 import { LoaderComponent } from './global_components/loader/loader.component';
 import { LoadingService } from './services/loading.service';
+import {AndroidPermissions} from '@awesome-cordova-plugins/android-permissions/ngx'
 providers: [Storage]
 @NgModule({
   declarations: [AppComponent, SplashComponent, GetComponent, RegisterComponent, LogComponent, AadharComponent, SelfieComponent, NavComponent, PreviewComponent, CropComponent, AllowPermissionsComponent, CongratulationsComponent,  EnablelocationComponent, HomepageComponent, HubdetailsComponent, HublistsComponent, BookingdetailsComponent, CommunicationAllowPermissionComponent, HublistsComponent, BikedetailsComponent, DurationComponent, DatetimeComponent, BatteryStationListComponent, BatteryStationComponent, BatteryListComponent, BatteryDetailsAvailableComponent, BatteryDetailsUnavailableComponent, BookingDetailsComponent, OffersComponent, CouponAppliedComponent, CouponAppliedDashboardComponent, PaymentGatewaysComponent, AddUpiIdComponent, AddCardComponent, AddEWalletComponent, PaymentOngoingComponent, AddPaymentOngoingComponent, BookingSuccessComponent, BookingDetailsAfterComponent, BikelistComponent, DurationComponent, DurationLaterComponent, BookingsummaryComponent, OffersComponent, CouponappliedComponent, PaymentComponent, PaymentgatewaysComponent, AddUPIIDComponent, AddcardComponent, EWalletComponent, BookingDetailsComponent, HomepageAfterbookingComponent, TimedetailsComponent, BookingsuccessComponent,
@@ -153,7 +154,7 @@ providers: [Storage]
 
   imports: [BrowserModule, MatExpansionModule, IonicStorageModule.forRoot({ name: "mylocaldb" }), MatSnackBarModule,MatSelectModule,
     ReactiveFormsModule, MatBottomSheetModule, HttpClientModule, CommonModule, IonicModule.forRoot({ mode: 'md' }), AppRoutingModule, SocialLoginModule, MatToolbarModule, MatDialogModule, MatSidenavModule, MatButtonModule, MatCardModule, RouterModule, MatInputModule, MatFormFieldModule, BrowserAnimationsModule, MatIconModule, FormsModule, ReactiveFormsModule, provideFirebaseApp(() => initializeApp({ "projectId": "otp-project-eb64c", "appId": "1:459119525785:web:b8c64ab6b6daaf7e941d08", "databaseURL": "https://otp-project-eb64c-default-rtdb.firebaseio.com", "storageBucket": "otp-project-eb64c.appspot.com", "apiKey": "AIzaSyA_lRy00xcn2oOICSOMEakyVpgNSoFopUk", "authDomain": "otp-project-eb64c.firebaseapp.com", "messagingSenderId": "459119525785", "measurementId": "G-4BRTCEDX5J" })), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
-  providers: [{
+  providers: [AndroidPermissions,{
     provide: 'SocialAuthServiceConfig',
     useValue: {
       autoLogin: false,

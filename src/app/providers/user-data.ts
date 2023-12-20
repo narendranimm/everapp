@@ -9,6 +9,7 @@ let S_KEY='mylist';
     providedIn: 'root'
   })
   export class UserData {
+  userID: any;
   constructor( public _storage: Storage) {
     this.init();
   }

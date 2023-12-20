@@ -39,11 +39,12 @@
   <div style="align-self: stretch; height: 65px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
       <div class="email">Email</div>
       <input type="email" required placeholder="xyz@email.com" formControlName="EmailID"  style="align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex" >
-      <div *ngIf="regForm.get('EmailID')?.invalid && regForm.get('EmailID')?.touched" class="error">
-        <div  *ngIf="regForm.get('EmailID')?.hasError('required')">Email required</div>
-        <div  *ngIf="regForm.get('EmailID')?.hasError('pattern')">Inavalid Email</div>
-      </div>
     
+    
+  </div>
+  <div *ngIf="regForm.get('EmailID')?.invalid && regForm.get('EmailID')?.touched" class="error">
+    <div  *ngIf="regForm.get('EmailID')?.hasError('required')">Email required</div>
+    <div  *ngIf="regForm.get('EmailID')?.hasError('pattern')">Inavalid Email</div>
   </div>
   <div style="align-self: stretch; height: 65px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
       <div class="mobile" >Mobile no.</div>

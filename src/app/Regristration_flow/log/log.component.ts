@@ -23,8 +23,8 @@ taskId:any;
 showLoader!: boolean;
 logindata:any
 userdatabyno:any
-
-
+userID:any;
+ID:any;
   constructor(private router: Router,private route:ActivatedRoute,private userdata:UserData,private snackBar: MatSnackBar,private loaderService:IonLoaderService ,
     private _of:FormBuilder,private modalCtrl:ModalController ,private reg:RegisterService,private http:HttpClient){
       this.taskId = route.snapshot.params["ID"];
@@ -37,6 +37,7 @@ userdatabyno:any
     })
     this.userdata.getuser().then(res=>{
       this.logindata=res;
+    
       
     })
   }
@@ -64,6 +65,7 @@ async verifyotp(){
     this.userdatabyno=data;
     this.userdata.setMain("loginuser",data)
   console.log('Data received:', data);
+ 
 });
   console.log(datad)
   if(this.userdatabyno){

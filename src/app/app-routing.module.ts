@@ -77,9 +77,11 @@ import { OfferCouponComponent } from './offer-coupon/offer-coupon.component';
 import { BookingSummaryAfterCoupanComponent } from './booking-summary-after-coupan/booking-summary-after-coupan.component';
 import { HublistsComponent } from './E-bike-booking-flow/hublists/hublists.component';
 import { VerificationComponent } from './verification/verification.component';
-import { AuthGuard } from './guards/auth.guard';
+
 import { SearchPageComponent } from './batter-reservation-flow/search-page/search-page.component';
 import { LoaderComponent } from './global_components/loader/loader.component';
+import { DeactivateguardGuard } from './deactivateguard.guard';
+
 
 
 

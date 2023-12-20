@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -21,9 +21,10 @@ export class AadharComponent implements OnInit {
   isAdhar: boolean = false
   isvoter: boolean = false;
   islicence: boolean = false
-  constructor(public dialog: MatDialog,private router: Router, private _pf: FormBuilder, private http: HttpClient, private rs: RegisterService, private snackBar: MatSnackBar, private loaderService: IonLoaderService) {
+  isDialogOpen!: boolean;
+  constructor(private cd: ChangeDetectorRef,public dialog: MatDialog,private router: Router, private _pf: FormBuilder, private http: HttpClient, private rs: RegisterService, private snackBar: MatSnackBar, private loaderService: IonLoaderService) {
     this.personalForm = this._pf.group({
-      adharno: ['', [Validators.required,Validators.pattern("^[0-12]*$")]],
+      adharno: ['', [Validators.required,Validators.pattern("^[0-9]{4}[ -]?[0-9]{4}[ -]?[0-9]{4}$")]],
       adharfile: ['', Validators.required],
       licenseno: ['', Validators.required],
       licensefile: ['', Validators.required],
@@ -108,12 +109,14 @@ export class AadharComponent implements OnInit {
   //   }
   // }
   myupload() {
-   
+  
     if (this.isAdhar && this.isvoter && this.islicence) {
       this.dialog.open(UploadsuccessComponent);
+     
+      this.cd.detectChanges();
       this.router.navigate(['/selfie'])
     }else{
-      this.personalForm.markAllAsTouched();
+     
       this.snackBar.open(" Please upload All Files");
      console.log( this.personalForm.value)
         
@@ -121,5 +124,5 @@ export class AadharComponent implements OnInit {
   }
   
 }
-
+  
 }

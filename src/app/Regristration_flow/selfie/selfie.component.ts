@@ -1,6 +1,8 @@
+import { LocationStrategy } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { LoadingController, ModalController } from '@ionic/angular';
@@ -29,13 +31,16 @@ export class SelfieComponent implements OnInit {
   blob: any;
   show: boolean = true;
   istakenpic: boolean=false;
-  constructor(private router: Router, private _rf: FormBuilder, private reg: RegisterService, private http: HttpClient, private userdata: UserData) {
+ 
+  constructor(private location: LocationStrategy,private snackBar: MatSnackBar,private router: Router, private _rf: FormBuilder, private reg: RegisterService, private http: HttpClient, private userdata: UserData) {
     this.imagesend = this._rf.group({
       imageSource: ''
     })
     this.userdata.getuser().then(res => {
       this.logindata = res;
     })
+ 
+  
   }
 
 
@@ -65,13 +70,15 @@ export class SelfieComponent implements OnInit {
     this.istakenpic=true;;
     this.reg.uploadFile(file, '1000', 'profilepic').subscribe(res => {
       console.log(res)
-      if (res.status == 'true') {
-        // this.router.navigate(['/selfie'])
-        this.router.navigate(['/homepage'])
-      }
-      else {
-        this.router.navigate(['/enableloaction'])
-      }
+       
+      // if (res.status == 'true') {
+      //   // this.router.navigate(['/selfie'])
+      //   this.router.navigate(['/homepage'])
+      // }
+      // else {
+      //   this.router.navigate(['/homepage'])
+      // }
+
     })
   }
   dataURItoBlob(dataURI: any) {
@@ -85,8 +92,10 @@ export class SelfieComponent implements OnInit {
     return blob;
   }
   gotonext() {
-    if(this.istakenpic){
-
+    if(!this.istakenpic){
+      this.snackBar.open("please select your pic");
+      this.router.navigate(['/selfie'])
+    }else{
       this.router.navigate(['/homepage'])
     }
   }

@@ -257,7 +257,7 @@ border:none;
       @include flex;
     }
     .scroller{
-      height: 108rem;
+      height: 104rem;
     }
     .btn-container{
       padding: 4%;
@@ -288,6 +288,6 @@ word-wrap: break-word
   }
   @media screen and (max-height:650px) {
     .scroller{
-      height: 112rem;
+      height: 104rem;
     }
   }
