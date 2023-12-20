@@ -112,7 +112,7 @@ export class RegisterComponent implements OnInit {
     if(!this.regForm.valid) {
       setTimeout(() => {
         this.loadingservice.dismissLoader();
-      }, 3000);
+      }, 1000);
 
       this.regForm.markAllAsTouched();
       this.snackBar.open(" All fields are required ");
