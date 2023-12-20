@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { IonLoaderService } from 'services/Ionic_Loader/ionic_Loader.service';
 import { UserData } from 'src/app/providers/user-data';
 import { RegisterService } from 'src/app/registration-services/register.service';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-log',
@@ -25,7 +26,8 @@ logindata:any
 userdatabyno:any
 userID:any;
 ID:any;
-  constructor(private router: Router,private route:ActivatedRoute,private userdata:UserData,private snackBar: MatSnackBar,private loaderService:IonLoaderService ,
+  constructor(private loadingservice: LoadingService,private router: Router,private route:ActivatedRoute,
+    private userdata:UserData,private snackBar: MatSnackBar,
     private _of:FormBuilder,private modalCtrl:ModalController ,private reg:RegisterService,private http:HttpClient){
       this.taskId = route.snapshot.params["ID"];
       console.log("this is taskId value = "+ this.taskId);
@@ -45,16 +47,15 @@ ID:any;
     return this.otpForm.controls;  
   } 
   ngOnInit() {
-    this.loaderService.status.subscribe((val: boolean) => {
-      this.showLoader = val;
-    });
+   
   }
 nav(){
   this.router.navigate(['/verification'])
 }
 
 
-async verifyotp(){
+async sendOTP(){
+  this.loadingservice.simpleLoader('Fetchind Data')
   //need to handle error
   //1. if otp failed
   //2.if network issue.
@@ -78,6 +79,7 @@ async verifyotp(){
 // this.loaderService.display(true);
     console.log(res)
     if(res.status){
+      this.loadingservice.dismissLoader();
       this.snackBar.open(JSON.stringify(res.message));
       this.router.navigate(['/verification'])   
     }

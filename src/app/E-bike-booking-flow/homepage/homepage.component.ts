@@ -48,7 +48,7 @@ events:any;
       shareReplay()
     );
   marker: any;
-  constructor(private ionLoaderService: LoadingService,
+  constructor(private loadingservice: LoadingService,
     httpClient: HttpClient,public popoverController: PopoverController, private _bh: BookingService, private route: ActivatedRoute, private router:Router,
     private _pd: ProductServicesService,private userdata:UserData
   ) {
@@ -60,40 +60,18 @@ events:any;
             this.username=res.FirstName +' ' +res.LastName;
         })
 
-      //   this.router.events.pipe(
-      // filter((event:any) => event instanceof NavigationStart))
-      // .subscribe((event: NavigationStart) => {
-      //   if (event.url == '/homepage') {
-      //     // basically this line stops the navigation to new route
-      //     router.navigateByUrl(router.url, {  replaceUrl: true });
-      //   } else{
-      //     // if you want do other things or leave empty
-      //   }
-      // });
    
   
     
   }
 
   ngOnInit() {
-    // this.router.navigate(['sign-in'])
    this.printCurrentPosition();
    this.address();
   
     // this.getbatteryhubs()
    this.getbikehubs()
-    // this.slides=[
-    //   // {image:'./assets/hub.png',content:'Megha hills EV hub',icon:'',time:'8 min by walk',link:'/hub-details'},
-    //   // {image:'./assets/hub1.png',content:'Madhapur check post EV hub',icon:'',time:'14 min by walk'},
-    //   // {image:'./assets/hub2.png',content:'Kavuri hills EV hub',icon:'',time:'11 min by walk'},
-    //   // {image:'./assets/hub3.png',content:'Hi-tech hills EV hub',icon:'',time:'8 min by walk'},
-    // ]
-    // this.slider=[
-    //   {image:'./assets/battery.png',content:'Ameerpet metro EV battery station'},
-    //   {image:'./assets/battery1.png',content:'Tolichowki EV battery station'},
-    //   {image:'./assets/battery2.png',content:'Kondapur EV battery station'},
-    //   {image:'./assets/battery3.png',content:'Kavuri hills EV battery station'},
-    // ]
+  
   }
   @ViewChild(IonContent) content!: IonContent;
 data=[];
@@ -111,12 +89,12 @@ data=[];
 
   public sidebar: boolean = true;
   getbikehubs() {
-    this.ionLoaderService.simpleLoader('loading')
+    this.loadingservice.simpleLoader('loading')
     this._bh.getbikehubs(this.bikeHubID).subscribe((res:any) => {
       console.log('tests',res)
       this.bikeHub = res.slice(0,4);
 
-      this.ionLoaderService.dismissLoader();
+      this.loadingservice.dismissLoader();
      
     })
   }

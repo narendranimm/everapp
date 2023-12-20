@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductServicesService } from 'services/product-services/product-services.service';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-hubdetails',
@@ -13,7 +14,7 @@ export class HubdetailsComponent  implements OnInit {
 taskId:any;
 bikeHubID:any;
 bikeHub:any;
-  constructor(private route: ActivatedRoute,private _pd:ProductServicesService,private _bh:BookingService) {
+  constructor(private loadingservice: LoadingService,private route: ActivatedRoute,private _pd:ProductServicesService,private _bh:BookingService) {
     this.taskId = route.snapshot.params["ID"];
     console.log("this is taskId value = "+ this.taskId);   
  }
@@ -23,11 +24,18 @@ bikeHub:any;
     this.getbikehubs()
   }
   getbikehubs() {
-    this._bh.getbikehubs(this.bikeHubID).subscribe((res:any) => {
+    this.loadingservice.simpleLoader('Loading data')
+    this._bh.getbikehubs(this.bikeHubID).subscribe(
+      (res:any) => {
       console.log('tests',res)
       this.bikeHub = res.slice(0,1);
-    
-    })
+      this.loadingservice.dismissLoader();
+    },
+    (error)=>{
+      this.loadingservice.dismissLoader();
+
+    }
+    )
   }
   share(){
     if(navigator){

@@ -10,7 +10,8 @@ import { LoadingService } from 'src/app/services/loading.service';
 export class LoaderComponent   {
   //sample code remote later
 
-  constructor(private ionLoaderService: LoadingService) { this.showLoader()}
+  constructor(private ionLoaderService: LoadingService) { 
+  }
   displayAutoLoader() {
     this.ionLoaderService.autoLoader();
   }

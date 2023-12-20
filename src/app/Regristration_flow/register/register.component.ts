@@ -13,6 +13,7 @@ import { UserData } from 'src/app/providers/user-data';
 import { PostResult } from 'src/app/registration-models/postresult';
 import { RegisterService } from 'src/app/registration-services/register.service';
 import { ValidationService } from 'src/app/validationservice/validation.service';
+import { LoadingService } from 'src/app/services/loading.service';
 
 
 @Component({
@@ -25,8 +26,11 @@ export class RegisterComponent implements OnInit {
   message:any;
   UserID:any;
   duration:any
-  constructor(private router: Router,private userdata:UserData,private _snackBar: MatSnackBar,
-    public dialog: MatDialog,private snackBar: MatSnackBar,private loaderService:IonLoaderService , public toast: ToastController, private route: ActivatedRoute, private _rf: FormBuilder, private authService: SocialAuthService, private reg: RegisterService, private customValidators: ValidationService) {
+  constructor(private loadingservice: LoadingService,
+    private router: Router,private userdata:UserData,private _snackBar: MatSnackBar,
+    public dialog: MatDialog,private snackBar: MatSnackBar, public toast: ToastController, private route: ActivatedRoute, 
+    private _rf: FormBuilder, private authService: SocialAuthService, private reg: RegisterService, 
+    private customValidators: ValidationService) {
     this.userdata.get().then( res => 
       {}
       // console.log(res)
@@ -74,14 +78,9 @@ export class RegisterComponent implements OnInit {
     this.authService.authState.subscribe((user) => {
       this.user = user;
       this.loggedIn = (user != null);
-      console.log(user)
     });
 
-    // this.register();
-    // this.getregister();
-    this.loaderService.status.subscribe((val: boolean) => {
-      this.showLoader = val;
-    });
+   
   }
   isModalOpen = false;
 
@@ -105,26 +104,32 @@ export class RegisterComponent implements OnInit {
     this.content.scrollToTop(500);
   }
   register() {
-    this.regForm.value.ProfilePhoto.s
+    this.loadingservice.simpleLoader('Loading')
+    // this.regForm.value.ProfilePhoto.s
     const picname = this.regForm.get('FirstName')!.value +'_'+ this.regForm.get('LastName')!.value;
     this.regForm.controls.ProfilePhoto.setValue(picname);
     const data = this.regForm.value;
     if(!this.regForm.valid) {
+      setTimeout(() => {
+        this.loadingservice.dismissLoader();
+      }, 3000);
+
       this.regForm.markAllAsTouched();
       this.snackBar.open(" All fields are required ");
+      return;
     }
-  //   setTimeout(() => {
-  //   this.loaderService.display(false);
-  // }, 800);
+ 
     this.reg.signup(data).subscribe(
       (res: PostResult) => {
         if(res.status == 'true'){
+          this.loadingservice.dismissLoader();
           console.log(res)
           this.data = res;
-          // this.loaderService.display(true);
           this.snackBar.open(res.message.toString());
           this.router.navigate(['/login'])
         }else{
+          this.loadingservice.dismissLoader();
+
           this.snackBar.open(JSON.stringify(res.message));
 
           
@@ -137,18 +142,7 @@ export class RegisterComponent implements OnInit {
  
 
  
-  // getregister() {
-  //   const data = this.regForm.value
-    
-  //   this.reg.getsignup(data).subscribe((res: any) => {
-  //     this.data = res;
-  //     console.log(res)
  
-  //   })
-  
-   
-  // }
-
   submit() {
 
     if (this.regForm.valid) {
