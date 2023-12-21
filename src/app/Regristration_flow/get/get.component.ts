@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { StorageService } from 'src/app/services/storage.service';
 import {AndroidPermissions} from '@awesome-cordova-plugins/android-permissions/ngx'
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { UserData } from 'src/app/providers/user-data';
 // export const INTRO_KEY ='intro-slides';
 @Component({
   selector: 'app-get',
@@ -14,8 +16,15 @@ import {AndroidPermissions} from '@awesome-cordova-plugins/android-permissions/n
   styleUrls: ['./get.component.scss'],
 })
 export class GetComponent  implements OnInit {
+  userid: any=null;
 
-  constructor(private storage:StorageService, public dialog: MatDialog,private splashScreenStateService:SplashServiceService,private router:Router,public _storage: Storage,private androidPermissions: AndroidPermissions) {}
+  constructor(private userdata:UserData,private snackBar: MatSnackBar,private storage:StorageService, public dialog: MatDialog,private splashScreenStateService:SplashServiceService,private router:Router,public _storage: Storage,private androidPermissions: AndroidPermissions) 
+  {
+    this.userdata.getuser().then(res=>{
+      console.log(res)
+      this.userid=res.UserID;
+    })
+  }
 
   openDialog() {
     const dialogRef = this.dialog.open(AllowPermissionsComponent);
@@ -25,10 +34,7 @@ export class GetComponent  implements OnInit {
     });
   }
 
-// async gotoLogin(){
-//    await  this.storage.setStorage(INTRO_KEY,true)
-//    this.router.navigateByUrl('/login', {replaceUrl:true})
-// }
+
   ngOnInit(): void {
     setTimeout(() => {
        this.splashScreenStateService.stop();
@@ -44,16 +50,52 @@ export class GetComponent  implements OnInit {
   }
   Permissions(){
     this.androidPermissions.checkPermission( this.androidPermissions.PERMISSION.MANAGE_EXTERNAL_STORAGE,).then(
-      result => console.log('Has permission?',result.hasPermission),
+      result => 
+      // console.log('Has permission?',result.hasPermission),
+      {
+        if(result.hasPermission){
+          this.snackBar.open(" Permission already allowed ");
+          this.snackBar.open(this.userid);
+          if(this.userid != null){
+            this.router.navigateByUrl('homepage')
+          }else{
+            this.router.navigateByUrl('register')
+
+          }
+        }else{
+          this.requestPermission();
+        }
+      },
       err => this.androidPermissions.requestPermission( this.androidPermissions.PERMISSION.MANAGE_EXTERNAL_STORAGE,)
     );
     
+  
+  }
+  requestPermission() {debugger
     this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.CAMERA, 
       this.androidPermissions.PERMISSION.GET_ACCOUNTS,
       this.androidPermissions.PERMISSION.WRITE_EXTERNAL_STORAGE,
       this.androidPermissions.PERMISSION.READ_EXTERNAL_STORAGE,
       this.androidPermissions.PERMISSION.MANAGE_EXTERNAL_STORAGE,
       this.androidPermissions.PERMISSION.READ_MEDIA_IMAGE,
-    ]);
+    ]).then(
+      result =>{
+        if(result.hasPermission){
+          localStorage.setItem('permissionRequested', 'true');
+              if(this.userid != null){
+                this.router.navigateByUrl('homepage')
+              }else{
+                this.router.navigateByUrl('register')
+        
+              }
+            }else{
+              this.snackBar.open('Permission denied');
+            }
+          },
+          err=>{
+            this.snackBar.open('err');
+            
+          }
+    )
   }
 }

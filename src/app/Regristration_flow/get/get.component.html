@@ -75,7 +75,8 @@
           </div>
     <div class="intro-child1">
       <div class="get-started-btn"> 
-      <ion-button class="get-start-btn" id="open-modal" expand="block" >Get Started <img class="icon" src="./assets/zondicons_arrow-right.svg" alt=""></ion-button>
+      <ion-button class="get-start-btn" id="open-modal" expand="block" >Get Started 
+        <img class="icon" src="./assets/zondicons_arrow-right.svg" alt=""></ion-button>
       <ion-modal #modal trigger="open-modal">
         <ng-template>
           <ion-content>
@@ -85,7 +86,7 @@
                 <h1 class="title">Allow access for essential functions</h1>
                 <p class="title-container1">Grant the following permissions of location, storage & phone to enable key features..</p>
                 <div class="allow-permission-btn-container">
-                  <button  class="allow-permission-btn"  routerLink="/register" (click)=" Permissions()" (click)="modal.dismiss()">Allow all permissions</button>
+                  <button  class="allow-permission-btn"   (click)=" Permissions()" (click)="modal.dismiss()">Allow all permissions</button>
                 </div>
               </div>
              
