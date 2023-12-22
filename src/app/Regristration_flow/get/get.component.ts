@@ -20,10 +20,16 @@ export class GetComponent  implements OnInit {
 
   constructor(private userdata:UserData,private snackBar: MatSnackBar,private storage:StorageService, public dialog: MatDialog,private splashScreenStateService:SplashServiceService,private router:Router,public _storage: Storage,private androidPermissions: AndroidPermissions) 
   {
-    this.userdata.getuser().then(res=>{
-      console.log(res)
+    this.userdata.getuser().then(
+      res=>{
+      // console.log(res)
       this.userid=res.UserID;
-    })
+    },
+    (error)=>{
+      this.userid=0;
+
+    }
+    )
   }
 
   openDialog() {

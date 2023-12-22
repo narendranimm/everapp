@@ -81,6 +81,7 @@ import { VerificationComponent } from './verification/verification.component';
 import { SearchPageComponent } from './batter-reservation-flow/search-page/search-page.component';
 import { LoaderComponent } from './global_components/loader/loader.component';
 import { DeactivateguardGuard } from './deactivateguard.guard';
+import { FirstMapsComponent } from './maps/first-maps/first-maps.component';
 
 
 
@@ -91,6 +92,7 @@ const routes: Routes = [
 {path:'splash', component:SplashComponent},
 {path:'allow-permissions',component:AllowPermissionsComponent},
 {path:'get',component:GetComponent},
+{path:'map',component:FirstMapsComponent},
 
 {path:'register',component:RegisterComponent},
 {path:'login',component:LogComponent},
