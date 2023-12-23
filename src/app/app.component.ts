@@ -3,7 +3,7 @@ import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { CommunicationAllowPermissionComponent } from './communication-allow-permission/communication-allow-permission.component';
-import { SocialAuthService } from '@abacritt/angularx-social-login';
+// import { SocialAuthService } from '@abacritt/angularx-social-login';
 import { register } from 'swiper/element/bundle';
 import { UserData } from './providers/user-data';
 import { ModeService } from './mode.service';
@@ -23,7 +23,10 @@ export class AppComponent implements OnInit {
 
 
   constructor(
-    public dialog: MatDialog,private authService: SocialAuthService,colorMode:ModeService) {
+    // public dialog: MatDialog,private authService: SocialAuthService,colorMode:ModeService) {
+    public dialog: MatDialog,
+    // private authService: SocialAuthService,
+    colorMode:ModeService) {
       colorMode.darkMode$.subscribe((darkMode) => {
         if (darkMode) {
           document.body.classList.add('dark-theme');
@@ -47,11 +50,11 @@ export class AppComponent implements OnInit {
   loggedIn:any;
  
   ngOnInit() {
-    this.authService.authState.subscribe((user) => {
-      this.user = user;
-      this.loggedIn = (user != null);
-      console.log(user)
-    });
+    // this.authService.authState.subscribe((user) => {
+    //   this.user = user;
+    //   this.loggedIn = (user != null);
+    //   console.log(user)
+    // });
 
    
 

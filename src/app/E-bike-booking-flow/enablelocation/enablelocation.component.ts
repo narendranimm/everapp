@@ -3,7 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import {  ViewChild, ElementRef } from '@angular/core';
-import { SocialAuthService } from '@abacritt/angularx-social-login';
+// import { SocialAuthService } from '@abacritt/angularx-social-login';
 import { IonContent, NavController } from '@ionic/angular';
 import { Geolocation, GeolocationPlugin } from '@capacitor/geolocation';
 import { LocationService } from 'src/app/location.service';
@@ -31,23 +31,20 @@ profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
       map(result => result.matches),
       shareReplay()
     );
-    ngOnInit() {
-      this.authService.authState.subscribe((user) => {
-        this.user = user;
-        this.loggedIn = (user != null);
-        console.log(user)
-      });
-      this.printCurrentPosition();
-      this.slides=[
-        {image:'./assets/battery.png',content:'Ameerpet metro EV battery station'},
-        {image:'./assets/battery1.png',content:'Tolichowki EV battery station'},
-        {image:'./assets/battery2.png',content:'Kondapur EV battery station'},
-        {image:'./assets/battery3.png',content:'Kavuri hills EV battery station'},
-      ]
+    constructor(private _bh:BookingService,private element: ElementRef,
+      // private authService: SocialAuthService,
+      public navCtrl: NavController,private location:LocationService,private geolocation: Geolocation ) {
+      this.getbikehubs()
     }
-  constructor(private _bh:BookingService,private element: ElementRef,private authService: SocialAuthService,public navCtrl: NavController,private location:LocationService,private geolocation: Geolocation ) {
-    this.getbikehubs()
-  }
+    ngOnInit() {
+      // this.authService.authState.subscribe((user) => {
+      //   this.user = user;
+      //   this.loggedIn = (user != null);
+      //   console.log(user)
+      // });
+      this.printCurrentPosition();
+      // this.slides=[]
+    }
 
   @HostListener("wheel", ["$event"])
   public onScroll(event: WheelEvent) {
@@ -58,8 +55,7 @@ profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
   @ViewChild(IonContent) content!: IonContent;
 
   scrollToBottom() {
-    // Passing a duration to the method makes it so the scroll slowly
-    // goes to the bottom instead of instantly
+    
     this.content.scrollToBottom(500);
   }
 
