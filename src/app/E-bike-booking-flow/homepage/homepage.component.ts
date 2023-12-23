@@ -55,7 +55,6 @@ events:any;
  
         this.userdata.getuser().then(
           res=>{
-          console.log(res)
           this.logindata=res;
             this.username=res.FirstName +' ' +res.LastName;
         })  
@@ -63,11 +62,10 @@ events:any;
   }
 
   ngOnInit() {
+    this.getbikehubs()
    this.printCurrentPosition();
    this.address();
   
-    // this.getbatteryhubs()
-   this.getbikehubs()
   
   }
   @ViewChild(IonContent) content!: IonContent;
@@ -80,7 +78,7 @@ data=[];
     this._bh.getbikehubs(this.bikeHubID).subscribe((res:any) => {
       console.log('tests',res)
       this.bikeHub = res;
-      // this.bikeHub = res.slice(0,4);
+      this.bikeHub = res.slice(0,4);
 
       this.loadingservice.dismissLoader();
      
