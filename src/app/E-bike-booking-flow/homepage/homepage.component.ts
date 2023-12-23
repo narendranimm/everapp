@@ -84,13 +84,7 @@ data=[];
      
     })
   }
-//   getbatteryhubs() {
-// this._bh.getDate(this.data).subscribe((res:any) => {
-//   console.log('tests',res)
-//   this.data = res;
 
-// })
-//   }
 printCurrentPosition() {
   var coordinates = Geolocation.getCurrentPosition().then((resp) => { 
   this.lat = resp.coords.latitude;  

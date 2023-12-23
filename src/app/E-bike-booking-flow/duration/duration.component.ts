@@ -57,6 +57,7 @@ export class DurationComponent implements OnInit {
   dailyRate = 240; // Example daily rate
   weeklyRate = 1680;
   BookingID:any;
+  priceData: any;
   constructor(private datePipe: DatePipe, private snackBar: MatSnackBar,private loader:LoadingService,
      private router: Router, private bookingservice: BookingService, private bk: FormBuilder, private route: ActivatedRoute, private user: UserData, private dataService: DataservicesService) {
 
@@ -156,6 +157,15 @@ export class DurationComponent implements OnInit {
         }
       }
     })
+    this.GetPriceData()
+  }
+  GetPriceData() {
+   this.bookingservice.getPriceData().subscribe(res=>{
+    this.priceData=res;
+    this.dailyRate=this.priceData.filter((x:any)=>x.PayTypes == 'day')
+    this.weeklyRate=this.priceData.filter((x:any)=>x.PayTypes == 'week')
+    this.hourlyRate=this.priceData.filter((x:any)=>x.PayTypes == 'hour')
+   })
   }
   duration() {
     this.ordersaveData.ProductID = this.productId;
