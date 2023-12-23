@@ -1,45 +1,50 @@
-
-  
-
-
 <form action="" [formGroup]="customDate">
-<div class="btn-container">
+  <div class="btn-container">
 
-<div style="width: 100%; height: 100%; flex-direction: column; justify-content: flex-start; align-items: center; gap: 24px; display: inline-flex">
-    <div style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 116px; display: inline-flex">
+    <div
+      style="width: 100%; height: 100%; flex-direction: column; justify-content: flex-start; align-items: center; gap: 24px; display: inline-flex">
+      <div
+        style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 116px; display: inline-flex">
         <div style="width: 24px; height: 24px; position: relative">
-            <div class="container">
-                <div class="btn-container">
-                  <button style="background: transparent;border: none;" routerLink="/bikedetails/1000"><img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
-                  </div>
+          <div class="container">
+            <div class="btn-container">
+              <button style="background: transparent;border: none;" routerLink="/bikedetails/1000"><img class="icon"
+                  src="./assets/zondicons_arrow-left.svg" alt=""></button>
+            </div>
 
-                </div>
+          </div>
         </div>
         <div class="duration">Duration</div>
-    </div>
-    <div class="btn-container">
-    <div style="height: 250px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 24px; display: flex">
-        <div style="align-self: stretch; height: 61px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
+      </div>
+      <div class="btn-container">
+        <div
+          style="height: 250px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 24px; display: flex">
+          <div
+            style="align-self: stretch; height: 61px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
             <div class="how">How much time do you need?</div>
             <div style="justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
-                <button  mat-button style="padding-left: 12px; padding-right: 12px; padding-top: 7px; padding-bottom: 7px; border-radius: 24px; border: 1px #E8E7E7 solid; flex-direction: column; justify-content: center; align-items: flex-start; gap: 10px; display: inline-flex">
-                    <div class="custom-duration">6 hours</div>
-                </button>
-                <button mat-button style="padding-left: 12px; padding-right: 12px; padding-top: 7px; padding-bottom: 7px; border-radius: 24px; border: 1px #E8E7E7 solid; justify-content: flex-start; align-items: center; gap: 10px; display: flex">
-                    <div class="custom-duration">12 hours</div>
-                </button>
-                <button mat-button style="padding-left: 12px; padding-right: 12px; padding-top: 7px; padding-bottom: 7px; border-radius: 24px; border: 1px #E8E7E7 solid; flex-direction: column; justify-content: center; align-items: flex-start; gap: 10px; display: inline-flex">
-                    <div class="custom-duration">1 day</div>
-                </button>
-                <button mat-button style="padding-left: 12px; padding-right: 12px; padding-top: 7px; padding-bottom: 7px; border-radius: 24px; border: 1px #E8E7E7 solid; flex-direction: column; justify-content: center; align-items: flex-start; gap: 10px; display: inline-flex">
-                    <div class="custom-duration">2 days</div>
-                </button>
+              <button mat-button
+                style="padding-left: 12px; padding-right: 12px; padding-top: 7px; padding-bottom: 7px; border-radius: 24px; border: 1px #E8E7E7 solid; flex-direction: column; justify-content: center; align-items: flex-start; gap: 10px; display: inline-flex">
+                <div class="custom-duration">6 hours</div>
+              </button>
+              <button mat-button
+                style="padding-left: 12px; padding-right: 12px; padding-top: 7px; padding-bottom: 7px; border-radius: 24px; border: 1px #E8E7E7 solid; justify-content: flex-start; align-items: center; gap: 10px; display: flex">
+                <div class="custom-duration">12 hours</div>
+              </button>
+              <button mat-button
+                style="padding-left: 12px; padding-right: 12px; padding-top: 7px; padding-bottom: 7px; border-radius: 24px; border: 1px #E8E7E7 solid; flex-direction: column; justify-content: center; align-items: flex-start; gap: 10px; display: inline-flex">
+                <div class="custom-duration">1 day</div>
+              </button>
+              <button mat-button
+                style="padding-left: 12px; padding-right: 12px; padding-top: 7px; padding-bottom: 7px; border-radius: 24px; border: 1px #E8E7E7 solid; flex-direction: column; justify-content: center; align-items: flex-start; gap: 10px; display: inline-flex">
+                <div class="custom-duration">2 days</div>
+              </button>
             </div>
-        </div>
-       
-        <div class="custom-duration">Or, set custom duration</div>
-        <div style="width: 300px; justify-content: center; align-items: flex-start; display: inline-flex">
-                <!-- <mat-form-field appearance="outline">
+          </div>
+
+          <div class="custom-duration">Or, set custom duration</div>
+          <div style="width: 300px; justify-content: center; align-items: flex-start; display: inline-flex">
+            <!-- <mat-form-field appearance="outline">
                 <mat-label>number of</mat-label>
                 <mat-select [(ngModel)]="selectedValue" name="food" formControlName="date" size="4">
                   <mat-option *ngFor="let food of foods" [value]="food.value" [selected]="7" value="{{timeDifference}}">
@@ -59,7 +64,7 @@
             <input type="text" [(ngModel)]="startDate" formControlName="date"  style="border: none;height: 50px;">
             <input type="text" [(ngModel)]="endDate" formControlName="time" style="border: none;height: 50px;">
         </div> -->
-<!-- <ion-content style="height: 60px;border: 2px solid whitesmoke;">
+            <!-- <ion-content style="height: 60px;border: 2px solid whitesmoke;">
   <div *ngFor="let number of numbers">
     <button class="date" >{{number.count}}</button><br>
  
@@ -72,80 +77,94 @@
 <button class="days" (click)="convertToHours(Number)">weeks</button><br>
 
 </ion-content> -->
-<!-- <ion-datetime class="time"  presentation="time" [preferWheel]="true"></ion-datetime> -->
-  <select class="days-select"   [(ngModel)]="amount" (click)="convertToCash()" style="width: 140px;height: 80px;text-align: center;border: none;color: black;font-size: 24px;border: 2px solid whitesmoke;" size="5" formControlName="date" >
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-    <option value="11">11</option>
-    <option value="12">12</option>
-    <option value="13">13</option>
-    <option value="14">14</option>
-    <option value="15">15</option>
-    <option value="16">16</option>
-    <option value="17">17</option>
-    <option value="18">18</option>
-    <option value="19">19</option>
-    <option value="20">20</option>
-    <option value="21">21</option>
-    <option value="22">22</option>
-    <option value="23">23</option>
-    <option value="24">24</option>
-    <option value="25">25</option>
-    <option value="26">26</option>
-    <option value="27">27</option>
-    <option value="28">28</option>
-    <option value="29">29</option>
-    <option value="30">30</option>
-  </select>
-  <select [(ngModel)]="selectedOption" size="4" style="width: 140px;height: 80px;text-align: center;border: none;color: black;font-size: 24px;" formControlName="time">
-    <option value="perHour"> Hours</option>
-    <option value="perDay"> Days</option>
-    <option value="perWeek">Weeks</option>
-  </select>
 
-  
-        </div>
-  
-    <div style=" width:100%;height: 92px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 12px; display: flex">
-        <button (click)="duration()"  style=" align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: center; align-items:center; display: inline-flex">
-            <div class="start">Start now </div>
-        </button>
-   
-        <div style="width:100%;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: rgba(51, 85, 185, 0.20); border-radius: 24px; overflow: hidden; justify-content: center; align-items: center; gap: 12px; display: inline-flex">
-            <div routerLink="/datetime/{{productId}}" class="later">Start later <span style="color:white"> {{startDate | date :'short'}}</span></div>
-            <div style="width: 16px; height: 16px; position: relative"> 
+
+            <select class="days" [(ngModel)]="amount" (click)="convertToCash()"
+              style="width: 100px;height: 40px;text-align: center;border: none;color: black;font-size: 24px;" size="3"
+              formControlName="date">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+              <option value="29">29</option>
+              <option value="30">30</option>
+            </select>
+            <select [(ngModel)]="selectedOption" size="2"
+              style="width: 100px;height: 40px;text-align: center;border: none;color: black;font-size: 24px;"
+              formControlName="time">
+              <option value="perHour"> Hours</option>
+              <option value="perDay"> Days</option>
+              <option value="perWeek">Weeks</option>
+            </select>
+          </div>
+
+          <div
+            style=" width:100%;height: 92px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 12px; display: flex">
+            <button (click)="duration()"
+              style=" align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: center; align-items:center; display: inline-flex">
+              <div class="start">Start now </div>
+            </button>
+
+            <div
+              style="width:100%;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: rgba(51, 85, 185, 0.20); border-radius: 24px; overflow: hidden; justify-content: center; align-items: center; gap: 12px; display: inline-flex">
+              <div routerLink="/customselection" class="later">Start later <span style="color:white"> {{startDate | date
+                  :'short'}}</span></div>
+              <div style="width: 16px; height: 16px; position: relative">
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" view Box="0 0 17 16" fill="none">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.49996 4.66602L8.49996 8.66602L12.5 4.66602L13.8333 5.99935L8.49996 11.3327L3.16663 5.99935L4.49996 4.66602Z" fill="#3355B9"/>
-                    </svg>
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M4.49996 4.66602L8.49996 8.66602L12.5 4.66602L13.8333 5.99935L8.49996 11.3327L3.16663 5.99935L4.49996 4.66602Z"
+                    fill="#3355B9" />
+                </svg>
+              </div>
             </div>
-        </div>
-    </div>
+          </div>
 
-    <div class="book-btn-1">
-        <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
-            <div class="total">Total</div>
-            <div class="amount" *ngIf="convertedCash"> {{ convertedCash | currency }}</div>
-        </div>
-        <button (click)="book()" style="flex: 1 1 0; align-self: stretch; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: space-between; align-items: center; display: inline-flex">
-            <div class="book" >Book now</div>
-            <div style="width: 24px; height: 24px; padding-top: 1.82px; padding-bottom: 1.82px; justify-content: center; align-items: center; display: flex">
+          <div class="book-btn-1">
+            <div
+              style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
+              <div class="total">Total</div>
+              <div class="amount" *ngIf="convertedCash"> {{ convertedCash | currency }}</div>
+            </div>
+            <button (click)="book()"
+              style="flex: 1 1 0; align-self: stretch; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: space-between; align-items: center; display: inline-flex">
+              <div class="book">Book now</div>
+              <div
+                style="width: 24px; height: 24px; padding-top: 1.82px; padding-bottom: 1.82px; justify-content: center; align-items: center; display: flex">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 22" fill="none">
-                    <path d="M19.4064 9.80036L12.1212 2.51516L13.818 0.818359L24 11.0004L23.1516 11.8488L13.818 21.1824L12.1212 19.4856L19.4064 12.2004H0V9.80036H19.4064Z" fill="white"/>
-                    </svg>
-            </div>
-        </button>
+                  <path
+                    d="M19.4064 9.80036L12.1212 2.51516L13.818 0.818359L24 11.0004L23.1516 11.8488L13.818 21.1824L12.1212 19.4856L19.4064 12.2004H0V9.80036H19.4064Z"
+                    fill="white" />
+                </svg>
+              </div>
+            </button>
+          </div>
+        </div>
+
+      </div>
     </div>
-</div>
 
-</div>
-</div>
-
-</div>
+  </div>

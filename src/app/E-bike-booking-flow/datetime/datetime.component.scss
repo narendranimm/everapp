@@ -1,36 +1,74 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
-.book-Now{
+
+.book-Now {
     width: 328px;
     height: 48px;
     border-radius: 24px;
-background: var(--Primary, #3355B9);
+    background: var(--Primary, #3355B9);
 }
-.btn-container{
- 
-   
-   padding-left: 4%;
+
+.btn-container {
+
+
+    padding-left: 4%;
 }
-.start-time{
-    color: white; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 700; word-wrap: break-word;text-align: center;
+
+.start-time {
+    color: white;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+    text-align: center;
 }
-.when{
-    align-self: stretch; color: #363636; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 600; word-wrap: break-word
+
+.when {
+    align-self: stretch;
+    color: #363636;
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    word-wrap: break-word
 }
-.date-time{color: black; font-size: 12px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word}
-.container{
+
+.date-time {
+    color: black;
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    word-wrap: break-word
+}
+
+.container {
     display: flex;
-align-items: center;
-gap: 106px;
-align-self: stretch;
+    align-items: center;
+    gap: 106px;
+    align-self: stretch;
 }
-.btn-container{
+
+.btn-container {
     padding: 2%;
 }
 
-.time{
-    width:328px;
+.time {
+    width: 328px;
     height: 40px;
     border-radius: 24px;
-background: #F2F2F2;
-border: none;
+    background: #F2F2F2;
+    border: none;
+}
+
+.btnsave {
+    width: 328px;
+    height: 42px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: #3355B9;
+    border-radius: 24px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex
 }

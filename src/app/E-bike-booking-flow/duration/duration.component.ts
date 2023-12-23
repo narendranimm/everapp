@@ -47,15 +47,39 @@ export class DurationComponent implements OnInit {
 
   ];
   logindata: any;
-  constructor(private datePipe: DatePipe,private snackBar: MatSnackBar, private router: Router, private bookingservice: BookingService, private bk: FormBuilder, private route: ActivatedRoute, private user: UserData,private dataService:DataservicesService) {
-  console.log(Date.now())
- console.log( this.datePipe.transform(Date.now(), 'yyyy-MM-dd HH:mm:ss'));
+  isSolt: boolean=false;
+  constructor(private datePipe: DatePipe,private snackBar: MatSnackBar, private router: Router, private bookingservice: BookingService, private bk: FormBuilder, private route: ActivatedRoute, private user: UserData,private dataService:DataservicesService)
+   {
+      // console.log( this.datePipe.transform(Date.now(), 'yyyy-MM-dd HH:mm:ss'));
     this.customDate = this.bk.group({
       date: ['', Validators.required],
       time: ['', Validators.required]
     })
     this.totalHours = this.convertToHours(this.Number);  
     this.totalHours=this.convertToHoursin(this.Number);
+
+    this.dataService.combinedData$.subscribe(data => {
+      if (data) {
+        this.startDate = data.inputValue;
+        this.endDate = data.inputValue1;
+        const startTime = new Date(this.startDate).getTime();
+        const endTime = new Date(this.endDate).getTime();
+        if (!isNaN(startTime) && !isNaN(endTime)) {
+          const difference = Math.abs(endTime - startTime);
+       
+          // Calculate days, hours, minutes, seconds
+          const days = Math.floor(difference / (1000 * 3600 * 24));
+          const hours = Math.floor((difference % (1000 * 3600 * 24)) / (1000 * 3600));
+       
+          const minutes = Math.floor((difference % (1000 * 3600)) / (1000 * 60));
+          const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+          const ammount=Math.floor(hours*20);
+          // Construct the time difference string
+          this.timeDifference = `${days} days,${hours} hours `;
+          this.Amount=`${ammount}`
+        }
+        }
+      })
   }
   numbers=[
     {count:'1'},
@@ -79,16 +103,25 @@ export class DurationComponent implements OnInit {
   toppingList1: string[] = ['1', '2', '3', '4', '5', '6', '7', '8'];
   ngOnInit() {
     this.user.getId('pId').then(data =>{
-
-      this.productId = data;
-      this.ordersaveData.ProductID=this.productId;
+      if (data !== null) {
+        this.productId = data;
+      } else {
+        // Handle the case when data is null
+        console.log('Data is null. Handle accordingly.');
+        // You might want to set a default value or perform some other action
+      }
     }
        );
     this.user.getuser().then(res=>{
       console.log(res)
-      this.logindata=res;
-      this.ordersaveData.MemberID=this.logindata.UserID;
-      console.log(this.ordersaveData)
+      if (res !== null) {
+        this.logindata=res;
+        this.ordersaveData.MemberID=this.logindata.UserID;
+      } else {
+        // Handle the case when data is null
+        console.log('Data is null. Handle accordingly.');
+        // You might want to set a default value or perform some other action
+      }
     })
     this.dataService.combinedData$.subscribe(data => {
       if (data) {
@@ -117,22 +150,7 @@ export class DurationComponent implements OnInit {
     const data = this.customDate.value;
     console.log(this.customDate.value)
   }
-  book() {
-    const data = this.customDate.value;
-    if (!this.customDate.valid) {
-      this.customDate.markAllAsTouched();
-      this.snackBar.open(" Please select a slot");
-    } else {
-      this.bookingservice.book(this.ordersaveData).subscribe(
-        (res: any) => {
-          this.ProductDetails = res
-          this.snackBar.open(JSON.stringify(res.message));
-          // this.snackBar.open(JSON.stringify('Booked successfully'));
-          this.router.navigateByUrl('/booking-summary');
-        }
-      )
-    }
-  }
+  
   @ViewChild(IonContent) content!: IonContent;
   data=[];
     scrollToBottom() {
@@ -146,6 +164,8 @@ export class DurationComponent implements OnInit {
       // goes to the top instead of instantly
       this.content.scrollToTop(500);
     }
+
+   
     convertToHours( weeks: number): number {
       const hoursInDay = 24;
       const hoursInWeek = hoursInDay * 7;
@@ -155,38 +175,13 @@ export class DurationComponent implements OnInit {
       return totalHours;
     }
     convertToHoursin(day: number): number {
-      const hoursInDay = 24;
-      
+      const hoursInDay = 24;      
       
       const totalHours = (day* hoursInDay) ;
       console.log('total hours '+totalHours)
       return totalHours;
     }
 
-
-    ordersaveData={
-      "OrderID": 123,
-      "ProductID": '0',
-      "BookingStartDate":  this.datePipe.transform(Date.now(), 'yyyy-MM-dd HH:mm:ss'),
-      "BookingEndDate": "2023-12-01T00:00:00",
-      "IsActive": true,
-      "BookingNo": "ABC123",
-      "HubID": 1,
-      "MemberID": 0,
-      "BookingStatus": 2,
-      "AddressID": 1011,
-      "BookingAmount": 1000.00,
-      "AdvanceAmount": 200.00,
-      "DiscountAmount": 100.00,
-      "TaxAmount": 180.00,
-      "TotalAmount": 1280.00,
-      "PaidAmount": 400.00,
-      "IsCancel": false,
-      "Remarks": "Good service",
-      "CreatedOn": "2023-11-28T00:30:42",
-      "DeliveredOn": "2023-11-30T00:30:42",
-      "PaymentConfirmedOn": "2023-11-29T00:30:42"
-    }
 
     selectedOption: string = 'perHour'; // Default selected option
   amount: number = 0; // Input amount
@@ -206,46 +201,49 @@ export class DurationComponent implements OnInit {
       this.convertedCash = null; // Handle unexpected selections
     }
   }
-  isPickerOpen = true;
 
-  public pickerColumns = [
-    {
-      name: 'languages',
-      options: [
-        {
-          text: 'JavaScript',
-          value: 'javascript',
-        },
-        {
-          text: 'TypeScript',
-          value: 'typescript',
-        },
-        {
-          text: 'Rust',
-          value: 'rust',
-        },
-        {
-          text: 'C#',
-          value: 'c#',
-        },
-      ],
-    },
-  ];
 
-  public pickerButtons = [
-    {
-      text: 'Cancel',
-      role: 'cancel',
-    },
-    {
-      text: 'Confirm',
-      handler: (value:any) => {
-        console.log(`You selected: ${value.languages.value}`);
-      },
-    },
-  ];
-
-  setOpen(isOpen: boolean) {
-    this.isPickerOpen = isOpen;
+//last line
+  book() {
+    if (this.isSolt) {
+      this.customDate.markAllAsTouched();
+      this.snackBar.open(" Please Select A Slot!!!");
+    } else {
+      this.ordersaveData.ProductID=this.productId;
+      this.ordersaveData.BookingStartDate=this.startDate;
+      this.ordersaveData.BookingEndDate=this.endDate;
+      this.bookingservice.book(this.ordersaveData).subscribe(
+        (res: any) => {
+          this.ProductDetails = res
+          this.snackBar.open(JSON.stringify(res.message));
+          // this.snackBar.open(JSON.stringify('Booked successfully'));
+          this.router.navigateByUrl('/booking-summary');
+        }
+      )
+    }
+  }
+  
+  ordersaveData={
+    "OrderID": 123,
+    "ProductID": '0',
+    "BookingStartDate":  this.datePipe.transform(Date.now(), 'yyyy-MM-dd HH:mm:ss'),
+    "BookingEndDate": "2023-12-01T00:00:00",
+    "IsActive": true,
+    "BookingNo": "ABC123",
+    "HubID": 1,
+    "MemberID": 0,
+    "BookingStatus": 2,
+    "AddressID": 1011,
+    "BookingAmount": 1000.00,
+    "AdvanceAmount": 200.00,
+    "DiscountAmount": 100.00,
+    "TaxAmount": 180.00,
+    "TotalAmount": 1280.00,
+    "PaidAmount": 400.00,
+    "IsCancel": false,
+    "Remarks": "Good service",
+    "CreatedOn": "2023-11-28T00:30:42",
+    "DeliveredOn": "2023-11-30T00:30:42",
+    "PaymentConfirmedOn": "2023-11-29T00:30:42"
   }
 }
