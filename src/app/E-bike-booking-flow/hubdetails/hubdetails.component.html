@@ -2,15 +2,16 @@
 <div style="width: 100%; height: 100%; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
   <div style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 106px; display: inline-flex">
     <div class="btn-container">
-        <button style="background: transparent;border: none;" routerLink="/homepage"><img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
+        <button style="background: transparent;border: none;" routerLink="/homepage">
+            <img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
         </div>
     
       <p class="intro-content">Hub details</p>
   </div>
   
   <div style="align-self: stretch; height: 108px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
-      <div style="align-self: stretch; justify-content: space-between; align-items: center; display: inline-flex" *ngFor="let p of bikeHub">
-          <div class="hub-name" >{{p.BranchName | lowercase}}</div>
+      <div style="align-self: stretch; justify-content: space-between; align-items: center; display: inline-flex">
+          <div class="hub-name" >{{bikeHub?.BranchName }}</div>
           <div style="justify-content: flex-start; align-items: center; gap: 12px; display: flex">
               <button (click)="share()"style="width: 24px; height: 24px; position: relative;background: none;">
                    <img src="./assets/Frame 2608256.svg" alt="">
@@ -37,20 +38,21 @@
                       <img src="./assets/mingcute_time-line.svg" alt="">
                   </div>
               </div>
-              <div class="walk" *ngFor="let p of bikeHub">Open{{p.OpenTime  | date:'shortTime'}} | Closes {{p.CloseTime | date:'shortTime'}}</div>
+              <div class="walk">Open{{bikeHub?.OpenTime  | date:'shortTime'}} | Closes {{bikeHub?.CloseTime | date:'shortTime'}}</div>
           </div>
       </div>
   </div><br>
   <div style="width: 328px; height: 36px; justify-content: center; align-items: center; display: inline-flex">
-      <button routerLink="/bikelist/{{taskId}}" style="flex: 1 1 0; align-self: stretch; padding-left: 12px; padding-right: 12px; padding-top: 14px; padding-bottom: 14px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: space-between; align-items: center; display: inline-flex">
+      <button  (click)="gotobikelist()"
+       style="flex: 1 1 0; align-self: stretch; padding-left: 12px; padding-right: 12px; padding-top: 14px; padding-bottom: 14px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: space-between; align-items: center; display: inline-flex">
           <div class="vehicle" >Select your vehicle</div>
           <div style="width: 24px; height: 24px; position: relative">
            <img src="./assets/ic_round-arrow-back.svg" alt="">
           </div>
         </button>
   </div>
-  <div style="height: 330px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex" *ngFor="let p of bikeHub" >
-      <img  style="align-self: stretch; height: 230px; border-radius: 12px" src="{{azimageUrl}}{{p.ProfileImage}}" />
+  <div style="height: 330px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex"  >
+      <img  style="align-self: stretch; height: 230px; border-radius: 12px" src="{{azimageUrl}}{{bikeHub?.ProfileImage}}" />
       <div style="width: 328px; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
           <img style="width: 108px; align-self: stretch; border-radius: 12px" src="https://s3-alpha-sig.figma.com/img/99ed/0015/7bb1adb22fa113d0573ea314b1dd922c?Expires=1702857600&Signature=PSYLyAKB5VpmKe6V0qT5auArVwYE4OwBo4URQ8mBMuXKQJme6ZvMVp2qG4GfgYtUIYhiil-y7DYt9wSNj0zutS-NM4Q~X317ptx8j6QJTWhcQjJ8FqyMYD1wp3UMIkfdAkyvHn~83Hb6axRybhZN5E7npMHY844Tn7ihDg7-wT5KYw5NjnG0yHKaF1KF6QGXLj8fhr~Y0f-yVV4gNDWqThXmrGelYky68orqDdDyDxOsrmK1UzQkYDB4YOaG0r~se52VWd6ypJCLzOtkKvz3VUNU3j4FgOnQJkE9QyKbsrZ2NcdrNRZ2UqqjC44HFdOvS9OzE9bxgch~Zh~s~w2Pbw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" />
           <img style="width: 108px; align-self: stretch; border-radius: 12px" src="https://s3-alpha-sig.figma.com/img/540c/3da8/cf0fed402d421b6b4be32dd8abe55eff?Expires=1702857600&Signature=jQFNQRD9tGauX2jzBOl5JJ2TByzAA1LlpAgwSoZxg1qg7TSwOiOLhMu5seF1DVX~rAQOqkOj6N9pVJf-mLPynrkvcTqUq92Ov39Tt98Vz3DpGt82FfWyT-7XmUPvTbWdHzWlIl4fj8TljRkHNKexEd634xtuUzxcYWz0acqc0Eal-TTJVyOysMP-ZPwiGKEr-tW0lutd6Ch9-hF1ZlA2kq7geXUvk9fjuI1zPzl1FHBQ96z1Az7YOM-w7hXIVFLGGXcQU2GDvL3lljXzlcU8e3vOUGgyC9T3t5ByuBHNWJ64c45JGH7Oa6L-ijpqvMisBTecPCorqzhQIyFwylgNJw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" />

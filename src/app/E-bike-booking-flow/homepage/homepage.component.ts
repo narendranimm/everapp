@@ -51,17 +51,14 @@ events:any;
   constructor(private loadingservice: LoadingService,
     httpClient: HttpClient,public popoverController: PopoverController, private _bh: BookingService, private route: ActivatedRoute, private router:Router,
     private _pd: ProductServicesService,private userdata:UserData
-  ) {
-   
+  ) {   
  
-        this.userdata.getuser().then(res=>{
+        this.userdata.getuser().then(
+          res=>{
           console.log(res)
           this.logindata=res;
             this.username=res.FirstName +' ' +res.LastName;
-        })
-
-   
-  
+        })  
     
   }
 
@@ -75,24 +72,15 @@ events:any;
   }
   @ViewChild(IonContent) content!: IonContent;
 data=[];
-  scrollToBottom() {
-    // Passing a duration to the method makes it so the scroll slowly
-    // goes to the bottom instead of instantly
-    this.content.scrollToBottom(500);
-  }
 
-  scrollToTop() {
-    // Passing a duration to the method makes it so the scroll slowly
-    // goes to the top instead of instantly
-    this.content.scrollToTop(500);
-  }
 
   public sidebar: boolean = true;
   getbikehubs() {
     this.loadingservice.simpleLoader('loading')
     this._bh.getbikehubs(this.bikeHubID).subscribe((res:any) => {
       console.log('tests',res)
-      this.bikeHub = res.slice(0,4);
+      this.bikeHub = res;
+      // this.bikeHub = res.slice(0,4);
 
       this.loadingservice.dismissLoader();
      
@@ -142,6 +130,16 @@ address(){
     })
  }
 
+ scrollToBottom() {
+  // Passing a duration to the method makes it so the scroll slowly
+  // goes to the bottom instead of instantly
+  this.content.scrollToBottom(500);
+}
 
+scrollToTop() {
+  // Passing a duration to the method makes it so the scroll slowly
+  // goes to the top instead of instantly
+  this.content.scrollToTop(500);
+}
  
 }

@@ -25,14 +25,14 @@ set(mobileno:any) {
 setMain(key:any,data:any) {   
     return this._storage.set(key,data);
   }
-  setpId(mobileno:any) {   
-    return this._storage.set('pId',mobileno);
+  setpId(prodictid:any) {   
+    return this._storage.set('pId',prodictid);
   }
-  setmId(mobileno:any) {   
-    return this._storage.set('mId',mobileno);
+  setmId(memeberid:any) {   
+    return this._storage.set('mId',memeberid);
   }
-  setbId(mobileno:any) {   
-    return this._storage.set('bId',mobileno);
+  setbId(branchID:any) {   
+    return this._storage.set('bId',branchID);
   }
   getuser(){
    return this._storage.get("loginuser")

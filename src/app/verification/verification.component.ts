@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegisterService } from '../registration-services/register.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { IonLoaderService } from 'services/Ionic_Loader/ionic_Loader.service';
 import { UserData } from '../providers/user-data';
 import { Router } from '@angular/router';
 
@@ -17,7 +16,7 @@ export class VerificationComponent  implements OnInit {
 
   verficationForm!:FormGroup;
   logindata: any;
-  constructor(private _vf:FormBuilder,private router:Router,private register:RegisterService,private snackBar: MatSnackBar,private loaderService:IonLoaderService,private userdata:UserData) { 
+  constructor(private _vf:FormBuilder,private router:Router,private register:RegisterService,private snackBar: MatSnackBar,private userdata:UserData) { 
     this.verficationForm= this._vf.group({
     firstdigit:['',Validators.required],
     seconddigit:['',Validators.required],
@@ -35,10 +34,9 @@ export class VerificationComponent  implements OnInit {
   }
   btndisabled = false;
 
-  ngOnInit() { this.btndisabled =true;
-    this.loaderService.status.subscribe((val: boolean) => {
-      this.showLoader = val;
-    })
+  ngOnInit() {
+     this.btndisabled =true;
+   
   }
  
   otpController(event:any,next:any,prev:any):any{

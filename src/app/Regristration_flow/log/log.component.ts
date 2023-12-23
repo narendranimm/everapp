@@ -6,7 +6,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModalController, ModalOptions } from '@ionic/angular';
 import { Observable } from 'rxjs';
-import { IonLoaderService } from 'services/Ionic_Loader/ionic_Loader.service';
 import { UserData } from 'src/app/providers/user-data';
 import { RegisterService } from 'src/app/registration-services/register.service';
 import { LoadingService } from 'src/app/services/loading.service';
@@ -55,7 +54,7 @@ nav(){
 
 
 async sendOTP(){
-  this.loadingservice.simpleLoader('Fetchind Data')
+  this.loadingservice.simpleLoader('Loading ..')
   //need to handle error
   //1. if otp failed
   //2.if network issue.

@@ -4,38 +4,30 @@ import { LoadingController } from '@ionic/angular';
   providedIn: 'root'
 })
 export class  LoadingService {
-  private loading!: HTMLIonLoadingElement;
+  isLoading = false;
   constructor(public loadingController: LoadingController) { }
 
-  // Simple loader
-  // simpleLoader(Message:string) {
-  //   this.loadingController.create({
-  //     message: Message
-  //   }).then((response) => {
-  //     response.present();
-  //   });
-  // }
-  // Dismiss loader
-//  async dismissLoader() {
-//   await  this.loadingController.dismiss().then((response) => {
-//       console.log('Loader closed!', response);
-//     }).catch((err) => {
-//       console.log('Error occured : ', err);
-//     });
-//   }
+ 
 async simpleLoader(message: string) {
-  this.loading = await this.loadingController.create({
+  this.isLoading = true;
+   await this.loadingController.create({
     message:message,
     // translucent: true,
     spinner: 'circles', // Choose the spinner style: 'circles', 'dots', 'lines', etc.
+  }).then(a => {
+    a.present().then(() => {
+      console.log('presented');
+      if (!this.isLoading) {
+        a.dismiss().then(() => console.log('abort presenting'));
+      }
+    });
   });
 
-  await this.loading.present();
 }
 async dismissLoader() {
-  if (this.loading) {
-    await this.loadingController.dismiss();
-  }
+  this.isLoading = false;
+    return await this.loadingController.dismiss().then(() => console.log('dismissed'));
+  
 }
   // Auto hide show loader
   autoLoader() {
@@ -60,4 +52,21 @@ async dismissLoader() {
       res.present();
     });
   }   
+
+   // Simple loader
+  // simpleLoader(Message:string) {
+  //   this.loadingController.create({
+  //     message: Message
+  //   }).then((response) => {
+  //     response.present();
+  //   });
+  // }
+  // Dismiss loader
+//  async dismissLoader() {
+//   await  this.loadingController.dismiss().then((response) => {
+//       console.log('Loader closed!', response);
+//     }).catch((err) => {
+//       console.log('Error occured : ', err);
+//     });
+//   }
 }

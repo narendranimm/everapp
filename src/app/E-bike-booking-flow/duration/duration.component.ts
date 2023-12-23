@@ -9,6 +9,7 @@ import { BookingService } from 'src/app/E-booking-flow-services/booking.service'
 import { BottomsheetComponent } from 'src/app/bottomsheet/bottomsheet.component';
 import { DataservicesService } from 'src/app/dataservices.service';
 import { UserData } from 'src/app/providers/user-data';
+import { LoadingService } from 'src/app/services/loading.service';
 interface Food {
   value: string;
   viewValue: string;
@@ -55,7 +56,9 @@ export class DurationComponent implements OnInit {
   hourlyRate = 10; // Example hourly rate
   dailyRate = 240; // Example daily rate
   weeklyRate = 1680;
-  constructor(private datePipe: DatePipe, private snackBar: MatSnackBar, private router: Router, private bookingservice: BookingService, private bk: FormBuilder, private route: ActivatedRoute, private user: UserData, private dataService: DataservicesService) {
+  BookingID:any;
+  constructor(private datePipe: DatePipe, private snackBar: MatSnackBar,private loader:LoadingService,
+     private router: Router, private bookingservice: BookingService, private bk: FormBuilder, private route: ActivatedRoute, private user: UserData, private dataService: DataservicesService) {
 
     // console.log( this.datePipe.transform(Date.now(), 'yyyy-MM-dd HH:mm:ss'));
     this.customDate = this.bk.group({
@@ -111,11 +114,13 @@ export class DurationComponent implements OnInit {
     this.user.getId('pId').then(data => {
       if (data !== null) {
         this.productId = data;
-      } else {
-        // Handle the case when data is null
-        console.log('Data is null. Handle accordingly.');
-        // You might want to set a default value or perform some other action
-      }
+      } 
+    }
+    );
+    this.user.getId('hubid').then(data => {
+      if (data !== null) {
+        this.ordersaveData.HubID = data;
+      } 
     }
     );
     this.user.getuser().then(res => {
@@ -153,8 +158,8 @@ export class DurationComponent implements OnInit {
     })
   }
   duration() {
-    const data = this.customDate.value;
-    console.log(this.customDate.value)
+    this.ordersaveData.ProductID = this.productId;
+    console.log(this.ordersaveData)
   }
 
   @ViewChild(IonContent) content!: IonContent;
@@ -253,16 +258,26 @@ export class DurationComponent implements OnInit {
       this.customDate.markAllAsTouched();
       this.snackBar.open(" Please Select A Slot!!!");
     } else {
+      this.loader.simpleLoader('Loading...')
       this.ordersaveData.ProductID = this.productId;
       this.ordersaveData.BookingStartDate = this.startDate;
       this.ordersaveData.BookingEndDate = this.endDate;
-      console.log(this.ordersaveData)
+      if(!this.productId ){
+        this.snackBar.open("Please Select a Product")
+      this.loader.dismissLoader();
+
+        return;
+      }
       this.bookingservice.book(this.ordersaveData).subscribe(
         (res: any) => {
-          this.ProductDetails = res
+          this.loader.dismissLoader();
+          this.BookingID = res.ID
           this.snackBar.open(JSON.stringify(res.message));
-          // this.snackBar.open(JSON.stringify('Booked successfully'));
-          this.router.navigateByUrl('/booking-summary');
+          this.router.navigateByUrl('/booking_summary/'+this.BookingID);
+        },
+        (error)=>{
+          this.loader.dismissLoader();
+          this.snackBar.open('booking failed');
         }
       )
     }
@@ -270,12 +285,12 @@ export class DurationComponent implements OnInit {
 
   ordersaveData = {
     "OrderID": 123,
-    "ProductID": '0',
+    "ProductID": 0,
     "BookingStartDate": this.datePipe.transform(Date.now(), 'yyyy-MM-dd HH:mm:ss'),
     "BookingEndDate": "2023-12-01T00:00:00",
     "IsActive": true,
     "BookingNo": "ABC123",
-    "HubID": 1,
+    "HubID": 0,
     "MemberID": 0,
     "BookingStatus": 2,
     "AddressID": 1011,

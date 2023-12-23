@@ -5,7 +5,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { IonContent } from '@ionic/angular';
-import { IonLoaderService } from 'services/Ionic_Loader/ionic_Loader.service';
 import { UploadsuccessComponent } from 'src/app/popups/uploadsuccess/uploadsuccess.component';
 import { RegisterService } from 'src/app/registration-services/register.service';
 import { environment } from 'src/environments/environment';
@@ -22,7 +21,7 @@ export class AadharComponent implements OnInit {
   isvoter: boolean = false;
   islicence: boolean = false
   isDialogOpen!: boolean;
-  constructor(private cd: ChangeDetectorRef,public dialog: MatDialog,private router: Router, private _pf: FormBuilder, private http: HttpClient, private rs: RegisterService, private snackBar: MatSnackBar, private loaderService: IonLoaderService) {
+  constructor(private cd: ChangeDetectorRef,public dialog: MatDialog,private router: Router, private _pf: FormBuilder, private http: HttpClient, private rs: RegisterService, private snackBar: MatSnackBar) {
     this.personalForm = this._pf.group({
       adharno: ['', [Validators.required,Validators.pattern("^[0-9]{4}[ -]?[0-9]{4}[ -]?[0-9]{4}$")]],
       adharfile: ['', Validators.required],

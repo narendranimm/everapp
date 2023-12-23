@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IonContent } from '@ionic/angular';
 import { ProductServicesService } from 'services/product-services/product-services.service';
+import { LoadingService } from 'src/app/services/loading.service';
 import { environment } from 'src/environments/environment.prod';
 
 @Component({
@@ -14,7 +15,8 @@ export class BikelistComponent  implements OnInit {
   taskId:any;
   azimageUrl:any=environment.azimageUrl_hub;
 
-  constructor(private route: ActivatedRoute,private _pd:ProductServicesService) { 
+  constructor(private route: ActivatedRoute,private _pd:ProductServicesService,
+    private loader:LoadingService) { 
 
       this.taskId = route.snapshot.params["ID"];
       console.log("this is taskId value = "+ this.taskId);
@@ -26,9 +28,15 @@ export class BikelistComponent  implements OnInit {
   }
 
   getList(){
-    this._pd.productListBybranchId(this.taskId).subscribe((res)=>{
-      console.log(res)
+    this.loader.simpleLoader('Loading...')
+    this._pd.productListBybranchId(this.taskId).subscribe(
+      (res)=>{
       this.ProductList=res;
-    })
+      this.loader.dismissLoader();
+    },(error)=>{
+      this.loader.dismissLoader();
+
+    }
+    )
   }
 }

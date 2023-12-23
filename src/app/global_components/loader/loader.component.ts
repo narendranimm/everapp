@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IonLoaderService } from 'services/Ionic_Loader/ionic_Loader.service';
+
 import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({

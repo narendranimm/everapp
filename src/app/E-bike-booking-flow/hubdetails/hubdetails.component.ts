@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductServicesService } from 'services/product-services/product-services.service';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
+import { UserData } from 'src/app/providers/user-data';
 import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
@@ -11,24 +12,30 @@ import { LoadingService } from 'src/app/services/loading.service';
 })
 export class HubdetailsComponent  implements OnInit {
   azimageUrl:any='https://everdevuat.blob.core.windows.net/hubs/';
-taskId:any;
-bikeHubID:any;
+bikeHubID:any=0;
 bikeHub:any;
-  constructor(private loadingservice: LoadingService,private route: ActivatedRoute,private _pd:ProductServicesService,private _bh:BookingService) {
-    this.taskId = route.snapshot.params["ID"];
-    console.log("this is taskId value = "+ this.taskId);   
+  constructor(private loadingservice: LoadingService,private router:Router,
+    private user:UserData,private _bh:BookingService) {
+    this.user.getId('hubid').then(res => {
+      console.log(res)
+      if (res !== null) {
+        this.bikeHubID = res;
+    this.getbikehubs()
+
+      } else {
+        console.log('Data is null. Handle accordingly.');
+      }
+    })
  }
 
   ngOnInit() {
 
-    this.getbikehubs()
   }
   getbikehubs() {
-    this.loadingservice.simpleLoader('Loading data')
-    this._bh.getbikehubs(this.bikeHubID).subscribe(
+   // this.loadingservice.simpleLoader('Loading data')
+    this._bh.getHubDetaislByHubID(this.bikeHubID).subscribe(
       (res:any) => {
-      console.log('tests',res)
-      this.bikeHub = res.slice(0,1);
+      this.bikeHub = res
       this.loadingservice.dismissLoader();
     },
     (error)=>{
@@ -48,5 +55,9 @@ bikeHub:any;
         console.log(err)
       })
     }
+  }
+  gotobikelist(){
+    this.router.navigateByUrl('/bikelist/'+this.bikeHubID)
+
   }
 }

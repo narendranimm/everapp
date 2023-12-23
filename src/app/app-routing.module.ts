@@ -105,7 +105,7 @@ const routes: Routes = [
 //E-Booking-flow Routes
 {path:'slotbooking',component: DurationComponent},
 {path:'enableloaction',component:EnablelocationComponent},
-{path:'hub-details/:ID',component:HubdetailsComponent},
+{path:'hub-details',component:HubdetailsComponent},
 {path:'homepage',component:HomepageComponent},
 
 {path:'bikelist/:ID',component:BikelistComponent},
@@ -113,7 +113,7 @@ const routes: Routes = [
 {path:'duration',component:DurationComponent},
 {path:'customselection',component:DatetimeComponent},
 {path:'duration-later',component:DurationLaterComponent},
-{path:'booking-summary',component:BookingsummaryComponent},
+{path:'booking_summary/:ID',component:BookingsummaryComponent},
 {path:'offer-coupan',component:OfferCouponComponent},
 {path:'booking-summary-after-coupan',component:BookingSummaryAfterCoupanComponent},
 {path:'payment-gateway',component:PaymentgatewaysComponent},

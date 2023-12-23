@@ -6,7 +6,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IonContent } from '@ionic/angular';
 
 import { ToastController } from '@ionic/angular';
-import { IonLoaderService } from 'services/Ionic_Loader/ionic_Loader.service';
 import {MatSnackBar, MatSnackBarConfig} from '@angular/material/snack-bar';
 import { CommunicationAllowPermissionComponent } from 'src/app/communication-allow-permission/communication-allow-permission.component';
 import { UserData } from 'src/app/providers/user-data';

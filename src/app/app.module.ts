@@ -167,8 +167,10 @@ providers: [Storage]
     provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
   
   providers: [
+    AndroidPermissions,
     // google api
-    //   AndroidPermissions,{
+    
+    //   {
     //   provide: 'SocialAuthServiceConfig',
     //   useValue: {
     //     autoLogin: false,

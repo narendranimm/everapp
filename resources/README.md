@@ -7,3 +7,17 @@ Cordova reference documentation:
 - Icons: https://cordova.apache.org/docs/en/latest/config_ref/images.html
 - Splash Screens: https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-splashscreen/
 -- private loadingservice: LoadingService,
+--set data
+this.userdata.setMain("loginuser",data)
+--get data
+   this.user.getuser().then(res => {
+      console.log(res)
+      if (res !== null) {
+        this.logindata = res;
+        this.ordersaveData.MemberID = this.logindata.UserID;
+      } else {
+        // Handle the case when data is null
+        console.log('Data is null. Handle accordingly.');
+        // You might want to set a default value or perform some other action
+      }
+    })

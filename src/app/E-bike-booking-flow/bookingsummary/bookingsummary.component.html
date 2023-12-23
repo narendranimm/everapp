@@ -8,7 +8,8 @@
       <div style="width: 24px; height: 24px; position: relative">
         <div class="container">
             <div class="btn-container">
-              <button style="background: transparent;border: none;" routerLink="/datetime/{{productId}}"><img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
+              <button style="background: transparent;border: none;" routerLink="/slotbooking">
+                <img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
               </div>
             
             </div>
@@ -32,13 +33,13 @@
               
               <div style="align-self: stretch; height: 69px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
                   <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
-                      <div><span class="bike-model">Bike model </span><span class="models">{{ProductDetails.ProductName}}</span></div>
+                      <div><span class="bike-model">Bike model </span><span class="models">{{ProductDetails?.ProductName}}</span></div>
                   </div>
                   <div style="align-self: stretch;; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
-                      <div><span class="bike-model">Bike type </span><span class="models">: {{ProductDetails.Brand}}</span></div>
+                      <div><span class="bike-model">Bike type </span><span class="models">: {{ProductDetails?.Brand}}</span></div>
                   </div>
                   <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
-                      <div><span class="bike-model">Battery</span><span class="models"> : {{ProductDetails.Size}}</span></div>
+                      <div><span class="bike-model">Battery</span><span class="models"> : {{ProductDetails?.Size}}</span></div>
                   </div>
               </div>
           </div>

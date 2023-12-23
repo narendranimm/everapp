@@ -19,13 +19,13 @@ export class BookingsummaryComponent  implements OnInit {
   BookingStartDate:any;
   BookingEndDate:any
   ProductDetails:any
-  productId=1000;
+  productId:any;
   bikeHubID:any;
   bikeHub:any;
-  taskId:any=1000;
+  taskId:any;
   constructor(private dataService: DataservicesService,private snackBar: MatSnackBar,private route: ActivatedRoute,private _pd:ProductServicesService,private _bh: BookingService,private router:Router,private user:UserData,private booking:BookingService) {
     const taskId = route.snapshot.params["ID"];
-    console.log("this is taskId value = "+ taskId);
+    console.log("this is orderid value = "+ taskId);
 }
 
   ngOnInit() {
