@@ -222,7 +222,7 @@ export class DurationComponent implements OnInit {
 
       //price
     } else {
-      this.convertedCash = null; // Handle unexpected selections
+      this.convertedCash = 0; // Handle unexpected selections
     }
   }
   convertToHours(weeks: number): number {
@@ -243,7 +243,7 @@ export class DurationComponent implements OnInit {
 
 
   amount: number = 0; // Input amount
-  convertedCash: number | null = null; // Converted cash value
+  convertedCash: number  = 0; // Converted cash value
 
 
 
