@@ -7,6 +7,17 @@ import { map, shareReplay } from 'rxjs/operators';
 import {  ViewChild, ElementRef } from '@angular/core';
 import { SocialAuthService } from '@abacritt/angularx-social-login';
 import { NavController } from '@ionic/angular';
+const CountdownTimeUnits: Array<[string, number]> = [
+  ['Y', 1000 * 60 * 60 * 24 * 365], // years
+  ['M', 1000 * 60 * 60 * 24 * 30], // months
+  ['D', 1000 * 60 * 60 * 24], // days
+  ['H', 1000 * 60 * 60], // hours
+  ['m', 1000 * 60], // minutes
+  ['s', 1000], // seconds
+  ['S', 1], // million seconds
+];
+
+
 @Component({
   selector: 'app-homepage-afterbooking',
   templateUrl: './homepage-afterbooking.component.html',
@@ -52,6 +63,7 @@ export class HomepageAfterbookingComponent  implements OnInit {
     public onScroll(event: WheelEvent) {
       this.element.nativeElement.scrollLeft += event.deltaY;
     }
+    
 
     @ViewChild(IonContent) content!: IonContent;
 
@@ -66,5 +78,6 @@ export class HomepageAfterbookingComponent  implements OnInit {
       // goes to the top instead of instantly
       this.content.scrollToTop(500);
     }
-
+    
+  
 }

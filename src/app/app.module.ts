@@ -154,7 +154,8 @@ providers: [Storage]
 
   imports: [BrowserModule, MatExpansionModule, IonicStorageModule.forRoot({ name: "mylocaldb" }), MatSnackBarModule,MatSelectModule,
     ReactiveFormsModule, MatBottomSheetModule, HttpClientModule, CommonModule, IonicModule.forRoot({ mode: 'md' }), AppRoutingModule, SocialLoginModule, MatToolbarModule, MatDialogModule, MatSidenavModule, MatButtonModule, MatCardModule, RouterModule, MatInputModule, MatFormFieldModule, BrowserAnimationsModule, MatIconModule, FormsModule, ReactiveFormsModule, provideFirebaseApp(() => initializeApp({ "projectId": "otp-project-eb64c", "appId": "1:459119525785:web:b8c64ab6b6daaf7e941d08", "databaseURL": "https://otp-project-eb64c-default-rtdb.firebaseio.com", "storageBucket": "otp-project-eb64c.appspot.com", "apiKey": "AIzaSyA_lRy00xcn2oOICSOMEakyVpgNSoFopUk", "authDomain": "otp-project-eb64c.firebaseapp.com", "messagingSenderId": "459119525785", "measurementId": "G-4BRTCEDX5J" })), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
-  providers: [AndroidPermissions,{
+  providers: [AndroidPermissions,
+    {
     provide: 'SocialAuthServiceConfig',
     useValue: {
       autoLogin: false,

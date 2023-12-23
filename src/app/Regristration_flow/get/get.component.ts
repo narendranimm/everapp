@@ -49,10 +49,14 @@ export class GetComponent  implements OnInit {
     this.isModalOpen = isOpen;
   }
   Permissions(){
+
+      
     this.androidPermissions.checkPermission( this.androidPermissions.PERMISSION.MANAGE_EXTERNAL_STORAGE,).then(
       result => 
       // console.log('Has permission?',result.hasPermission),
+      
       {
+        
         if(result.hasPermission){
           this.snackBar.open(" Permission already allowed ");
           this.snackBar.open(this.userid);
@@ -65,6 +69,7 @@ export class GetComponent  implements OnInit {
         }else{
           this.requestPermission();
         }
+        
       },
       err => this.androidPermissions.requestPermission( this.androidPermissions.PERMISSION.MANAGE_EXTERNAL_STORAGE,)
     );
@@ -83,13 +88,20 @@ export class GetComponent  implements OnInit {
         if(result.hasPermission){
           localStorage.setItem('permissionRequested', 'true');
               if(this.userid != null){
-                this.router.navigateByUrl('homepage')
+                this.router.navigateByUrl('/homepage')
               }else{
-                this.router.navigateByUrl('register')
+                this.router.navigateByUrl('/register')
         
               }
             }else{
+              
               this.snackBar.open('Permission denied');
+              if(this.userid != null){
+                this.router.navigateByUrl('/homepage')
+              }else{
+                this.router.navigateByUrl('/register')
+        
+              }
             }
           },
           err=>{

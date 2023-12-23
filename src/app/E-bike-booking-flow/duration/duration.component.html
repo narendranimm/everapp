@@ -74,7 +74,7 @@
 </ion-content> -->
 
   
-  <select  [(ngModel)]="amount" (click)="convertToCash()" style="width: 100px;height: 40px;text-align: center;border: none;color: black;font-size: 24px;" size="3" formControlName="date" >
+  <select class="days"  [(ngModel)]="amount" (click)="convertToCash()" style="width: 100px;height: 40px;text-align: center;border: none;color: black;font-size: 24px;" size="3" formControlName="date" >
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -99,6 +99,12 @@
     <option value="22">22</option>
     <option value="23">23</option>
     <option value="24">24</option>
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="28">28</option>
+    <option value="29">29</option>
+    <option value="30">30</option>
   </select>
   <select [(ngModel)]="selectedOption" size="2" style="width: 100px;height: 40px;text-align: center;border: none;color: black;font-size: 24px;" formControlName="time">
     <option value="perHour"> Hours</option>

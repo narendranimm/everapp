@@ -171,9 +171,9 @@ export class DurationComponent implements OnInit {
   convertedCash: number | null = null; // Converted cash value
 
   convertToCash() {
-    const hourlyRate = 10; // Example hourly rate
-    const dailyRate = 80; // Example daily rate
-    const weeklyRate=500;
+    const hourlyRate = 100; // Example hourly rate
+    const dailyRate = 2400; // Example daily rate
+    const weeklyRate=16800;
     if (this.selectedOption === 'perHour') {
       this.convertedCash = this.amount * hourlyRate;
     } else if (this.selectedOption === 'perDay') {
