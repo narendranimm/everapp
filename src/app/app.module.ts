@@ -18,7 +18,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AllowPermissionsComponent } from './Regristration_flow/allow-permissions/allow-permissions.component';
 import { CongratulationsComponent } from './congratulations/congratulations.component';
 
-
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { EnablelocationComponent } from './E-bike-booking-flow/enablelocation/enablelocation.component';
 
@@ -108,7 +107,10 @@ import { provideHttpClient, withJsonpSupport } from '@angular/common/http';
 import { MatSelectModule } from '@angular/material/select';
 import { LoaderComponent } from './global_components/loader/loader.component';
 import { LoadingService } from './services/loading.service';
-import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions/ngx'
+import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions/ngx';
+
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
 providers: [Storage]
 @NgModule({
   declarations: [AppComponent, SplashComponent, GetComponent, RegisterComponent, LogComponent, AadharComponent, SelfieComponent, NavComponent, PreviewComponent, CropComponent, AllowPermissionsComponent, CongratulationsComponent, EnablelocationComponent, HomepageComponent, HubdetailsComponent, HublistsComponent, BookingdetailsComponent, CommunicationAllowPermissionComponent, HublistsComponent, BikedetailsComponent, DurationComponent, DatetimeComponent, BatteryStationListComponent, BatteryStationComponent, BatteryListComponent, BatteryDetailsAvailableComponent, BatteryDetailsUnavailableComponent, BookingDetailsComponent, OffersComponent, CouponAppliedComponent, CouponAppliedDashboardComponent, PaymentGatewaysComponent, AddUpiIdComponent, AddCardComponent, AddEWalletComponent, PaymentOngoingComponent, AddPaymentOngoingComponent, BookingSuccessComponent, BookingDetailsAfterComponent, BikelistComponent, DurationComponent, DurationLaterComponent, BookingsummaryComponent, OffersComponent, CouponappliedComponent, PaymentComponent, PaymentgatewaysComponent, AddUPIIDComponent, AddcardComponent, EWalletComponent, BookingDetailsComponent, HomepageAfterbookingComponent, TimedetailsComponent, BookingsuccessComponent,
@@ -152,7 +154,7 @@ providers: [Storage]
 
   ],
 
-  imports: [BrowserModule, MatExpansionModule,
+  imports: [BrowserModule, MatExpansionModule,MatSlideToggleModule,
     // SocialLoginModule,
     IonicStorageModule.forRoot({ name: "mylocaldb" }), MatSnackBarModule,
     MatSelectModule,
@@ -163,6 +165,7 @@ providers: [Storage]
     FormsModule, ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp({ "projectId": "otp-project-eb64c", "appId": "1:459119525785:web:b8c64ab6b6daaf7e941d08", "databaseURL": "https://otp-project-eb64c-default-rtdb.firebaseio.com", "storageBucket": "otp-project-eb64c.appspot.com", "apiKey": "AIzaSyA_lRy00xcn2oOICSOMEakyVpgNSoFopUk", "authDomain": "otp-project-eb64c.firebaseapp.com", "messagingSenderId": "459119525785", "measurementId": "G-4BRTCEDX5J" })),
     provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
+  
   providers: [
     // google api
     //   AndroidPermissions,{

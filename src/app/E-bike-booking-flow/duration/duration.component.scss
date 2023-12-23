@@ -112,7 +112,12 @@ word-wrap: break-word
 padding-top: 160px;
  }
  }
- .days{
-  background: none;
-  border:none;
+ .days-select{
+  width:100px;
+  height: 100px;
+ }
+
+ .time{
+  width:100px;
+  height: 60px;
  }

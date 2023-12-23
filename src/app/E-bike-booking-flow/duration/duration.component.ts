@@ -90,6 +90,28 @@ export class DurationComponent implements OnInit {
       this.ordersaveData.MemberID=this.logindata.UserID;
       console.log(this.ordersaveData)
     })
+    this.dataService.combinedData$.subscribe(data => {
+      if (data) {
+        this.startDate = data.inputValue;
+        this.endDate = data.inputValue1;
+        const startTime = new Date(this.startDate).getTime();
+        const endTime = new Date(this.endDate).getTime();
+        if (!isNaN(startTime) && !isNaN(endTime)) {
+          const difference = Math.abs(endTime - startTime);
+        
+          // Calculate days, hours, minutes, seconds
+          const days = Math.floor(difference / (1000 * 3600 * 24));
+          const hours = Math.floor((difference % (1000 * 3600 * 24)) / (1000 * 3600));
+        
+          const minutes = Math.floor((difference % (1000 * 3600)) / (1000 * 60));
+          const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+          const ammount=Math.floor(hours*20);
+          // Construct the time difference string
+          this.timeDifference = `${days} days,${hours} hours `;
+          this.Amount=`${ammount}`
+        }
+        }
+      })
   }
   duration() {
     const data = this.customDate.value;
@@ -99,7 +121,7 @@ export class DurationComponent implements OnInit {
     const data = this.customDate.value;
     if (!this.customDate.valid) {
       this.customDate.markAllAsTouched();
-      this.snackBar.open(" All fields are required ");
+      this.snackBar.open(" Please select a slot");
     } else {
       this.bookingservice.book(this.ordersaveData).subscribe(
         (res: any) => {
@@ -183,5 +205,47 @@ export class DurationComponent implements OnInit {
     }else {
       this.convertedCash = null; // Handle unexpected selections
     }
+  }
+  isPickerOpen = true;
+
+  public pickerColumns = [
+    {
+      name: 'languages',
+      options: [
+        {
+          text: 'JavaScript',
+          value: 'javascript',
+        },
+        {
+          text: 'TypeScript',
+          value: 'typescript',
+        },
+        {
+          text: 'Rust',
+          value: 'rust',
+        },
+        {
+          text: 'C#',
+          value: 'c#',
+        },
+      ],
+    },
+  ];
+
+  public pickerButtons = [
+    {
+      text: 'Cancel',
+      role: 'cancel',
+    },
+    {
+      text: 'Confirm',
+      handler: (value:any) => {
+        console.log(`You selected: ${value.languages.value}`);
+      },
+    },
+  ];
+
+  setOpen(isOpen: boolean) {
+    this.isPickerOpen = isOpen;
   }
 }
