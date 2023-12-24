@@ -297,7 +297,7 @@ export class DurationComponent implements OnInit {
     "OrderID": 123,
     "ProductID": 0,
     "BookingStartDate": this.datePipe.transform(Date.now(), 'yyyy-MM-dd HH:mm:ss'),
-    "BookingEndDate": "2023-12-01T00:00:00",
+    "BookingEndDate": this.datePipe.transform(Date.now(), 'yyyy-MM-dd HH:mm:ss'),
     "IsActive": true,
     "BookingNo": "ABC123",
     "HubID": 0,

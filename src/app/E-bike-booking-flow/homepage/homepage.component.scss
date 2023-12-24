@@ -291,3 +291,13 @@ word-wrap: break-word
       height: 104rem;
     }
   }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  .parent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  

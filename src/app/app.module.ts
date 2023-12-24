@@ -110,6 +110,7 @@ import { LoadingService } from './services/loading.service';
 import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions/ngx';
 
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { SettingsComponent } from './menu-flow/settings/settings.component';
 
 providers: [Storage]
 @NgModule({
@@ -150,7 +151,8 @@ providers: [Storage]
     TimeDetailsVehicleComponent,
     TimeDetailsVehicleFromComponent,
     VerificationComponent,
-    LoaderComponent
+    LoaderComponent,
+    SettingsComponent
 
   ],
 

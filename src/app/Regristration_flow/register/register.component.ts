@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
   constructor(private loadingservice: LoadingService,
     private router: Router,private userdata:UserData,private _snackBar: MatSnackBar,
     public dialog: MatDialog,private snackBar: MatSnackBar, public toast: ToastController, private route: ActivatedRoute, 
-    private _rf: FormBuilder, private authService: SocialAuthService, private reg: RegisterService, 
+    private _rf: FormBuilder, private reg: RegisterService, 
     private customValidators: ValidationService) {
     this.userdata.get().then( res => 
       {}
@@ -74,10 +74,7 @@ export class RegisterComponent implements OnInit {
   user: any;
   loggedIn: any;
   ngOnInit() {
-    this.authService.authState.subscribe((user) => {
-      this.user = user;
-      this.loggedIn = (user != null);
-    });
+  
 
    
   }

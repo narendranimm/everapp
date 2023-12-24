@@ -1,5 +1,7 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit, inject } from '@angular/core';
+import { OverlayContainer } from '@angular/cdk/overlay';
+import { Component, HostBinding, OnInit, inject } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Observable, map, shareReplay } from 'rxjs';
 
 @Component({
@@ -9,16 +11,33 @@ import { Observable, map, shareReplay } from 'rxjs';
 })
 export class NavComponent  implements OnInit {
 
-  constructor() { }
+ 
   private breakpointObserver = inject(BreakpointObserver);
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
     );
-  ngOnInit() {
-   
-  }
+    constructor(private overlay:OverlayContainer) { }
+
+    ngOnInit() {
+      this.toggleControl.valueChanges.subscribe(
+        (darkMode:any)=>{
+          this.className= darkMode ? this.darkClassName : this.lightClassName;
+          if(darkMode){
+            this.overlay.getContainerElement().classList.add(this.darkClassName);
+    
+          }else{
+            this.overlay.getContainerElement().classList.remove(this.darkClassName);
+          }
+    
+        }
+      )
+    }
+   toggleControl = new FormControl(false);
+    @HostBinding('class')  className = '';
+   darkClassName = 'theme-dark';
+   lightClassName = 'theme-light';
   }
 
 
