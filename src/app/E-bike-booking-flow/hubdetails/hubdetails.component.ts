@@ -37,6 +37,15 @@ imagearray:any=[];
       (res:any) => {
       this.bikeHub = res
       this.loadingservice.dismissLoader();
+      if(!res.ImagesList ){
+        if( res.ImagesList.length == 0){
+        let j=2;
+        for (let i = 0; i < j; j=2) {
+          this.imagearray[i]          
+        }
+        }
+
+      }
     },
     (error)=>{
       this.loadingservice.dismissLoader();

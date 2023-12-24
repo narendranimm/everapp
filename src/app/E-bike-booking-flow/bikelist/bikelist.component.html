@@ -58,7 +58,7 @@
                                 </svg>
 
                                 Available {{p.Quntity}}</p>
-                            <button class="view-btn" routerLink="/bikedetails/{{p.ProductID}}" >View details </button>
+                            <button class="view-btn"   (click)="gotoDetails(p.ProductID)">View details </button>
 
                         </div>
                     </div>
