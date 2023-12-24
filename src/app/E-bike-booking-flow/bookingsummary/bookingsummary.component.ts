@@ -15,7 +15,7 @@ import { OrderService } from 'src/app/services/Order.service';
 })
 export class BookingsummaryComponent implements OnInit {
 
-  timeDifference = ''
+  timeDifference = 0;
   startDate = '';
   endDate = ''
   BookingStartDate: any;

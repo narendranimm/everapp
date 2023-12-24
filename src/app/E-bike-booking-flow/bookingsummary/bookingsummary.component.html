@@ -33,7 +33,7 @@
                       <div><span class="bike-model">Bike model: </span><span class="models">{{ProductDetails?.VehicleName}}</span></div>
                   </div>
                   <div style="align-self: stretch;; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
-                      <div><span class="bike-model">Bike type :</span><span class="models">: {{ProductDetails?.Brand}}</span></div>
+                      <div><span class="bike-model">Bike type :</span><span class="models">: {{ProductDetails?.Battery}}</span></div>
                   </div>
                   <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
                       <div><span class="bike-model">Battery:</span><span class="models"> : {{ProductDetails?.Size}}</span></div>
@@ -51,10 +51,10 @@
               </div>
               <div style="align-self: stretch; height: 69px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
                   <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
-                      <div><span class="bike-model">Start from </span><span class="models" *ngModel="{{ProductDetails?.BookingStartDate}}">: {{ProductDetails?.BookingStartDate}} </span></div>
+                      <div><span class="bike-model">Start from </span><span class="models" >: {{ProductDetails?.BookingStartDate | date :'short'}} </span></div>
                   </div>
                   <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
-                      <div><span class="bike-model">End on </span><span class="models" *ngModel="{{ProductDetails?.BookingEndDate | date :'short' }}">:  {{ProductDetails?.BookingEndDate | date :'short' }}</span></div>
+                      <div><span class="bike-model">End on </span><span class="models" >:  {{ProductDetails?.BookingEndDate | date :'short' }}</span></div>
                   </div>
                   <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
                       <div><span class="bike-model">Booked for </span><span class="models">: {{timeDifference}}</span></div>
@@ -72,12 +72,13 @@
               </div>
               <div style="align-self: stretch; height: 15px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 20px; display: flex" >
                   <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
-                      <div><span class="bike-model">Hub centre</span><span class="models"> : {{ProductDetails?.BranchName | lowercase}}</span></div>
+                      <div><span class="bike-model">Hub centre</span><span class="models"> : {{ProductDetails?.HubCenterName | lowercase}}</span></div>
                   </div>
               </div>
           </div>
       </div>
   </div>
+
   <div style="align-self: stretch; height: 63px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
     <div class="offer">Offers & benefits</div>
     <button routerLink="/offer-coupan" style="align-self: stretch; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: #F2F2F2; border-radius: 24px; overflow: hidden; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
