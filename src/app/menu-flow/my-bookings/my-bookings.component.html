@@ -4,81 +4,46 @@
       <div style="width: 24px; height: 24px; padding-top: 4.41px; padding-bottom: 4.42px; padding-left: 4.42px; padding-right: 4px; justify-content: center; align-items: center; display: flex">
         <div class="container">
             <div class="btn-container">
-              <button style="background: transparent;border: none;" routerLink="/homepage"><img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
+              <button style="background: transparent;border: none;" routerLink="/homepage">
+                <img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
               </div>
             
             </div>
       </div>
       <div class="mybooking">My bookings</div>
   </div>
-  <div style="align-self: stretch; height: 137px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
+  <div style="align-self: stretch; height: 137px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex" >
       <div class="currentbooking">Current bookings</div>
-      <div style="align-self: stretch; height: 105px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 16px; display: flex">
+      <div *ngIf="ordersList?.length >0; else elseBlock">
+
+      
+      <div *ngFor="let d of ordersList"
+      style="align-self: stretch; height: 105px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 16px; display: flex">
           <div style="align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
-              <img src="https://s3-alpha-sig.figma.com/img/a91a/1d17/0c438f240f0f2e36738aaa4b750d1b0e?Expires=1700438400&Signature=d7eO1sLUQyoz2hM4eCXvl~YHlsY4njO1qVi9J-KYdphV2WqgWgjIAlkjUibiTGtkVnQcxQ6lK0mCXTsmAn7YOi~~jwMOFQqzOWzf9UbRRsryOeIMga-fvLHQbgjRK-AS8Rk4QuYo1JdmjrvTZ2R66oO5eroM4IsfW0OP1PkITfqNntURNoI6nd54RGU-bCJ1ax~~p9hBeKW8Qziw~WgKSVudUXm5AGc9ylo-FfkSk-G6JUd5C62c-YKLrKWjMtpCAoks4QfMH6sAY6H~jHzJef3~nu5iSpzxk~lCnpUsk0PAxAej5bhzT0P2itlv9eGJWgJrVN83zvzkmbqW6GM2kQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" style="width: 86px; height: 105px; position: relative; background: linear-gradient(180deg, rgba(168, 181, 187, 0) 0%, #A6B3B9 100%); border-radius: 12px">
+              <img 
+               style="width: 86px; height: 105px; position: relative; background: linear-gradient(180deg, rgba(168, 181, 187, 0) 0%, #A6B3B9 100%); border-radius: 12px">
               <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
-                  <div style="align-self: stretch; color: #363636; font-size: 18px; font-family: Archivo; font-weight: 600; word-wrap: break-word">Bike model 1</div>
-                  <div style="align-self: stretch; color: black; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">7 Oct | 11.00 am - 14 Oct | 10.59 am</div>
-                  <div style="align-self: stretch; color: black; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">7 days</div>
+                  <div style="align-self: stretch; color: #363636; font-size: 18px; font-family: Archivo; font-weight: 600; word-wrap: break-word">
+                    {{d.ProductName}}</div>
+                  <div style="align-self: stretch; color: black; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">
+                    {{d.BookingStartDate |  date:'medium'}}  -
+                     {{d.BookingEndDate|  date:'medium'}} </div>
+                  <div style="align-self: stretch; color: black; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">
+                    7 days</div>
                   <div style="width: 112px; padding-left: 10px; padding-right: 10px; padding-top: 8px; padding-bottom: 8px; border-radius: 24px; border: 1px #3355B9 solid; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-                      <button routerLink="/time-details-m" style="color: #3355B9; font-size: 14px; font-family: Archivo; font-weight: 600; word-wrap: break-word">View status</button>
+                      <button routerLink="/time-details-m" 
+                      style="color: #3355B9; font-size: 14px; font-family: Archivo; font-weight: 600; word-wrap: break-word">
+                      View status</button>
                   </div>
               </div>
           </div>
       </div>
+    </div>
+
+    <ng-template #elseBlock>
+        <p class="nodata"><b>No Record</b></p>
+      </ng-template>
   </div>
-  <div style="align-self: stretch; height: 382px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
-      <div style="color: #363636; font-size: 18px; font-family: Archivo; font-weight: 700; word-wrap: break-word">Previous bookings</div>
-      <div style="align-self: stretch; height: 350px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 16px; display: flex">
-          <div style="align-self: stretch; height: 106px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 16px; display: flex">
-              <div style="align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
-                  <img src="https://s3-alpha-sig.figma.com/img/a91a/1d17/0c438f240f0f2e36738aaa4b750d1b0e?Expires=1700438400&Signature=d7eO1sLUQyoz2hM4eCXvl~YHlsY4njO1qVi9J-KYdphV2WqgWgjIAlkjUibiTGtkVnQcxQ6lK0mCXTsmAn7YOi~~jwMOFQqzOWzf9UbRRsryOeIMga-fvLHQbgjRK-AS8Rk4QuYo1JdmjrvTZ2R66oO5eroM4IsfW0OP1PkITfqNntURNoI6nd54RGU-bCJ1ax~~p9hBeKW8Qziw~WgKSVudUXm5AGc9ylo-FfkSk-G6JUd5C62c-YKLrKWjMtpCAoks4QfMH6sAY6H~jHzJef3~nu5iSpzxk~lCnpUsk0PAxAej5bhzT0P2itlv9eGJWgJrVN83zvzkmbqW6GM2kQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" style="width: 86px; height: 106px; position: relative; background: linear-gradient(180deg, rgba(168, 181, 187, 0) 0%, #A6B3B9 100%); border-radius: 12px">
-                  <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
-                      <div style="align-self: stretch; color: #363636; font-size: 18px; font-family: Archivo; font-weight: 600; word-wrap: break-word">Bike model 1</div>
-                      <div style="align-self: stretch; color: black; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">12 Aug | 11.00 am - 5 Sep | 10.59 am</div>
-                      <div style="align-self: stretch; color: black; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">7 days</div>
-                      <div style="width: 112px; padding-left: 10px; padding-right: 10px; padding-top: 8px; padding-bottom: 8px; border-radius: 24px; border: 1px #3355B9 solid; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-                          <div style="color: #3355B9; font-size: 14px; font-family: Archivo; font-weight: 600; word-wrap: break-word">Rebook</div>
-                          <div style="width: 16px; height: 16px; position: relative">
-                              <div style="width: 10.66px; height: 10.67px; left: 2.67px; top: 2.67px; position: absolute; background: #3355B9"></div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div style="align-self: stretch; height: 106px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 16px; display: flex">
-              <div style="align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
-                  <img style="width: 86px; height: 106px; position: relative; background: linear-gradient(180deg, rgba(168, 181, 187, 0) 0%, #A6B3B9 100%); border-radius: 12px" src="https://s3-alpha-sig.figma.com/img/b892/249f/333c6d12c7d0d7fcbd4fe5705036c0e8?Expires=1700438400&Signature=almtt4B8UHxNU2BBuQtA1VT6NhEU73x1v5l4gKJOt5BIH6~qH5Fcv4iiQuNUSbtN~DwofZT21ajZOFBBXKWF3jJ~f~QNL7YinsXSaYgcb38KiC9Bw5IP4gfOzxdDmLZD1D4W5JzVI3Kz-mx2dMBVbY5IBYq~tl5YlU0AjvjmoUbe3ZQYJBJJ59DxnNXQplN3o4AYVYbtSbfS-cmqqW9Jt8voRgMP-LGl-WCV2dlNSsC83kOEUjcnsSH5eoAtAeA5FCyQyGwDAQa-Gz7quI-lT-j6vkMp5emuMqs8egUSat0gU4JBk0j1BOhoAc73~N7fA~oC5y0o40yiXFnLnAOJcw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" />
-                  <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
-                      <div style="align-self: stretch; color: #363636; font-size: 18px; font-family: Archivo; font-weight: 600; word-wrap: break-word">Battery model 3</div>
-                      <div style="align-self: stretch; color: black; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">11,000 watt</div>
-                      <div style="align-self: stretch; color: black; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">31 Sep, 2023</div>
-                      <div style="width: 112px; padding-left: 10px; padding-right: 10px; padding-top: 8px; padding-bottom: 8px; border-radius: 24px; border: 1px #3355B9 solid; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-                          <div style="color: #3355B9; font-size: 14px; font-family: Archivo; font-weight: 600; word-wrap: break-word">Rebook</div>
-                          <div style="width: 16px; height: 16px; position: relative">
-                              <div style="width: 10.66px; height: 10.67px; left: 2.67px; top: 2.67px; position: absolute; background: #3355B9"></div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div style="align-self: stretch; height: 106px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 16px; display: flex">
-              <div style="align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
-                  <img style="width: 86px; height: 106px; position: relative; background: linear-gradient(180deg, rgba(168, 181, 187, 0) 0%, #A6B3B9 100%); border-radius: 12px" src="https://s3-alpha-sig.figma.com/img/6038/682c/26a58b8a4c8588427528c399a9ce59db?Expires=1700438400&Signature=aewMxHpgge1ItpxqjIynQQmUddD2ixaMQiW1iU9ulVrIQ79gz7BcBzcVhB-ItBCA8DU-q5NGNVhnUhgCrWjsLhoTOwbcmHWrYDsA1QGpay6-Mfwjsf-QhhBDB1zVqE3DbXXcCz-WDl76wPqu-GKNAcolomL8qWOWMxPiQ6GEZZKtsIKQjUCuvq~6QoJVCXJU0fumkMRLa2bVVoR94iNPyMaz-3F3jeFDiLqY81nQhPmX476eSuetkr7Ljreru11gHhSOvnuyh-E~VqoIbxZ2~4YuR8YFtfc8Jvh-PPF0FUwvzlMh6L2~7sPQRmCwDuH-yGMC7K2aHXDCLoG247MZiA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" />
-                  <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
-                      <div style="align-self: stretch; color: #363636; font-size: 18px; font-family: Archivo; font-weight: 600; word-wrap: break-word">Battery model 3</div>
-                      <div style="align-self: stretch; color: black; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">11,000 watt</div>
-                      <div style="align-self: stretch; color: black; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">1 Oct, 20234</div>
-                      <div style="width: 112px; padding-left: 10px; padding-right: 10px; padding-top: 8px; padding-bottom: 8px; border-radius: 24px; border: 1px #3355B9 solid; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-                          <div style="color: #3355B9; font-size: 14px; font-family: Archivo; font-weight: 600; word-wrap: break-word">Rebook</div>
-                          <div style="width: 16px; height: 16px; position: relative">
-                              <div style="width: 10.66px; height: 10.67px; left: 2.67px; top: 2.67px; position: absolute; background: #3355B9"></div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+ 
 </div>
 </div>

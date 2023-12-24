@@ -8,6 +8,7 @@ import{environment} from '../../environments/environment.prod'
   providedIn: 'root'
 })
 export class BookingService {
+ 
   baseurl:any=environment.apiurl;
 
   constructor(private http:HttpClient) { 
@@ -18,7 +19,9 @@ export class BookingService {
     return this.http.post(this.baseurl+'orders/orderbooking',orderdata)
   }
   
-
+  getPriceData() {
+    return this.http.get(this.baseurl+'product/getPriceData')
+  }
   getbikehubs(bikeHubID:any){
     return this.http.get(this.baseurl+`hubs/get/${bikeHubID}`)
   }

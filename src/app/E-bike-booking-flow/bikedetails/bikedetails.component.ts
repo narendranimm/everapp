@@ -5,6 +5,7 @@ import { ProductServicesService } from 'services/product-services/product-servic
 import { UserData } from 'src/app/providers/user-data';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
 import { environment } from 'src/environments/environment.prod';
+import { LoadingService } from 'src/app/services/loading.service';
 @Component({
   selector: 'app-bikedetails',
   templateUrl: './bikedetails.component.html',
@@ -18,7 +19,8 @@ export class BikedetailsComponent  implements OnInit {
    azimageUrl:any=environment.azimageUrl_hub;
    imageUrl:any;
 
-  constructor(private route: ActivatedRoute,private _pd:ProductServicesService,private router:Router,private user:UserData,private _bh:BookingService) {
+  constructor(private route: ActivatedRoute,private loader:LoadingService,
+    private _pd:ProductServicesService,private router:Router,private user:UserData,private _bh:BookingService) {
     this.productID = route.snapshot.params["ID"];
     console.log("this is productID value = "+ this.productID);
 }
@@ -34,9 +36,11 @@ ProductDetails:any;
   }
 
   getDetails(){
+    this.loader.simpleLoader('Loading...')
     this._pd.productDetails(this.productID).subscribe((res)=>{
       this.ProductDetails=res;
-      this.imageUrl=this.azimageUrl+this.ProductDetails.ImageName
+      this.imageUrl=this.azimageUrl+this.ProductDetails.ImageName;
+      this.loader.dismissLoader();
     })
   }
 
