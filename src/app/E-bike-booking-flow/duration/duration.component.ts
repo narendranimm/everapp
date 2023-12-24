@@ -278,6 +278,8 @@ export class DurationComponent implements OnInit {
 
         return;
       }
+
+
       this.bookingservice.book(this.ordersaveData).subscribe(
         (res: any) => {
           this.loader.dismissLoader();

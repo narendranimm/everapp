@@ -71,7 +71,7 @@ export class HomepageComponent implements OnInit {
 
   public sidebar: boolean = true;
   getbikehubs() {
-    this.loadingservice.simpleLoader('loading')
+    // this.loadingservice.simpleLoader('loading')
     this._bh.getbikehubs(this.bikeHubID).subscribe((res: any) => {
       console.log('tests', res)
       this.bikeHub = res.slice(0, 4);
@@ -81,7 +81,7 @@ export class HomepageComponent implements OnInit {
     })
   }
   getNearByHubs() {
-    this.loadingservice.simpleLoader('Loading');
+    // this.loadingservice.simpleLoader('Loading');
     console.log(this.postadd_Data)
 
     this.hub_s.getnearByHubsBasedonLatandLongID(this.postadd_Data).subscribe(res=>

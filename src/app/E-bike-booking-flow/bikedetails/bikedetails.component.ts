@@ -37,7 +37,7 @@ ProductDetails:any;
   }
 
   getDetails(){
-    this.loader.simpleLoader('Loading...')
+    // this.loader.simpleLoader('Loading...')
     this._pd.productDetails(this.data).subscribe((res)=>{
       this.ProductDetails=res;
       this.imageUrl=this.azimageUrl+this.ProductDetails.ImageName;
