@@ -35,11 +35,6 @@ export class BookingsummaryComponent implements OnInit {
 
   ngOnInit() {
     this.getDetails()
-
-
-
-
-
   }
   getDetails() {
     this._pd.getordersummeryByBookingNo(this.bookingdata).subscribe((res) => {
