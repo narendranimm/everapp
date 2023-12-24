@@ -6,82 +6,76 @@ import { ProductServicesService } from 'services/product-services/product-servic
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
 import { DataservicesService } from 'src/app/dataservices.service';
 import { UserData } from 'src/app/providers/user-data';
+import { OrderService } from 'src/app/services/Order.service';
 
 @Component({
   selector: 'app-bookingsummary',
   templateUrl: './bookingsummary.component.html',
   styleUrls: ['./bookingsummary.component.scss'],
 })
-export class BookingsummaryComponent  implements OnInit {
-  timeDifference=''
-  startDate='';
-  endDate=''
-  BookingStartDate:any;
-  BookingEndDate:any
-  ProductDetails:any
-  productId:any;
-  bikeHubID:any;
-  bikeHub:any;
-  taskId:any;
-  constructor(private dataService: DataservicesService,private snackBar: MatSnackBar,private route: ActivatedRoute,private _pd:ProductServicesService,private _bh: BookingService,private router:Router,private user:UserData,private booking:BookingService) {
-    const taskId = route.snapshot.params["ID"];
-    console.log("this is orderid value = "+ taskId);
-}
+export class BookingsummaryComponent implements OnInit {
+  timeDifference = ''
+  startDate = '';
+  endDate = ''
+  BookingStartDate: any;
+  BookingEndDate: any
+  ProductDetails: any
+  productId: any;
+  bikeHubID: any;
+  bikeHub: any;
+  bookingNo!: string;
+  constructor(private dataService: DataservicesService, private snackBar: MatSnackBar,
+    private route: ActivatedRoute, private _pd: OrderService,
+    private _bh: BookingService, private router: Router, private user: UserData,
+    private booking: BookingService) {
+    const bookingNo = route.snapshot.params["ID"];
+    console.log("this is orderid value = " + bookingNo);
+    this.bookingdata.BookingNo = bookingNo;
+  }
 
   ngOnInit() {
     this.getDetails()
-    
-    this. getbikehubs();
-    this.BookingEndDate;
-    this.BookingStartDate;
-    this.dataService.combinedData$.subscribe(data => {
-      if (data) {
-        this.startDate = data.inputValue;
-        this.endDate = data.inputValue1;
-        const startTime = new Date(this.startDate).getTime();
-        const endTime = new Date(this.endDate).getTime();
-        if (!isNaN(startTime) && !isNaN(endTime)) {
-          const difference = Math.abs(endTime - startTime);
 
-          // Calculate days, hours, minutes, seconds
-          const days = Math.floor(difference / (1000 * 3600 * 24));
-          const hours = Math.floor((difference % (1000 * 3600 * 24)) / (1000 * 3600));
-          const minutes = Math.floor((difference % (1000 * 3600)) / (1000 * 60));
-          const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-          // Construct the time difference string
-          this.timeDifference = `${days} days,${hours} hours `;
-        }
-      }
-    });
+
+
 
   }
-  getDetails(){
-    this._pd.productDetails(this.taskId).subscribe((res)=>{
+  getDetails() {
+    this._pd.getordersummeryByBookingNo(this.bookingdata).subscribe((res) => {
       console.log(res)
-      this.ProductDetails=res;
+      this.ProductDetails = res;
     })
   }
- 
+
   @ViewChild(IonContent) content!: IonContent;
-  data=[];
-    scrollToBottom() {
-      // Passing a duration to the method makes it so the scroll slowly
-      // goes to the bottom instead of instantly
-      this.content.scrollToBottom(500);
-    }
-  
-    scrollToTop() {
-      // Passing a duration to the method makes it so the scroll slowly
-      // goes to the top instead of instantly
-      this.content.scrollToTop(500);
-    }
-  
-      getbikehubs() {
-        this._bh.getbikehubs(this.bikeHubID).subscribe((res:any) => {
-          console.log('tests',res)
-          this.bikeHub = res.slice(0,1);
-        
-        })
-      }
+  data = [];
+  scrollToBottom() {
+    // Passing a duration to the method makes it so the scroll slowly
+    // goes to the bottom instead of instantly
+    this.content.scrollToBottom(500);
+  }
+
+  scrollToTop() {
+    // Passing a duration to the method makes it so the scroll slowly
+    // goes to the top instead of instantly
+    this.content.scrollToTop(500);
+  }
+
+  getbikehubs() {
+    this._bh.getbikehubs(this.bikeHubID).subscribe((res: any) => {
+      console.log('tests', res)
+      this.bikeHub = res.slice(0, 1);
+
+    })
+  }
+
+
+
+
+
+
+  bookingdata = {
+    "BookingNo": null
+  }
 }

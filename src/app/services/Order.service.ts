@@ -21,4 +21,7 @@ baseUrl:any=environment.apiurl;
   getorderbyUserID(userid:any){
     return this.http.get(this.baseUrl+`orders/getorderbyUserid/`+userid);
   }
+  getordersummeryByBookingNo(orderdata:any){
+    return this.http.post(this.baseUrl+`orders/getordersummeryByBookingNo`,orderdata);
+  }
 }

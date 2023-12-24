@@ -23,6 +23,7 @@ export class BikedetailsComponent  implements OnInit {
     private _pd:ProductServicesService,private router:Router,private user:UserData,private _bh:BookingService) {
     this.productID = route.snapshot.params["ID"];
     console.log("this is productID value = "+ this.productID);
+    this.data.BookingNo=this.productID;
 }
 
 ProductDetails:any;
@@ -37,7 +38,7 @@ ProductDetails:any;
 
   getDetails(){
     this.loader.simpleLoader('Loading...')
-    this._pd.productDetails(this.productID).subscribe((res)=>{
+    this._pd.productDetails(this.data).subscribe((res)=>{
       this.ProductDetails=res;
       this.imageUrl=this.azimageUrl+this.ProductDetails.ImageName;
       this.loader.dismissLoader();
@@ -55,4 +56,8 @@ ProductDetails:any;
   }
 
  
+
+  data={
+    "BookingNo":null
+  }
 }
