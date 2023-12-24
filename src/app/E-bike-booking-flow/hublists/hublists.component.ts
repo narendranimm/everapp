@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IonContent } from '@ionic/angular';
 import { ProductServicesService } from 'services/product-services/product-services.service';
+import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-hublists',
@@ -9,15 +11,19 @@ import { ProductServicesService } from 'services/product-services/product-servic
   styleUrls: ['./hublists.component.scss'],
 })
 export class HublistsComponent  implements OnInit {
-
+  bikeHubID: any =3502;
+  bikeHub:any;
   taskId:any;
+  azimageUrl:any='https://everdevuat.blob.core.windows.net/hubs/';
   @ViewChild(IonContent) content!: IonContent;
- constructor(private route: ActivatedRoute,private _pd:ProductServicesService) {
+ constructor(private route: ActivatedRoute,private _pd:ProductServicesService,private _bh:BookingService) {
    this.taskId = route.snapshot.params["ID"];
    console.log("this is taskId value = "+ this.taskId);
 }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.gethubs()
+  }
   // @ViewChild(IonContent) content!: IonContent;
 
   // scrollToBottom() {
@@ -31,5 +37,11 @@ export class HublistsComponent  implements OnInit {
   //   // goes to the top instead of instantly
   //   this.content.scrollToTop(500);
   // }
-  
+  gethubs(){
+    this._bh.getbikehubs(this.bikeHubID).subscribe((res:any) => {
+      console.log('tests',res)
+      this.bikeHub = res;
+
+  })
+}
 }

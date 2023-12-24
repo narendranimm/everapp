@@ -11,9 +11,9 @@
       </div>
       <div class="swapping">Swapping station details</div>
   </div>
-  <div style="align-self: stretch; height: 104px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
+  <div style="align-self: stretch; height: 104px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex" *ngFor="let bs of bikeHub">
       <div style="align-self: stretch; justify-content: space-between; align-items: center; display: inline-flex">
-          <div class="metro">Ameerpet metro EV battery station </div>
+          <div class="metro">{{bs.BranchName}}</div>
           <div style="justify-content: flex-start; align-items: center; gap: 12px; display: flex">
               <div style="width: 24px; height: 24px; position: relative">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -63,7 +63,7 @@
                         </svg>
                   </div>
               </div>
-              <div class="open">Open | Closes 11.00 pm</div>
+              <div class="open">Open {{bs.OpenTime  | date:'shortTime'}} | Closes  {{bs.CloseTime  | date:'shortTime'}}</div>
           </div>
       </div>
   </div>
@@ -77,8 +77,8 @@
           </div>
         </button>
   </div>
-  <div style="height: 330px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
-      <img style="align-self: stretch; height: 230px; border-radius: 12px" src="./assets/battery1.png" />
+  <div style="height: 330px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex"  *ngFor="let bs of bikeHub">
+      <img style="align-self: stretch; height: 230px; border-radius: 12px" src="{{azimageUrl}}{{bs.ProfileImage}}" />
       <div style="width: 328px; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
           <img style="width: 108px; align-self: stretch; border-radius: 12px" src="./assets/battery.png" />
           <img style="width: 108px; align-self: stretch; border-radius: 12px" src="./assets/battery1.png" />
