@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
-.batter-list-p{
+
+.batter-list-p {
     display: flex;
     flex-flow: wrap row;
     align-items: center;
@@ -7,12 +8,42 @@
     column-gap: 20px;
     row-gap: 20px;
 }
-.btn-container{
+
+.btn-container {
     padding: 4%;
 }
-.battery-list{
-    color: black; font-size: 12px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
+
+.battery-list {
+    color: black;
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    word-wrap: break-word
 }
-.station{
-  align-self: stretch; color: #363636; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
+
+.station {
+    align-self: stretch;
+    color: #363636;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    word-wrap: break-word
+}
+
+second_div {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 24px;
+    display: inline-flex
+}
+
+second_div {
+    align-self: stretch;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 94px;
+    display: inline-flex
 }

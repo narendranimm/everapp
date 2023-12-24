@@ -72,22 +72,28 @@ export class HomepageComponent implements OnInit {
   public sidebar: boolean = true;
   getbikehubs() {
     this.loadingservice.simpleLoader('loading')
-    this._bh.getbikehubs(this.bikeHubID).subscribe((res: any) => {
+    this._bh.getbikehubs(this.bikeHubID).subscribe(
+      (res: any) => {
       console.log('tests', res)
       this.bikeHub = res.slice(0, 4);
 
       this.loadingservice.dismissLoader();
 
-    })
+    },(error:any)=>{
+      this.loadingservice.dismissLoader();
+
+    }
+    )
   }
   getNearByHubs() {
-    this.loadingservice.simpleLoader('Loading');
     console.log(this.postadd_Data)
 
     this.hub_s.getnearByHubsBasedonLatandLongID(this.postadd_Data).subscribe(res=>
       {
       console.log(res)
       this.hubsnearby=res;
+      this.loadingservice.dismissLoader();
+
     },
     (error)=>{
       this.loadingservice.dismissLoader();

@@ -14,6 +14,7 @@ export class HubdetailsComponent  implements OnInit {
   azimageUrl:any='https://everdevuat.blob.core.windows.net/hubs/';
 bikeHubID:any=0;
 bikeHub:any;
+imagearray:any=[];
   constructor(private loadingservice: LoadingService,private router:Router,
     private user:UserData,private _bh:BookingService) {
     this.user.getId('hubid').then(res => {
@@ -21,7 +22,6 @@ bikeHub:any;
       if (res !== null) {
         this.bikeHubID = res;
     this.getbikehubs()
-
       } else {
         console.log('Data is null. Handle accordingly.');
       }
@@ -32,7 +32,7 @@ bikeHub:any;
 
   }
   getbikehubs() {
-   // this.loadingservice.simpleLoader('Loading data')
+   this.loadingservice.simpleLoader('Loading...')
     this._bh.getHubDetaislByHubID(this.bikeHubID).subscribe(
       (res:any) => {
       this.bikeHub = res

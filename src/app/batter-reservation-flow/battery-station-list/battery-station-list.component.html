@@ -1,31 +1,40 @@
 <div class="btn-container">
-<div style="width: 100%; height: 100%; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
-    <div style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 94px; display: inline-flex">
-        <div style="width: 24px; height: 24px; position: relative">
-            <div class="container">
-                <div class="btn-container">
-                  <button style="background: transparent;border: none;" routerLink="/timedetails"><img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
-                  </div>
-                
+    <div class="second_div">
+        <div class="third_div">
+            <div style="width: 24px; height: 24px; position: relative">
+                <div class="container">
+                    <div class="btn-container">
+                        <button style="background: transparent;border: none;" routerLink="/timedetails"><img
+                                class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
+                    </div>
+
                 </div>
-        </div>
-        <div class="battery-list">All battery stations</div>
-    </div>
-    <input type="search" placeholder="Search by stations, bike model or distance" style="align-self: stretch; padding: 12px; background: #F2F2F2; border-radius: 20px; overflow: hidden; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex;border: none;">
-       
-    <div class="batter-list-p">
-        <button routerLink="/battery-station" style="width: 140px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex;background: none;" *ngFor="let bh of bikeHub">
-            <img style="align-self: stretch; height: 142px; background: linear-gradient(0deg, #D9D9D9 0%, #D9D9D9 100%); border-radius: 10px" src="{{azimageUrl}}{{bh.ProfileImage}}" />
-            <div class="station">{{bh.BranchName}}</div>
-            <div style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 4px; display: inline-flex">
-                <div style="width: 16px; height: 16px; position: relative">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="14" viewBox="0 0 10 14" fill="none">
-<path d="M5.38462 4.9L6.49231 6.412C6.73077 6.741 7.26923 7 7.7 7H10V5.6H7.69231L6.58462 4.088C6.28842 3.70881 5.92439 3.37754 5.50769 3.108L4.49231 2.492C4.29569 2.38461 4.07178 2.32556 3.84253 2.32065C3.61328 2.31575 3.38656 2.36514 3.18462 2.464L0 4.2V7.7H1.53846V4.9L3.07692 4.2L0.769231 14H2.30769L4.11539 8.645L5.38462 9.8V14H6.92308V8.4L4.84615 6.51L5.38462 4.9ZM6.15385 2.8C6.56187 2.8 6.95319 2.6525 7.2417 2.38995C7.53022 2.1274 7.69231 1.7713 7.69231 1.4C7.69231 1.0287 7.53022 0.672601 7.2417 0.410051C6.95319 0.1475 6.56187 0 6.15385 0C5.74582 0 5.35451 0.1475 5.06599 0.410051C4.77747 0.672601 4.61538 1.0287 4.61538 1.4C4.61538 1.7713 4.77747 2.1274 5.06599 2.38995C5.35451 2.6525 5.74582 2.8 6.15385 2.8Z" fill="#3355B9"/>
-</svg>
-                </div>
-                <div style="flex: 1 1 0; color: #363636; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">8 min by walk</div>
             </div>
-        </button>
-       
-</div>
-</div>
+            <div class="battery-list">All battery stations</div>
+        </div>
+        <input type="search" placeholder="Search by stations, bike model or distance"
+            style="align-self: stretch; padding: 12px; background: #F2F2F2; border-radius: 20px; overflow: hidden; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex;border: none;">
+
+        <div class="batter-list-p" >
+            <button (click)="gotohubdetails(bh.BranchID)" *ngFor="let bh of bikeHub"
+                style="width: 140px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex;background: none;">
+                <img style="align-self: stretch; height: 142px; background: linear-gradient(0deg, #D9D9D9 0%, #D9D9D9 100%); border-radius: 10px"
+                    src="{{azimageUrl}}{{bh.ProfileImage}}" />
+                <div class="station">{{bh.BranchName}}</div>
+                <div
+                    style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 4px; display: inline-flex">
+                    <div style="width: 16px; height: 16px; position: relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="14" viewBox="0 0 10 14" fill="none">
+                            <path
+                                d="M5.38462 4.9L6.49231 6.412C6.73077 6.741 7.26923 7 7.7 7H10V5.6H7.69231L6.58462 4.088C6.28842 3.70881 5.92439 3.37754 5.50769 3.108L4.49231 2.492C4.29569 2.38461 4.07178 2.32556 3.84253 2.32065C3.61328 2.31575 3.38656 2.36514 3.18462 2.464L0 4.2V7.7H1.53846V4.9L3.07692 4.2L0.769231 14H2.30769L4.11539 8.645L5.38462 9.8V14H6.92308V8.4L4.84615 6.51L5.38462 4.9ZM6.15385 2.8C6.56187 2.8 6.95319 2.6525 7.2417 2.38995C7.53022 2.1274 7.69231 1.7713 7.69231 1.4C7.69231 1.0287 7.53022 0.672601 7.2417 0.410051C6.95319 0.1475 6.56187 0 6.15385 0C5.74582 0 5.35451 0.1475 5.06599 0.410051C4.77747 0.672601 4.61538 1.0287 4.61538 1.4C4.61538 1.7713 4.77747 2.1274 5.06599 2.38995C5.35451 2.6525 5.74582 2.8 6.15385 2.8Z"
+                                fill="#3355B9" />
+                        </svg>
+                    </div>
+                    <div
+                        style="flex: 1 1 0; color: #363636; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">
+                        8 min by walk</div>
+                </div>
+            </button>
+
+        </div>
+    </div>

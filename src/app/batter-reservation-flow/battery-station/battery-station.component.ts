@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
+import { UserData } from 'src/app/providers/user-data';
+import { LoadingService } from 'src/app/services/loading.service';
 import { environment } from 'src/environments/environment.prod';
 
 @Component({
@@ -13,16 +15,30 @@ export class BatteryStationComponent  implements OnInit {
   bikeHub:any;
   azimageUrl:any=environment.azimageUrl_hub;
 
-  constructor(private _bh:BookingService) { 
-    this.getbatteryhubs();
+  constructor(private _bh:BookingService,private user:UserData,private loader:LoadingService) { 
+      this.user.getId('hubid').then(res => {
+        if (res !== null) {
+          this.bikeHubID = res;
+   this.loader.simpleLoader('Loading...')
+
+            this.getbatteryhubs()
+        } else {
+          console.log('Data is null. Handle accordingly.');
+        }
+      })
   }
 
   ngOnInit() {}
   getbatteryhubs(){
-    this._bh.getbikehubs(this.bikeHubID).subscribe((res:any) => {
-      console.log('tests',res)
-      this.bikeHub = res.slice(0,1)
-  })
+    this._bh.getbikehubs(this.bikeHubID).subscribe(
+      (res:any) => {
+        this.loader.dismissLoader();
+      this.bikeHub = res
+  },
+  (error)=>{
+    this.loader.dismissLoader();
+  }
+  )
   }  
 
 }
