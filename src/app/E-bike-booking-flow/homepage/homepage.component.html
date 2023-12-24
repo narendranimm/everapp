@@ -189,7 +189,7 @@
           <h1 class="greeting-head">Welcome {{username}}</h1>
           <button id="submit">
             <!-- <img src="./assets/mdi_location.svg" alt=""> -->
-            {{lat}}{{lng}}
+            {{lat}} - {{lng}}
           </button>
 
           <!-- <input type="text" value="{{lat}},{{lng}}" id="latlng"> -->
@@ -213,7 +213,8 @@
 
         <br> <br>
 
-        <app-nearhub [slides]="bikeHubID"></app-nearhub>
+        <app-nearhub [slides]="hubsnearby"></app-nearhub>
+        <!-- <app-nearhub [slides]="bikeHubID"></app-nearhub> -->
 <!-- all hubs -->
         <div style="width: 100%;  justify-content: space-between; align-items: center; display: inline-flex">
           <div class="allhub">All hubs</div>
