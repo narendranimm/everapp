@@ -28,8 +28,8 @@ export interface MapGeocoderResponse {
 })
 export class HomepageComponent implements OnInit {
   loading: boolean = false;
-  lat!: any;
-  lng!: any;
+  lat: any=null;
+  lng: any=null;
   location: any = {}
   keys: string[] = [];
   bikeHubID: any = 3502;
@@ -51,8 +51,11 @@ export class HomepageComponent implements OnInit {
     private _pd: ProductServicesService, private userdata: UserData
   ) {
     this.userdata.getuser().then(res => {
+      if(res !== null){
+
         this.logindata = res;
         this.username = res.FirstName + ' ' + res.LastName;
+      }
       })
 
   }
@@ -105,7 +108,6 @@ export class HomepageComponent implements OnInit {
       this.lat = resp.coords.latitude;
       this.lng = resp.coords.longitude;
     })
-    console.log('Current position:', coordinates);
 
   };
 

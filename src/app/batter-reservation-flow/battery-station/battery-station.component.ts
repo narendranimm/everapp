@@ -11,15 +11,15 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class BatteryStationComponent  implements OnInit {
 
-  bikeHubID:any=3503
-  bikeHub:any;
+  batteryHubID:any=3503
+  batteryHub:any;
   azimageUrl:any=environment.azimageUrl_hub;
 
   constructor(private _bh:BookingService,private user:UserData,private loader:LoadingService) { 
       this.user.getId('hubid').then(res => {
         if (res !== null) {
-          this.bikeHubID = res;
-   this.loader.simpleLoader('Loading...')
+          this.batteryHubID = res;
+          this.loader.simpleLoader('Loading...')
 
             this.getbatteryhubs()
         } else {
@@ -30,10 +30,10 @@ export class BatteryStationComponent  implements OnInit {
 
   ngOnInit() {}
   getbatteryhubs(){
-    this._bh.getbikehubs(this.bikeHubID).subscribe(
+    this._bh.getHubDetaislByHubID(this.batteryHubID).subscribe(
       (res:any) => {
         this.loader.dismissLoader();
-      this.bikeHub = res
+      this.batteryHub = res
   },
   (error)=>{
     this.loader.dismissLoader();
