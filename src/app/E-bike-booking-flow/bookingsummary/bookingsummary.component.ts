@@ -62,13 +62,7 @@ export class BookingsummaryComponent implements OnInit {
     this.content.scrollToTop(500);
   }
 
-  getbikehubs() {
-    this._bh.getbikehubs(this.bikeHubID).subscribe((res: any) => {
-      console.log('tests', res)
-      this.bikeHub = res.slice(0, 1);
 
-    })
-  }
 
 
 
