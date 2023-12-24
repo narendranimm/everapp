@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ProductServicesService } from 'services/product-services/product-services.service';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
+import { OrderService } from 'src/app/services/Order.service';
 
 @Component({
   selector: 'app-bookingdetails',
@@ -10,27 +11,28 @@ import { BookingService } from 'src/app/E-booking-flow-services/booking.service'
   styleUrls: ['./bookingdetails.component.scss'],
 })
 export class BookingdetailsComponent  implements OnInit {
-  taskId=123;
-  bookingForm!:FormGroup;  
+ 
+
   ProductDetails:any
-  constructor( private booking:BookingService,private bk:FormBuilder,private route: ActivatedRoute,private _pd:ProductServicesService) {
-    this.taskId = route.snapshot.params["ID"];
-    console.log("this is taskId value = "+ this.taskId);
+  bookingNo!: string;
+  constructor( private route: ActivatedRoute,private _pd: OrderService,) {
+    const bookingNo = route.snapshot.params["ID"];
+    console.log("this is orderid value = " + bookingNo);
+    this.bookingdata.BookingNo = bookingNo;
     
   }
 
 
   ngOnInit() {
-   
+   this.getDetails()
   }
-  book(){
-    const data = this.bookingForm.value;
-    delete data['confirm'];
-  
-    console.log(this.bookingForm.value)
-    
-        
-        
-      }
-     
+  getDetails() {
+    this._pd.getordersummeryByBookingNo(this.bookingdata).subscribe((res) => {
+      console.log(res)
+      this.ProductDetails = res;
+    })
+  }
+  bookingdata = {
+    "BookingNo": null
+  }
 }

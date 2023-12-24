@@ -30,13 +30,13 @@
               
               <div style="align-self: stretch; height: 69px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
                   <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
-                      <div><span class="bike-model">Bike model </span><span class="models">{{ProductDetails?.ProductName}}</span></div>
+                      <div><span class="bike-model">Bike model: </span><span class="models">{{ProductDetails?.VehicleName}}</span></div>
                   </div>
                   <div style="align-self: stretch;; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
-                      <div><span class="bike-model">Bike type </span><span class="models">: {{ProductDetails?.Brand}}</span></div>
+                      <div><span class="bike-model">Bike type :</span><span class="models">: {{ProductDetails?.Brand}}</span></div>
                   </div>
                   <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
-                      <div><span class="bike-model">Battery</span><span class="models"> : {{ProductDetails?.Size}}</span></div>
+                      <div><span class="bike-model">Battery:</span><span class="models"> : {{ProductDetails?.Size}}</span></div>
                   </div>
               </div>
           </div>
@@ -51,10 +51,10 @@
               </div>
               <div style="align-self: stretch; height: 69px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
                   <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
-                      <div><span class="bike-model">Start from </span><span class="models">: {{startDate | date :'short'}} </span></div>
+                      <div><span class="bike-model">Start from </span><span class="models" *ngModel="{{ProductDetails?.BookingStartDate}}">: {{ProductDetails?.BookingStartDate}} </span></div>
                   </div>
                   <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
-                      <div><span class="bike-model">End on </span><span class="models">:  {{endDate | date :'short' }}</span></div>
+                      <div><span class="bike-model">End on </span><span class="models" *ngModel="{{ProductDetails?.BookingEndDate | date :'short' }}">:  {{ProductDetails?.BookingEndDate | date :'short' }}</span></div>
                   </div>
                   <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
                       <div><span class="bike-model">Booked for </span><span class="models">: {{timeDifference}}</span></div>
@@ -86,7 +86,7 @@
 </div>
   <div style="align-self: stretch; justify-content: space-between; align-items: flex-start; display: inline-flex">
     <div style="color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Rental charge</div>
-    <div style="text-align: right; color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">₹12,800</div>
+    <div style="text-align: right; color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">₹{{ProductDetails?.BookingAmount}}</div>
 </div>
 <div style="align-self: stretch; justify-content: space-between; align-items: flex-start; display: inline-flex">
     <div style="color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Water wash basic</div>
@@ -94,7 +94,7 @@
 </div>
 <div style="align-self: stretch; justify-content: space-between; align-items: flex-start; display: inline-flex">
     <div style="color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Damage Protection Premium</div>
-    <div style="text-align: right; color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">₹348</div>
+    <div style="text-align: right; color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">₹{{ProductDetails?.TaxAmount}}</div>
 </div>
 <div style="align-self: stretch; justify-content: space-between; align-items: flex-start; display: inline-flex">
     <div style="color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Coupon</div>
@@ -103,7 +103,7 @@
 <div style="align-self: stretch; height: 0px; border: 1px #E8E7E7 solid"></div>
 <div style="align-self: stretch; justify-content: space-between; align-items: flex-start; display: inline-flex">
     <div style="color: #363636; font-size: 16px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Total</div>
-    <div style="text-align: right; color: #363636; font-size: 16px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">₹13,148</div>
+    <div style="text-align: right; color: #363636; font-size: 16px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">₹{{ProductDetails?.TotalAMount}}</div>
 </div>
  
  
@@ -116,7 +116,7 @@
 align-items: center;
 justify-content: center;">
 <button routerLink="/bookingdetails" style="width: 328px; height: 48px; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: center; align-items: center; display: inline-flex">
-    <div class="pay">Pay now {{ProductDetails?.TotalAmount}}</div>
+    <div class="pay">₹{{ProductDetails?.TotalAMount}} Pay now </div>
 </button>
 </div>
 <br>

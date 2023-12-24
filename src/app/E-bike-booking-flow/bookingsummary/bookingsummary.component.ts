@@ -14,6 +14,7 @@ import { OrderService } from 'src/app/services/Order.service';
   styleUrls: ['./bookingsummary.component.scss'],
 })
 export class BookingsummaryComponent implements OnInit {
+
   timeDifference = ''
   startDate = '';
   endDate = ''
@@ -24,6 +25,7 @@ export class BookingsummaryComponent implements OnInit {
   bikeHubID: any;
   bikeHub: any;
   bookingNo!: string;
+  
   constructor(private dataService: DataservicesService, private snackBar: MatSnackBar,
     private route: ActivatedRoute, private _pd: OrderService,
     private _bh: BookingService, private router: Router, private user: UserData,
@@ -32,7 +34,7 @@ export class BookingsummaryComponent implements OnInit {
     console.log("this is orderid value = " + bookingNo);
     this.bookingdata.BookingNo = bookingNo;
   }
-
+ 
   ngOnInit() {
     this.getDetails()
   }
