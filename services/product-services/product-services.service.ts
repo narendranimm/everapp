@@ -19,4 +19,7 @@ export class ProductServicesService {
 productListBybranchId(taskId:any): Observable<any> {
   return this.http.get(this.baseurl+`product/bybranch/${taskId}`)
 }
+getdatailsByPIDNdHubId(data:any): Observable<any> {
+  return this.http.post(this.baseurl+`hubs/getdetailsByPIDnHbID`,data)
+}
 }

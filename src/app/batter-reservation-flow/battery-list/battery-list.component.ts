@@ -43,7 +43,7 @@ export class BatteryListComponent implements OnInit {
     )
   }  
 
-  gotoBtryDetails(id:any){
+  gotoBtryDetails(id:any){debugger
     this.store.setpId(id);
     this.router.navigateByUrl('battery-details-available/'+id)
 
