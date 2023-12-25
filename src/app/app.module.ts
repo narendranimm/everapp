@@ -94,7 +94,7 @@ import { PreviewComponent } from './Regristration_flow/preview/preview.component
 import { OfferCouponComponent } from './offer-coupon/offer-coupon.component';
 import { environment } from 'src/environments/environment';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TimeDetailsComponent } from './menu-flow/time-details/time-details.component';
 import { TimeDetailsVehicleComponent } from './menu-flow/time-details-vehicle/time-details-vehicle.component';
 import { TimeDetailsVehicleFromComponent } from './menu-flow/time-details-vehicle-from/time-details-vehicle-from.component';
@@ -111,6 +111,7 @@ import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions
 
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { SettingsComponent } from './menu-flow/settings/settings.component';
+import { LoadingInterceptor } from './loading.interceptor';
 
 providers: [Storage]
 @NgModule({
@@ -170,6 +171,9 @@ providers: [Storage]
   
   providers: [
     AndroidPermissions,
+    {
+      provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true
+    },
     // google api
     
     //   {

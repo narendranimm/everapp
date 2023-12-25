@@ -79,6 +79,7 @@ import { HublistsComponent } from './E-bike-booking-flow/hublists/hublists.compo
 import { VerificationComponent } from './verification/verification.component';
 
 import { SearchPageComponent } from './batter-reservation-flow/search-page/search-page.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 
@@ -167,6 +168,7 @@ const routes: Routes = [
 {path:'booking-summary-applied-m',component:BookingSummaryAppliedCouponComponent},
 {path:'payment-gateways-m',component:PaymentGatewayMComponent},
 {path:'booking-details-m',component:BookingMComponent},
+{path:'b',component:SpinnerComponent},
 
 
 ]
