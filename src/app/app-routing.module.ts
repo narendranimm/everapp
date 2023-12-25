@@ -108,7 +108,6 @@ const routes: Routes = [
 
 {path:'bikelist/:ID',component:BikelistComponent},
 {path:'bikedetails/:ID',component:BikedetailsComponent},
-{path:'duration',component:DurationComponent},
 {path:'customselection',component:DatetimeComponent},
 {path:'duration-later',component:DurationLaterComponent},
 {path:'booking_summary/:ID',component:BookingsummaryComponent},

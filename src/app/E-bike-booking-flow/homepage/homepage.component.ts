@@ -64,8 +64,7 @@ export class HomepageComponent implements OnInit {
     this.getbikehubs()
     this.printCurrentPosition();
    // this.address();
-    this.postadd_Data.TargetLatitude=this.lat
-    this.postadd_Data.TargetLatitude=this.lng
+    
     this.getNearByHubs()
   }
   @ViewChild(IonContent) content!: IonContent;
@@ -74,6 +73,8 @@ export class HomepageComponent implements OnInit {
 
   public sidebar: boolean = true;
   getbikehubs() {
+    this.postadd_Data.TargetLatitude=this.lat
+    this.postadd_Data.TargetLongitude=this.lng
     this.loadingservice.simpleLoader('loading')
     this._bh.getbikehubs(this.bikeHubID).subscribe(
       (res: any) => {
@@ -107,6 +108,8 @@ export class HomepageComponent implements OnInit {
     var coordinates = Geolocation.getCurrentPosition().then((resp) => {
       this.lat = resp.coords.latitude;
       this.lng = resp.coords.longitude;
+      
+      this.getNearByHubs()
     })
 
   };

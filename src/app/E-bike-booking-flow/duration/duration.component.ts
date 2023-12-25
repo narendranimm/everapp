@@ -162,9 +162,12 @@ export class DurationComponent implements OnInit {
   GetPriceData() {
    this.bookingservice.getPriceData().subscribe(res=>{
     this.priceData=res;
-    this.dailyRate=this.priceData.filter((x:any)=>x.PayTypes == 'day')
-    this.weeklyRate=this.priceData.filter((x:any)=>x.PayTypes == 'week')
-    this.hourlyRate=this.priceData.filter((x:any)=>x.PayTypes == 'hour')
+    this.dailyRate=this.priceData.filter((x:any)=>x.PayTypes == 'day')[0].Amount
+    this.weeklyRate=this.priceData.filter((x:any)=>x.PayTypes == 'week')[0].Amount
+    this.hourlyRate=this.priceData.filter((x:any)=>x.PayTypes == 'hour')[0].Amount
+    console.log('daily rate',this.dailyRate)
+    console.log('week rate',this.weeklyRate)
+    console.log('hour rate',this.hourlyRate)
    })
   }
   duration() {
@@ -284,6 +287,7 @@ export class DurationComponent implements OnInit {
         (res: any) => {
           this.loader.dismissLoader();
           this.BookingID = res.ID
+          this.user.setNew('bookingNo',this.BookingID)
           this.snackBar.open(JSON.stringify(res.message));
           this.router.navigateByUrl('/booking_summary/'+this.BookingID);
         },

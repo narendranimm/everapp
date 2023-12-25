@@ -41,7 +41,7 @@ export class BikelistComponent implements OnInit {
   }
 
   gotoDetails(ID: any) {
-    this.router.navigateByUrl('/bikedetails')
+    this.router.navigateByUrl('/bikedetails/'+ID)
   }
 
 }

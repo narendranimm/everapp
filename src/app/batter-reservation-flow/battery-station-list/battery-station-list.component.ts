@@ -38,7 +38,7 @@ export class BatteryStationListComponent implements OnInit {
 
 
   gotohubdetails(id: number) {
-    this.userdata.setMain("hubid", id);
+    this.userdata.setNew("hubid", id);
     this.router.navigateByUrl('/battery-station')
   }
 }

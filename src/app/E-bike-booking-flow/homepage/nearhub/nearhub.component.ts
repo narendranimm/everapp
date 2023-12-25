@@ -22,7 +22,7 @@ export class NearhubComponent  implements OnInit {
     //not using this api
   }
   gotohubdetails(id:number){
-this.userdata.setMain("hubid",id)
+this.userdata.setNew("hubid",id)
 
     this.router.navigateByUrl('/hub-details')
   }

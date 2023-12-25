@@ -8,7 +8,7 @@ Cordova reference documentation:
 - Splash Screens: https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-splashscreen/
 -- private loadingservice: LoadingService,
 --set data
-this.userdata.setMain("loginuser",data)
+this.userdata.setNew("loginuser",data)
 --get data
    this.user.getuser().then(res => {
       console.log(res)
@@ -21,3 +21,6 @@ this.userdata.setMain("loginuser",data)
         // You might want to set a default value or perform some other action
       }
     })
+
+  --- azure image Url----
+   azimageUrl:any=environment.azimageUrl_hub;

@@ -19,7 +19,7 @@ export class SwapBatteryScrollComponent  implements OnInit {
   this.getbatteryhubs()
   }
   gotohubdetails(id:number){
-    this.userdata.setMain("hubid",id)
+    this.userdata.setNew("hubid",id)
     
         this.router.navigateByUrl('/battery-station')
       }

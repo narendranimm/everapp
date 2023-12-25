@@ -63,7 +63,7 @@ async sendOTP(){
   let datad= await this.getuserbymobileno()
   .then((data: any) => {
     this.userdatabyno=data;
-    this.userdata.setMain("loginuser",data)
+    this.userdata.setNew("loginuser",data)
   console.log('Data received:', data);
  
 });

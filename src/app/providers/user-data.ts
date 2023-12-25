@@ -22,7 +22,7 @@ public  get(){
 set(mobileno:any) {   
     return this._storage.set(S_KEY,mobileno);
   }
-setMain(key:any,data:any) {   
+setNew(key:any,data:any) {   
     return this._storage.set(key,data);
   }
   setpId(prodictid:any) {   
