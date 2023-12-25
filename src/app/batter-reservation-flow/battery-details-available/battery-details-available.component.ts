@@ -23,7 +23,7 @@ export class BatteryDetailsAvailableComponent  implements OnInit {
   constructor(private route: ActivatedRoute,private loader:LoadingService,
     private _pd:ProductServicesService,private router:Router,private user:UserData,
     private _bh:BookingService) {
-    this.productID = route.snapshot.params["ID"];
+    this.productID = route.snapshot.params["id"];
     console.log("this is productID value = "+ this.productID);
 }
 

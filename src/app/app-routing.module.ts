@@ -130,7 +130,7 @@ const routes: Routes = [
 {path:'battery-staion-list',component:BatteryStationListComponent},
 {path:'battery-station',component:BatteryStationComponent},
 {path:'battery-list',component:BatteryListComponent},
-{path:'battery-details-available',component:BatteryDetailsAvailableComponent},
+{path:'battery-details-available/:id',component:BatteryDetailsAvailableComponent},
 {path:'battery-details-unavailable',component:BatteryDetailsUnavailableComponent},
 {path:'booking-details-b',component:BookingDetailsComponent},
 {path:'offer-b',component:OffersComponent},
