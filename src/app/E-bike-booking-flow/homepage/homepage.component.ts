@@ -115,7 +115,6 @@ export class HomepageComponent implements OnInit {
   };
 
   address() {
-
     const map = new google.maps.Map(document.getElementById('map') as HTMLInputElement, {
       zoom: 8,
       center: {

@@ -52,7 +52,13 @@ async dismissLoader() {
       res.present();
     });
   }   
-
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: 'Please wait...',
+      translucent: true,
+    });
+    return await loading.present();
+  }
    // Simple loader
   // simpleLoader(Message:string) {
   //   this.loadingController.create({
