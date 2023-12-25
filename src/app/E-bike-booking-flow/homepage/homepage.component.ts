@@ -91,7 +91,8 @@ export class HomepageComponent implements OnInit {
   }
   getNearByHubs() {
     console.log(this.postadd_Data)
-
+this.postadd_Data.TargetLatitude=this.lat;
+this.postadd_Data.TargetLongitude=this.lng;
     this.hub_s.getnearByHubsBasedonLatandLongID(this.postadd_Data).subscribe(res=>
       {
       console.log(res)
