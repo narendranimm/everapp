@@ -81,7 +81,7 @@ export class GetComponent  implements OnInit {
     
   
   }
-  requestPermission() {debugger
+  requestPermission() {
     this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.CAMERA, 
       this.androidPermissions.PERMISSION.GET_ACCOUNTS,
       this.androidPermissions.PERMISSION.WRITE_EXTERNAL_STORAGE,
