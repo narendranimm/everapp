@@ -5,7 +5,6 @@ import { SplashServiceService } from 'src/app/splash-service.service';
 import { Plugins } from '@capacitor/core';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
-import { StorageService } from 'src/app/services/storage.service';
 import {AndroidPermissions} from '@awesome-cordova-plugins/android-permissions/ngx'
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserData } from 'src/app/providers/user-data';
@@ -18,7 +17,8 @@ import { UserData } from 'src/app/providers/user-data';
 export class GetComponent  implements OnInit {
   userid: any=null;
 
-  constructor(private userdata:UserData,private snackBar: MatSnackBar,private storage:StorageService, public dialog: MatDialog,private splashScreenStateService:SplashServiceService,private router:Router,public _storage: Storage,private androidPermissions: AndroidPermissions) 
+  constructor(private userdata:UserData,private snackBar: MatSnackBar,
+     public dialog: MatDialog,private splashScreenStateService:SplashServiceService,private router:Router,public _storage: Storage,private androidPermissions: AndroidPermissions) 
   {
     this.userdata.getuser().then(res=>{
       if(res !=null){

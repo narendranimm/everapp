@@ -1,6 +1,7 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { UserData } from 'src/app/providers/user-data';
 
 @Component({
   selector: 'app-settings',
@@ -10,7 +11,7 @@ import { FormControl } from '@angular/forms';
 export class SettingsComponent  implements OnInit {
  
 
-  constructor(private overlay:OverlayContainer) { }
+  constructor(private overlay:OverlayContainer,private storage:UserData) { }
 
   ngOnInit() {
     this.toggleControl.valueChanges.subscribe(
@@ -25,6 +26,10 @@ export class SettingsComponent  implements OnInit {
   
       }
     )
+  }
+  logout(){
+this.storage.clear();
+//put snap bar and redirect to login page.
   }
  toggleControl = new FormControl(false);
   @HostBinding('class')  className = '';

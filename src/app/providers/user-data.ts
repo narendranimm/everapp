@@ -50,6 +50,9 @@ setNew(key:any,data:any) {
 public  getbId(Id:any){
   return this._storage.get(Id)     
 }
+public  clear(){
+  return this._storage.clear()     
+}
 
 
 
