@@ -1,178 +1,233 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
-.otp{
-    flex: 1 1 0; height: 44px; border-bottom: 2px #E2E1E5 solid
-    
-}
-.otp-container{
 
-display: flex;
-flex-flow: wrap row;
-align-items: center;
-justify-content: center;
-gap: 10px;
+.otp {
+  flex: 1 1 0;
+  height: 44px;
+  border-bottom: 2px #E2E1E5 solid
+}
+
+.otp-container {
+
+  display: flex;
+  flex-flow: wrap row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 
 }
-.main{
-    display: inline-flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 36px;
+
+.main {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 36px;
 }
-.btn-container{
-    padding: 4%;
- 
+
+.btn-container {
+  padding: 4%;
+
 }
 
 ion-modal {
-    --width:300px;
-  --height:320px ;
+  --width: 300px;
+  --height: 320px;
   --border-radius: 16px;
   --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  }
-  
-  ion-modal::part(backdrop) {
+}
+
+ion-modal::part(backdrop) {
   background: rgba(209, 213, 219);
   opacity: 1;
-  }
-  
-  ion-modal ion-toolbar {
+}
+
+ion-modal ion-toolbar {
   --background: rgb(14 116 144);
   --color: white;
-  }
-.continue-btn{
-    width: 100%; height: 100%; padding-left: 24px; padding-right: 24px; padding-top: 16px; padding-bottom: 16px;  border-radius: 100px; overflow: hidden; flex-direction: column; justify-content: center; align-items: center; gap: 10px; display: inline-flex;
-    text-align: center; color: white; font-size: 14px;    font-family: 'Open Sans', sans-serif; font-weight: 700; letter-spacing: 0.10px; word-wrap: break-word;
-    --border-radius: 20px;
-    background: var(--Primary, #3355B9) !important;
 }
-ion-button{
+
+.continue-btn {
+  width: 100%;
+  height: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-radius: 100px;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  display: inline-flex;
+  text-align: center;
+  color: white;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.10px;
+  word-wrap: break-word;
+  --border-radius: 20px;
+  background: var(--Primary, #3355B9) !important;
+}
+
+ion-button {
   background: none !important;
 }
 
-.resend-container{
-    text-align: center;
+.resend-container {
+  text-align: center;
 }
-.mobile{
-    color: #3355B9; font-size: 24px;    font-family: 'Open Sans', sans-serif; font-weight: 700; line-height: 20px; word-wrap: break-word
+
+.mobile {
+  color: #3355B9;
+  font-size: 24px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  line-height: 20px;
+  word-wrap: break-word
 }
-.intro-content{
-    font-family: 'Open Sans', sans-serif;
-    width: 100%; color: #363636; font-size: 16px;  font-weight: 400; word-wrap: break-word
+
+.intro-content {
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  color: #363636;
+  font-size: 16px;
+  font-weight: 400;
+  word-wrap: break-word
 }
-.resend-container{
-    padding: 5%;
+
+.resend-container {
+  padding: 5%;
 }
 
 .spinner {
-    -webkit-animation: rotator 1.4s linear infinite;
-            animation: rotator 1.4s linear infinite;
-  }
-  
-  @-webkit-keyframes rotator {
-    0% {
-      -webkit-transform: rotate(0deg);
-              transform: rotate(0deg);
-    }
-    100% {
-      -webkit-transform: rotate(270deg);
-              transform: rotate(270deg);
-    }
-  }
-  
-  @keyframes rotator {
-    0% {
-      -webkit-transform: rotate(0deg);
-              transform: rotate(0deg);
-    }
-    100% {
-      -webkit-transform: rotate(270deg);
-              transform: rotate(270deg);
-    }
-  }
-  .path {
-    stroke-dasharray: 187;
-    stroke-dashoffset: 0;
-    -webkit-transform-origin: center;
-        -ms-transform-origin: center;
-            transform-origin: center;
-    -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
-            animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
-  }
-  
-  @-webkit-keyframes colors {
-    0% {
-      stroke: #4285F4;
-    }
-    25% {
-      stroke: #DE3E35;
-    }
-    50% {
-      stroke: #F7C223;
-    }
-    75% {
-      stroke: #1B9A59;
-    }
-    100% {
-      stroke: #4285F4;
-    }
-  }
-  
-  @keyframes colors {
-    0% {
-      stroke: #4285F4;
-    }
-    25% {
-      stroke: #DE3E35;
-    }
-    50% {
-      stroke: #F7C223;
-    }
-    75% {
-      stroke: #1B9A59;
-    }
-    100% {
-      stroke: #4285F4;
-    }
-  }
-  @-webkit-keyframes dash {
-    0% {
-      stroke-dashoffset: 187;
-    }
-    50% {
-      stroke-dashoffset: 46.75;
-      -webkit-transform: rotate(135deg);
-              transform: rotate(135deg);
-    }
-    100% {
-      stroke-dashoffset: 187;
-      -webkit-transform: rotate(450deg);
-              transform: rotate(450deg);
-    }
-  }
-  @keyframes dash {
-    0% {
-      stroke-dashoffset: 187;
-    }
-    50% {
-      stroke-dashoffset: 46.75;
-      -webkit-transform: rotate(135deg);
-              transform: rotate(135deg);
-    }
-    100% {
-      stroke-dashoffset: 187;
-      -webkit-transform: rotate(450deg);
-              transform: rotate(450deg);
-    }
-  }
-  .spinner {
-    position: fixed;
-    z-index: 1031;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  -webkit-animation: rotator 1.4s linear infinite;
+  animation: rotator 1.4s linear infinite;
+}
+
+@-webkit-keyframes rotator {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
-  $green: #008744;
+  100% {
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes rotator {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+  }
+}
+
+.path {
+  stroke-dasharray: 187;
+  stroke-dashoffset: 0;
+  -webkit-transform-origin: center;
+  -ms-transform-origin: center;
+  transform-origin: center;
+  -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+  animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+}
+
+@-webkit-keyframes colors {
+  0% {
+    stroke: #4285F4;
+  }
+
+  25% {
+    stroke: #DE3E35;
+  }
+
+  50% {
+    stroke: #F7C223;
+  }
+
+  75% {
+    stroke: #1B9A59;
+  }
+
+  100% {
+    stroke: #4285F4;
+  }
+}
+
+@keyframes colors {
+  0% {
+    stroke: #4285F4;
+  }
+
+  25% {
+    stroke: #DE3E35;
+  }
+
+  50% {
+    stroke: #F7C223;
+  }
+
+  75% {
+    stroke: #1B9A59;
+  }
+
+  100% {
+    stroke: #4285F4;
+  }
+}
+
+@-webkit-keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+
+  50% {
+    stroke-dashoffset: 46.75;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
+
+  100% {
+    stroke-dashoffset: 187;
+    -webkit-transform: rotate(450deg);
+    transform: rotate(450deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+
+  50% {
+    stroke-dashoffset: 46.75;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
+
+  100% {
+    stroke-dashoffset: 187;
+    -webkit-transform: rotate(450deg);
+    transform: rotate(450deg);
+  }
+}
+
+.spinner {
+  position: fixed;
+  z-index: 1031;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+$green: #008744;
 $blue: #0057e7;
 $red: #d62d20;
 $yellow: #ffa700;
@@ -185,11 +240,13 @@ $width: 100px;
   position: relative;
   margin: 0 auto;
   width: $width;
+
   &:before {
     content: '';
     display: block;
     padding-top: 100%;
   }
+
   position: fixed;
   z-index: 1031;
   top: 50%;
@@ -229,10 +286,12 @@ $width: 100px;
     stroke-dasharray: 1, 200;
     stroke-dashoffset: 0;
   }
+
   50% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -35px;
   }
+
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -124px;
@@ -240,16 +299,20 @@ $width: 100px;
 }
 
 @keyframes color {
+
   100%,
   0% {
     stroke: $red;
   }
+
   40% {
     stroke: $blue;
   }
+
   66% {
     stroke: $green;
   }
+
   80%,
   90% {
     stroke: $yellow;
@@ -265,4 +328,15 @@ $width: 100px;
   left: 0;
   right: 0;
   padding: 5%;
+}
+
+.resenddiv {
+  text-align: center;
+  color: #3355B9;
+  font-size: 14px;
+  font-family: Open Sans Hebrew;
+  font-weight: 700;
+  text-decoration: underline;
+  letter-spacing: 0.10px;
+  word-wrap: break-word
 }

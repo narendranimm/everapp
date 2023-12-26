@@ -1,12 +1,13 @@
 <div class="main">
 <div class="btn-container">
-  <button style="background: transparent;border: none;" routerLink="/login"><img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
+  <button style="background: transparent;border: none;" routerLink="/login">
+    <img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
   </div>
  
 <div class="btn-container">
 <p class="mobile">Enter verification code.</p>
 <p class="intro-content">A 6 digit code has sent to your mobile number</p>
-<form action="" [formGroup]="verficationForm" >
+<form  [formGroup]="verficationForm" >
 <div class="otp-container">
   <ion-input placeholder="" type="number" #otp1 class="otp" size="1" type="number" required="true" maxLength="1" (keyup)="otpController($event,otp2,'')" formControlName="firstdigit"></ion-input>
   <ion-input placeholder="" type="number" #otp2 class="otp" size="1" required="true" maxLength="1" (keyup)="otpController($event,otp3,otp1)" formControlName="seconddigit"></ion-input>
@@ -20,5 +21,9 @@
 
 <button style="background: none;" class="continue-btn" (click)="verifyOTP()">Continue</button>
 
-
 </form>
+
+
+<div class="resenddiv">
+ <a (click)="resend()"></a> Resend code
+</div>

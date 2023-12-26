@@ -53,14 +53,7 @@ export class VerificationComponent  implements OnInit {
     
   }
   
-  // onSubmit(){
-  //   const otp=this.verficationForm?.value;
-  //   // this.register.verifyOTP(otp).subscribe(
-  //   //   (res) => {
-  //   //     console.log('OTP verfication response',res);
-        
-  //   //   })
-  // }
+
   onInputChange(event:any){
    this.otp=event;
    console.log(this.otp)
@@ -69,6 +62,7 @@ export class VerificationComponent  implements OnInit {
   
 
   verifyOTP(){
+    alert()
        const otp=this.verficationForm?.value;
       //  setTimeout(() => {
       //   this.loaderService.display(false);
@@ -89,6 +83,8 @@ export class VerificationComponent  implements OnInit {
   
   }
 
-
+  resend(){
+alert()
+}
 
 }
