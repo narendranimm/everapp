@@ -1,3 +1,116 @@
-.btn-container{
+.btn-container {
     padding: 4%;
+}
+
+.c_idcss {
+    width: 328px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background: #F2F2F2;
+    border-radius: 24px;
+    border: none;
+    overflow: hidden;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    display: inline-flex
+}
+
+.p_name {
+    width: 328px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background: #F2F2F2;
+    border-radius: 24px;
+    border: none;
+    overflow: hidden;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    display: inline-flex
+}
+
+.p_email {
+    width: 328px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background: #F2F2F2;
+    border-radius: 24px;
+    border: none;
+    overflow: hidden;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    display: inline-flex
+}
+
+.p_mobile {
+    width: 328px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background: #F2F2F2;
+    border-radius: 24px;
+    border: none;
+    overflow: hidden;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    display: inline-flex
+}
+
+.p_gender {
+    width: 328px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background: #F2F2F2;
+    border-radius: 24px;
+    border: none;
+    overflow: hidden;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    display: inline-flex
+}
+
+.p_dob {
+    width: 328px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background: #F2F2F2;
+    border-radius: 24px;
+    border: none;
+    overflow: hidden;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    display: inline-flex
+}
+
+.p_pic {
+    width: 24px;
+    height: 24px;
+    padding: 6px;
+    left: 90px;
+    top: 90px;
+    position: absolute;
+    background: white;
+    box-shadow: 0px 2px 4px rgba(51, 85, 185, 0.15);
+    border-radius: 100px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex
+
 }
