@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild , OnDestroy} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { IonAccordionGroup } from '@ionic/angular';
 import { Observable, Subscription, interval, map } from 'rxjs';
+import { OrderService } from 'src/app/services/Order.service';
 
 @Component({
   selector: 'app-time-details',
@@ -24,7 +26,11 @@ public minutesToDday:any;
 public hoursToDday:any;
 public daysToDday:any;
 
-
+constructor(private _pd:OrderService,private a_router:ActivatedRoute) {
+  let id=a_router.snapshot.params["ID"];
+    this.getDetails(id)
+   }
+  
 private getTimeDifference () {
     this.timeDifference = this.dDay.getTime() - new  Date().getTime();
     this.allocateTimeUnits(this.timeDifference);
@@ -44,6 +50,21 @@ ngOnInit() {
 
 ngOnDestroy() {
   this.subscription.unsubscribe();
+}  bookingNo:any=null;
+ProductDetails:any;
+
+
+getDetails(id:string) {
+  this._pd.getordersummeryByBookingNo(id).subscribe((res: any) => {
+    console.log(res)
+    this.ProductDetails = res;
+    if (res) {
+
+      // this.gettimedfrnc(res.BookingStartDate, res.BookingEndDate)
+    }
+
+  })
 }
+
 
 }

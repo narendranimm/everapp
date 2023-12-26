@@ -30,16 +30,14 @@ export class BookingsummaryComponent implements OnInit {
     private route: ActivatedRoute, private _pd: OrderService,
     private _bh: BookingService, private router: Router, private user: UserData,
     private booking: BookingService) {
-    const bookingNo = route.snapshot.params["ID"];
-    console.log("this is orderid value = " + bookingNo);
-    this.bookingdata.BookingNo = bookingNo;
+      this.bookingNo  = route.snapshot.params["ID"];
   }
  
   ngOnInit() {
     this.getDetails()
   }
   getDetails() {
-    this._pd.getordersummeryByBookingNo(this.bookingdata).subscribe((res) => {
+    this._pd.getordersummeryByBookingNo(this.bookingNo).subscribe((res) => {
       console.log(res)
       this.ProductDetails = res;
     })
@@ -59,14 +57,4 @@ export class BookingsummaryComponent implements OnInit {
     this.content.scrollToTop(500);
   }
 
-
-
-
-
-
-
-
-  bookingdata = {
-    "BookingNo": null
-  }
 }

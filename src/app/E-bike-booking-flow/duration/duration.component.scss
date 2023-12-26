@@ -1,127 +1,251 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
-.btn-container{
-  padding:4%;
+
+.btn-container {
+  padding: 4%;
 }
-.btn-container1{
-  padding-left:4%;
+
+.btn-container1 {
+  padding-left: 4%;
   padding-right: 4%;
 }
-.container{
-    display: flex;
-align-items: center;
-gap: 106px;
-align-self: stretch;
-}
-.book-Now{
-    width: 328px;
-    height: 48px;
-    border-radius: 24px;
-background: var(--Primary, #3355B9);
-}
-.custom-duration{
-  color: black;; font-size: 12px; font-family: 'Open Sans', sans-serif; font-weight: 600; word-wrap: break-word
-}
-.total{
-  color: black; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
-}
-.later{
-  color: #3355B9; font-size: 12px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
-}
-.amount{color: black; font-size: 20px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word}
 
-.book{
- color: white; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
+.container {
+  display: flex;
+  align-items: center;
+  gap: 106px;
+  align-self: stretch;
 }
-.start{
-  color: white; font-size: 12px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
+
+.book-Now {
+  width: 328px;
+  height: 48px;
+  border-radius: 24px;
+  background: var(--Primary, #3355B9);
 }
-.days{
- font-size: 24px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word;background: none;
+
+.custom-duration {
+  color: black;
+  ;
+  font-size: 12px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  word-wrap: break-word
 }
-.duration{color: black; font-size: 12px;  font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word}
-.how{
-align-self: stretch; color: #363636; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
+
+.total {
+  color: black;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  word-wrap: break-word
 }
-.custom-duration{
- align-self: stretch; color: #363636; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
+
+.later {
+  color: #3355B9;
+  font-size: 12px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  word-wrap: break-word
 }
+
+.amount {
+  color: black;
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  word-wrap: break-word
+}
+
+.book {
+  color: white;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  word-wrap: break-word
+}
+
+.start {
+  color: white;
+  font-size: 12px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  word-wrap: break-word
+}
+
+.days {
+  font-size: 24px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  word-wrap: break-word;
+  background: none;
+}
+
+.duration {
+  color: black;
+  font-size: 12px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  word-wrap: break-word
+}
+
+.how {
+  align-self: stretch;
+  color: #363636;
+  font-size: 18px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  word-wrap: break-word
+}
+
+.custom-duration {
+  align-self: stretch;
+  color: #363636;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  word-wrap: break-word
+}
+
 ion-modal {
-    --height: 50%;
-    --border-radius: 16px;
-    --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  }
-  
-  ion-modal::part(backdrop) {
-    background: rgba(209, 213, 219);
-    opacity: 1;
-  }
-  
-  ion-modal ion-toolbar {
-    --background: rgb(14 116 144);
-    --color: white;
-  }
-  .wrapper{
-   
-    height: 100px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    width: 150px;
-    border: none;
- }
- .wrapper .selection{
-   width:150px;
-   height: 60px;
-   border: none;
- text-align: center;
-color: black;
-font-size: 24px;
-font-family: Archivo;
-font-weight: 600;
-word-wrap: break-word
- }
- .wrapper1{
-   
+  --height: 50%;
+  --border-radius: 16px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+ion-modal::part(backdrop) {
+  background: rgba(209, 213, 219);
+  opacity: 1;
+}
+
+ion-modal ion-toolbar {
+  --background: rgb(14 116 144);
+  --color: white;
+}
+
+.wrapper {
+
+  height: 100px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 150px;
+  border: none;
+}
+
+.wrapper .selection {
+  width: 150px;
+  height: 60px;
+  border: none;
+  text-align: center;
+  color: black;
+  font-size: 24px;
+  font-family: Archivo;
+  font-weight: 600;
+  word-wrap: break-word
+}
+
+.wrapper1 {
+
   height: 60px;
   overflow-x: hidden;
   overflow-y: scroll;
   width: 150px;
   border: none;
 }
-.wrapper1 .selection1{
- width:150px;
-border: none;
-text-align: center;
-color: black;
-font-size: 24px;
-font-family: Archivo;
-font-weight: 600;
-word-wrap: break-word
+
+.wrapper1 .selection1 {
+  width: 150px;
+  border: none;
+  text-align: center;
+  color: black;
+  font-size: 24px;
+  font-family: Archivo;
+  font-weight: 600;
+  word-wrap: break-word
 }
- .date{
-  width:100px;
-  height:50px;
- }
- .date{
-  color: black; font-size: 22px;  font-family: 'Open Sans', sans-serif; font-weight: 400; text-decoration: none;background: none;border: none;
- }
- input{
+
+.date {
+  width: 100px;
+  height: 50px;
+}
+
+.date {
+  color: black;
+  font-size: 22px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  text-decoration: none;
+  background: none;
+  border: none;
+}
+
+input {
   color: #363636;
- }
- .book-btn-1{
- width: 360px; padding-top: 200px; padding-bottom: 19px; padding-left: 16px; padding-right: 16px; justify-content: center; align-items: flex-start; gap: 70px; display: inline-flex
- }
- @media screen and (max-height:700px) {
-   .book-btn-1{
+}
 
-padding-top: 160px;
- }
- }
- .days-select{
-  width:100px;
+.book-btn-1 {
+  width: 360px;
+  padding-top: 200px;
+  padding-bottom: 19px;
+  padding-left: 16px;
+  padding-right: 16px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 70px;
+  display: inline-flex
+}
+
+@media screen and (max-height:700px) {
+  .book-btn-1 {
+
+    padding-top: 160px;
+  }
+}
+
+.days-select {
+  width: 100px;
   height: 100px;
- }
+}
 
- .time{
-  width:100px;
+.time {
+  width: 100px;
   height: 60px;
- }
+}
+
+.d_book {
+  width: 100%;
+  height: 60px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: #3355B9;
+  border-radius: 24px;
+  overflow: hidden;
+  justify-content: space-between;
+  align-items: center;
+  display: inline-flex
+}
+
+.sd_fs {
+  width: 100px;
+  height: 118px;
+  position: relative;
+  background: linear-gradient(0deg, white 0%, white 100%), linear-gradient(0deg, rgba(74.50, 120.30, 255, 0.20) 0%, rgba(74.50, 120.30, 255, 0.20) 100%);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px #3355B9 solid
+}
+
+
+input[type='radio']:checked:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #3355B9;
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}

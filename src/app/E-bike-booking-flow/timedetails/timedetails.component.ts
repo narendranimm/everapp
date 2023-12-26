@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { OrderService } from 'src/app/services/Order.service';
 
 @Component({
   selector: 'app-timedetails',
@@ -6,14 +8,52 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./timedetails.component.scss'],
 })
 export class TimedetailsComponent  implements OnInit {
-
-  constructor() { }
+  bookingNo:any=null;
+  ProductDetails:any;
+  constructor(private _pd:OrderService,private a_router:ActivatedRoute) {
+  let id=a_router.snapshot.params["ID"];
+    this.getDetails(id)
+   }
 
   ngOnInit() {}
 
+  getDetails(id:string) {
+    alert('')
+    this._pd.getordersummeryByBookingNo(id).subscribe((res: any) => {
+      console.log(res)
+      this.ProductDetails = res;
+      if (res) {
+
+        // this.gettimedfrnc(res.BookingStartDate, res.BookingEndDate)
+      }
+
+    })
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //timer section
   time: number = 0;
   display:any ;
   interval:any;
+
+
+
+
 
  startTimer() {
     console.log("=====>");

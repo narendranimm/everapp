@@ -20,10 +20,12 @@ export class MyBookingsComponent implements OnInit {
     private userdata: UserData) {
     this.userdata.getuser().then(
       res => {
-        this.loader.simpleLoader('Loading....')
-        this.userid = res.UserID;
-        this.gerOrdersByUserID();
-        console.log(this.userid)
+        if(res !== null){
+
+          this.loader.simpleLoader('Loading....')
+          this.userid = res.UserID;
+          this.gerOrdersByUserID();
+        }
       })
   }
 
@@ -35,6 +37,7 @@ export class MyBookingsComponent implements OnInit {
     this.or_service.getorderbyUserID(this.userid).subscribe(
       (res:any) => {
       this.ordersList = res;
+      console.log(res)
       this.loader.dismissLoader();
     this.isRecords=  this.ordersList.length ==0 ?true:false;
       console.log(this.ordersList)
@@ -43,4 +46,5 @@ export class MyBookingsComponent implements OnInit {
     }
     )
   }
+ 
 }

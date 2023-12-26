@@ -148,7 +148,7 @@ const routes: Routes = [
 {path:'menu',component:MenuComponent},
 {path:'profile',component:ProfileComponent},
 {path:'my-booking',component:MyBookingsComponent},
-{path:'time-details-m',component:TimeDetailsComponent},
+{path:'time-details-m/:ID',component:TimeDetailsComponent},
 {path:'time-details-vehicle-m',component:TimeDetailsVehicleComponent},
 {path:'time-details-vehicle-from-m',component:TimeDetailsVehicleFromComponent},
 {path:'notification',component:NotificationsComponent},

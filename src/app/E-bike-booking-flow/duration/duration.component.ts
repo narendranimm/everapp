@@ -58,6 +58,7 @@ export class DurationComponent implements OnInit {
   weeklyRate = 1680;
   BookingID:any;
   priceData: any;
+  washtype:any;
   constructor(private datePipe: DatePipe, private snackBar: MatSnackBar,private loader:LoadingService,
      private router: Router, private bookingservice: BookingService, private bk: FormBuilder, private route: ActivatedRoute, private user: UserData, private dataService: DataservicesService) {
 
@@ -299,6 +300,15 @@ export class DurationComponent implements OnInit {
     }
   }
 
+  close(){
+  }
+
+
+show(data:any){
+  console.log('selected Amount',data )
+}
+
+  //#region dummy data
   ordersaveData = {
     "OrderID": 123,
     "ProductID": 0,
@@ -327,5 +337,22 @@ export class DurationComponent implements OnInit {
     'data': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
       18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
   }
-
+  //# sample data
+ washfee=[
+  {
+  'amount':'0',
+  'description':'You will pay the entire amount in case of any damage',
+  'feetype':'1,500 + iD Proofs'
+ },
+  {
+  'amount':'49',
+  'description':'You will pay ₹15,000 in case of any damage',
+  'feetype':'Basic'
+ },
+  {
+  'amount':'69',
+  'description':'You will pay ₹5,000 in case of any damage',
+  'feetype':'Premium'
+ }
+]
 }

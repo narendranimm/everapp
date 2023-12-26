@@ -16,11 +16,12 @@ export class BookingdetailsComponent implements OnInit {
   ProductDetails: any;
   timeDifference: string = '';
   azimageUrl:any=environment.azimageUrl_hub;
+  bookingNo:any=null;
   constructor(private route: ActivatedRoute, private _pd: OrderService, private userdata: UserData) {
 
     this.userdata.getId('bookingNo').then(data => {
       if (data !== null) {
-        this.bookingdata.BookingNo = data;
+        this.bookingNo = data;
         this.getDetails()
       }
     })
@@ -30,7 +31,7 @@ export class BookingdetailsComponent implements OnInit {
 
   }
   getDetails() {
-    this._pd.getordersummeryByBookingNo(this.bookingdata).subscribe((res: any) => {
+    this._pd.getordersummeryByBookingNo(this.bookingNo).subscribe((res: any) => {
       console.log(res)
       this.ProductDetails = res;
       if (res) {
@@ -68,7 +69,5 @@ export class BookingdetailsComponent implements OnInit {
         break;
     }
   }
-  bookingdata = {
-    "BookingNo": null
-  }
+ 
 }
