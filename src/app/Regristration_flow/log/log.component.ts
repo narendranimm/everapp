@@ -84,6 +84,7 @@ async sendOTP(){
       this.router.navigate(['/verification'])   
     }
     else{
+      this.loadingservice.dismissLoader();
       this.snackBar.open(JSON.stringify(res.message));
 
     }
