@@ -112,6 +112,7 @@ import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { SettingsComponent } from './menu-flow/settings/settings.component';
 import { LoadingInterceptor } from './loading.interceptor';
+import { NotificationsComponent } from './menu-flow/notifications/notifications.component';
 
 providers: [Storage]
 @NgModule({
@@ -140,7 +141,7 @@ providers: [Storage]
     OffersMComponent,
     BookingSummaryAppliedCouponComponent,
     BookingMComponent,
-
+   NotificationsComponent,
     SwapBatteryScrollComponent,
     NearhubComponent,
     SearchresultsBikeComponent,
@@ -153,7 +154,8 @@ providers: [Storage]
     TimeDetailsVehicleFromComponent,
     VerificationComponent,
     LoaderComponent,
-    SettingsComponent
+    SettingsComponent,
+    
 
   ],
 
