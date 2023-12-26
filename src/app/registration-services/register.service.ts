@@ -21,6 +21,9 @@ baseUrl:any=environment.apiurl;
   sendsms(data:any):Observable<any>{
     return this.http.post(this.baseUrl+`sendsms`,data)
   }
+  resendsms(data:any):Observable<any>{
+    return this.http.post(this.baseUrl+`resendsms`,data)
+  }
   
   // verifyOTP(otp:string):Observable<any>{
   //   return this.http.post(this.baseUrl+`sendsms`,{otp})
