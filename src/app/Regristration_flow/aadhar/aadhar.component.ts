@@ -23,7 +23,7 @@ export class AadharComponent implements OnInit {
   isDialogOpen!: boolean;
   constructor(private cd: ChangeDetectorRef,public dialog: MatDialog,private router: Router, private _pf: FormBuilder, private http: HttpClient, private rs: RegisterService, private snackBar: MatSnackBar) {
     this.personalForm = this._pf.group({
-      adharno: ['', [Validators.required,Validators.pattern("^[0-9]{4}[ -]?[0-9]{4}[ -]?[0-9]{4}$")]],
+      adharno: ['', [Validators.required]],
       adharfile: ['', Validators.required],
       licenseno: ['', Validators.required],
       licensefile: ['', Validators.required],
@@ -108,6 +108,7 @@ export class AadharComponent implements OnInit {
   //   }
   // }
   myupload() {
+  
   
     if (this.isAdhar && this.isvoter && this.islicence) {
       this.dialog.open(UploadsuccessComponent);
