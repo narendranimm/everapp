@@ -14,7 +14,8 @@ export class BatteryStationListComponent implements OnInit {
   bikeHubID: any = 3503
   bikeHub: any;
   azimageUrl: any = environment.azimageUrl_hub;
-
+  searchValue: any;
+bikename:any=null;
   constructor(private _bh: BookingService, private userdata: UserData,
     private loader: LoadingService,
     private router: Router) {
@@ -24,19 +25,23 @@ export class BatteryStationListComponent implements OnInit {
 
   ngOnInit() { }
   getbatteryhubs() {
-    this._bh.getbikehubs(this.bikeHubID).subscribe(
+    this._bh.getbranchesByBID(this.bikeHubID,this.bikename).subscribe(
       (res: any) => {
         this.bikeHub = res;
-        this.loader.dismissLoader();
+        // this.loader.dismissLoader();
 
       },
       (error) => {
-        this.loader.dismissLoader();
+        // this.loader.dismissLoader();
       }
     )
   }
 
-
+  search(data:any){
+    console.log(this.searchValue)
+    this.bikename=this.searchValue;
+     this.getbatteryhubs();
+  }
   gotohubdetails(id: number) {
     this.userdata.setNew("hubid", id);
     this.router.navigateByUrl('/battery-station')

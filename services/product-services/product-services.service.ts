@@ -16,8 +16,14 @@ export class ProductServicesService {
   productDetails(taskId:any): Observable<any> {
     return this.http.get(this.baseurl+`product/get/${taskId}`)
 }
-productListBybranchId(taskId:any): Observable<any> {
-  return this.http.get(this.baseurl+`product/bybranch/${taskId}`)
+productListBybranchId(taskId:any,productname:any): Observable<any> {
+  let data={
+    "hubid":"NULL",
+    "ProductName": "NULL"
+}
+data.ProductName=productname;
+data.hubid=taskId;
+  return this.http.post(this.baseurl+`product/bybranch`,data)
 }
 getdatailsByPIDNdHubId(data:any): Observable<any> {
   return this.http.post(this.baseurl+`hubs/getdetailsByPIDnHbID`,data)

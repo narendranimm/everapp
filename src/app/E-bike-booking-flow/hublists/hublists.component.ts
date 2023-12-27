@@ -38,7 +38,7 @@ export class HublistsComponent  implements OnInit {
   //   this.content.scrollToTop(500);
   // }
   gethubs(){
-    this._bh.getbikehubs(this.bikeHubID).subscribe((res:any) => {
+    this._bh.getbranchesByBID(this.bikeHubID,null).subscribe((res:any) => {
       console.log('tests',res)
       this.bikeHub = res;
 

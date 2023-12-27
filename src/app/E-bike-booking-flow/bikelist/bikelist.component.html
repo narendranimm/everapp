@@ -15,7 +15,7 @@
         
             <form class="example-form">
                 <div class="search-conatiner">
-                    <input matInput placeholder="Search by vehicle model or performance" class="search">
+                    <input matInput [(ngModel)]="searchValue" name="searchValue" (input)="search($event)" class="search" placeholder="Search by vehicle model or performance">
                 </div>
             </form>
             <div class="card-parent">

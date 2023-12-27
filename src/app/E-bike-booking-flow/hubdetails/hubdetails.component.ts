@@ -21,7 +21,7 @@ imagearray:any=[];
       console.log(res)
       if (res !== null) {
         this.bikeHubID = res;
-    this.getbikehubs()
+    this.getbranchesByBID()
       } else {
         console.log('Data is null. Handle accordingly.');
       }
@@ -31,7 +31,7 @@ imagearray:any=[];
   ngOnInit() {
 
   }
-  getbikehubs() {
+  getbranchesByBID() {
    this.loadingservice.simpleLoader('Loading...')
     this._bh.getHubDetaislByHubID(this.bikeHubID).subscribe(
       (res:any) => {

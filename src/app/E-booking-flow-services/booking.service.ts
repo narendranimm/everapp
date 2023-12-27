@@ -22,12 +22,16 @@ export class BookingService {
   getPriceData() {
     return this.http.get(this.baseurl+'product/getPriceData')
   }
-  getbikehubs(bikeHubID:any){
-    return this.http.get(this.baseurl+`hubs/get/${bikeHubID}`)
+  getbranchesByBID(bikeHubID:any,name:any){
+   let data= {
+      "branchtypeID":10,
+      "branchname": 'NULL'
   }
-  getbattery(batteryStaionID:any){
-    return this.http.get(this.baseurl+`hubs/get/${batteryStaionID}`)
+  data.branchname=name;
+  data.branchtypeID=bikeHubID;
+    return this.http.post(this.baseurl+`hubs/get`,data)
   }
+  
   getBikesByBranchID(branchID:number){
     return this.http.get(this.baseurl+`product/bybranch/${branchID}`)   
   }

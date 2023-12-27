@@ -18,21 +18,14 @@ export class NearhubComponent  implements OnInit {
     private router:Router) { }
 
   ngOnInit() {
-    // this.getbikehubs()
-    //not using this api
   }
   gotohubdetails(id:number){
 this.userdata.setNew("hubid",id)
 
     this.router.navigateByUrl('/hub-details')
   }
-  getbikehubs(){
-    this._bh.getbikehubs(this.slides).subscribe((res)=>{
-      console.log(res)
-      //ProfileImage
-      this.slides=res;
-  })
+ 
 
-  }  
+  
  
 }

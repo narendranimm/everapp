@@ -28,8 +28,8 @@ export interface MapGeocoderResponse {
 })
 export class HomepageComponent implements OnInit {
   loading: boolean = false;
-  lat: any=null;
-  lng: any=null;
+  lat: any = null;
+  lng: any = null;
   location: any = {}
   keys: string[] = [];
   bikeHubID: any = 3502;
@@ -43,28 +43,28 @@ export class HomepageComponent implements OnInit {
   logindata!: any;
   private breakpointObserver = inject(BreakpointObserver);
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(map(result => result.matches),shareReplay());
+    .pipe(map(result => result.matches), shareReplay());
   marker: any;
-  hubsnearby: any=[];
-  constructor(private loadingservice: LoadingService,private hub_s:HubsService,
-     public popoverController: PopoverController, private _bh: BookingService, private route: ActivatedRoute, private router: Router,
+  hubsnearby: any = [];
+  constructor(private loadingservice: LoadingService, private hub_s: HubsService,
+    public popoverController: PopoverController, private _bh: BookingService, private route: ActivatedRoute, private router: Router,
     private _pd: ProductServicesService, private userdata: UserData
   ) {
     this.userdata.getuser().then(res => {
-      if(res !== null){
+      if (res !== null) {
 
         this.logindata = res;
         this.username = res.FirstName + ' ' + res.LastName;
       }
-      })
+    })
 
   }
 
   ngOnInit() {
-    this.getbikehubs()
+    this.getbranchesByBID()
     this.printCurrentPosition();
-   // this.address();
-    
+    // this.address();
+
     this.getNearByHubs()
   }
   @ViewChild(IonContent) content!: IonContent;
@@ -72,44 +72,41 @@ export class HomepageComponent implements OnInit {
 
 
   public sidebar: boolean = true;
-  getbikehubs() {
-    this.postadd_Data.TargetLatitude=this.lat
-    this.postadd_Data.TargetLongitude=this.lng
+  getbranchesByBID() {
     this.loadingservice.simpleLoader('loading')
-    this._bh.getbikehubs(this.bikeHubID).subscribe(
+    this._bh.getbranchesByBID(this.bikeHubID, null).subscribe(
       (res: any) => {
-      console.log('tests', res)
-      this.bikeHub = res.slice(0, 4);
+        console.log('tests', res)
+        this.bikeHub = res.slice(0, 4);
 
-      this.loadingservice.dismissLoader();
+        this.loadingservice.dismissLoader();
 
-    },(error:any)=>{
-      this.loadingservice.dismissLoader();
+      }, (error: any) => {
+        this.loadingservice.dismissLoader();
 
-    }
+      }
     )
   }
   getNearByHubs() {
-    console.log(this.postadd_Data)
-this.postadd_Data.TargetLatitude=this.lat;
-this.postadd_Data.TargetLongitude=this.lng;
-    this.hub_s.getnearByHubsBasedonLatandLongID(this.postadd_Data).subscribe(res=>
-      {
+    this.postadd_Data.TargetLatitude = this.lat;
+    this.postadd_Data.TargetLongitude = this.lng;
+    this.postadd_Data.branchtype=3502;
+    this.hub_s.getnearByHubsBasedonLatandLongID(this.postadd_Data).subscribe(res => {
       console.log(res)
-      this.hubsnearby=res;
+      this.hubsnearby = res;
       this.loadingservice.dismissLoader();
 
     },
-    (error)=>{
-      this.loadingservice.dismissLoader();
-    }
+      (error) => {
+        this.loadingservice.dismissLoader();
+      }
     )
   }
   printCurrentPosition() {
     var coordinates = Geolocation.getCurrentPosition().then((resp) => {
       this.lat = resp.coords.latitude;
       this.lng = resp.coords.longitude;
-      
+
       this.getNearByHubs()
     })
 
@@ -154,9 +151,10 @@ this.postadd_Data.TargetLongitude=this.lng;
     this.content.scrollToTop(500);
   }
 
-  postadd_Data={
-    "TargetLatitude": 17.5160502, 
+  postadd_Data = {
+    "TargetLatitude": 17.5160502,
     "TargetLongitude": 78.3418991,
+    "branchtype":0,
     "RadiusInKm": 50
   }
 }

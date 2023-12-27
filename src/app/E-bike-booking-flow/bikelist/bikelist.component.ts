@@ -12,14 +12,15 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class BikelistComponent implements OnInit {
   ProductList: any = [];
-  taskId: any;
+  branchid: any;
+  productname:any=null;
   azimageUrl: any = environment.azimageUrl_hub;
-
+  searchValue:any;
   constructor(private route: ActivatedRoute, private _pd: ProductServicesService, private router: Router,
     private loader: LoadingService) {
 
-    this.taskId = route.snapshot.params["ID"];
-    console.log("this is taskId value = " + this.taskId);
+    this.branchid = route.snapshot.params["ID"];
+    console.log("this is branchid value = " + this.branchid);
 
   }
 
@@ -29,7 +30,7 @@ export class BikelistComponent implements OnInit {
 
   getList() {
     this.loader.simpleLoader('Loading...')
-    this._pd.productListBybranchId(this.taskId).subscribe(
+    this._pd.productListBybranchId(this.branchid,this.productname).subscribe(
       (res) => {
         this.ProductList = res;
         this.loader.dismissLoader();
@@ -39,7 +40,20 @@ export class BikelistComponent implements OnInit {
       }
     )
   }
+  getListsearch() {
+    this._pd.productListBybranchId(this.branchid,this.productname).subscribe(
+      (res) => {
+        this.ProductList = res;
+      }, (error) => {
 
+      }
+    )
+  }
+  search(data:any){
+    console.log(this.searchValue)
+    this.productname=this.searchValue;
+     this.getListsearch();
+  }
   gotoDetails(ID: any) {
     this.router.navigateByUrl('/bikedetails/'+ID)
   }

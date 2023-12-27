@@ -24,7 +24,7 @@ export class SwapBatteryScrollComponent  implements OnInit {
         this.router.navigateByUrl('/battery-station')
       }
   getbatteryhubs(){
-    this._bh.getbattery(this.btryHubID).subscribe((res)=>{
+    this._bh.getbranchesByBID(this.btryHubID,null).subscribe((res)=>{
       console.log(res)
       this.slides=res;
   })

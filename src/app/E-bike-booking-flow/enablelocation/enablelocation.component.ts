@@ -34,7 +34,7 @@ profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
     constructor(private _bh:BookingService,private element: ElementRef,
       // private authService: SocialAuthService,
       public navCtrl: NavController,private location:LocationService,private geolocation: Geolocation ) {
-      this.getbikehubs()
+      this.getbranchesByBID()
     }
     ngOnInit() {
       // this.authService.authState.subscribe((user) => {
@@ -123,8 +123,8 @@ profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
       .catch((e) => window.alert("Geocoder failed due to: " + e));
   }
   
-  getbikehubs() {
-    this._bh.getbikehubs(this.bikeHubID).subscribe((res:any) => {
+  getbranchesByBID() {
+    this._bh.getbranchesByBID(this.bikeHubID,null).subscribe((res:any) => {
       console.log('tests',res)
       this.bikeHub = res.slice(0,4);
     
