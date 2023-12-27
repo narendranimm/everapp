@@ -20,3 +20,12 @@
 .battery-model{
 color: white; font-size: 14px; font-family: Archivo; font-weight: 700; word-wrap: break-word
 }
+.first_div{
+  width: 100%; height: 100%; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex
+}
+.second_div{
+   align-self: stretch; justify-content: flex-start; align-items: center; gap: 84px; display: inline-flex
+}
+.third_div{
+    width: 24px; height: 24px; padding-top: 4.41px; padding-bottom: 4.42px; padding-left: 4.42px; padding-right: 4px; justify-content: center; align-items: center; display: flex
+}

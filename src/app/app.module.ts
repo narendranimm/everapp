@@ -108,7 +108,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { LoaderComponent } from './global_components/loader/loader.component';
 import { LoadingService } from './services/loading.service';
 import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions/ngx';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { SettingsComponent } from './menu-flow/settings/settings.component';
 import { LoadingInterceptor } from './loading.interceptor';
@@ -159,7 +159,7 @@ providers: [Storage]
 
   ],
 
-  imports: [BrowserModule, MatExpansionModule,MatSlideToggleModule,
+  imports: [BrowserModule, MatExpansionModule,MatSlideToggleModule,MatDatepickerModule,
     // SocialLoginModule,
     IonicStorageModule.forRoot({ name: "mylocaldb" }), MatSnackBarModule,
     MatSelectModule,

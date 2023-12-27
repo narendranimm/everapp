@@ -24,7 +24,8 @@ export class RegisterComponent implements OnInit {
   showLoader!: boolean;
   message:any;
   UserID:any;
-  duration:any
+  duration:any;
+  maxDate: Date;
   constructor(private loadingservice: LoadingService,
     private router: Router,private userdata:UserData,private _snackBar: MatSnackBar,
     public dialog: MatDialog,private snackBar: MatSnackBar, public toast: ToastController, private route: ActivatedRoute, 
@@ -57,7 +58,8 @@ export class RegisterComponent implements OnInit {
       userId: 0,
       Gender: 1000
     })
- 
+    this.maxDate = new Date();
+    this.maxDate.setMonth(this.maxDate.getMonth() - 12 * 18);
   }
 
   openDialog() {
@@ -151,5 +153,6 @@ export class RegisterComponent implements OnInit {
     }
   }
 
- 
+
+    
 }

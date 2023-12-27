@@ -47,3 +47,15 @@ second_div {
     gap: 94px;
     display: inline-flex
 }
+.fourth_div{
+    width: 24px; height: 24px; position: relative
+}
+.fifth_div{
+    align-self: stretch; justify-content: flex-start; align-items: center; gap: 4px; display: inline-flex
+}
+.sixth_div{
+    flex: 1 1 0; color: #363636; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word
+}
+.seventh_div{
+ width: 16px; height: 16px; position: relative
+}

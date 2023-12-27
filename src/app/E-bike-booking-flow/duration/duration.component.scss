@@ -260,5 +260,11 @@ input[type='radio']:checked:after {
   border: 1px #3355B9 solid
 }
 .procd_btn{
-  width: 100%; height: 100%; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: space-between; align-items: center; display: inline-flex
+  width: 100%; color:white; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: center; align-items: center; display: inline-flex
+}
+.procced-btn{
+ color: white; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word;text-align: center;
+ display: flex;
+ align-items: center;
+ justify-content: center;
 }
