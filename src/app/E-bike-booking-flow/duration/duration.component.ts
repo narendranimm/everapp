@@ -59,6 +59,7 @@ export class DurationComponent implements OnInit {
   BookingID:any;
   priceData: any;
   washtype:any;
+  securitydeposit: any;
   constructor(private datePipe: DatePipe, private snackBar: MatSnackBar,private loader:LoadingService,
      private router: Router, private bookingservice: BookingService, private bk: FormBuilder, private route: ActivatedRoute, private user: UserData, private dataService: DataservicesService) {
 
@@ -300,12 +301,16 @@ export class DurationComponent implements OnInit {
     }
   }
 
-  close(){
+  closepopup(){
   }
 
 
-show(data:any){
+boxselection(data:any,i:number){
   console.log('selected Amount',data )
+  this.washfee.forEach(e => {e.cssstyle =''});
+  this.washfee[i].cssstyle='box_border';
+  this.securitydeposit=this.washfee[i].amount;
+  console.log(this.washtype)
 }
 
   //#region dummy data
@@ -342,17 +347,22 @@ show(data:any){
   {
   'amount':'0',
   'description':'You will pay the entire amount in case of any damage',
-  'feetype':'1,500 + iD Proofs'
+  'feetype':'1,500 + iD Proofs',
+  'cssstyle':'',
  },
   {
   'amount':'49',
   'description':'You will pay ₹15,000 in case of any damage',
-  'feetype':'Basic'
+  'feetype':'Basic',
+  'cssstyle':'',
+
  },
   {
   'amount':'69',
   'description':'You will pay ₹5,000 in case of any damage',
-  'feetype':'Premium'
+  'feetype':'Premium',
+  'cssstyle':'',
+
  }
 ]
 }

@@ -249,3 +249,13 @@ input[type='radio']:checked:after {
   visibility: visible;
   border: 2px solid white;
 }
+
+.box_border {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: linear-gradient(0deg, white 0%, white 100%), linear-gradient(0deg, rgba(74.50, 120.30, 255, 0.20) 0%, rgba(74.50, 120.30, 255, 0.20) 100%);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px #3355B9 solid
+}

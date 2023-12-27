@@ -113,7 +113,7 @@
                   Choose your preferred option</div>
                 <div style="width: 24px; height: 24px; left: 322px; top: 12px; position: absolute">
                   <!-- cross mark image -->
-                  <a (click)="close()">
+                  <a (click)="closepopup()">
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                       <g clip-path="url(#clip0_1097_3438)">
@@ -139,7 +139,7 @@
                   <div style="width: 24px; height: 24px; position: relative;flex-shrink: 0;">
                     <!-- cross mark image -->
 
-                    <input type="radio" name="washtype" id="fee" value="free"  [(ngModel)]="washtype"/>
+                    <input type="radio" name="washtype" id="fee" value="0"  [(ngModel)]="washtype"/>
                     <!-- cross mark image -->
 
                   </div>
@@ -156,7 +156,7 @@
                 <div
                   style="width: 304px; left: 18px; top: 85px; position: absolute; justify-content: flex-start; align-items: center; gap: 8px; display: inline-flex">
                   <div style="width: 24px; height: 24px; position: relative">
-                    <input type="radio" name="washtype" id="fee" value="wash" [(ngModel)]="washtype" />
+                    <input type="radio" name="washtype" id="fee" value="49" [(ngModel)]="washtype" />
 
                   </div>
                   <div
@@ -179,28 +179,31 @@
                     style="align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
                    
                 
-                    
-                    <div  *ngFor="let f of washfee"
-                    style="width: 100px; height: 118px; position: relative; background: white; border-radius: 8px; overflow: hidden; border: 1px #E8E7E7 solid">
-                    <a (click)="show(f.amount)">
-                        <div
-                          style="left: 23px; top: 8px; position: absolute; text-align: center; color: #363636; font-size: 10px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">
-                          {{f.feetype}}</div>
-                        <div
-                          style="left: 19px; top: 29px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">
-                          ₹{{f.amount}}/day</div>
-                        <div
-                          style="width: 84px; left: 8px; top: 62px; position: absolute; text-align: center; color: rgba(0, 0, 0, 0.70); font-size: 9px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">
-                          {{f.description}}</div>
-                        </a>
-                      </div>
+                    <div [class]="f.cssstyle"  *ngFor="let f of washfee; index as i">
+                      <div 
+                      style="width: 100px; height: 118px; position: relative; background: white; border-radius: 8px; overflow: hidden; border: 1px #E8E7E7 solid">
+                      <a (click)="boxselection(f,i)">
+                          <div
+                            style="left: 23px; top: 8px; position: absolute; text-align: center; color: #363636; font-size: 10px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">
+                            {{f.feetype}}</div>
+                          <div
+                            style="left: 19px; top: 29px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">
+                            ₹{{f.amount}}/day</div>
+                          <div
+                            style="width: 84px; left: 8px; top: 62px; position: absolute; text-align: center; color: rgba(0, 0, 0, 0.70); font-size: 9px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">
+                            {{f.description}}</div>
+                          </a>
+                        </div>
+                    </div>
                       
                     </div>
                   </div>
                 </div>
-                <!-- <div style="width: 100%; height: 100%; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: space-between; align-items: center; display: inline-flex">
+                <div style="width: 100%; height: 100%; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: space-between; align-items: center; display: inline-flex">
                   <div style="color: white; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Proceed next</div>
-                  </div> -->
+              </div>
+                
+
               </ng-template>
           </ion-modal>
           <!-- modelpopup -->
