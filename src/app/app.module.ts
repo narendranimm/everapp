@@ -114,6 +114,7 @@ import { SettingsComponent } from './menu-flow/settings/settings.component';
 import { LoadingInterceptor } from './loading.interceptor';
 import { NotificationsComponent } from './menu-flow/notifications/notifications.component';
 import { CustomDateTimePipe } from './custom-date-time.pipe';
+import { FilterPipe } from './filter.pipe';
 
 providers: [Storage]
 @NgModule({
@@ -157,7 +158,7 @@ providers: [Storage]
     LoaderComponent,
     SettingsComponent,
     CustomDateTimePipe,
-    
+    FilterPipe
 
   ],
 

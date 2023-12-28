@@ -66,7 +66,7 @@ export class HomepageComponent implements OnInit {
   ngOnInit() {
     this.getbranchesByBID()
     this.printCurrentPosition();
-    // this.address();
+    this.address();
 
     this.getNearByHubs()
   }
