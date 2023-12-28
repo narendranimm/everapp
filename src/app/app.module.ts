@@ -113,6 +113,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { SettingsComponent } from './menu-flow/settings/settings.component';
 import { LoadingInterceptor } from './loading.interceptor';
 import { NotificationsComponent } from './menu-flow/notifications/notifications.component';
+import { CustomDateTimePipe } from './custom-date-time.pipe';
 
 providers: [Storage]
 @NgModule({
@@ -155,6 +156,7 @@ providers: [Storage]
     VerificationComponent,
     LoaderComponent,
     SettingsComponent,
+    CustomDateTimePipe,
     
 
   ],
