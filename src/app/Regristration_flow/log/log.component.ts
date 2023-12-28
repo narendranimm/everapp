@@ -34,7 +34,7 @@ ID:any;
     
     this.otpForm=this._of.group({
       mobileno:['',[ Validators.required,
-        Validators.pattern("^[0-9]*$"),
+        Validators.pattern("[0-9 ]{10}"),
         ]]
     })
     this.userdata.getuser().then(res=>{
@@ -55,7 +55,11 @@ nav(){
 
 
 async sendOTP(){
-  this.loadingservice.simpleLoader('Loading ..')
+  if(!this.otpForm.valid){
+    this.otpForm.markAllAsTouched();
+    this.snackBar.open("plaese Enter Mobile No.");
+  }
+  // this.loadingservice.simpleLoader('Loading ..')
   //need to handle error
   //1. if otp failed
   //2.if network issue.

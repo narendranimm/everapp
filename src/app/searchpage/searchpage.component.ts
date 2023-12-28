@@ -10,5 +10,16 @@ export class SearchpageComponent  implements OnInit {
   constructor() { }
 
   ngOnInit() {}
-
+  searchText = '';
+  characters = [
+    'Ant-Man',
+    'Aquaman',
+    'Asterix',
+    'The Atom',
+    'The Avengers',
+    'Batgirl',
+    'Batman',
+    'Batwoman',
+    
+  ]
 }
