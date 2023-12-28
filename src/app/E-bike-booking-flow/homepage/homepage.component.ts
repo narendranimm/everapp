@@ -37,10 +37,13 @@ export class HomepageComponent implements OnInit {
   slider: any = []
   bikeHub: any;
   events: any;
+  itemsCopy:any;
+  searchTerm:any;
   azimageUrl: any = environment.azimageUrl_hub;
   profileUrl: any = environment.azimageUrl_pic;
   username = '';
   logindata!: any;
+  show: boolean = true; 
   private breakpointObserver = inject(BreakpointObserver);
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(map(result => result.matches), shareReplay());
@@ -157,4 +160,7 @@ export class HomepageComponent implements OnInit {
     "branchtype":0,
     "RadiusInKm": 50
   }
+
+
 }
+

@@ -78,7 +78,7 @@ import { BookingSummaryAfterCoupanComponent } from './booking-summary-after-coup
 import { HublistsComponent } from './E-bike-booking-flow/hublists/hublists.component';
 import { VerificationComponent } from './verification/verification.component';
 
-import { SearchPageComponent } from './batter-reservation-flow/search-page/search-page.component';
+
 import { SpinnerComponent } from './spinner/spinner.component';
 
 
@@ -126,7 +126,7 @@ const routes: Routes = [
 {path:'timedetails',component:TimedetailsComponent},
 {path:'search-result-bike',component:SearchresultsBikeComponent},
 {path:'hublist',component:HublistsComponent},
-{path:'searchpage',component:SearchPageComponent},
+
 //Battery-Reservation-flow
 {path:'battery-staion-list',component:BatteryStationListComponent},
 {path:'battery-station',component:BatteryStationComponent},
