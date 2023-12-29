@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { IonContent } from '@ionic/angular';
 import { ProductServicesService } from 'services/product-services/product-services.service';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
+import { UserData } from 'src/app/providers/user-data';
 import { environment } from 'src/environments/environment.prod';
 
 @Component({
@@ -16,7 +17,7 @@ export class HublistsComponent  implements OnInit {
   taskId:any;
   azimageUrl:any='https://everdevuat.blob.core.windows.net/hubs/';
   @ViewChild(IonContent) content!: IonContent;
- constructor(private route: ActivatedRoute,private _pd:ProductServicesService,private _bh:BookingService) {
+ constructor(private route: ActivatedRoute,private _pd:ProductServicesService,private _bh:BookingService,private userdata:UserData,private router:Router) {
    this.taskId = route.snapshot.params["ID"];
    console.log("this is taskId value = "+ this.taskId);
 }
@@ -44,4 +45,9 @@ export class HublistsComponent  implements OnInit {
 
   })
 }
+gotohubdetails(id:number){
+  this.userdata.setNew("hubid",id)
+  
+      this.router.navigateByUrl('/hub-details')
+    }
 }

@@ -154,6 +154,11 @@ export class HomepageComponent implements OnInit {
     this.content.scrollToTop(500);
   }
 
+  gotohubdetails(id:number){
+    this.userdata.setNew("hubid",id)
+    
+        this.router.navigateByUrl('/hub-details')
+      }
   postadd_Data = {
     "TargetLatitude": 17.5160502,
     "TargetLongitude": 78.3418991,
