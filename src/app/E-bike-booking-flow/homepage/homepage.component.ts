@@ -130,16 +130,19 @@ export class HomepageComponent implements OnInit {
 
   }
   geocodeLatLng(geocoder: any) {
-    const input = (document.getElementById("latlng") as HTMLInputElement).value;
-    const latlngstr = input.split('', 2);
-    const latlng = {
-      lat: parseFloat(latlngstr[0]),
-      lng: parseFloat(latlngstr[1]),
-    };
-    geocoder.geocode({ location: latlng })
-      .then((res: any) => {
-        console.log(res)
-      })
+    const input = (document.getElementById("latlng") as HTMLInputElement)
+    if(input.value){
+
+      const latlngstr = input.value.split('', 2);
+      const latlng = {
+        lat: parseFloat(latlngstr[0]),
+        lng: parseFloat(latlngstr[1]),
+      };
+      geocoder.geocode({ location: latlng })
+        .then((res: any) => {
+          console.log(res)
+        })
+    }
   }
 
   scrollToBottom() {
