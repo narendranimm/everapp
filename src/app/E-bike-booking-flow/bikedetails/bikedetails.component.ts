@@ -31,7 +31,7 @@ ProductDetails:any;
   }
   
   gotobooking(){
-    this.user.setpId(this.ProductDetails.ProductID)
+    this.user.setpId(this.productID)
     this.router.navigateByUrl('/slotbooking')
   }
 

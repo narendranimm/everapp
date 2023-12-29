@@ -138,7 +138,7 @@
                   <div style="width: 24px; height: 24px; position: relative;flex-shrink: 0;">
                     <!-- cross mark image -->
 
-                    <input type="radio" name="washtype" id="fee" value="0" [(ngModel)]="washtype" />
+                    <input type="radio" name="washtype" id="fee" [value]='0' [(ngModel)]="washtype" />
                     <!-- cross mark image -->
 
                   </div>
@@ -155,7 +155,7 @@
                 <div
                   style="width: 304px; left: 18px; top: 85px; position: absolute; justify-content: flex-start; align-items: center; gap: 8px; display: inline-flex">
                   <div style="width: 24px; height: 24px; position: relative">
-                    <input type="radio" name="washtype" id="fee" value="49" [(ngModel)]="washtype" />
+                    <input type="radio" name="washtype" id="fee" [value]='49' [(ngModel)]="washtype" />
 
                   </div>
                   <div
@@ -199,7 +199,8 @@
                   </div>
                 </div>
                 <div style="padding: 2%;">
-                <button (click)="book()" class="procd_btn"
+                  <!-- (click)="book()" -->
+                <button  class="procd_btn" (click)="proced()"
                  >
                   <div
                      class="proceed-btn">
