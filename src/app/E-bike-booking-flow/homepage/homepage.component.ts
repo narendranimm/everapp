@@ -68,7 +68,8 @@ export class HomepageComponent implements OnInit {
     this.printCurrentPosition();
     this.address();
 
-    this.getNearByHubs()
+    this.getNearByHubs();
+    
   }
   @ViewChild(IonContent) content!: IonContent;
   data = [];

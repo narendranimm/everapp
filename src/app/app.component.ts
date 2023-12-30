@@ -19,7 +19,8 @@ export class AppComponent implements OnInit {
   value: any;
   
 
-
+  maxDate!: Date;
+  date!: Date;
 
 
   constructor(
@@ -55,7 +56,8 @@ export class AppComponent implements OnInit {
     //   this.loggedIn = (user != null);
     //   console.log(user)
     // });
-
+    this.maxDate = new Date();
+    this.maxDate.setMonth(this.maxDate.getMonth() - 12 * 18);
    
 
 

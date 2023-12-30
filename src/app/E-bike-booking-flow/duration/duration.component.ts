@@ -292,7 +292,7 @@ boxselection(data:any,i:number){
   console.log(this.washtype)
 }
  //last line
- book() {debugger
+ book() {
  
   if (this.isSolt) {
     this.customDate.markAllAsTouched();

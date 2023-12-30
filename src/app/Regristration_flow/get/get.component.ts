@@ -66,7 +66,7 @@ export class GetComponent  implements OnInit {
           this.snackBar.open(" Permission already allowed ");
           this.snackBar.open(this.userid);
           if(this.userid != null){
-            this.router.navigateByUrl('homepage')
+            this.router.navigateByUrl('enableloaction')
           }else{
             this.router.navigateByUrl('register')
 

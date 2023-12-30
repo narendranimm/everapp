@@ -23,11 +23,11 @@ export class AadharComponent implements OnInit {
   isDialogOpen!: boolean;
   constructor(private cd: ChangeDetectorRef,public dialog: MatDialog,private router: Router, private _pf: FormBuilder, private http: HttpClient, private rs: RegisterService, private snackBar: MatSnackBar) {
     this.personalForm = this._pf.group({
-      adharno: ['', [Validators.required]],
+      adharno: ['', [Validators.required,Validators.maxLength(12)]],
       adharfile: ['', Validators.required],
-      licenseno: ['', Validators.required],
+      licenseno: ['', Validators.required,Validators.maxLength(16)],
       licensefile: ['', Validators.required],
-      panno: ['', Validators.required],
+      panno: ['', Validators.required,Validators.minLength(10)],
       panfile: ['', Validators.required]
     })
   }
@@ -36,10 +36,22 @@ export class AadharComponent implements OnInit {
   ngOnInit() {
 
   }
+  maxLengthCheck(object:any) {
+    if (object.value.length > object.max.length)
+      object.value = object.value.slice(0, object.max.length)
+  }
 
 
-
-
+  isNumeric (evt:any) {
+    var theEvent = evt || window.event;
+    var key = theEvent.keyCode || theEvent.which;
+    key = String.fromCharCode (key);
+    var regex = /[0-9]|\./;
+    if ( !regex.test(key) ) {
+      theEvent.returnValue = false;
+      if(theEvent.preventDefault) theEvent.preventDefault();
+    }
+  }
 
   onFileSelected(event: any, filename: any) {
     const file: File = event.target.files[0];

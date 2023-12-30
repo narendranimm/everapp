@@ -25,7 +25,9 @@ export class RegisterComponent implements OnInit {
   message:any;
   UserID:any;
   duration:any;
-  maxDate: Date;
+
+  maxDate!: Date;
+  date!: Date;
   constructor(private loadingservice: LoadingService,
     private router: Router,private userdata:UserData,private _snackBar: MatSnackBar,
     public dialog: MatDialog,private snackBar: MatSnackBar, public toast: ToastController, private route: ActivatedRoute, 
@@ -76,7 +78,8 @@ export class RegisterComponent implements OnInit {
   user: any;
   loggedIn: any;
   ngOnInit() {
-  
+    this.maxDate = new Date();
+    this.maxDate.setMonth(this.maxDate.getMonth() - 12 * 18);
 
    
   }

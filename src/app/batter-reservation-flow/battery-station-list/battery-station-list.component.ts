@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { IonContent } from '@ionic/angular';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
 import { UserData } from 'src/app/providers/user-data';
 import { LoadingService } from 'src/app/services/loading.service';
@@ -19,7 +20,7 @@ bikename:any=null;
   constructor(private _bh: BookingService, private userdata: UserData,
     private loader: LoadingService,
     private router: Router) {
-    this.loader.simpleLoader('Loading...')
+    // this.loader.simpleLoader('Loading...')
     this.getbatteryhubs();
   }
 
@@ -45,5 +46,18 @@ bikename:any=null;
   gotohubdetails(id: number) {
     this.userdata.setNew("hubid", id);
     this.router.navigateByUrl('/battery-station')
+  }
+
+  @ViewChild(IonContent) content!: IonContent;
+  scrollToBottom() {
+    // Passing a duration to the method makes it so the scroll slowly
+    // goes to the bottom instead of instantly
+    this.content.scrollToBottom(500);
+  }
+
+  scrollToTop() {
+    // Passing a duration to the method makes it so the scroll slowly
+    // goes to the top instead of instantly
+    this.content.scrollToTop(500);
   }
 }

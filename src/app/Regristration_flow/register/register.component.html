@@ -105,7 +105,7 @@
   <div style="align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
       <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
           <div class="dob">Date of birth</div>
-          <input type="date"  onblur="getAge()" formControlName="DateofBirth" placeholder="dd/mm/yyyy" style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: space-between; align-items: center; display: inline-flex">
+          <input type="date"  [(ngModel)]="date" [max]="maxDate"  onblur="getAge()" formControlName="DateofBirth" placeholder="dd/mm/yyyy" style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: space-between; align-items: center; display: inline-flex">
           <div *ngIf="regForm.get('DateofBirth')?.invalid && regForm.get('DateofBirth')?.touched" class="error">
             <div  *ngIf="regForm.get('DateofBirth')?.hasError('required')">Date of birth required</div>
             <div *ngIf="regForm.get('DateofBirth')?.hasError('DateofBirth')">invalid DateofBirth</div> 
@@ -116,6 +116,7 @@
               </div>
          
       </div>
+      
       <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
           <div class="gender">Gender</div>
           <select formControlName="Gender" placeholder="select" value="select" style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: space-between; align-items: center; display: inline-flex">
@@ -130,6 +131,11 @@
             </div>
 
       </div>
+      
+  </div>
+  <div style="margin: 0 5px; display: flex;align-items: center;gap: 10px;">
+    <ion-checkbox color="primary"> </ion-checkbox>
+    <span >i agree<a routerLink="/tc" style="margin: 0 5px;">terms & conditions</a></span>
   </div>
 <button class="register-btn"  type="submit"  (click)="register()" >Register</button>
  

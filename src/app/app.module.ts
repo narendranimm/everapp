@@ -116,6 +116,8 @@ import { NotificationsComponent } from './menu-flow/notifications/notifications.
 import { CustomDateTimePipe } from './custom-date-time.pipe';
 import { FilterPipe } from './filter.pipe';
 import { HubbikeImagesComponent } from './E-bike-booking-flow/hubdetails/hubbike-images/hubbike-images.component';
+import { SupportComponent } from './menu-flow/support/support.component';
+import { ServicesComponent } from './menu-flow/services/services.component';
 
 providers: [Storage]
 @NgModule({
@@ -160,7 +162,9 @@ providers: [Storage]
     SettingsComponent,
     CustomDateTimePipe,
     FilterPipe,
-    HubbikeImagesComponent
+    HubbikeImagesComponent,
+    SupportComponent,
+    ServicesComponent
 
   ],
 
