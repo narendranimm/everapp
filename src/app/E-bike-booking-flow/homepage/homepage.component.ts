@@ -156,15 +156,29 @@ export class HomepageComponent implements OnInit {
     // goes to the top instead of instantly
     this.content.scrollToTop(500);
   }
+  search(data:any){
+    this.postadd_Data.TargetLatitude = null;
+    this.postadd_Data.TargetLongitude = null;
+    this.postadd_Data.branchtype=3502;
+    this.hub_s.getnearByHubsBasedonLatandLongID(this.postadd_Data).subscribe(res => {
+      console.log(res)
+      this.hubsnearby = res;
+      this.loadingservice.dismissLoader();
 
+    },
+      (error) => {
+        this.loadingservice.dismissLoader();
+      }
+    )
+  }
   gotohubdetails(id:number){
     this.userdata.setNew("hubid",id)
     
         this.router.navigateByUrl('/hub-details')
       }
   postadd_Data = {
-    "TargetLatitude": 17.5160502,
-    "TargetLongitude": 78.3418991,
+    "TargetLatitude": null,
+    "TargetLongitude": null,
     "branchtype":0,
     "RadiusInKm": 50
   }

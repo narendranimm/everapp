@@ -200,12 +200,17 @@
 
           <div style="display: flex; align-items: center;justify-content: center;">
           
-              <div style="width: 100%; height: 100%; padding: 12px; background: #F2F2F2; border-radius: 20px; overflow: hidden; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex" routerLink="/searchpage">
+              <div 
+              style="width: 100%; height: 100%; padding: 12px; background: #F2F2F2; border-radius: 20px; overflow: hidden; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex" >
                 <div style="width: 18px; height: 18px; position: relative">
                 <img src="../assets/tabler_search.svg" >
                 </div>
-                <div style="color: #3355B9; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Search by stations, bike model or distance</div>
-                </div>
+                <div style="color: #3355B9; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">
+                  </div>
+                    <input matInput  name="searchValue" (input)="search($event)" class="search" 
+                    placeholder="Search by stations, bike model or distance">
+                
+              </div>
           </div>
         
          

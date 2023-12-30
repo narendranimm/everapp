@@ -15,7 +15,10 @@ export class HubdetailsComponent  implements OnInit {
 bikeHubID:any=0;
 bikeHub:any;
 imagearray:any=[];
-  constructor(private loadingservice: LoadingService,private router:Router,
+  f_image: any;
+  s_image: any;
+  t_image: any;
+  constructor(private loader: LoadingService,private router:Router, private _pd: ProductServicesService,
     private user:UserData,private _bh:BookingService) {
     this.user.getId('hubid').then(res => {
       console.log(res)
@@ -32,25 +35,34 @@ imagearray:any=[];
 
   }
   getbranchesByBID() {
-   this.loadingservice.simpleLoader('Loading...')
+   this.loader.simpleLoader('Loading...')
     this._bh.getHubDetaislByHubID(this.bikeHubID).subscribe(
       (res:any) => {
       this.bikeHub = res
-      this.loadingservice.dismissLoader();
-      if(!res.ImagesList ){
-        if( res.ImagesList.length == 0){
-        let j=2;
-        for (let i = 0; i < j; j=2) {
-          this.imagearray[i]          
-        }
-        }
-
-      }
+      this.loader.dismissLoader();
+      this.getList()
+     
+     
     },
     (error)=>{
-      this.loadingservice.dismissLoader();
+      this.loader.dismissLoader();
 
     }
+    )
+  }
+  getList() {
+    //later change api to get imaglist only
+    this._pd.productListBybranchId(this.bikeHubID,null).subscribe(
+      (res:any) => {
+        this.loader.dismissLoader();
+       this.f_image=res[0].ImageName;
+       this.s_image=res[1].ImageName;
+       this.t_image=res[2].ImageName;
+        this.loader.dismissLoader();
+      }, (error) => {
+        this.loader.dismissLoader();
+
+      }
     )
   }
   share(){

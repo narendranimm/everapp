@@ -80,6 +80,7 @@ import { VerificationComponent } from './verification/verification.component';
 
 
 import { SpinnerComponent } from './spinner/spinner.component';
+import { HubbikeImagesComponent } from './E-bike-booking-flow/hubdetails/hubbike-images/hubbike-images.component';
 
 
 
@@ -168,7 +169,7 @@ const routes: Routes = [
 {path:'booking-summary-applied-m',component:BookingSummaryAppliedCouponComponent},
 {path:'payment-gateways-m',component:PaymentGatewayMComponent},
 {path:'booking-details-m',component:BookingMComponent},
-{path:'b',component:SpinnerComponent},
+{path:'bimages',component:HubbikeImagesComponent},
 
 
 ]

@@ -115,6 +115,7 @@ import { LoadingInterceptor } from './loading.interceptor';
 import { NotificationsComponent } from './menu-flow/notifications/notifications.component';
 import { CustomDateTimePipe } from './custom-date-time.pipe';
 import { FilterPipe } from './filter.pipe';
+import { HubbikeImagesComponent } from './E-bike-booking-flow/hubdetails/hubbike-images/hubbike-images.component';
 
 providers: [Storage]
 @NgModule({
@@ -158,7 +159,8 @@ providers: [Storage]
     LoaderComponent,
     SettingsComponent,
     CustomDateTimePipe,
-    FilterPipe
+    FilterPipe,
+    HubbikeImagesComponent
 
   ],
 
