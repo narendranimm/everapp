@@ -169,7 +169,11 @@ const routes: Routes = [
 {path:'booking-summary-applied-m',component:BookingSummaryAppliedCouponComponent},
 {path:'payment-gateways-m',component:PaymentGatewayMComponent},
 {path:'booking-details-m',component:BookingMComponent},
-{path:'bimages',component:HubbikeImagesComponent},
+{path:'bimages',component:HubbikeImagesComponent},  {
+    path: 'popup',
+    loadChildren: () => import('./E-bike-booking-flow/duration/popup/popup.module').then( m => m.PopupPageModule)
+  },
+
 
 
 ]

@@ -22,7 +22,7 @@ export class BikedetailsComponent  implements OnInit {
   constructor(private route: ActivatedRoute,private loader:LoadingService,
     private _pd:ProductServicesService,private router:Router,private user:UserData,private _bh:BookingService) {
     this.productID = route.snapshot.params["ID"];
-    console.log("this is productID value = "+ this.productID);
+   console.log("this is productID value = "+ this.productID);
 }
 
 ProductDetails:any;

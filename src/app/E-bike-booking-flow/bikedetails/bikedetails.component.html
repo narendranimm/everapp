@@ -39,7 +39,8 @@
                 </div>
                 <div
                     style="padding-left: 10px; padding-right: 10px; padding-top: 8px; padding-bottom: 8px; left: 275px; top: 16px; position: absolute; background: #AEEEB0; border-radius: 20px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-                    <div class="available">Available</div>
+                    <div class="available" *ngIf="ProductDetails?.IsAvilable">Available</div>
+                    <div class="available" *ngIf="!ProductDetails?.IsAvilable">Unvailable</div>
                 </div>
                 <div
                     style=" top: 103px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">

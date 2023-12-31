@@ -118,6 +118,7 @@ import { FilterPipe } from './filter.pipe';
 import { HubbikeImagesComponent } from './E-bike-booking-flow/hubdetails/hubbike-images/hubbike-images.component';
 import { SupportComponent } from './menu-flow/support/support.component';
 import { ServicesComponent } from './menu-flow/services/services.component';
+import { TimeDifferencePipe } from './time-difference.pipe';
 
 providers: [Storage]
 @NgModule({
@@ -146,7 +147,7 @@ providers: [Storage]
     OffersMComponent,
     BookingSummaryAppliedCouponComponent,
     BookingMComponent,
-   NotificationsComponent,
+     NotificationsComponent,
     SwapBatteryScrollComponent,
     NearhubComponent,
     SearchresultsBikeComponent,
@@ -164,7 +165,8 @@ providers: [Storage]
     FilterPipe,
     HubbikeImagesComponent,
     SupportComponent,
-    ServicesComponent
+    ServicesComponent,
+    TimeDifferencePipe,
 
   ],
 

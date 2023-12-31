@@ -57,7 +57,9 @@
                       <div><span class="bike-model">End on </span><span class="models" >:  {{ProductDetails?.BookingEndDate | date :'short' }}</span></div>
                   </div>
                   <div style="align-self: stretch; padding-left: 30px; padding-right: 30px; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
-                      <div><span class="bike-model">Booked for </span><span class="models">: {{timeDifference}}</span></div>
+                      <div><span class="bike-model">Booked for </span><span class="models">:
+                        {{ ProductDetails?.BookingStartDate | timeDifference:ProductDetails?.BookingEndDate }}
+                    </span></div>
                   </div>
               </div>
           </div>

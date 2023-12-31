@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderService } from 'src/app/services/Order.service';
 
 @Component({
   selector: 'app-offers',
@@ -6,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./offers.component.scss'],
 })
 export class OffersComponent  implements OnInit {
+  offers: any;
 
-  constructor() { }
+  constructor(private os:OrderService) { }
 
-  ngOnInit() {}
+  ngOnInit() {this.getAll()}
+  getAll(){
+    this.os.getAlloffers().subscribe(res=>{
+      console.log(res)
+      this.offers=res;
+    })
 
+  }
+  applyCoupon(id:number){
+
+  }
 }
