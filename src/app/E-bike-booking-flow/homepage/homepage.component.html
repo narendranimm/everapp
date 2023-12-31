@@ -188,12 +188,13 @@
         <div class="search-result-bike">
           <h1 class="greeting-head">Welcome {{username}}</h1>
           <!-- <p class="notify-content" *ngIf="show">  Share your location</p> -->
-         
+         {{loc.compound_code}}
           <div id="submit" >
             <!-- <img src="./assets/mdi_location.svg" alt=""> -->
             {{lat}} - {{lng}}
           </div>
-     
+          <input id="latlng" type="text" value="{{lat}},{{lng}}" [(ngModel)]="locate"/>
+        
           <!-- <input type="text" value="{{lat}},{{lng}}" id="latlng"> -->
 
           <div id="map"></div>
@@ -269,6 +270,7 @@
         <app-swap-battery-scroll [slides]="slider"></app-swap-battery-scroll>
 
       </div>
+  
     </ion-content>
   </mat-sidenav-content>
 </mat-sidenav-container>

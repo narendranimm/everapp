@@ -37,6 +37,8 @@ export class HomepageComponent implements OnInit {
   slider: any = []
   bikeHub: any;
   events: any;
+  loc:any;
+  locate!:number;
   itemsCopy:any;
   searchTerm:any;
   azimageUrl: any = environment.azimageUrl_hub;
@@ -51,7 +53,7 @@ export class HomepageComponent implements OnInit {
   hubsnearby: any = [];
   constructor(private loadingservice: LoadingService, private hub_s: HubsService,
     public popoverController: PopoverController, private _bh: BookingService, private route: ActivatedRoute, private router: Router,
-    private _pd: ProductServicesService, private userdata: UserData
+    private _pd: ProductServicesService, private userdata: UserData,private http:HttpClient
   ) {
     this.userdata.getuser().then(res => {
       if (res !== null) {
@@ -116,36 +118,41 @@ export class HomepageComponent implements OnInit {
 
   };
 
-  address() {
-    const map = new google.maps.Map(document.getElementById('map') as HTMLInputElement, {
-      zoom: 8,
-      center: {
-        lat: this.lat,
-        lng: this.lng
-      }
-    })
-    const geocoder = new google.maps.Geocoder()
-    const InfoWindow = new google.maps.InfoWindow()
-    this.geocodeLatLng(geocoder)
+  // address() {
+  //   const map = new google.maps.Map(document.getElementById('map') as HTMLInputElement, {
+  //     zoom: 8,
+  //     center: {
+  //       lat: this.lat.toString(),
+  //       lng: this.lng.toString()
+  //     }
+  //   })
+  //   const geocoder = new google.maps.Geocoder()
+  //   const InfoWindow = new google.maps.InfoWindow()
+  //   this.geocodeLatLng(geocoder)
 
 
-  }
-  geocodeLatLng(geocoder: any) {
-    const input = (document.getElementById("latlng") as HTMLInputElement)
-    if(input.value){
+  // }
+  // geocodeLatLng(geocoder: any) {
+  //   const input = (document.getElementById("latlng") as HTMLInputElement)
+  //   if(input.value){
 
-      const latlngstr = input.value.split('', 2);
-      const latlng = {
-        lat: parseFloat(latlngstr[0]),
-        lng: parseFloat(latlngstr[1]),
-      };
-      geocoder.geocode({ location: latlng })
-        .then((res: any) => {
-          console.log(res)
-        })
-    }
-  }
-
+  //     const latlngstr = input.value.split('', 2);
+  //     const latlng = {
+  //       lat: parseFloat(latlngstr[0]),
+  //       lng: parseFloat(latlngstr[1]),
+  //     };
+  //     geocoder.geocode({ location: latlng })
+  //       .then((res: any) => {
+  //         console.log(res)
+  //       })
+  //   }
+  // }
+address(){
+  this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=17.519523,78.381172&key=AIzaSyCU4W4iQLV5ydrW3UxZncI_JdLi1EsKH5A`).subscribe((res:any)=>{
+  this.loc=res['plus_code']  
+  console.log(res)
+  })
+}
   scrollToBottom() {
     // Passing a duration to the method makes it so the scroll slowly
     // goes to the bottom instead of instantly
