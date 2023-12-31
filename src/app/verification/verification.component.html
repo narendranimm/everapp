@@ -9,12 +9,12 @@
 <p class="intro-content">A 6 digit code has sent to your mobile number</p>
 <form  [formGroup]="verficationForm" >
 <div class="otp-container">
-  <ion-input placeholder="" type="number" #otp1 class="otp" size="1" type="number" required="true" maxLength="1" (keyup)="otpController($event,otp2,'')" formControlName="firstdigit"></ion-input>
-  <ion-input placeholder="" type="number" #otp2 class="otp" size="1" required="true" maxLength="1" (keyup)="otpController($event,otp3,otp1)" formControlName="seconddigit"></ion-input>
-  <ion-input placeholder="" type="number" #otp3 class="otp" size="1" required="true" maxLength="1" (keyup)="otpController($event,otp4,otp2)" formControlName="thirddigit"></ion-input>
-  <ion-input placeholder="" type="number" #otp4 class="otp" size="1" required="true" maxLength="1" (keyup)="otpController($event,otp5,otp3)" formControlName="fourthdigit"></ion-input>
-  <ion-input placeholder="" type="number" #otp5 class="otp" size="1" required="true" maxLength="1" (keyup)="otpController($event,otp6,otp4)" formControlName="fifthdigit"></ion-input>
-  <ion-input placeholder=""type="number" #otp6 class="otp" size="1" required="true" maxLength="1" (keyup)="otpController($event,'',otp5)" formControlName="sixthdigit"></ion-input>
+  <ion-input placeholder="" type="number" #otp1 class="otp" size="1" onKeyPress="if(this.value.length==1) return false;"  required="true" maxLength="1" (keyup)="otpController($event,otp2,'')" formControlName="firstdigit"></ion-input>
+  <ion-input placeholder="" type="number" #otp2 class="otp" size="1" onKeyPress="if(this.value.length==1) return false;" required="true" maxLength="1" (keyup)="otpController($event,otp3,otp1)" formControlName="seconddigit"></ion-input>
+  <ion-input placeholder="" type="number" #otp3 class="otp" size="1" onKeyPress="if(this.value.length==1) return false;" required="true" maxLength="1" (keyup)="otpController($event,otp4,otp2)" formControlName="thirddigit"></ion-input>
+  <ion-input placeholder="" type="number" #otp4 class="otp" size="1" onKeyPress="if(this.value.length==1) return false;" required="true" maxLength="1" (keyup)="otpController($event,otp5,otp3)" formControlName="fourthdigit"></ion-input>
+  <ion-input placeholder="" type="number" #otp5 class="otp" size="1" onKeyPress="if(this.value.length==1) return false;" required="true" maxLength="1" (keyup)="otpController($event,otp6,otp4)" formControlName="fifthdigit"></ion-input>
+  <ion-input placeholder=""type="number" #otp6 class="otp" size="1" onKeyPress="if(this.value.length==1) return false;" required="true" maxLength="1" (keyup)="otpController($event,'',otp5)" formControlName="sixthdigit"></ion-input>
 </div>
 <br><br>
 

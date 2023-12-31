@@ -119,6 +119,7 @@ import { HubbikeImagesComponent } from './E-bike-booking-flow/hubdetails/hubbike
 import { SupportComponent } from './menu-flow/support/support.component';
 import { ServicesComponent } from './menu-flow/services/services.component';
 import { TimeDifferencePipe } from './time-difference.pipe';
+import { ViewsummaryComponent } from './viewsummary/viewsummary.component';
 
 providers: [Storage]
 @NgModule({
@@ -167,6 +168,7 @@ providers: [Storage]
     SupportComponent,
     ServicesComponent,
     TimeDifferencePipe,
+    ViewsummaryComponent
 
   ],
 
