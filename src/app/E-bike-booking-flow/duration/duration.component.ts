@@ -61,9 +61,14 @@ export class DurationComponent implements OnInit {
   washtype:any=0;
   securitydeposit: any;
   ispopupclosed:boolean=false;
+  isModelOpen:boolean=false;
    modal:boolean=false;
-  constructor(private datePipe: DatePipe, private snackBar: MatSnackBar,private loader:LoadingService,public modalController: ModalController,
-     private router: Router, private bookingservice: BookingService, private bk: FormBuilder, private route: ActivatedRoute, private user: UserData, private dataService: DataservicesService) {
+  @ViewChild(IonContent) content!: IonContent;
+
+  constructor(private datePipe: DatePipe, private snackBar: MatSnackBar,
+    private loader:LoadingService,public modalController: ModalController,
+     private router: Router, private bookingservice: BookingService, private bk: FormBuilder,
+      private route: ActivatedRoute, private user: UserData, private dataService: DataservicesService) {
 
     // console.log( this.datePipe.transform(Date.now(), 'yyyy-MM-dd HH:mm:ss'));
     this.customDate = this.bk.group({
@@ -116,7 +121,7 @@ export class DurationComponent implements OnInit {
   ngOnInit() {
     this.toppingList1 = this.numberdata.data;
 
-    this.user.getId('pId').then(data => {debugger
+    this.user.getId('pId').then(data => {
       if (data !== null) {
         this.productId = data;
       } 
@@ -179,7 +184,6 @@ export class DurationComponent implements OnInit {
     console.log(this.ordersaveData)
   }
 
-  @ViewChild(IonContent) content!: IonContent;
   data = [];
   scrollToBottom() {
     // Passing a duration to the method makes it so the scroll slowly
@@ -262,26 +266,8 @@ export class DurationComponent implements OnInit {
     console.log('total hours ' + totalHours)
     return totalHours;
   }
-
-
   amount: number = 0; // Input amount
   convertedCash: number  = 0; // Converted cash value
-
-
-
- 
-  proced(){
-this.ispopupclosed=true;
-this.modalController.dismiss();
-if(this.ispopupclosed){
-  this.convertedCash=this.convertedCash+this.washtype+this.securitydeposit;
-}
-
-  }
-  closepopup(){
-    this.modalController.dismiss();
-this.ispopupclosed=true;
-  }
 
 
 boxselection(data:any,i:number){
@@ -293,40 +279,66 @@ boxselection(data:any,i:number){
 }
  //last line
  book() {
+ if(this.ispopupclosed)
+ {
+  this.modalController.dismiss();
+
+
+   if (this.isSolt) {
+     this.customDate.markAllAsTouched();
+     this.snackBar.open(" Please Select A Slot!!!");
+   } else {
+     this.loader.simpleLoader('Loading...')
+     this.ordersaveData.ProductID = this.productId;
+     this.ordersaveData.BookingStartDate = this.startDate;
+     this.ordersaveData.BookingEndDate = this.endDate;
+     this.ordersaveData.TotalAmount=this.convertedCash
+     if(this.productId == null ){
+       this.snackBar.open("Please Select a Product")
+     this.loader.dismissLoader();
  
-  if (this.isSolt) {
-    this.customDate.markAllAsTouched();
-    this.snackBar.open(" Please Select A Slot!!!");
-  } else {
-    this.loader.simpleLoader('Loading...')
-    this.ordersaveData.ProductID = this.productId;
-    this.ordersaveData.BookingStartDate = this.startDate;
-    this.ordersaveData.BookingEndDate = this.endDate;
-    this.ordersaveData.TotalAmount=this.convertedCash
-    if(this.productId == null ){
-      this.snackBar.open("Please Select a Product")
-      return
-    this.loader.dismissLoader();
+       return;
+     }
+ 
+ 
+     this.bookingservice.book(this.ordersaveData).subscribe(
+       (res: any) => {
+         this.loader.dismissLoader();
+         this.BookingID = res.ID
+         this.user.setNew('bookingNo',this.BookingID)
+         this.snackBar.open(JSON.stringify(res.message));
+         this.router.navigateByUrl('/booking_summary/'+this.BookingID);
+       },
+       (error)=>{
+         this.loader.dismissLoader();
+         this.snackBar.open('booking failed');
+       }
+     )
+   }
+ }else{
+  this.isModelOpen=true;
 
-      return;
-    }
-
-
-    this.bookingservice.book(this.ordersaveData).subscribe(
-      (res: any) => {
-        this.loader.dismissLoader();
-        this.BookingID = res.ID
-        this.user.setNew('bookingNo',this.BookingID)
-        this.snackBar.open(JSON.stringify(res.message));
-        this.router.navigateByUrl('/booking_summary/'+this.BookingID);
-      },
-      (error)=>{
-        this.loader.dismissLoader();
-        this.snackBar.open('booking failed');
-      }
-    )
-  }
+ }
 }
+
+proced() {
+  this.ispopupclosed = true;
+  this.modalController.dismiss();
+  if (this.ispopupclosed) {
+    this.convertedCash = this.convertedCash + this.washtype + this.securitydeposit;
+  }
+
+}
+closepopup(){
+  console.log(this.modalController.dismiss())
+  this.modalController.dismiss();
+this.ispopupclosed=true;
+}
+open() {
+  
+  this.modalController.getTop();
+}
+
   //#region dummy data
   ordersaveData = {
     "OrderID": 123,
@@ -349,7 +361,11 @@ boxselection(data:any,i:number){
     "Remarks": "Good service",
     "CreatedOn": "2023-11-28T00:30:42",
     "DeliveredOn": "2023-11-30T00:30:42",
-    "PaymentConfirmedOn": "2023-11-29T00:30:42"
+    "PaymentConfirmedOn": "2023-11-29T00:30:42",
+    "IsFullPaid":1,
+    "WashAmount":0,        
+    "SecurityAmount":0,
+    "CouponID":0
   }
 
   numberdata = {

@@ -18,6 +18,10 @@ baseUrl:any=environment.apiurl;
   getorderbyUserID(userid:any){
     return this.http.get(this.baseUrl+`orders/getorderbyUserid/`+userid);
   }
+
+  getAlloffers(){
+    return this.http.get(this.baseUrl+`admin/offers/getall`);
+  }
   getordersummeryByBookingNo(bookingNo:string){
   let  bookingdata = {
       "BookingNo": bookingNo
