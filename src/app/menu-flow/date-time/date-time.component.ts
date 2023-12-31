@@ -57,8 +57,6 @@ export class DateTimeComponent  implements OnInit {
       date: ['', Validators.required],
       time: ['', Validators.required]
     })
-    this.totalHours = this.convertToHours(this.Number);
-    this.totalHours = this.convertToHoursin(this.Number);
 
     this.dataService.combinedData$.subscribe(data => {
       if (data) {
