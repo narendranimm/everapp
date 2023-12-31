@@ -1,47 +1,47 @@
-<div class="btn-container">
-<div style="width: 100%; height: 100%; flex-direction: column; justify-content: flex-start; align-items: center; gap: 24px; display: inline-flex">
+
+
+ <div style="width: 100%; height: 100%; flex-direction: column; justify-content: flex-start; align-items: center; gap: 24px; display: inline-flex">
     <div style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 108px; display: inline-flex">
         <div style="width: 24px; height: 24px; position: relative">
-            <div class="container">
-                <div class="btn-container">
-                  <button style="background: transparent;border: none;" routerLink="/wash-station-details"><img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
-                  </div>
-                
-                </div>
+          <button style="background: transparent;border: none;" routerLink="/bikedetails/1000"><img class="icon"
+            src="./assets/zondicons_arrow-left.svg" alt=""></button>
         </div>
-        <div class="dt">Date & time</div>
+        <div style="color: black; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Date & time</div>
     </div>
-    <div style="height: 156px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 24px; display: flex">
-        <div style="align-self: stretch; height: 40px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
-            <div style="align-self: stretch; color: #363636; font-size: 18px; font-family: Archivo; font-weight: 600; word-wrap: break-word">When do you want to come for washing your vehicle?</div>
+   
+    <div style="width:100%; height: 169px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 12px; display: flex">
+        <div style="align-self: stretch; height: 25px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
+            <div style="align-self: stretch; color: #363636; font-size: 18px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Set date & time</div>
         </div>
-        <div style="align-self: stretch; height: 92px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 12px; display: flex">
-            <div style="align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: #F2F2F2; border-radius: 24px; overflow: hidden; border: 1px solid; justify-content: space-between; align-items: center; display: inline-flex">
-                <div style="color: #363636; font-size: 16px; font-family: Archivo; font-weight: 400; word-wrap: break-word">Select date</div>
-                <div style="width: 18px; height: 18px; position: relative">
-                    <div style="width: 15px; height: 15px; left: 1.50px; top: 1.50px; position: absolute; background: #363636"></div>
-                </div>
-            </div>
-            <div style="align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: #F2F2F2; border-radius: 24px; overflow: hidden; border: 1px solid; justify-content: space-between; align-items: center; display: inline-flex">
-                <div style="color: #363636; font-size: 16px; font-family: Archivo; font-weight: 400; word-wrap: break-word">Select time</div>
-                <div style="width: 18px; height: 18px; position: relative">
-                    <div style="width: 14.62px; height: 14.62px; left: 1.69px; top: 1.69px; position: absolute; background: black"></div>
-                </div>
-            </div>
-        </div>
+        <input type="datetime-local" placeholder="Select end date and time" style="align-self: stretch; height: 60px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: #F2F2F2; border-radius: 100px; overflow: hidden; border: 1px solid; justify-content: space-between; align-items: center; display: inline-flex">
+     
+            <input type="datetime-local" placeholder="Select end date and time" style="align-self: stretch; height: 60px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: #F2F2F2; border-radius: 100px; overflow: hidden; border: 1px solid; justify-content: space-between; align-items: center; display: inline-flex">
+            
+  
+       
     </div>
-    <div style="width: 360px; padding-top: 20px; padding-bottom: 19px; padding-left: 16px; padding-right: 16px; border-top: 1px #E2E2E2 solid; justify-content: center; align-items: flex-start; gap: 99px; display: inline-flex">
+    <div style="width: 360px; padding-top:300px; padding-bottom: 14.50px; padding-left: 16px; padding-right: 16px;  justify-content: center; align-items: center; gap: 83px; display: inline-flex">
         <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
-            <div style="color: black; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">Total</div>
-            <div style="color: black; font-size: 20px; font-family: Archivo; font-weight: 600; word-wrap: break-word">₹600</div>
+            <div style="color: black; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Total</div>
+            <div style="color: black; font-size: 20px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">₹{{convertedCash}}</div>
         </div>
-        <button routerLink="/booking-summary-m" style="flex: 1 1 0; align-self: stretch; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: space-between; align-items: center; display: inline-flex">
-            <div style="color: white; font-size: 14px; font-family: Archivo; font-weight: 700; word-wrap: break-word">Book now</div>
-            <div style="width: 24px; height: 24px; position: relative">
-                <div style="width: 24px; height: 20.36px; left: 0px; top: 1.82px; position: absolute; background: white"></div>
-            </div>
-        </button>
+        <button 
+        style="flex: 1 1 0; align-self: stretch; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: space-between; align-items: center; display: inline-flex">
+        <div class="book" (click)="book()">Book now</div>
+        <div
+          style="width: 24px; height: 24px; padding-top: 1.82px; padding-bottom: 1.82px; justify-content: center; align-items: center; display: flex">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 22" fill="none">
+            <path
+              d="M19.4064 9.80036L12.1212 2.51516L13.818 0.818359L24 11.0004L23.1516 11.8488L13.818 21.1824L12.1212 19.4856L19.4064 12.2004H0V9.80036H19.4064Z"
+              fill="white" />
+          </svg>
+        </div>
+      </button>
     </div>
-</div>
-</div>
+  </div>
+  
+  
 
+  
+  
+  

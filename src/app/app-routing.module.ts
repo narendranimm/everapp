@@ -162,14 +162,15 @@ const routes: Routes = [
 {path:'battery-swapping',component: BatterySwappingComponent},
 {path:'wash-station-list',component:WashStationListComponent},
 {path:'wash-station-details',component:WashStationDetailsComponent},
-{path:'date-time',component:DateTimeComponent},
+{path:'wash-slot-book',component:DateTimeComponent},
 {path:'booking-summary-m',component:BookingSummaryComponent},
 {path:'offers-m',component:OffersMComponent},
 {path:'coupan-applied-m',component:CouponappliedComponent},
 {path:'booking-summary-applied-m',component:BookingSummaryAppliedCouponComponent},
 {path:'payment-gateways-m',component:PaymentGatewayMComponent},
 {path:'booking-details-m',component:BookingMComponent},
-{path:'bimages',component:HubbikeImagesComponent},  {
+{path:'bimages',component:HubbikeImagesComponent},
+  {
     path: 'popup',
     loadChildren: () => import('./E-bike-booking-flow/duration/popup/popup.module').then( m => m.PopupPageModule)
   },
