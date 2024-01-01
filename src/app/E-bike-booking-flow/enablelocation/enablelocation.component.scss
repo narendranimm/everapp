@@ -23,12 +23,7 @@ line-height: normal;
     width: 16px;
 height: 16px;
 }
-.parent{
-  display: flex;
-  flex-flow: wrap row;
-  align-items: center;
-  justify-content: center;
-}
+
 .example-container {
     width: 500px;
     height: 300px;
@@ -131,7 +126,7 @@ line-height: normal;
   flex-flow: wrap row;
   align-items: center;
   justify-content: center;
-  column-gap: 20px;
+
   row-gap: 20px
 
 }
@@ -251,7 +246,7 @@ align-self: stretch;
 }
 .greeting-head{
   color: #363636;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 font-size: 18px;
 font-style: normal;
 font-weight: 700;
@@ -260,7 +255,7 @@ line-height: normal;
 .share-loc-content{
   color: #000;
 text-decoration: none;
-font-family: 'Archivo', sans-serif;
+font-family: 'Open Sans', sans-serif;
 font-size: 14px;
 font-style: normal;
 font-weight: 400;
@@ -336,4 +331,18 @@ ion-modal ion-toolbar {
 }
 .cities{
   float:right;
+}
+.desp-1{
+ color: #363636; font-size: 14px; font-family: 'Open Sans', sans-serif;font-weight: 700; word-wrap: break-word
+
+}
+.desp-2{
+  color: black; font-size: 10px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
+
+}
+.desp-3{
+  align-self: stretch; color: #363636; font-size: 14px;font-family: 'Open Sans', sans-serif; font-weight: 700; word-wrap: break-word
+}
+.desp-4{
+ align-self: stretch; color: black; font-size: 10px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
 }

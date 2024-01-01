@@ -124,7 +124,7 @@
         </div>
       </div>
   </mat-sidenav>
-  <mat-sidenav-content style="height: 200rem;">
+  <mat-sidenav-content style="height: 100rem;">
     <mat-toolbar style="background: white;" >
       <button
         type="button"
@@ -135,9 +135,9 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
     
-        <div class="name-child">
+        <!-- <div class="name-child">
          <img  src="./assets/EVER (3).svg" alt="">
-        </div>
+        </div> -->
         <div >
           <span class="example-spacer"></span>
         <img  src="./assets/tdesign_notification-filled.svg" alt=""></div>
@@ -194,8 +194,8 @@
      <div class="parent">
       <div style="width: 158px; height: 158px; padding: 12px; background: white;  border-radius: 10px; overflow: hidden;  flex-direction: column; justify-content: space-between; align-items: flex-start; display: inline-flex" routerLink="/homepage">
         <div style="width: 74px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 2px; display: flex">
-            <div style="color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">EV Rentals</div>
-            <div style="color: black; font-size: 10px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Rent right away</div>
+            <div class="desp-1">EV Rentals</div>
+            <div class="desp-2">Rent right away</div>
         </div>
         <div style="width: 134px; height: 93.47px; position: relative">
             <div style="width: 134px; height: 85.70px; left: 0px; top: 0px; position: absolute">
@@ -205,8 +205,8 @@
     </div>
     <div  style="width: 158px; height: 158px; padding: 12px; background: white;  border-radius: 10px; overflow: hidden;  flex-direction: column; justify-content: space-between; align-items: flex-start; display: inline-flex" routerLink="/battery-staion-list">
       <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 2px; display: flex">
-          <div style="color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Swapping station</div>
-          <div style="color: black; font-size: 10px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Book battery for your EV</div>
+          <div class="desp-1">Swapping station</div>
+          <div class="desp-2">Book battery for your EV</div>
       </div>
       <div style="width: 134px; height: 82.01px; justify-content: center; align-items: center; display: inline-flex">
           <img style="width: 134px; height: 82.14px" src="../assets/image 8.png" />
@@ -215,8 +215,8 @@
 
   <div style="width: 158px; height: 158px; padding: 12px; background: white;  border-radius: 10px; overflow: hidden;  flex-direction: column; justify-content: space-between; align-items: flex-start; display: inline-flex">
     <div style="align-self: stretch; height: 34.88px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 2px; display: flex">
-        <div style="align-self: stretch; color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">EV bike taxi</div>
-        <div style="align-self: stretch; color: black; font-size: 10px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Eco-friendly transportation</div>
+        <div class="desp-3">EV bike taxi</div>
+        <div class="desp-4">Eco-friendly transportation</div>
     </div>
     <div style="width: 134px; height: 97.24px; position: relative; background: white">
 
@@ -228,7 +228,7 @@
 </div>
 <div style="width: 158px; height: 158px; padding: 12px; background: white;  border-radius: 10px; overflow: hidden;  flex-direction: column; justify-content: space-between; align-items: flex-start; display: inline-flex">
   <div style="align-self: stretch; height: 35px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 2px; display: flex">
-      <div style="color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Delivery</div>
+      <div class="desp-1">Delivery</div>
       <div style="align-self: stretch; color: black; font-size: 10px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Quick and affordable</div>
   </div>
   <div style="width: 134px; height: 82.01px; justify-content: center; align-items: center; display: inline-flex">
@@ -242,6 +242,36 @@
    <div class="cities">
     <img src="../assets/cities.svg" alt="">
    </div>
+   <mat-toolbar style="position: fixed;background: white;margin-top: 40px;">
+    <div style="width: 100%; height: 100%; justify-content: space-between; align-items: flex-start; display: inline-flex">
+      <div style="width: 72px; flex-direction: column; justify-content: center; align-items: center; gap: 8px; display: inline-flex">
+          <div style="width: 24px; height: 24px; position: relative">
+              <div style="width: 18.06px; height: 18.06px; left: 7.64px; top: 0px; position: absolute; transform: rotate(25.04deg); transform-origin: 0 0; background: #3355B9"></div>
+          </div>
+          <div style="color: #3355B9; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Ever</div>
+      </div>
+      <div style="width: 72px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 8px; display: inline-flex">
+          <div style="width: 24px; padding-top: 4px; padding-bottom: 1px; padding-left: 2px; padding-right: 2px; justify-content: center; align-items: center; display: inline-flex">
+              <div style="width: 20px; height: 19px; background: rgba(54, 54, 54, 0.60)"></div>
+          </div>
+          <div style="color: rgba(54, 54, 54, 0.60); font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">EV Rentals</div>
+      </div>
+      <div style="width: 72px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 8px; display: inline-flex">
+          <div style="width: 24px; height: 24px; position: relative">
+              <div style="width: 9.56px; height: 17px; left: 7px; top: 3.62px; position: absolute; background: rgba(54, 54, 54, 0.60)"></div>
+              <div style="width: 24px; height: 24px; left: 0px; top: 0px; position: absolute"></div>
+          </div>
+          <div style="color: rgba(54, 54, 54, 0.60); font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Swap station</div>
+      </div>
+      <div style="width: 72px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 8px; display: inline-flex">
+          <div style="width: 24px; height: 24px; position: relative">
+              <div style="width: 22.52px; height: 12px; left: 1px; top: 9px; position: absolute; background: rgba(54, 54, 54, 0.60)"></div>
+              <div style="width: 7px; height: 7px; left: 10px; top: 3px; position: absolute; background: rgba(54, 54, 54, 0.60)"></div>
+          </div>
+          <div style="color: rgba(54, 54, 54, 0.60); font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Services</div>
+      </div>
+  </div>
+  </mat-toolbar>
 </ion-content>
 
  </mat-sidenav-content>

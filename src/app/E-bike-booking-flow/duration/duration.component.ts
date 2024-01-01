@@ -279,8 +279,7 @@ boxselection(data:any,i:number){
 }
  //last line
  book() {
- if(this.ispopupclosed)
- {
+
   this.modalController.dismiss();
 
 
@@ -315,10 +314,7 @@ boxselection(data:any,i:number){
        }
      )
    }
- }else{
-  this.isModelOpen=true;
-
- }
+ 
 }
 
 proced() {
@@ -336,7 +332,7 @@ this.ispopupclosed=true;
 }
 open() {
   
-  this.modalController.getTop();
+  this.isModelOpen=true;
 }
 
   //#region dummy data

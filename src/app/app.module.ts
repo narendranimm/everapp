@@ -120,6 +120,7 @@ import { SupportComponent } from './menu-flow/support/support.component';
 import { ServicesComponent } from './menu-flow/services/services.component';
 import { TimeDifferencePipe } from './time-difference.pipe';
 import { ViewsummaryComponent } from './viewsummary/viewsummary.component';
+import { RoutesComponent } from './routes/routes.component';
 
 providers: [Storage]
 @NgModule({
@@ -168,7 +169,8 @@ providers: [Storage]
     SupportComponent,
     ServicesComponent,
     TimeDifferencePipe,
-    ViewsummaryComponent
+    ViewsummaryComponent,
+    RoutesComponent
 
   ],
 
