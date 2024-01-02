@@ -110,15 +110,7 @@
   column-gap: 20px;
 }
 
-.scroller {
 
-  height: 400px;
-  top: 266px;
-  position: absolute;
-  background: white;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-}
 
 .hub-list-container-content {
   color: white;
@@ -129,7 +121,8 @@
 }
 
 .details-card {
-  width: 101px;
+  width: 90px;
+  height: 90px;
   padding: 8px;
   background: #F1F1F1;
   border-radius: 5.20px;
@@ -183,5 +176,6 @@
   color: #DE5753; font-size: 12px; font-family: Archivo; font-weight: 700; line-height: 28px; word-wrap: break-word
 }
 .scroller{
-  height: 104rem;
+  width: 100%;
+  height: 120rem;
 }

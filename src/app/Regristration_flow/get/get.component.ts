@@ -100,7 +100,7 @@ export class GetComponent  implements OnInit {
               }
             }else{
               
-              this.snackBar.open('Permission denied');
+             
               if(this.userid != null){
                 this.router.navigateByUrl('/homepage')
               }else{
