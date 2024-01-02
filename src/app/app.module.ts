@@ -121,6 +121,9 @@ import { ServicesComponent } from './menu-flow/services/services.component';
 import { TimeDifferencePipe } from './time-difference.pipe';
 import { ViewsummaryComponent } from './viewsummary/viewsummary.component';
 import { RoutesComponent } from './routes/routes.component';
+import { KycstatusComponent } from './kycstatus/kycstatus.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { SwapstationsComponent } from './swapstations/swapstations.component';
 
 providers: [Storage]
 @NgModule({
@@ -170,11 +173,14 @@ providers: [Storage]
     ServicesComponent,
     TimeDifferencePipe,
     ViewsummaryComponent,
-    RoutesComponent
+    RoutesComponent,
+    KycstatusComponent,
+    SettingsComponent,
+    SwapstationsComponent
 
   ],
 
-  imports: [BrowserModule, MatExpansionModule,MatSlideToggleModule,MatDatepickerModule,
+  imports: [BrowserModule, MatExpansionModule,MatSlideToggleModule,MatDatepickerModule,MatProgressSpinnerModule,
     // SocialLoginModule,
     IonicStorageModule.forRoot({ name: "mylocaldb" }), MatSnackBarModule,
     MatSelectModule,

@@ -281,7 +281,7 @@ boxselection(data:any,i:number){
  book() {
 
   this.modalController.dismiss();
-
+  this.router.navigateByUrl('/adhar');
 
    if (this.isSolt) {
      this.customDate.markAllAsTouched();
@@ -306,11 +306,13 @@ boxselection(data:any,i:number){
          this.BookingID = res.ID
          this.user.setNew('bookingNo',this.BookingID)
          this.snackBar.open(JSON.stringify(res.message));
-         this.router.navigateByUrl('/booking_summary/'+this.BookingID);
+        //  this.router.navigateByUrl('/booking_summary/'+this.BookingID);
+        this.router.navigateByUrl('/adhar');
        },
        (error)=>{
          this.loader.dismissLoader();
          this.snackBar.open('booking failed');
+         
        }
      )
    }

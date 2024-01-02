@@ -38,7 +38,7 @@ export class HomepageComponent implements OnInit {
   bikeHub: any;
   events: any;
   loc:any;
-  locate!:number;
+
   itemsCopy:any;
   searchTerm:any;
   azimageUrl: any = environment.azimageUrl_hub;
@@ -46,6 +46,7 @@ export class HomepageComponent implements OnInit {
   username = '';
   logindata!: any;
   show: boolean = true; 
+ 
   private breakpointObserver = inject(BreakpointObserver);
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(map(result => result.matches), shareReplay());
@@ -115,7 +116,7 @@ export class HomepageComponent implements OnInit {
 
       this.getNearByHubs()
     })
-
+console.log(coordinates)
   };
 
   // address() {
@@ -148,6 +149,7 @@ export class HomepageComponent implements OnInit {
   //   }
   // }
 address(){
+ 
   this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=17.519523,78.381172&key=AIzaSyCU4W4iQLV5ydrW3UxZncI_JdLi1EsKH5A`).subscribe((res:any)=>{
   this.loc=res['plus_code']  
   console.log(res)

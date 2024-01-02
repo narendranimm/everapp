@@ -96,7 +96,7 @@ export class SelfieComponent implements OnInit {
       this.snackBar.open("please select your pic");
       this.router.navigate(['/selfie'])
     }else{
-      this.router.navigate(['/homepage'])
+      this.router.navigate(['/booking_summary/ABC123'])
     }
   }
 }

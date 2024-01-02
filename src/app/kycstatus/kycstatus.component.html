@@ -1,0 +1,52 @@
+<!-- <mat-card class="example-card" >
+  <mat-card-content>
+    
+
+    <section class="example-section" *ngIf="mode === 'determinate'">
+      <label class="example-margin">Progress:</label>
+      <mat-slider class="example-margin">
+        <input type="range" [(ngModel)]="value" matSliderThumb>
+      </mat-slider>
+    </section>
+  </mat-card-content>
+</mat-card>
+
+    
+
+    <mat-progress-spinner
+        class="example-margin"
+        [color]="color"
+        [mode]="mode"
+        [value]="value">
+    </mat-progress-spinner> -->
+    <div style="width: 100%; height: 100%; flex-direction: column; justify-content: flex-start; align-items: center; gap: 24px; display: inline-flex">
+      <div style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 124px; display: inline-flex">
+          <div style="width: 24px; height: 24px; position: relative">
+            <button style="background: transparent;border: none;" routerLink="/homepage">
+              <img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
+          </div>
+          <div style="color: #363636; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">KYC</div>
+      </div>
+      <!-- <mat-slider class="example-margin">
+        <input type="range" [(ngModel)]="value" matSliderThumb>
+      </mat-slider> -->
+      <div style="flex-direction: column; justify-content: flex-start; align-items: center; gap: 24px; display: flex">
+          <mat-progress-spinner
+          class="example-margin"
+          [color]="color"
+          [mode]="mode"
+          [value]="value"style="">
+      
+              </mat-progress-spinner>
+        
+          <div style="flex-direction: column; justify-content: flex-start; align-items: center; gap: 12px; display: flex">
+              <div style="width: 290px; text-align: center; color: black; font-size: 24px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">KYC 90% completed</div>
+              <div style="align-self: stretch; text-align: center; color: black; font-size: 16px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Upload remaining document to complete your KYC.</div>
+          </div>
+      </div>
+      <div class="btn-status">
+      <button style="width: 328px; height: 48px; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: space-between; align-items: center; display: inline-flex">
+        <div style="color: white; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Upload Pan/ passport</div>
+    </button>
+  </div>
+  </div>

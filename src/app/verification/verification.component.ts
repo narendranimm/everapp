@@ -5,6 +5,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserData } from '../providers/user-data';
 import { Router } from '@angular/router';
 import { LoadingService } from '../services/loading.service';
+import { MatDialog } from '@angular/material/dialog';
+import { CongratulationsComponent } from '../congratulations/congratulations.component';
 
 @Component({
   selector: 'app-verification',
@@ -14,11 +16,11 @@ import { LoadingService } from '../services/loading.service';
 export class VerificationComponent implements OnInit {
   showLoader!: boolean;
   otp = '';
-
+  isDisabled: boolean = true;
   verficationForm!: FormGroup;
   logindata: any;
   mobileno: any;
-  constructor(private reg: RegisterService, private loadingservice: LoadingService,
+  constructor(private reg: RegisterService, private loadingservice: LoadingService,public dialog: MatDialog,
     private _vf: FormBuilder, private router: Router, private register: RegisterService, private snackBar: MatSnackBar, private userdata: UserData) {
     this.verficationForm = this._vf.group({
       firstdigit: ['', Validators.required],
@@ -75,11 +77,12 @@ export class VerificationComponent implements OnInit {
 
     //  console.log(this.logindata.OTP == otpString)
     if (this.logindata.OTP == otpString) {
-      this.snackBar.open("otp verified successfully");
+      this.dialog.open(CongratulationsComponent);
       this.router.navigate(['/enableloaction'])
     } else {
       this.snackBar.open("invalid otp");
       this.router.navigate(['/verification'])
+    
     }
 
 

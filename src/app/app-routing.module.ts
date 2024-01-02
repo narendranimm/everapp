@@ -81,6 +81,8 @@ import { VerificationComponent } from './verification/verification.component';
 
 import { SpinnerComponent } from './spinner/spinner.component';
 import { HubbikeImagesComponent } from './E-bike-booking-flow/hubdetails/hubbike-images/hubbike-images.component';
+import { KycstatusComponent } from './kycstatus/kycstatus.component';
+import { SwapstationsComponent } from './swapstations/swapstations.component';
 
 
 
@@ -174,6 +176,8 @@ const routes: Routes = [
     path: 'popup',
     loadChildren: () => import('./E-bike-booking-flow/duration/popup/popup.module').then( m => m.PopupPageModule)
   },
+  {path:'kyc',component:KycstatusComponent},
+  {path:'swapstation',component:SwapstationsComponent}
 
 
 
