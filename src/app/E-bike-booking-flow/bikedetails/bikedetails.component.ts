@@ -40,6 +40,8 @@ ProductDetails:any;
     this._pd.productDetails(this.productID).subscribe(
       (res)=>{
       this.ProductDetails=res;
+      
+
       this.imageUrl=this.azimageUrl+this.ProductDetails.ImageName;
       this.loader.dismissLoader();
     },(error)=>{

@@ -1,6 +1,6 @@
 import { SocialAuthService } from '@abacritt/angularx-social-login';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IonContent } from '@ionic/angular';
@@ -13,6 +13,7 @@ import { PostResult } from 'src/app/registration-models/postresult';
 import { RegisterService } from 'src/app/registration-services/register.service';
 import { ValidationService } from 'src/app/validationservice/validation.service';
 import { LoadingService } from 'src/app/services/loading.service';
+import { ValidateUrl } from './age.validator';
 
 
 @Component({
@@ -25,25 +26,24 @@ export class RegisterComponent implements OnInit {
   message:any;
   UserID:any;
   duration:any;
-
   maxDate!: Date;
   date!: Date;
+  readonly minAge = 18;
+
   constructor(private loadingservice: LoadingService,
     private router: Router,private userdata:UserData,private _snackBar: MatSnackBar,
     public dialog: MatDialog,private snackBar: MatSnackBar, public toast: ToastController, private route: ActivatedRoute, 
     private _rf: FormBuilder, private reg: RegisterService, 
     private customValidators: ValidationService) {
-    this.userdata.get().then( res => 
-      {}
-      // console.log(res)
-      )
+     
+  
     this.regForm = this._rf.group({
       FirstName: ['', Validators.compose([Validators.required,])],
       LastName: ['', Validators.compose([Validators.required])],
       EmailID: ['', Validators.compose([Validators.required,Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),Validators.email])],
       country: '+91',
       MobileNo: ['', [Validators.required,Validators.pattern("[0-9 ]{10}")]],
-      DateofBirth: ['', Validators.compose([Validators.required])],
+      DateofBirth: ['', [Validators.compose([Validators.required]),ValidateUrl]],
       Password: ['12345', Validators.compose([Validators.required])],
       MemberType: '1000',
       OTP: '146789',
@@ -60,8 +60,6 @@ export class RegisterComponent implements OnInit {
       userId: 0,
       Gender: 1000
     })
-    this.maxDate = new Date();
-    this.maxDate.setMonth(this.maxDate.getMonth() - 12 * 18);
   }
 
   openDialog() {
@@ -84,7 +82,7 @@ export class RegisterComponent implements OnInit {
    
   }
   isModalOpen = false;
-
+ 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
   }
@@ -105,20 +103,16 @@ export class RegisterComponent implements OnInit {
     this.content.scrollToTop(500);
   }
   register() {
-    this.loadingservice.simpleLoader('Loading')
-    // this.regForm.value.ProfilePhoto.s
-    const picname = this.regForm.get('FirstName')!.value +'_'+ this.regForm.get('LastName')!.value;
-    this.regForm.controls.ProfilePhoto.setValue(picname);
-    const data = this.regForm.value;
     if(!this.regForm.valid) {
-      setTimeout(() => {
-        this.loadingservice.dismissLoader();
-      }, 1000);
-
+     
       this.regForm.markAllAsTouched();
       this.snackBar.open(" All fields are required ");
       return;
     }
+    this.loadingservice.simpleLoader('Loading')
+    const picname = this.regForm.get('FirstName')!.value +'_'+ this.regForm.get('LastName')!.value;
+    this.regForm.controls.ProfilePhoto.setValue(picname);
+    const data = this.regForm.value;
  
     this.reg.signup(data).subscribe(
       (res: PostResult) => {
@@ -141,7 +135,6 @@ export class RegisterComponent implements OnInit {
    
   }
  
-
  
  
   submit() {
@@ -155,7 +148,4 @@ export class RegisterComponent implements OnInit {
       this.regForm.markAllAsTouched();
     }
   }
-
-
-    
 }
