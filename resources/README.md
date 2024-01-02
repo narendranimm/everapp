@@ -24,3 +24,6 @@ this.userdata.setNew("loginuser",data)
 
   --- azure image Url----
    azimageUrl:any=environment.azimageUrl_hub;
+
+  --time differenece
+    {{ ProductDetails?.BookingStartDate | timeDifference:ProductDetails?.BookingEndDate }} 

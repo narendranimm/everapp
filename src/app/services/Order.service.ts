@@ -28,4 +28,10 @@ baseUrl:any=environment.apiurl;
     }
     return this.http.post(this.baseUrl+`orders/getordersummeryByBookingNo`,bookingdata);
   }
+  getUserCurrentBooking(userId:number){
+  let  bookingdata = {
+      "userid": userId
+    }
+    return this.http.post(this.baseUrl+`orders/getUserCurrentBooking`,bookingdata);
+  }
 }
