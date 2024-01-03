@@ -15,7 +15,6 @@ import { SelfieComponent } from './Regristration_flow/selfie/selfie.component';
 
 import { CropComponent } from './Regristration_flow/crop/crop.component';
 import { DurationComponent } from './E-bike-booking-flow/duration/duration.component';
-import { EnablelocationComponent } from './E-bike-booking-flow/enablelocation/enablelocation.component';
 import { HubdetailsComponent } from './E-bike-booking-flow/hubdetails/hubdetails.component';
 import { HomepageComponent } from './E-bike-booking-flow/homepage/homepage.component';
 import { BikelistComponent } from './E-bike-booking-flow/bikelist/bikelist.component';
@@ -108,7 +107,7 @@ const routes: Routes = [
 {path:'crop',component:CropComponent},
 //E-Booking-flow Routes
 {path:'slotbooking',component: DurationComponent},
-{path:'enableloaction',component:EnablelocationComponent},
+// {path:'enableloaction',component:EnablelocationComponent},
 {path:'hub-details',component:HubdetailsComponent},
 {path:'homepage',component:HomepageComponent},
 
@@ -187,7 +186,12 @@ const routes: Routes = [
 
   },
   {path:'kyc',component:KycstatusComponent},
-  {path:'swapstation',component:SwapstationsComponent}
+  {path:'swapstation',component:SwapstationsComponent},
+  {
+    path: 'tabs',
+    loadChildren: () => import('./tablinks/tablinks.module').then( m => m.TablinksPageModule)
+  }
+
 
 
 

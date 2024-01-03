@@ -6,27 +6,32 @@ import { IonicModule } from '@ionic/angular';
 
 import { CurrentplanPageRoutingModule } from './currentplan-routing.module';
 
-import { CurrentplanPage } from './currentplan.page';
-import { TimeDifferencePipe } from '../time-difference.pipe';
-import { CustomDateTimePipe } from '../custom-date-time.pipe';
 import { SlotbookingComponent } from './slotbooking/slotbooking.component';
+import { SharedModule } from '../shared.module';
+import { CustomDateTimePipe } from '../custom-date-time.pipe';
+import { TimeDifferencePipe } from '../time-difference.pipe';
 import { FormatTimePipe } from '../format-time.pipe';
+import { FilterPipe } from '../filter.pipe';
+import { CurrentplandetailsComponent } from '../currentplandetails/currentplandetails.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CurrentplanPageRoutingModule
+    CurrentplanPageRoutingModule,
+    SharedModule ,
   ],
-  declarations: [CurrentplanPage,
-    TimeDifferencePipe,
-    CustomDateTimePipe,
-    FormatTimePipe,
+  declarations: [
+    CurrentplandetailsComponent,
     SlotbookingComponent,
   ],
   providers: [
-    DatePipe,  // Add DatePipe to the providers array
+    DatePipe, 
+    CustomDateTimePipe,
+        TimeDifferencePipe,
+        FilterPipe,
+    FormatTimePipe// Add DatePipe to the providers array
     // other services
   ],
 })
