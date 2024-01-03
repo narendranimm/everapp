@@ -178,6 +178,11 @@ const routes: Routes = [
     loadChildren: () => import('./E-bike-booking-flow/duration/popup/popup.module').then( m => m.PopupPageModule)
 
   },
+  {
+    path: 'currentplan',
+    loadChildren: () => import('./currentplan/currentplan.module').then( m => m.CurrentplanPageModule)
+
+  },
   {path:'kyc',component:KycstatusComponent},
   {path:'swapstation',component:SwapstationsComponent}
 

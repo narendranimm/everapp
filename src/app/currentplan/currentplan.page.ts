@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../services/Order.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { UserData } from '../providers/user-data';
 import { environment } from 'src/environments/environment.prod';
-
+import { timer, Subscription, Observable, interval } from 'rxjs';
+import { Pipe, PipeTransform } from '@angular/core';
+import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-currentplan',
   templateUrl: './currentplan.page.html',
@@ -26,7 +27,10 @@ export class CurrentplanPage implements OnInit {
   public hoursToDday:any;
   public daysToDday:any;
   dateDifference:any;
-  
+  countDown!: Subscription;
+  countDown$!: Observable<any>;
+  counter = 0;
+  tick = 300; //(interval for the timer in (Milliseconds))
  bookingNo:any=null;
  ProductDetails:any;
   constructor(private _pd:OrderService,private a_router:ActivatedRoute,private storage:UserData,private router:Router) {
@@ -60,12 +64,13 @@ export class CurrentplanPage implements OnInit {
   }
   
   
-  
+
   getDetails(id:number) {
     this._pd.getUserCurrentBooking(id).subscribe((res: any) => {
       console.log(res)
       this.ProductDetails = res;
       if (res) {
+        this.showCounter();
   
         this.getTimeDifference(res.BookingStartDate, res.BookingEndDate)
       }
@@ -73,9 +78,33 @@ export class CurrentplanPage implements OnInit {
     })
   }
   extendplan(){
+    console.log(this.ProductDetails)
     this.storage.setNew('extendplandata',this.ProductDetails)
     this.router.navigateByUrl('/currentplan/slot')
   }
-  
+  showCounter(){
+    let dateObject:any = new Date(this.ProductDetails.BookingStartDate);
+    let dateObject2:any = new Date(this.ProductDetails.BookingEndDate);
+    this.counter = Math.floor((dateObject.getTime()- dateObject2.getTime()) / 1000);
+
+    // Using the timer function to create an observable that decrements the counter value at a fixed interval
+    this.countDown = timer(0, this.tick).subscribe(() => --this.counter);
+
+    // Using the interval function to create an observable that emits values at a fixed interval
+    this.countDown$ = interval(1000).pipe(
+      map(() => {
+        // Calculating the remaining time in seconds
+        return Math.floor(
+          (dateObject.getTime()- dateObject2.getTime()) / 1000
+        );
+      })
+    );
   }
+
+  ngOnDestroy() {
+    // this.countDown = 'nuill';
+  }
+  }
+  
+  
   

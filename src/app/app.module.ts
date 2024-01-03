@@ -124,6 +124,7 @@ import { RoutesComponent } from './routes/routes.component';
 import { KycstatusComponent } from './kycstatus/kycstatus.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SwapstationsComponent } from './swapstations/swapstations.component';
+import { FormatTimePipe } from './format-time.pipe';
 
 providers: [Storage]
 @NgModule({
@@ -176,7 +177,8 @@ providers: [Storage]
     RoutesComponent,
     KycstatusComponent,
     SettingsComponent,
-    SwapstationsComponent
+    SwapstationsComponent,
+    FormatTimePipe
 
   ],
 
