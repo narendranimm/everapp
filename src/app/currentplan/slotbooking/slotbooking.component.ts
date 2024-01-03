@@ -107,7 +107,8 @@ export class SlotbookingComponent implements OnInit {
         this.bookingdata = res;
         this.productId=res.ProductID;
         console.log(res)
-        this.startDate = this.datePipe.transform(res.BookingStartDate, 'MM/dd/yyyyTHH:mm', 'UTC+6');
+        this.startDate=res.BookingStartDate;
+        //this.startDate = this.datePipe.transform(res.BookingStartDate, 'MM/dd/yyyyTHH:mm', 'UTC+6');
 
       } else {
         // Handle the case when data is null

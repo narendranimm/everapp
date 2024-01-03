@@ -8,6 +8,8 @@ import { IonContent, NavController } from '@ionic/angular';
 import { Geolocation, GeolocationPlugin } from '@capacitor/geolocation';
 import { LocationService } from 'src/app/location.service';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
+import { UserData } from 'src/app/providers/user-data';
+
 
 @Component({
   selector: 'app-enablelocation',
@@ -21,6 +23,8 @@ export class EnablelocationComponent  implements OnInit {
   bikeHub:any;
 user:any;
 bikeHubID:any;
+username = '';
+logindata!: any;
 loggedIn:any;
 azimageUrl:any='https://everdevuat.blob.core.windows.net/hubs/';
 profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
@@ -31,17 +35,20 @@ profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
       map(result => result.matches),
       shareReplay()
     );
-    constructor(private _bh:BookingService,private element: ElementRef,
-      // private authService: SocialAuthService,
+    constructor(private _bh:BookingService,private element: ElementRef,private userdata: UserData,
+      // private authService: SocialAuthService, 
       public navCtrl: NavController,private location:LocationService,private geolocation: Geolocation ) {
-      this.getbranchesByBID()
+      this.getbranchesByBID();
+      this.userdata.getuser().then(res => {
+        if (res !== null) {
+  
+          this.logindata = res;
+          this.username = res.FirstName + ' ' + res.LastName;
+        }
+      })
+  
     }
     ngOnInit() {
-      // this.authService.authState.subscribe((user) => {
-      //   this.user = user;
-      //   this.loggedIn = (user != null);
-      //   console.log(user)
-      // });
       this.printCurrentPosition();
       // this.slides=[]
     }

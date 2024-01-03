@@ -51,4 +51,23 @@ baseUrl:any=environment.apiurl;
   getbymobileno(mobileno:any){
     return this.http.get(this.baseUrl+`getbymobileno/`+mobileno);
   }
+
+  updateUserKycStatus(userid:number,iskyc:boolean){
+  let data=  {
+      "userid":userid,
+      "pin":null,
+      "iskyc":iskyc
+  
+  }
+  return this.http.post(this.baseUrl+`updateUserKycStatus/`,data)
+  }
+  setUserPin(userid:number,pin:number){
+  let data=  {
+    "userid":userid,
+    "pin":pin,
+    "iskyc":null
+  
+  }
+  return this.http.post(this.baseUrl+`setUserPin/`,data)
+  }
 }
