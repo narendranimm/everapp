@@ -333,7 +333,7 @@ closepopup(){
 this.ispopupclosed=true;
 }
 open() {
-  
+
   this.isModelOpen=true;
 }
 

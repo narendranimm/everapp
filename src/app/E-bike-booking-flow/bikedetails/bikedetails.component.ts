@@ -40,7 +40,7 @@ ProductDetails:any;
     this._pd.productDetails(this.productID).subscribe(
       (res)=>{
       this.ProductDetails=res;
-      
+      console.log(res)
 
       this.imageUrl=this.azimageUrl+this.ProductDetails.ImageName;
       this.loader.dismissLoader();
