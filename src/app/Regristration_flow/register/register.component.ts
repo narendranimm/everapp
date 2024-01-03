@@ -39,7 +39,7 @@ export class RegisterComponent implements OnInit {
   
     this.regForm = this._rf.group({
       FirstName: ['', Validators.compose([Validators.required,Validators.pattern('^[a-zA-Z \-\']+')])],
-      LastName: ['', Validators.compose([Validators.required])],
+      LastName: ['', [Validators.required,Validators.pattern('^[a-zA-Z \-\']+')]],
       EmailID: ['', Validators.compose([Validators.required,Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),Validators.email])],
       country: '+91',
       MobileNo: ['', [Validators.required,Validators.pattern("[0-9 ]{10}")]],
