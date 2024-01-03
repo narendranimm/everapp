@@ -18,6 +18,10 @@ export class BookingService {
   book(orderdata:any):Observable<any>{
     return this.http.post(this.baseurl+'orders/orderbooking',orderdata)
   }
+
+  extendOrderplan(orderdata:any):Observable<any>{
+    return this.http.post(this.baseurl+'orders/extendCurrentOrder',orderdata)
+  }
   
   getPriceData() {
     return this.http.get(this.baseurl+'product/getPriceData')
