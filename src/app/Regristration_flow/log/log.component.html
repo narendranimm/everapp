@@ -199,7 +199,7 @@
                     <ion-select-option value="+91">+91</ion-select-option>
                   </ion-select>
               </div>
-              <ion-input type="tel" class="phone" placeholder="0000000" formControlName="mobileno"></ion-input>
+              <ion-input type="tel" class="phone" placeholder="0000000" formControlName="mobileno" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"></ion-input>
            
           </div>
       </div>
@@ -219,3 +219,9 @@
   
 </div>
 </form>
+<div class="loader">
+  <svg class="circular" viewBox="25 25 50 50">
+    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10" />
+  </svg>
+</div>
+

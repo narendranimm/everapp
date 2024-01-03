@@ -77,7 +77,7 @@ export class VerificationComponent implements OnInit {
 
     //  console.log(this.logindata.OTP == otpString)
     if (this.logindata.OTP == otpString) {
-      this.dialog.open(CongratulationsComponent);
+     
       this.router.navigate(['/enableloaction'])
     } else {
       this.snackBar.open("invalid otp");
@@ -110,13 +110,14 @@ export class VerificationComponent implements OnInit {
       if (res.status) {
         this.loadingservice.dismissLoader();
         let message: string = res.message;
-        console.log(message)
+        console.log(message);
+        this.dialog.open(CongratulationsComponent);
         this.snackBar.open(message);
       }
       else {
         this.loadingservice.dismissLoader();
-
-        this.snackBar.open(JSON.stringify(res.message));
+    
+      
 
       }
     })

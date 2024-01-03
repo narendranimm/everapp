@@ -59,7 +59,7 @@ async sendOTP(){
     this.otpForm.markAllAsTouched();
     this.snackBar.open("plaese Enter Mobile No.");
   }
-  // this.loadingservice.simpleLoader('Loading ..')
+  this.loadingservice.simpleLoader('Loading ..')
   //need to handle error
   //1. if otp failed
   //2.if network issue.

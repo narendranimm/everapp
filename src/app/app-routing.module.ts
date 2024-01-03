@@ -84,6 +84,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { HubbikeImagesComponent } from './E-bike-booking-flow/hubdetails/hubbike-images/hubbike-images.component';
 import { KycstatusComponent } from './kycstatus/kycstatus.component';
 import { SwapstationsComponent } from './swapstations/swapstations.component';
+import { CurrentplanComponent } from './currentplan/currentplan.component';
 
 
 
@@ -166,12 +167,14 @@ const routes: Routes = [
 {path:'wash-station-list',component:WashStationListComponent},
 {path:'wash-station-details',component:WashStationDetailsComponent},
 {path:'wash-slot-book',component:DateTimeComponent},
+{path:'offer-coupan-m',component:OfferCouponComponent},
 {path:'booking-summary-m',component:BookingSummaryComponent},
 {path:'offers-m',component:OffersMComponent},
 {path:'coupan-applied-m',component:CouponappliedComponent},
 {path:'booking-summary-applied-m',component:BookingSummaryAppliedCouponComponent},
 {path:'payment-gateways-m',component:PaymentGatewayMComponent},
 {path:'booking-details-m',component:BookingMComponent},
+{path:'currentplan',component:CurrentplanComponent},
 {path:'bimages',component:HubbikeImagesComponent},
   {
     path: 'popup',

@@ -1,3 +1,16 @@
 .btn-container{
     padding: 4%;
 }
+.submit-btn{
+    padding-top: 150px;
+   
+}
+.container{
+    padding: 2%;
+}
+@media screen and (max-height:700px) {
+    .submit-btn{
+        padding-top: 80px;
+       
+    }
+}

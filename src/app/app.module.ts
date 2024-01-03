@@ -124,6 +124,8 @@ import { ViewsummaryComponent } from './viewsummary/viewsummary.component';
 import { KycstatusComponent } from './kycstatus/kycstatus.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SwapstationsComponent } from './swapstations/swapstations.component';
+import { ViewAllImagesComponent } from './view-all-images/view-all-images.component';
+import { CompletekycComponent } from './completekyc/completekyc.component';
 
 providers: [Storage]
 @NgModule({
@@ -176,8 +178,9 @@ providers: [Storage]
   
     KycstatusComponent,
     SettingsComponent,
-    SwapstationsComponent
-
+    SwapstationsComponent,
+    ViewAllImagesComponent,
+    CompletekycComponent
   ],
 
   imports: [BrowserModule, MatExpansionModule,MatSlideToggleModule,MatDatepickerModule,MatProgressSpinnerModule,

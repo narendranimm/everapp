@@ -2,11 +2,13 @@ import { DatePipe } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatBottomSheet, MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IonContent, ModalController } from '@ionic/angular';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
 import { BottomsheetComponent } from 'src/app/bottomsheet/bottomsheet.component';
+import { CompletekycComponent } from 'src/app/completekyc/completekyc.component';
 import { DataservicesService } from 'src/app/dataservices.service';
 import { UserData } from 'src/app/providers/user-data';
 import { LoadingService } from 'src/app/services/loading.service';
@@ -65,7 +67,7 @@ export class DurationComponent implements OnInit {
    modal:boolean=false;
   @ViewChild(IonContent) content!: IonContent;
 
-  constructor(private datePipe: DatePipe, private snackBar: MatSnackBar,
+  constructor(private datePipe: DatePipe, private snackBar: MatSnackBar,public dialog: MatDialog,
     private loader:LoadingService,public modalController: ModalController,
      private router: Router, private bookingservice: BookingService, private bk: FormBuilder,
       private route: ActivatedRoute, private user: UserData, private dataService: DataservicesService) {
@@ -305,8 +307,9 @@ boxselection(data:any,i:number){
          this.loader.dismissLoader();
          this.BookingID = res.ID
          this.user.setNew('bookingNo',this.BookingID)
-         this.snackBar.open(JSON.stringify(res.message));
+        //  this.snackBar.open(JSON.stringify(res.message));
         //  this.router.navigateByUrl('/booking_summary/'+this.BookingID);
+        this.dialog.open(CompletekycComponent);
         this.router.navigateByUrl('/adhar');
        },
        (error)=>{

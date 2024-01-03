@@ -84,6 +84,7 @@ text-decoration: none;
 }
 .image-container{
     float: right;
+    margin-top: -92px;
 }
 .notify-title{
     color: #000;
@@ -126,7 +127,7 @@ line-height: normal;
   flex-flow: wrap row;
   align-items: center;
   justify-content: center;
-
+  column-gap: 2px;
   row-gap: 20px
 
 }
