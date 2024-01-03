@@ -268,9 +268,9 @@
           <div style="align-self: stretch; color: #363636; font-size: 18px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Set date & time</div>
       </div>
     
-      <input type="datetime-local" formControlName="date" placeholder="Select end date and time" style="align-self: stretch; height: 60px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: #F2F2F2; border-radius: 100px; overflow: hidden; border: 1px solid; justify-content: space-between; align-items: center; display: inline-flex">
+      <input type="datetime-local" formControlName="date" (change)="onStartTimeChange($event)" placeholder="Select end date and time" style="align-self: stretch; height: 60px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: #F2F2F2; border-radius: 100px; overflow: hidden; border: 1px solid; justify-content: space-between; align-items: center; display: inline-flex">
    
-          <input type="datetime-local" formControlName="time" placeholder="Select end date and time" style="align-self: stretch; height: 60px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: #F2F2F2; border-radius: 100px; overflow: hidden; border: 1px solid; justify-content: space-between; align-items: center; display: inline-flex">
+          <input type="datetime-local" formControlName="time" (change)="onEndTimeChange($event)" placeholder="Select end date and time" style="align-self: stretch; height: 60px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: #F2F2F2; border-radius: 100px; overflow: hidden; border: 1px solid; justify-content: space-between; align-items: center; display: inline-flex">
           
 
      

@@ -74,6 +74,9 @@ export class CurrentplanPage implements OnInit {
   
         this.getTimeDifference(res.BookingStartDate, res.BookingEndDate)
       }
+      else{
+        this.router.navigateByUrl('/my-booking')
+      }
   
     })
   }

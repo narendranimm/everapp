@@ -198,6 +198,7 @@ export class DurationComponent implements OnInit {
   }
 
   onFirstButtonClick(data: number) {
+    this.convertedCash = 0
     const currentDate = new Date();
     this.startDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd HH:mm:ss', 'Asia/Kolkata');
     // console.log('Start Date and Time:', startdate);
@@ -209,12 +210,36 @@ export class DurationComponent implements OnInit {
     this.convertedCash = Math.floor(data * this.price)
 
   }
+  onStartTimeChange(e:any){
+    console.log(e.target.value);
+    this.startDate = this.datePipe.transform(e.target.value, 'yyyy-MM-dd HH:mm:ss', 'Asia/Kolkata');
+    // console.log('Start Date and Time:', startdate);
+  }
+  onEndTimeChange(e:any){debugger
+    this.convertedCash = 0
+    this.endDate= this.datePipe.transform(e.target.value, 'yyyy-MM-dd HH:mm:ss', 'Asia/Kolkata');
+    const startTime = new Date(this.startDate).getTime();
+  const endTime = new Date(this.endDate).getTime();
+  if (!isNaN(startTime) && !isNaN(endTime)) {
+    const difference = Math.abs(endTime - startTime);
+
+    // Calculate days, hours, minutes, seconds
+    const days = Math.floor(difference / (1000 * 3600 * 24));
+    const hours = Math.floor((difference % (1000 * 3600 * 24)) / (1000 * 3600));
+
+    const ammount = Math.floor(hours * 20);
+    // Construct the time difference string
+    this.timeDifference = `${days} days,${hours} hours `;
+    let dayprice = days * this.dailyRate + hours * this.hourlyRate;
+    this.convertedCash = dayprice
+  }
+  }
   onSecondButtonClick() {
     if(this.selectoptionTwo == null){
       this.snackBar.open('Pleasect Select Time First!!!');
       return;
     }
-
+   
 
     if (this.selectoptionThree === 'hours') {
       this.convertedCash = this.selectoptionTwo * this.hourlyRate;
