@@ -4,19 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { TablinksPageRoutingModule } from './tablinks-routing.module';
+import { HomepagePageRoutingModule } from './homepage-routing.module';
 
-import { TablinksPage } from './tablinks.page';
+import { HomepagePage } from './homepage.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TablinksPageRoutingModule
+    HomepagePageRoutingModule
   ],
-  declarations: [TablinksPage,
-    
-  ]
+  declarations: [HomepagePage]
 })
-export class TablinksPageModule {}
+export class HomepagePageModule {}

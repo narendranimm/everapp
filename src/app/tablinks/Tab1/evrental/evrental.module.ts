@@ -4,19 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { TablinksPageRoutingModule } from './tablinks-routing.module';
+import { EvrentalPageRoutingModule } from './evrental-routing.module';
 
-import { TablinksPage } from './tablinks.page';
+import { EvrentalPage } from './evrental.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TablinksPageRoutingModule
+    EvrentalPageRoutingModule
   ],
-  declarations: [TablinksPage,
-    
-  ]
+  declarations: [EvrentalPage]
 })
-export class TablinksPageModule {}
+export class EvrentalPageModule {}

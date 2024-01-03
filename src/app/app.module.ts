@@ -92,7 +92,6 @@ import { NearhubComponent } from './E-bike-booking-flow/homepage/nearhub/nearhub
 import { SearchresultsBikeComponent } from './E-bike-booking-flow/searchresults-bike/searchresults-bike.component';
 import { PreviewComponent } from './Regristration_flow/preview/preview.component';
 import { OfferCouponComponent } from './offer-coupon/offer-coupon.component';
-import { environment } from 'src/environments/environment';
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TimeDetailsComponent } from './menu-flow/time-details/time-details.component';
@@ -113,18 +112,15 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { SettingsComponent } from './menu-flow/settings/settings.component';
 import { LoadingInterceptor } from './loading.interceptor';
 import { NotificationsComponent } from './menu-flow/notifications/notifications.component';
-import { CustomDateTimePipe } from './custom-date-time.pipe';
-import { FilterPipe } from './filter.pipe';
 import { HubbikeImagesComponent } from './E-bike-booking-flow/hubdetails/hubbike-images/hubbike-images.component';
 import { SupportComponent } from './menu-flow/support/support.component';
 import { ServicesComponent } from './menu-flow/services/services.component';
-import { TimeDifferencePipe } from './time-difference.pipe';
 import { ViewsummaryComponent } from './viewsummary/viewsummary.component';
 
 import { KycstatusComponent } from './kycstatus/kycstatus.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SwapstationsComponent } from './swapstations/swapstations.component';
-import { FormatTimePipe } from './format-time.pipe';
+import { SharedModule } from './shared.module';
 
 providers: [Storage]
 @NgModule({
@@ -167,18 +163,15 @@ providers: [Storage]
     VerificationComponent,
     LoaderComponent,
     SettingsComponent,
-    CustomDateTimePipe,
-    FilterPipe,
+  
     HubbikeImagesComponent,
     SupportComponent,
     ServicesComponent,
-    TimeDifferencePipe,
     ViewsummaryComponent,
   
     KycstatusComponent,
     SettingsComponent,
     SwapstationsComponent,
-    FormatTimePipe
 
   ],
 
@@ -190,7 +183,7 @@ providers: [Storage]
     IonicModule.forRoot({ mode: 'md' }), AppRoutingModule, 
     MatToolbarModule, MatDialogModule, MatSidenavModule, MatButtonModule, MatCardModule,
     RouterModule, MatInputModule, MatFormFieldModule, BrowserAnimationsModule, MatIconModule,
-    FormsModule, ReactiveFormsModule,
+    FormsModule, ReactiveFormsModule,SharedModule ,
     provideFirebaseApp(() => initializeApp({ "projectId": "otp-project-eb64c", "appId": "1:459119525785:web:b8c64ab6b6daaf7e941d08", "databaseURL": "https://otp-project-eb64c-default-rtdb.firebaseio.com", "storageBucket": "otp-project-eb64c.appspot.com", "apiKey": "AIzaSyA_lRy00xcn2oOICSOMEakyVpgNSoFopUk", "authDomain": "otp-project-eb64c.firebaseapp.com", "messagingSenderId": "459119525785", "measurementId": "G-4BRTCEDX5J" })),
     provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
   
