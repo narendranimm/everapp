@@ -71,10 +71,11 @@ export class DurationComponent implements OnInit {
       private route: ActivatedRoute, private user: UserData, private dataService: DataservicesService) {
 
     // console.log( this.datePipe.transform(Date.now(), 'yyyy-MM-dd HH:mm:ss'));
-    this.customDate = this.bk.group({
-      date: ['', Validators.required],
-      time: ['', Validators.required]
-    })
+    // this.customDate = this.bk.group({
+    //   date: ['', Validators.required],
+    //   time: ['', Validators.required]
+    // })
+
     this.totalHours = this.convertToHours(this.Number);
     this.totalHours = this.convertToHoursin(this.Number);
 
@@ -198,6 +199,8 @@ export class DurationComponent implements OnInit {
   }
 
   onFirstButtonClick(data: number) {
+    this.startDate = ''
+    this.endDate=''
     this.convertedCash = 0
     const currentDate = new Date();
     this.startDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd HH:mm:ss', 'Asia/Kolkata');
@@ -215,7 +218,7 @@ export class DurationComponent implements OnInit {
     this.startDate = this.datePipe.transform(e.target.value, 'yyyy-MM-dd HH:mm:ss', 'Asia/Kolkata');
     // console.log('Start Date and Time:', startdate);
   }
-  onEndTimeChange(e:any){debugger
+  onEndTimeChange(e:any){
     this.convertedCash = 0
     this.endDate= this.datePipe.transform(e.target.value, 'yyyy-MM-dd HH:mm:ss', 'Asia/Kolkata');
     const startTime = new Date(this.startDate).getTime();
