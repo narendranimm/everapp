@@ -21,7 +21,8 @@
           
           <input placeholder="First name" type="text" required  style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px;color:black; padding-bottom: 12px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex;display:none;">
 
-          <input placeholder="First name" formControlName="FirstName" style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+          <input placeholder="First name" formControlName="FirstName"  
+          style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
           <div *ngIf="regForm.get('FirstName')?.invalid && regForm.get('FirstName')?.touched" class="error">
             <div  *ngIf="regForm.get('FirstName')?.hasError('required')">First name is required.</div>
           
@@ -29,7 +30,8 @@
       </div>
       <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
           <div class="name-l" >Last name</div>
-          <input placeholder="Surname" type="text" required formControlName="LastName" style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+          <input placeholder="Surname" type="text" required formControlName="LastName" 
+          style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
           <div *ngIf="regForm.get('LastName')?.invalid && regForm.get('LastName')?.touched" class="error">
             <div  *ngIf="regForm.get('LastName')?.hasError('required')">Last name is required.</div>
         
