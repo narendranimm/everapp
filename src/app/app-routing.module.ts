@@ -84,6 +84,9 @@ import { HubbikeImagesComponent } from './E-bike-booking-flow/hubdetails/hubbike
 import { KycstatusComponent } from './kycstatus/kycstatus.component';
 import { SwapstationsComponent } from './swapstations/swapstations.component';
 import { CurrentplanComponent } from './currentplan/currentplan.component';
+import { EmergencyComponent } from './emergency/emergency.component';
+import { MyaddressComponent } from './myaddress/myaddress.component';
+import { AddadressComponent } from './addadress/addadress.component';
 
 
 
@@ -190,8 +193,10 @@ const routes: Routes = [
   {
     path: 'tabs',
     loadChildren: () => import('./tablinks/tablinks.module').then( m => m.TablinksPageModule)
-  }
-
+  },
+  {path:'emergency',component:EmergencyComponent},
+  {path:'myaddress',component:MyaddressComponent},
+  {path:'add-address',component:AddadressComponent}
 
 
 

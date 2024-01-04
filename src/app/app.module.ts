@@ -123,6 +123,8 @@ import { SwapstationsComponent } from './swapstations/swapstations.component';
 import { ViewAllImagesComponent } from './view-all-images/view-all-images.component';
 import { CompletekycComponent } from './completekyc/completekyc.component';
 import { SharedModule } from './shared.module';
+import { EmergencyComponent } from './emergency/emergency.component';
+import { MyaddressComponent } from './myaddress/myaddress.component';
 
 providers: [Storage]
 @NgModule({
@@ -175,7 +177,9 @@ providers: [Storage]
     SettingsComponent,
     SwapstationsComponent,
     ViewAllImagesComponent,
-    CompletekycComponent
+    CompletekycComponent,
+    EmergencyComponent,
+    MyaddressComponent
 
   ],
 
