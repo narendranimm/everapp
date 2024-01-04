@@ -64,7 +64,7 @@
                   <path id="Vector" d="M11.5 16V7.85L8.9 10.45L7.5 9L12.5 4L17.5 9L16.1 10.45L13.5 7.85V16H11.5ZM4.5 20V15H6.5V18H18.5V15H20.5V20H4.5Z" fill="black"/>
                   </g>
                   </svg></label>
-                <input id="adhar" type="file" (change)="onFileSelected($event,'adhar')" formControlName="adharfile" >
+                <input id="adhar" type="file" (change)="onFileSelected($event,'adhar')" formControlName="adharfile"  >
                
               </div>
           </div>
@@ -78,13 +78,13 @@
                   <path id="Vector" d="M11.5 16V7.85L8.9 10.45L7.5 9L12.5 4L17.5 9L16.1 10.45L13.5 7.85V16H11.5ZM4.5 20V15H6.5V18H18.5V15H20.5V20H4.5Z" fill="black"/>
                   </g>
                   </svg></label>
-                <input id="adhar" type="file" (change)="onFileSelected($event,'adhar')" formControlName="adharfile" onKeyPress="if(this.value.length==16) return false;">
+                <input id="license" type="file" (change)="onFileSelected($event,'licence') " formControlName="licensefile">
                
               </div>
           </div>
           <div style="width:100%;height: 130px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 10px; display: flex">
               <div style="align-self: stretch; color: #363636; font-size: 16px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Driving license no.</div>
-              <input placeholder="0000 0000 0000" oninput="this.value = this.value.replace(/[^A-Z.][^0-9.]/g, '').replace(/(\..*)\./g, '$1');" formControlName="panno" style="align-self: stretch; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: white; border-radius: 28px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+              <input placeholder="0000 0000 0000" onKeyPress="if(this.value.length==10)" oninput="this.value = this.value.replace(/[^A-Z.][^0-9.]/g, '').replace(/(\..*)\./g, '$1');" formControlName="panno" style="align-self: stretch; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: white; border-radius: 28px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
                
               <div class="button-wrap" style="align-self: stretch; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: #F2F2F2; border-radius: 28px; overflow: hidden; border: 1px #D3D2D4 dotted; justify-content: center; align-items: center; gap: 12px; display: inline-flex">
                 <label style="opacity: 0.60; color: black; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; line-height: 28px; word-wrap: break-word" for="adhar">Upload File                       <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -92,7 +92,7 @@
                   <path id="Vector" d="M11.5 16V7.85L8.9 10.45L7.5 9L12.5 4L17.5 9L16.1 10.45L13.5 7.85V16H11.5ZM4.5 20V15H6.5V18H18.5V15H20.5V20H4.5Z" fill="black"/>
                   </g>
                   </svg></label>
-                <input id="adhar" type="file" (change)="onFileSelected($event,'adhar')" formControlName="adharfile" >
+                <input id="pan" type="file" (change)="onFileSelected($event,'adhar')" formControlName="panfile">
                
               </div>
           </div>

@@ -15,7 +15,6 @@ import { SelfieComponent } from './Regristration_flow/selfie/selfie.component';
 
 import { CropComponent } from './Regristration_flow/crop/crop.component';
 import { DurationComponent } from './E-bike-booking-flow/duration/duration.component';
-import { EnablelocationComponent } from './E-bike-booking-flow/enablelocation/enablelocation.component';
 import { HubdetailsComponent } from './E-bike-booking-flow/hubdetails/hubdetails.component';
 import { HomepageComponent } from './E-bike-booking-flow/homepage/homepage.component';
 import { BikelistComponent } from './E-bike-booking-flow/bikelist/bikelist.component';
@@ -84,6 +83,10 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { HubbikeImagesComponent } from './E-bike-booking-flow/hubdetails/hubbike-images/hubbike-images.component';
 import { KycstatusComponent } from './kycstatus/kycstatus.component';
 import { SwapstationsComponent } from './swapstations/swapstations.component';
+import { CurrentplanComponent } from './currentplan/currentplan.component';
+import { EmergencyComponent } from './emergency/emergency.component';
+import { MyaddressComponent } from './myaddress/myaddress.component';
+import { AddadressComponent } from './addadress/addadress.component';
 
 
 
@@ -107,7 +110,7 @@ const routes: Routes = [
 {path:'crop',component:CropComponent},
 //E-Booking-flow Routes
 {path:'slotbooking',component: DurationComponent},
-{path:'enableloaction',component:EnablelocationComponent},
+// {path:'enableloaction',component:EnablelocationComponent},
 {path:'hub-details',component:HubdetailsComponent},
 {path:'homepage',component:HomepageComponent},
 
@@ -166,12 +169,14 @@ const routes: Routes = [
 {path:'wash-station-list',component:WashStationListComponent},
 {path:'wash-station-details',component:WashStationDetailsComponent},
 {path:'wash-slot-book',component:DateTimeComponent},
+{path:'offer-coupan-m',component:OfferCouponComponent},
 {path:'booking-summary-m',component:BookingSummaryComponent},
 {path:'offers-m',component:OffersMComponent},
 {path:'coupan-applied-m',component:CouponappliedComponent},
 {path:'booking-summary-applied-m',component:BookingSummaryAppliedCouponComponent},
 {path:'payment-gateways-m',component:PaymentGatewayMComponent},
 {path:'booking-details-m',component:BookingMComponent},
+{path:'currentplan',component:CurrentplanComponent},
 {path:'bimages',component:HubbikeImagesComponent},
   {
     path: 'popup',
@@ -184,7 +189,14 @@ const routes: Routes = [
 
   },
   {path:'kyc',component:KycstatusComponent},
-  {path:'swapstation',component:SwapstationsComponent}
+  {path:'swapstation',component:SwapstationsComponent},
+  {
+    path: 'tabs',
+    loadChildren: () => import('./tablinks/tablinks.module').then( m => m.TablinksPageModule)
+  },
+  {path:'emergency',component:EmergencyComponent},
+  {path:'myaddress',component:MyaddressComponent},
+  {path:'add-address',component:AddadressComponent}
 
 
 

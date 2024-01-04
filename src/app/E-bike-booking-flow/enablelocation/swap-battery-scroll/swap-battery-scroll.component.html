@@ -2,10 +2,7 @@
   <swiper-container [modules]="swiperModules" [intialSlide]="2" [spaceBetween]="10" [slidesPerView]="2.5"> 
 
     <swiper-slide *ngFor="let slide of slides">
-      <!-- <div >
-      <img  style="width: 140px; height: 142px; background: linear-gradient(0deg, #D9D9D9 0%, #D9D9D9 100%); border-radius: 10px" src="{{slide.image}}" alt="">
-      <p class="swap-content">{{slide.content}}</p>
-      </div> -->
+   
       <div class="hub-container" (click)="gotohubdetails(slide.BranchID)" >
        
           

@@ -110,13 +110,14 @@ export class VerificationComponent implements OnInit {
       if (res.status) {
         this.loadingservice.dismissLoader();
         let message: string = res.message;
-        console.log(message)
+        console.log(message);
+       
         this.snackBar.open(message);
       }
       else {
         this.loadingservice.dismissLoader();
-
-        this.snackBar.open(JSON.stringify(res.message));
+    
+      
 
       }
     })
