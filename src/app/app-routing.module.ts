@@ -194,10 +194,7 @@ const routes: Routes = [
   },
   {path:'kyc',component:KycstatusComponent},
   {path:'swapstation',component:SwapstationsComponent},
-  {
-    path: 'tabs',
-    loadChildren: () => import('./tablinks/tablinks.module').then( m => m.TablinksPageModule)
-  },
+ 
   {path:'emergency',component:EmergencyComponent},
   {path:'myaddress',component:MyaddressComponent},
   {path:'add-address',component:AddadressComponent},
