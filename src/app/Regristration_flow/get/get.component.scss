@@ -6,16 +6,17 @@
  
 }
 .intro-container{
-    display: inline-flex;
+  
 justify-content: center;
 align-items: center;
 gap: 6.474px;
 padding-top: 2rem;
-padding-left: 8rem;
+padding-left: 9rem;
 }
 .logo{
     width: 36.811px;
 height: 36.811px;
+margin: 15px;
 transform: rotate(25.037deg);
 fill: linear-gradient(0deg, #FFF 0%, #FFF 100%), linear-gradient(179deg, #3256B5 0.62%, #6EC3FE 47.21%, #3355B9 99.49%);
 }

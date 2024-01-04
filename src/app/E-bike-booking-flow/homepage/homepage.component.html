@@ -31,7 +31,7 @@
               {{logindata?.MobileNo}}</div>
           </div>
         </div>
-        <button
+        <button routerLink="/profile"
           style="width: 24px; height: 24px; position: relative; background: #3355B9; border-radius: 24px; overflow: hidden">
           <img src="./assets/ri_arrow-right-s-line.svg"
             style="width: 24px; height: 24px; position: relative; background: #3355B9; border-radius: 24px; overflow: hidden">
@@ -212,12 +212,12 @@
 
           <div style="display: flex; align-items: center;justify-content: center;">
           
-              <div 
+              <div routerLink="/search-result-bike"
               style="width: 100%;  padding: 1px; background: #F2F2F2; border-radius: 20px; overflow: hidden; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex" >
                 <div style="width: 18px; height: 18px; position: relative">
                 <img src="../assets/tabler_search.svg" >
                 </div>
-                <div style="color: #3355B9; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">
+                <div  style="color: #3355B9; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">
                   </div>
                     <input matInput  name="searchValue" (input)="search($event)" class="search" 
                     placeholder="Search by stations, bike model or distance">

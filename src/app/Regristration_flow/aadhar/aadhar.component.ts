@@ -23,12 +23,12 @@ export class AadharComponent implements OnInit {
   isDialogOpen!: boolean;
   constructor(private cd: ChangeDetectorRef,public dialog: MatDialog,private router: Router, private _pf: FormBuilder, private http: HttpClient, private rs: RegisterService, private snackBar: MatSnackBar) {
     this.personalForm = this._pf.group({
-      adharno: ['', [Validators.required,Validators.maxLength(12)]],
-      adharfile: ['', Validators.required],
-      licenseno: ['', Validators.required,Validators.maxLength(16)],
-      licensefile: ['', Validators.required],
-      panno: ['', Validators.required,Validators.minLength(10)],
-      panfile: ['', Validators.required]
+      adharno: ['',Validators.required ],
+      adharfile: ['', ],
+      licenseno: ['',Validators.required ],
+      licensefile: ['', ],
+      panno: ['',Validators.required ],
+      panfile: ['', ]
     })
   }
 
@@ -91,10 +91,11 @@ export class AadharComponent implements OnInit {
             case 'adhar':
               this.isAdhar = true;
               this.isvoter=true;
-              break;
-            case 'licence':
               this.islicence = true;
               break;
+            // case 'licence':
+            //   this.islicence = true;
+            //   break;
   
             // case 'voter':
             //   this.isvoter = true

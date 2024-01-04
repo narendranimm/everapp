@@ -125,6 +125,9 @@ import { CompletekycComponent } from './completekyc/completekyc.component';
 import { SharedModule } from './shared.module';
 import { EmergencyComponent } from './emergency/emergency.component';
 import { MyaddressComponent } from './myaddress/myaddress.component';
+import { AboutapplicationComponent } from './aboutapplication/aboutapplication.component';
+import { SecurityComponent } from './security/security.component';
+import { UploaddocComponent } from './uploaddoc/uploaddoc.component';
 
 providers: [Storage]
 @NgModule({
@@ -179,7 +182,10 @@ providers: [Storage]
     ViewAllImagesComponent,
     CompletekycComponent,
     EmergencyComponent,
-    MyaddressComponent
+    MyaddressComponent,
+    AboutapplicationComponent,
+    SecurityComponent,
+    UploaddocComponent
 
   ],
 

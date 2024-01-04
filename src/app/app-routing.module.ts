@@ -87,6 +87,10 @@ import { CurrentplanComponent } from './currentplan/currentplan.component';
 import { EmergencyComponent } from './emergency/emergency.component';
 import { MyaddressComponent } from './myaddress/myaddress.component';
 import { AddadressComponent } from './addadress/addadress.component';
+import { EnablelocationComponent } from './E-bike-booking-flow/enablelocation/enablelocation.component';
+import { AboutapplicationComponent } from './aboutapplication/aboutapplication.component';
+import { SecurityComponent } from './security/security.component';
+import { UploaddocComponent } from './uploaddoc/uploaddoc.component';
 
 
 
@@ -110,7 +114,7 @@ const routes: Routes = [
 {path:'crop',component:CropComponent},
 //E-Booking-flow Routes
 {path:'slotbooking',component: DurationComponent},
-// {path:'enableloaction',component:EnablelocationComponent},
+{path:'enableloaction',component:EnablelocationComponent},
 {path:'hub-details',component:HubdetailsComponent},
 {path:'homepage',component:HomepageComponent},
 
@@ -196,7 +200,10 @@ const routes: Routes = [
   },
   {path:'emergency',component:EmergencyComponent},
   {path:'myaddress',component:MyaddressComponent},
-  {path:'add-address',component:AddadressComponent}
+  {path:'add-address',component:AddadressComponent},
+  {path:'aboutapplication',component:AboutapplicationComponent},
+  {path:'security',component:SecurityComponent},
+  {path:'uploaddoc',component:UploaddocComponent}
 
 
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
 
 @Component({
   selector: 'app-searchresults-bike',
@@ -6,20 +7,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./searchresults-bike.component.scss'],
 })
 export class SearchresultsBikeComponent  implements OnInit {
+  bikeHubID: any = 3502;
+  bikeHub: any;
+  constructor(private _bh: BookingService,) {
+    this.getbranchesByBID()
+   }
+  getbranchesByBID() {
+   
+    this._bh.getbranchesByBID(this.bikeHubID, null).subscribe(
+      (res: any) => {
+        console.log('tests', res)
+        this.characters = res;
 
-  constructor() { }
 
+      }, (error: any) => {
+     
+
+      }
+    )
+  }
   ngOnInit() {}
   searchText = '';
   characters = [
-    'Ant-Man',
-    'Aquaman',
-    'Asterix',
-    'The Atom',
-    'The Avengers',
-    'Batgirl',
-    'Batman',
-    'Batwoman',
+  
     
   ]
 }
