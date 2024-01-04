@@ -123,6 +123,7 @@ import { SwapstationsComponent } from './swapstations/swapstations.component';
 import { ViewAllImagesComponent } from './view-all-images/view-all-images.component';
 import { CompletekycComponent } from './completekyc/completekyc.component';
 import { SharedModule } from './shared.module';
+import { CommonImpModule } from './common.module';
 
 providers: [Storage]
 @NgModule({
@@ -183,11 +184,15 @@ providers: [Storage]
     // SocialLoginModule,
     IonicStorageModule.forRoot({ name: "mylocaldb" }), MatSnackBarModule,
     MatSelectModule,
-    ReactiveFormsModule, MatBottomSheetModule, HttpClientModule, CommonModule,
+    ReactiveFormsModule, MatBottomSheetModule,
+     HttpClientModule, CommonModule,
     IonicModule.forRoot({ mode: 'md' }), AppRoutingModule, 
-    MatToolbarModule, MatDialogModule, MatSidenavModule, MatButtonModule, MatCardModule,
-    RouterModule, MatInputModule, MatFormFieldModule, BrowserAnimationsModule, MatIconModule,
+   
+    BrowserAnimationsModule,
+    RouterModule,
+    
     FormsModule, ReactiveFormsModule,SharedModule ,
+    CommonImpModule,
     provideFirebaseApp(() => initializeApp({ "projectId": "otp-project-eb64c", "appId": "1:459119525785:web:b8c64ab6b6daaf7e941d08", "databaseURL": "https://otp-project-eb64c-default-rtdb.firebaseio.com", "storageBucket": "otp-project-eb64c.appspot.com", "apiKey": "AIzaSyA_lRy00xcn2oOICSOMEakyVpgNSoFopUk", "authDomain": "otp-project-eb64c.firebaseapp.com", "messagingSenderId": "459119525785", "measurementId": "G-4BRTCEDX5J" })),
     provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
   

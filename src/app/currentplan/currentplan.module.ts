@@ -28,10 +28,6 @@ import { CurrentplandetailsComponent } from '../currentplandetails/currentplande
   ],
   providers: [
     DatePipe, 
-    CustomDateTimePipe,
-        TimeDifferencePipe,
-        FilterPipe,
-    FormatTimePipe// Add DatePipe to the providers array
     // other services
   ],
 })

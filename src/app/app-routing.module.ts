@@ -89,7 +89,7 @@ import { CurrentplanComponent } from './currentplan/currentplan.component';
 
 
 
-const routes: Routes = [
+const routess: Routes = [
 //Registration-flow 
 {path:'splash', component:SplashComponent},
 {path:'allow-permissions',component:AllowPermissionsComponent},
@@ -187,19 +187,23 @@ const routes: Routes = [
   },
   {path:'kyc',component:KycstatusComponent},
   {path:'swapstation',component:SwapstationsComponent},
-  {
-    path: 'tabs',
-    loadChildren: () => import('./tablinks/tablinks.module').then( m => m.TablinksPageModule)
-  }
+ 
 
 
 
 
 
 ]
+
+const routes: Routes = [
+  {
+    path: '',
+    loadChildren: () => import('../app/Tabs/tabs/tabs.module').then(m => m.TabsPageModule)
+  }
+];
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
   exports: [RouterModule]
 })
