@@ -70,6 +70,7 @@ async sendOTP(){
     this.userdatabyno=data;
     this.userdata.setNew("loginuser",data)
   console.log('Data received:', data);
+  
  
 });
   console.log(datad)
@@ -80,7 +81,6 @@ async sendOTP(){
   this.reg.sendsms(data).subscribe((res:any)=>{
 //if verfied success then savec mobileno to localstoragte.
 //after logged in success moved to home page
-// this.loaderService.display(true);
     console.log(res)
     if(res.status){
       this.loadingservice.dismissLoader();
