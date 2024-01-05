@@ -1,71 +1,220 @@
 <div style="width: 100%; height: 100%; position: relative; background: white">
-  <div style="width: 328px; left: 16px; top: 94px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: center; gap: 24px; display: inline-flex">
-      <div style="height: 20px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
-          <div style="color: #3355B9; font-size: 24px; font-family: Open Sans Hebrew; font-weight: 700; line-height: 20px; word-wrap: break-word">
-            Upload documents </div>
-      </div>
-      <div style="width: 100%; flex-direction: column; justify-content: flex-start; align-items: center;  display: flex">
-          <div style="width:100%; height: 172px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 10px; display: flex">
-              <div style="align-self: stretch; color: #363636; font-size: 16px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Pan/ passport no.</div>
-              <div style="align-self: stretch; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: white; border-radius: 28px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-                  <div style="color: black; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; line-height: 28px; word-wrap: break-word">0000 0000 0000</div>
-              </div>
-              <div style="align-self: stretch; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: #F2F2F2; border-radius: 28px; overflow: hidden; border: 1px #D3D2D4 dotted; justify-content: center; align-items: center; gap: 12px; display: inline-flex">
-                  <div style="opacity: 0.60; color: black; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; line-height: 28px; word-wrap: break-word">
-                    Upload file</div>
-                  <div style="width: 24px; height: 24px; position: relative">
-                    <div style="width: 16px; height: 16px; left: 4px; top: 4px; position: absolute;">
-                        <ion-icon name="cloud-upload"></ion-icon>
-                    </div>
-                  </div>
-              </div>
-              <div style="align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 10px; display: inline-flex">
-                  <div style="padding-left: 10px; padding-right: 10px; padding-top: 8px; padding-bottom: 8px; border-radius: 28px; overflow: hidden; border: 1px #D3D2D4 dotted; justify-content: center; align-items: center; gap: 12px; display: flex">
-                      <div style="justify-content: flex-start; align-items: center; gap: 6px; display: flex">
-                          <div style="width: 14px; height: 14px; position: relative">
-                              <div style="width: 12.60px; height: 14px; left: 0.70px; top: -0px; position: absolute; ">
-                                <!-- background: #3355B9 -->
-                                <ion-icon name="document"></ion-icon>
-                              </div>
-                          </div>
-                          <div style="color: black; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; letter-spacing: 0.24px; word-wrap: break-word">
-                            panfront.jpg</div>
-                      </div>
-                      <div style="width: 16px; height: 16px; position: relative">
-                          <div style="width: 8.79px; height: 8.79px; left: 3.61px; top: 3.61px; position: absolute; ">
-                            <ion-icon name="close"></ion-icon>
-                        </div>
-                      </div>
-                  </div>
-                  <div style="padding-left: 10px; padding-right: 10px; padding-top: 8px; padding-bottom: 8px; border-radius: 28px; overflow: hidden; border: 1px #D3D2D4 dotted; justify-content: center; align-items: center; gap: 12px; display: flex">
-                      <div style="justify-content: flex-start; align-items: center; gap: 6px; display: flex">
-                          <div style="width: 14px; height: 14px; position: relative">
-                              <div style="width: 12.60px; height: 14px; left: 0.70px; top: -0px; position: absolute;">
-                                <ion-icon name="document"></ion-icon>
-                            </div>
-                          </div>
-                          <div style="color: black; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; letter-spacing: 0.24px; word-wrap: break-word">
-                            panback.jpg</div>
-                      </div>
-                      <div style="width: 16px; height: 16px; position: relative">
-                          <div style="width: 8.79px; height: 8.79px; left: 3.61px; top: 3.61px; position: absolute; ">
-                            <ion-icon name="close"></ion-icon>
-                        
-                        </div>
-                      </div>
-                  </div>
-              </div>
+  <div
+    style="width: 328px; left: 16px; top: 94px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: center; gap: 24px; display: inline-flex">
+    <div
+      style="height: 20px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
+      <div
+        style="color: #3355B9; font-size: 24px; font-family: Open Sans Hebrew; font-weight: 700; line-height: 20px; word-wrap: break-word">
+        Upload documents </div>
+    </div>
+    <form action="" [formGroup]="personalForm">
+      <div
+        style="width: 100%; flex-direction: column; justify-content: flex-start; align-items: center;  display: flex">
+        <!-- adhar file -->
+        <div
+          style="width:100%; height: 172px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 10px; display: flex">
+          <div
+            style="align-self: stretch; color: #363636; font-size: 16px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">
+            Adhar no.</div>
+          <input type="number" placeholder="Enter Aadhar no." placeholder="0000 0000 0000" formControlName="adharno"
+            style="align-self: stretch; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: white; border-radius: 28px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex"
+            oninput="this.value = this.value.replace(/[^0-9.][12]/g, '').replace(/(\..*)\./g, '$1');"
+            onKeyPress="if(this.value.length==12) return false;">
+
+          <div class="button-wrap"
+            style="align-self: stretch; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: #F2F2F2; border-radius: 28px; overflow: hidden; border: 1px #D3D2D4 dotted; justify-content: center; align-items: center; gap: 12px; display: inline-flex">
+            <label
+              style="opacity: 0.60; color: black; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; line-height: 28px; word-wrap: break-word"
+              for="adhar">Upload File <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <g id="material-symbols:upload-sharp">
+                  <path id="adhar"
+                    d="M11.5 16V7.85L8.9 10.45L7.5 9L12.5 4L17.5 9L16.1 10.45L13.5 7.85V16H11.5ZM4.5 20V15H6.5V18H18.5V15H20.5V20H4.5Z"
+                    fill="black" />
+                </g>
+              </svg></label>
+            <input id="adhar" type="file" (change)="onAdharSelected($event,'adhar')" formControlName="adharfile">
+
           </div>
+
+          <div 
+            style="align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 10px; display: inline-flex">
+            <div *ngIf="frontA"
+              style="padding-left: 10px; padding-right: 10px; padding-top: 8px; padding-bottom: 8px; border-radius: 28px; overflow: hidden; border: 1px #D3D2D4 dotted; justify-content: center; align-items: center; gap: 12px; display: flex">
+              <div style="justify-content: flex-start; align-items: center; gap: 6px; display: flex">
+                <div style="width: 14px; height: 14px; position: relative">
+                  <div style="width: 12.60px; height: 14px; left: 0.70px; top: -0px; position: absolute; ">
+                    <!-- background: #3355B9 -->
+                    <ion-icon name="document"></ion-icon>
+                  </div>
+                </div>
+                <div
+                  style="color: black; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; letter-spacing: 0.24px; word-wrap: break-word">
+                  {{frontA}}</div>
+              </div>
+              <div style="width: 16px; height: 16px; position: relative" (click)="removeFrontA()">
+                <div style="width: 8.79px; height: 8.79px; left: 3.61px; top: 3.61px; position: absolute; ">
+                  <ion-icon name="close" ></ion-icon>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="isBackA"
+              style="padding-left: 10px; padding-right: 10px; padding-top: 8px; padding-bottom: 8px; border-radius: 28px; overflow: hidden; border: 1px #D3D2D4 dotted; justify-content: center; align-items: center; gap: 12px; display: flex">
+              <div style="justify-content: flex-start; align-items: center; gap: 6px; display: flex">
+                <div style="width: 14px; height: 14px; position: relative">
+                  <div style="width: 12.60px; height: 14px; left: 0.70px; top: -0px; position: absolute; ">
+                    <!-- background: #3355B9 -->
+                    <ion-icon name="document"></ion-icon>
+                  </div>
+                </div>
+                <div
+                  style="color: black; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; letter-spacing: 0.24px; word-wrap: break-word">
+                  {{BackA}}</div>
+              </div>
+              <div style="width: 16px; height: 16px; position: relative" (click)="removeBackA()">
+                <div style="width: 8.79px; height: 8.79px; left: 3.61px; top: 3.61px; position: absolute; ">
+                  <ion-icon name="close" ></ion-icon>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+         <!-- Driving file -->
+        <div
+        style="width:100%; height: 172px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 10px; display: flex">
+        <div
+          style="align-self: stretch; color: #363636; font-size: 16px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">
+          Driving licence no.</div>
+        <input type="number" placeholder="Enter licence no." placeholder="0000 0000 0000" formControlName="licenseno"
+          style="align-self: stretch; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: white; border-radius: 28px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex"
+          oninput="this.value = this.value.replace(/[^0-9.][12]/g, '').replace(/(\..*)\./g, '$1');"
+          onKeyPress="if(this.value.length==12) return false;">
+
+        <div class="button-wrap"
+          style="align-self: stretch; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: #F2F2F2; border-radius: 28px; overflow: hidden; border: 1px #D3D2D4 dotted; justify-content: center; align-items: center; gap: 12px; display: inline-flex">
+          <label
+            style="opacity: 0.60; color: black; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; line-height: 28px; word-wrap: break-word"
+            for="licenseno">Upload File <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <g id="material-symbols:upload-sharp">
+                <path id="licenseno"
+                  d="M11.5 16V7.85L8.9 10.45L7.5 9L12.5 4L17.5 9L16.1 10.45L13.5 7.85V16H11.5ZM4.5 20V15H6.5V18H18.5V15H20.5V20H4.5Z"
+                  fill="black" />
+              </g>
+            </svg></label>
+          <input id="licenseno" type="file" (change)="onLicenseSelected($event,'licence')" formControlName="licensefile">
+
+        </div>
+
+        <div
+          style="align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 10px; display: inline-flex">
+          <div 
+            style="padding-left: 10px; padding-right: 10px; padding-top: 8px; padding-bottom: 8px; border-radius: 28px; overflow: hidden; border: 1px #D3D2D4 dotted; justify-content: center; align-items: center; gap: 12px; display: flex">
+            <div style="justify-content: flex-start; align-items: center; gap: 6px; display: flex">
+              <div style="width: 14px; height: 14px; position: relative">
+                <div style="width: 12.60px; height: 14px; left: 0.70px; top: -0px; position: absolute; ">
+                  <!-- background: #3355B9 -->
+                  <ion-icon name="document"></ion-icon>
+                </div>
+              </div>
+              <div
+                style="color: black; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; letter-spacing: 0.24px; word-wrap: break-word">
+                adhars</div>
+            </div>
+            <div style="width: 16px; height: 16px; position: relative">
+              <div style="width: 8.79px; height: 8.79px; left: 3.61px; top: 3.61px; position: absolute; ">
+                <ion-icon name="close" ></ion-icon>
+              </div>
+            </div>
+          </div>
+          <div 
+          style="padding-left: 10px; padding-right: 10px; padding-top: 8px; padding-bottom: 8px; border-radius: 28px; overflow: hidden; border: 1px #D3D2D4 dotted; justify-content: center; align-items: center; gap: 12px; display: flex">
+          <div style="justify-content: flex-start; align-items: center; gap: 6px; display: flex">
+            <div style="width: 14px; height: 14px; position: relative">
+              <div style="width: 12.60px; height: 14px; left: 0.70px; top: -0px; position: absolute; ">
+                <!-- background: #3355B9 -->
+                <ion-icon name="document"></ion-icon>
+              </div>
+            </div>
+            <div
+              style="color: black; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; letter-spacing: 0.24px; word-wrap: break-word">
+              test</div>
+          </div>
+          <div style="width: 16px; height: 16px; position: relative">
+            <div style="width: 8.79px; height: 8.79px; left: 3.61px; top: 3.61px; position: absolute; ">
+              <ion-icon name="close"></ion-icon>
+            </div>
+          </div>
+        </div>
+        </div>
       </div>
-      <div class="continue-btn">
-      <div style="width: 328px; height: 48px; padding-left: 24px; padding-right: 24px; padding-top: 16px; padding-bottom: 16px; background: #3355B9; border-radius: 100px; overflow: hidden; flex-direction: column; justify-content: center; align-items: center; gap: 10px; display: flex">
-          <div style="text-align: center; color: white; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; letter-spacing: 0.10px; word-wrap: break-word">Continue</div>
+       <!-- PAN file -->
+      <div
+      style="width:100%; height: 172px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 10px; display: flex">
+      <div
+        style="align-self: stretch; color: #363636; font-size: 16px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">
+        Pan/Voter no.</div>
+      <input type="number" placeholder="Enter PAN/Voter no." placeholder="0000 0000 0000" formControlName="panno"
+        style="align-self: stretch; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: white; border-radius: 28px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex"
+        oninput="this.value = this.value.replace(/[^0-9.][12]/g, '').replace(/(\..*)\./g, '$1');"
+        onKeyPress="if(this.value.length==12) return false;">
+
+      <div class="button-wrap"
+        style="align-self: stretch; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; background: #F2F2F2; border-radius: 28px; overflow: hidden; border: 1px #D3D2D4 dotted; justify-content: center; align-items: center; gap: 12px; display: inline-flex">
+        <label
+          style="opacity: 0.60; color: black; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; line-height: 28px; word-wrap: break-word"
+          for="panno">Upload File <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="material-symbols:upload-sharp">
+              <path id="panno"
+                d="M11.5 16V7.85L8.9 10.45L7.5 9L12.5 4L17.5 9L16.1 10.45L13.5 7.85V16H11.5ZM4.5 20V15H6.5V18H18.5V15H20.5V20H4.5Z"
+                fill="black" />
+            </g>
+          </svg></label>
+        <input id="panno" type="file" (change)="onPanSelected($event,'voter')" formControlName="panfile">
+
+      </div>
+
+      <div
+        style="align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 10px; display: inline-flex">
+        <div 
+          style="padding-left: 10px; padding-right: 10px; padding-top: 8px; padding-bottom: 8px; border-radius: 28px; overflow: hidden; border: 1px #D3D2D4 dotted; justify-content: center; align-items: center; gap: 12px; display: flex">
+          <div style="justify-content: flex-start; align-items: center; gap: 6px; display: flex">
+            <div style="width: 14px; height: 14px; position: relative">
+              <div style="width: 12.60px; height: 14px; left: 0.70px; top: -0px; position: absolute; ">
+                <!-- background: #3355B9 -->
+                <ion-icon name="document"></ion-icon>
+              </div>
+            </div>
+            <div
+              style="color: black; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; letter-spacing: 0.24px; word-wrap: break-word">
+              adhars</div>
+          </div>
+          <div style="width: 16px; height: 16px; position: relative">
+            <div style="width: 8.79px; height: 8.79px; left: 3.61px; top: 3.61px; position: absolute; ">
+              <ion-icon name="close"></ion-icon>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+      </div>
+      <button   style="width: 328px; height: 48px; padding-left: 24px; padding-right: 24px; padding-top: 16px; padding-bottom: 16px; background: #3355B9; border-radius: 100px; overflow: hidden; flex-direction: column; justify-content: center; align-items: center; gap: 10px; display: flex">
+        <div style="text-align: center; color: white; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; letter-spacing: 0.10px; word-wrap: break-word">Continue</div>
+    </button>
+    </form>
+    <!-- <div class="continue-btn">
+      <div
+        style="width: 328px; height: 48px; padding-left: 24px; padding-right: 24px; padding-top: 16px; padding-bottom: 16px; background: #3355B9; border-radius: 100px; overflow: hidden; flex-direction: column; justify-content: center; align-items: center; gap: 10px; display: flex">
+        <div
+          style="text-align: center; color: white; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; letter-spacing: 0.10px; word-wrap: break-word">
+          Continue</div>
+      </div>
+    </div> -->
   </div>
-  <div style="width: 24px; height: 24px; left: 16px; top: 46px; position: absolute">
+  <!-- <div style="width: 24px; height: 24px; left: 16px; top: 46px; position: absolute">
     <button style="background: transparent;border: none;" routerLink="/kyc">
-        <img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
-  </div>
- 
+      <img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
+  </div> -->
+
 </div>
