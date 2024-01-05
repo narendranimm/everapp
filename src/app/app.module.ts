@@ -134,6 +134,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { TermsConditionsComponent } from './menu-flow/terms-conditions/terms-conditions.component';
 import { InviteFriendsComponent } from './menu-flow/invite-friends/invite-friends.component';
 import { ClaimsComponent } from './menu-flow/claims/claims.component';
+import { NobookingComponent } from './nobooking/nobooking.component';
 providers: [Storage]
 @NgModule({
   declarations: [AppComponent, SplashComponent, GetComponent, RegisterComponent, LogComponent, AadharComponent, SelfieComponent, NavComponent, PreviewComponent, CropComponent, AllowPermissionsComponent, CongratulationsComponent, EnablelocationComponent, HomepageComponent, HubdetailsComponent, HublistsComponent, BookingdetailsComponent, CommunicationAllowPermissionComponent, HublistsComponent, BikedetailsComponent, DurationComponent, DatetimeComponent, BatteryStationListComponent, BatteryStationComponent, BatteryListComponent, BatteryDetailsAvailableComponent, BatteryDetailsUnavailableComponent, BookingDetailsComponent, OffersComponent, CouponAppliedComponent, CouponAppliedDashboardComponent, PaymentGatewaysComponent, AddUpiIdComponent, AddCardComponent, AddEWalletComponent, PaymentOngoingComponent, AddPaymentOngoingComponent, BookingSuccessComponent, BookingDetailsAfterComponent, BikelistComponent, DurationComponent, DurationLaterComponent, BookingsummaryComponent, OffersComponent, CouponappliedComponent, PaymentComponent, PaymentgatewaysComponent, AddUPIIDComponent, AddcardComponent, EWalletComponent, BookingDetailsComponent, HomepageAfterbookingComponent, TimedetailsComponent, BookingsuccessComponent,
@@ -193,7 +194,8 @@ providers: [Storage]
     TrustedcontactListComponent,
     TermsConditionsComponent,
     InviteFriendsComponent,
-    ClaimsComponent
+    ClaimsComponent,
+    NobookingComponent
 
   ],
 
