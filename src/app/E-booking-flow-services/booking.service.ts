@@ -36,9 +36,7 @@ export class BookingService {
     return this.http.post(this.baseurl+`hubs/get`,data)
   }
   
-  getBikesByBranchID(branchID:number){
-    return this.http.get(this.baseurl+`product/bybranch/${branchID}`)   
-  }
+ 
   getHubDetaislByHubID(branchID:number){
     return this.http.get(this.baseurl+`hubs/gethubdetails/${branchID}`)
   }

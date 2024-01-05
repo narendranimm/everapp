@@ -36,11 +36,11 @@ export class ServicesComponent implements OnInit {
       if(getDate <= endTime){
         this.router.navigateByUrl('/currentplan');
       }else{
-        this.router.navigateByUrl('/my-booking');
+        this.router.navigateByUrl('/nobookings');
       }
     }
     else{
-
+      this.router.navigateByUrl('/nobookings');
     }
   }
 }

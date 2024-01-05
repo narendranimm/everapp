@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProductServicesService } from 'services/product-services/product-services.service';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
 import { UserData } from 'src/app/providers/user-data';
 import { LoadingService } from 'src/app/services/loading.service';
@@ -11,19 +12,23 @@ import { environment } from 'src/environments/environment.prod';
   styleUrls: ['./battery-list.component.scss'],
 })
 export class BatteryListComponent implements OnInit {
+  
 
+  productname:any=null;
+
+  searchValue:any;
   batteryHubID: any = 3503
   batteryHub: any;
   azimageUrl: any = environment.azimageUrl_hub;
 
-  constructor(private _bh: BookingService, private store: UserData, private router:Router,
+  constructor(private _bh: BookingService, private store: UserData, private router:Router,private _pd:ProductServicesService,
     private loader: LoadingService) {
     this.store.getId('hubid').then((res:any) => {
       if (res !== null) {
         this.batteryHubID = res;
         this.loader.simpleLoader('Loading...')
 
-        this.getbatteryhubs()
+        this.getbatterylist()
       } else {
         console.log('Data is null. Handle accordingly.');
       }
@@ -31,17 +36,16 @@ export class BatteryListComponent implements OnInit {
   }
 
   ngOnInit() { }
-  getbatteryhubs() {
-    this._bh.getBikesByBranchID(this.batteryHubID).subscribe(
-      (res: any) => {
-        this.loader.dismissLoader();
-        this.batteryHub = res
-      },
-      (error:any) => {
-        this.loader.dismissLoader();
-      }
-    )
-  }  
+
+getbatterylist(){
+  this._pd.productListBybranchId(this.batteryHubID,null).subscribe(
+    (res:any) => {
+      this.loader.dismissLoader()
+      this.batteryHub = res;
+    }, (error) => {
+      this.loader.dismissLoader()
+    })
+}
 
   gotoBtryDetails(id:any){
     this.store.setpId(id);
