@@ -50,8 +50,8 @@ ngOnInit() {
 }
 
 ngOnDestroy() {
-  this.subscription.unsubscribe();
-}  bookingNo:any=null;
+} 
+ bookingNo:any=null;
 ProductDetails:any;
 
 

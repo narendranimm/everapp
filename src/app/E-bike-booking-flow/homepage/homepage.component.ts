@@ -52,6 +52,7 @@ export class HomepageComponent implements OnInit {
     .pipe(map(result => result.matches), shareReplay());
   marker: any;
   hubsnearby: any = [];
+  useraddress: string='';
   constructor(private loadingservice: LoadingService, private hub_s: HubsService,
     public popoverController: PopoverController, private _bh: BookingService, private route: ActivatedRoute, private router: Router,
     private _pd: ProductServicesService, private userdata: UserData,private http:HttpClient
@@ -99,7 +100,7 @@ export class HomepageComponent implements OnInit {
     this.postadd_Data.TargetLongitude = this.lng;
     this.postadd_Data.branchtype=3502;
     this.hub_s.getnearByHubsBasedonLatandLongID(this.postadd_Data).subscribe(res => {
-      console.log(res)
+      console.log('firsthubs',res)
       this.hubsnearby = res;
       this.loadingservice.dismissLoader();
 
@@ -152,7 +153,10 @@ address(){
  
   this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=17.519523,78.381172&key=AIzaSyCU4W4iQLV5ydrW3UxZncI_JdLi1EsKH5A`).subscribe((res:any)=>{
   this.loc=res['plus_code']  
-  console.log(res)
+  console.log('addres',res)
+  console.log(res.results[0].formatted_address)
+  console.log(res.results[6].formatted_address)
+  this.useraddress=res.results[6].formatted_address
   })
 }
   scrollToBottom() {
