@@ -9,6 +9,7 @@ import { Geolocation, GeolocationPlugin } from '@capacitor/geolocation';
 import { LocationService } from 'src/app/location.service';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
 import { UserData } from 'src/app/providers/user-data';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -26,6 +27,7 @@ bikeHubID:any;
 username = '';
 logindata!: any;
 loggedIn:any;
+loc:any
 azimageUrl:any='https://everdevuat.blob.core.windows.net/hubs/';
 profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
   private breakpointObserver = inject(BreakpointObserver);
@@ -35,7 +37,7 @@ profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
       map(result => result.matches),
       shareReplay()
     );
-    constructor(private _bh:BookingService,private element: ElementRef,private userdata: UserData,
+    constructor(private _bh:BookingService,private element: ElementRef,private userdata: UserData,private http:HttpClient,
       // private authService: SocialAuthService, 
       public navCtrl: NavController,private location:LocationService,private geolocation: Geolocation ) {
       this.getbranchesByBID();
@@ -50,7 +52,8 @@ profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
     }
     ngOnInit() {
       this.printCurrentPosition();
-      // this.slides=[]
+      // this.slides=[];
+      this.address()
     }
 
   @HostListener("wheel", ["$event"])
@@ -79,56 +82,20 @@ profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
     })
     console.log('Current position:', coordinates);
   };
-  initMap(): void {
-    const map = new google.maps.Map(
-      document.getElementById("map") as HTMLElement,
-      {
-        zoom: 8,
-        center: { lat: this.lati, lng: this.longi },
-      }
-    );
-    const geocoder = new google.maps.Geocoder();
-    const infowindow = new google.maps.InfoWindow();
-  
-    (document.getElementById("submit") as HTMLElement).addEventListener(
-      "click",
-      () => {
-        this.geocodeLatLng(geocoder, map, infowindow);
-      }
-    );
-  }
-  
-   geocodeLatLng(
-    geocoder: google.maps.Geocoder,
-    map: google.maps.Map,
-    infowindow: google.maps.InfoWindow
-  ) {
-    const input = (document.getElementById("latlng") as HTMLInputElement).value;
-    const latlngStr = input.split(",", 2);
-    const latlng = {
-      lat: parseFloat(latlngStr[0]),
-      lng: parseFloat(latlngStr[1]),
-    };
-  
-    geocoder
-      .geocode({ location: latlng })
-      .then((response) => {
-        if (response.results[0]) {
-          map.setZoom(11);
-  
-          const marker = new google.maps.Marker({
-            position: latlng,
-            map: map,
-          });
-  
-          infowindow.setContent(response.results[0].formatted_address);
-          infowindow.open(map, marker);
-        } else {
-          window.alert("No results found");
-        }
+  address(){
+    var coordinates = Geolocation.getCurrentPosition().then((resp) => { 
+      this.lati = resp.coords.latitude;  
+        this.longi = resp.coords.longitude;  
+        this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${this.lati},${this.longi}&key=AIzaSyCU4W4iQLV5ydrW3UxZncI_JdLi1EsKH5A`).subscribe((res:any)=>{
+          this.loc=res['plus_code']  
+          console.log(res)
+          })
       })
-      .catch((e) => window.alert("Geocoder failed due to: " + e));
+      console.log('Current position:', coordinates);
+  
   }
+  
+
   
   getbranchesByBID() {
     this._bh.getbranchesByBID(this.bikeHubID,null).subscribe((res:any) => {

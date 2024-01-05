@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>search</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  
+  <ion-searchbar placeholder="Try jane"
+  [(ngModel)]="searchTerm"
+  showCancelButton="focus"
+  animated
+  >
+<ion-list>
+  <ion-item *ngFor="let emp of emps ">
+    <ion-label>{{emp.name}}</ion-label>
+  </ion-item>
+</ion-list>
+  </ion-searchbar>
+</ion-content>

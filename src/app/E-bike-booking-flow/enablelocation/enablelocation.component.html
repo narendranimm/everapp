@@ -1,18 +1,18 @@
 
 
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
+<mat-sidenav-container class="sidenav-container" style="background: #E8F0F9;">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport #sidenav
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
    
  
-      <div style="width: 100%; height: 100%; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
+      <div style="width: 100%; height: 100%; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex;">
         <div style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 124px; display: inline-flex">
             <div style="width: 24px; height: 24px; position: relative">
                 <div class="btn-container">
                  
-                    <button style="background: transparent;border: none;color:black;" ><img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
+                    <button style="background: transparent;border: none;color:black;" (click)="sidenav.close()" ><img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
                   
                   </div>
             </div>
@@ -20,14 +20,21 @@
             <div class="menu" >Menu</div>
         </div>
         <div style="align-self: stretch; padding: 12px; background: #F2F2F2; border-radius: 10px;  justify-content: space-between; align-items: center; display: inline-flex">
-            <div  style="justify-content: flex-start; align-items: center; gap: 17px; display: flex">
-                <img style="width: 48px; height: 48px; position: relative; border-radius: 100px" src="https://s3-alpha-sig.figma.com/img/6b28/8b70/aa1d46cdb7f480be9a720d5b0bfe6db6?Expires=1700438400&Signature=YP8qhgpNsKDhqBWRJK1YTwslYA0jDaiaTsTrxSbnTFuI1f6Y8X8uFF01DfQy~DElDwb~mnriieCr-fdP7Fnm9Ht6jedIG4CELK9V1Jd7Q3rnqEnhEw1X1tLtfg95HVL1OJ2g0Suxt-thHAk2VFl2F9Zws2TP6lCmTUT8aNPZlx3tUFid5p4mYTFQg~FJq1eML0FVLqlw~eSCfU5yG3QbF74h2cs9EnFDFNRxxHPuKB3mhKJEcozn36ELyfc~guYYOwcG~v-oMoBnjBXHjxMuM4dbdKTLVAhRQW~VX1pVpCkpEg-Oac2NHylYwt8vjCd04BWFL2AvHJXBBI0XpjJi3A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" />
-                <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 6px; display: inline-flex">
-                    <div class="name" ><a class="links" routerLink="/profile">Manish Paul</a></div>
-                    <div class="number" >9876543210</div>
-                </div>
+
+       
+            <img style="width: 48px; height: 48px; position: relative; border-radius: 100px"
+              src="{{profileUrl}}{{logindata?.ProfilePhoto}}" />
+            <div
+              style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 6px; display: inline-flex">
+              <div style="color: #ece2e2; font-size: 18px; font-family: Archivo; font-weight: 500; word-wrap: break-word">
+                <a class="links" routerLink="/profile">{{logindata?.FirstName}} {{logindata?.LastName}}</a>
+              </div>
+              <div
+                style="opacity: 0.80; color: #363636; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">
+                {{logindata?.MobileNo}}</div>
             </div>
-            <button  style="width: 24px; height: 24px; position: relative; background: #3355B9; border-radius: 24px; overflow: hidden">
+        
+            <button  routerLink="/profile" style="width: 24px; height: 24px; position: relative; background: #3355B9; border-radius: 24px; overflow: hidden">
                 <img src="./assets/ri_arrow-right-s-line.svg" style="width: 24px; height: 24px; position: relative; background: #3355B9; border-radius: 24px; overflow: hidden">
             </button>
         </div>
@@ -134,8 +141,8 @@
         </div>
       </div>
   </mat-sidenav>
-  <mat-sidenav-content style="height: 100rem;">
-    <mat-toolbar style="background: white;" >
+  <mat-sidenav-content style="height: 100rem; ">
+    <mat-toolbar  >
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -154,12 +161,12 @@
         
     </mat-toolbar>
     <ion-content>
-        <div class="btn-container">
+        <div class="btn-container" >
     <div class="main-container">
     <h1 class="greeting-head">Welcome {{logindata?.FirstName}} {{logindata?.LastName}}</h1>
     <p class="share-location"><img src="./assets/mdi_location.svg" alt=""> <button style="background: transparent;"   class="share-loc-content">Select your location</button></p>
     
-   
+    <input id="latlng" type="text" value="{{lati}},{{longi}}" />
    
     <div class="notification-card-p" id="open-modal" expand="block">
      <ion-card color="success" class="notify-card">
@@ -213,7 +220,8 @@
             </div>
         </div>
     </div>
-    <div  style="width: 158px; height: 158px; padding: 12px; background: white;  border-radius: 10px; overflow: hidden;  flex-direction: column; justify-content: space-between; align-items: flex-start; display: inline-flex" routerLink="/battery-staion-list">
+    <div  style="width: 158px; height: 158px; padding: 12px; background: white;  border-radius: 10px; overflow: hidden;  flex-direction: column; justify-content: space-between; align-items: flex-start; display: inline-flex" 
+    routerLink="/swapstation">
       <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 2px; display: flex">
           <div class="desp-1">Swapping station</div>
           <div class="desp-2">Book battery for your EV</div>
@@ -252,34 +260,7 @@
    <div class="cities">
     <img src="../assets/cities.svg" alt="">
    </div>
-   <mat-toolbar style="position: fixed;background: white;margin-top: 40px;">
-    <div style="width: 100%; height: 100%; justify-content: space-between; align-items: flex-start; display: inline-flex">
-      <div style="width: 72px; flex-direction: column; justify-content: center; align-items: center; gap: 8px; display: inline-flex">
-          <div style="width: 24px; height: 24px; position: relative">
-              <img src="../assets/Frame 2608398.svg" style=" left: 7.64px; top: 0px; position: absolute; transform: rotate(25.04deg); transform-origin: 0 0;" routerLink="/enablelocation">
-          </div>
-          <div style="color: #3355B9; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Ever</div>
-      </div>
-      <div style="width: 72px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 8px; display: inline-flex">
-        <div style="width: 24px; height: 24px; position: relative">
-          <img src="../assets/mdi_motorbike-electric (1).svg" style=" left: 7.64px; top: 0px; position: absolute;  transform-origin: 0 0;" routerLink="/homepage">
-      </div>
-          <div style="color: rgba(54, 54, 54, 0.60); font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">EV Rentals</div>
-      </div>
-      <div style="width: 72px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 8px; display: inline-flex">
-          <div style="width: 24px; height: 24px; position: relative">
-            <img src="../assets/clarity_battery-solid (1).svg" style=" left: 7.64px; top: 0px; position: absolute;  transform-origin: 0 0;"routerLink="/swapstation">
-          </div>
-          <div style="color: rgba(54, 54, 54, 0.60); font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Swap station</div>
-      </div>
-      <div style="width: 72px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 8px; display: inline-flex">
-          <div style="width: 24px; height: 24px; position: relative">
-            <img src="../assets/ri_hand-heart-fill.svg" style=" left: 7.64px; top: 0px; position: absolute;  transform-origin: 0 0;" routerLink="/services">
-          </div>
-          <div style="color: rgba(54, 54, 54, 0.60); font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Services</div>
-      </div>
-  </div>
-  </mat-toolbar>
+   
 </ion-content>
 
  </mat-sidenav-content>

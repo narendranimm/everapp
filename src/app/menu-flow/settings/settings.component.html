@@ -19,39 +19,44 @@
               <div style="width: 16px; height: 16px; position: relative">
                   <div style="width: 14px; height: 14px; left: 3.01px; top: -0.55px; position: absolute; transform: rotate(14.72deg); transform-origin: 0 0; background: black"></div>
               </div>
-              <!-- <div style="color: #363636; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">Dark</div> -->
+             <div style="color: #363636; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">Dark</div> 
               <mat-slide-toggle labelPosition="before" [formControl]="toggleControl"></mat-slide-toggle>
             
           </div>
       </div>
-      <div style="align-self: stretch; padding: 12px; border-bottom: 1px #E8E7E7 solid; justify-content: space-between; align-items: center; display: inline-flex">
-          <div style="color: #363636; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">Font size</div>
-          <div style="justify-content: flex-start; align-items: center; gap: 12px; display: flex">
-              <div style="width: 16px; height: 16px; position: relative">
-                  <div style="width: 9.33px; height: 1.33px; left: 3.33px; top: 7.33px; position: absolute; background: black"></div>
-              </div>
-              <div style="color: #363636; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">14 px</div>
-              <div style="width: 16px; height: 16px; position: relative">
-                  <div style="width: 9.33px; height: 9.33px; left: 3.33px; top: 3.33px; position: absolute; background: black"></div>
-              </div>
-          </div>
-      </div>
-      <div style="align-self: stretch; padding: 12px; border-bottom: 1px #E8E7E7 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+      <div routerLink="/myaddress" style="align-self: stretch; padding: 12px; border-bottom: 1px #E8E7E7 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+        <div style="color: #363636; font-size: 16px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">My addresses</div>
+    </div>
+    <div style="align-self: stretch; padding: 12px; border-bottom: 1px #E8E7E7 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+        <div style="color: #363636; font-size: 16px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Trusted contacts</div>
+    </div>
+      <div routerLink="/security" style="align-self: stretch; padding: 12px; border-bottom: 1px #E8E7E7 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
           <div style="color: #363636; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">Security</div>
       </div>
-      <div style="align-self: stretch; padding: 12px; border-bottom: 1px #E8E7E7 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+      
+      <div routerLink="/aboutapplication" style="align-self: stretch; padding: 12px; border-bottom: 1px #E8E7E7 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
           <div style="color: #363636; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">About application</div>
       </div>
   </div>
-  <div style="width: 328px; padding: 12px; background: #F2F2F2; border-radius: 24px; overflow: hidden; border-top: 1px solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-      <div style="width: 24px; height: 24px; position: relative">
-          <div style="width: 20.58px; height: 20.16px; left: 1.92px; top: 1.92px; position: absolute; background: #E33629"></div>
-      </div>
-      <div style="color: #E33629; font-size: 14px; font-family: Archivo; font-weight: 700; word-wrap: break-word">
-    <a (click)="logout()">
-        Log out
-    </a>
+  
+
+</div>
+<div class="btn-submit">
+<div style="width: 328px; padding: 12px; background: #F2F2F2; border-radius: 24px; overflow: hidden; border-top: 1px solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+    <div style="width: 24px; height: 24px; position: relative">
+        <div style="width: 20.58px; height: 20.16px; left: 1.92px; top: 1.92px; position: absolute; background: #E33629"></div>
     </div>
+    <div style="color: #E33629; font-size: 14px; font-family: Archivo; font-weight: 700; word-wrap: break-word">
+  <a (click)="logout()">
+      Log out
+  </a>
   </div>
+</div>
+<div style="width: 100%; height: 100%; padding: 12px; border-radius: 24px; border: 1px #E8E7E7 solid; justify-content: center; align-items: center; gap: 8px; display: inline-flex">
+  <div style="width: 24px; height: 24px; position: relative">
+      <div style="width: 14px; height: 18px; left: 5px; top: 3px; position: absolute; background: #E34731"></div>
+  </div>
+  <div style="color: #E33629; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Delete account</div>
+</div>
 </div>
 </div>

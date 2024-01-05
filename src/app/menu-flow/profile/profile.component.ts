@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { IonContent } from '@ionic/angular';
 import { UserData } from 'src/app/providers/user-data';
 import { environment } from 'src/environments/environment.prod';
 
@@ -9,7 +10,7 @@ import { environment } from 'src/environments/environment.prod';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent  implements OnInit {
-  
+  @ViewChild(IonContent) content!: IonContent;
   imageSource:any=null;
   loginuser: any;
   profileUrl: any = environment.azimageUrl_pic;
@@ -38,5 +39,15 @@ export class ProfileComponent  implements OnInit {
     this.imageSource=image.dataUrl
    console.log(this.imageSource)
   };
+  scrollToBottom() {
+    // Passing a duration to the method makes it so the scroll slowly
+    // goes to the bottom instead of instantly
+    this.content.scrollToBottom(500);
+  }
 
+  scrollToTop() {
+    // Passing a duration to the method makes it so the scroll slowly
+    // goes to the top instead of instantly
+    this.content.scrollToTop(500);
+  }
 }

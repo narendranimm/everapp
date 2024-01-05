@@ -84,12 +84,19 @@ import { HubbikeImagesComponent } from './E-bike-booking-flow/hubdetails/hubbike
 import { KycstatusComponent } from './kycstatus/kycstatus.component';
 import { SwapstationsComponent } from './swapstations/swapstations.component';
 import { CurrentplanComponent } from './currentplan/currentplan.component';
+import { EmergencyComponent } from './emergency/emergency.component';
+import { MyaddressComponent } from './myaddress/myaddress.component';
+import { AddadressComponent } from './addadress/addadress.component';
+import { EnablelocationComponent } from './E-bike-booking-flow/enablelocation/enablelocation.component';
+import { AboutapplicationComponent } from './aboutapplication/aboutapplication.component';
+import { SecurityComponent } from './security/security.component';
+import { UploaddocComponent } from './uploaddoc/uploaddoc.component';
 
 
 
 
 
-const routess: Routes = [
+const routes: Routes = [
 //Registration-flow 
 {path:'splash', component:SplashComponent},
 {path:'allow-permissions',component:AllowPermissionsComponent},
@@ -107,7 +114,7 @@ const routess: Routes = [
 {path:'crop',component:CropComponent},
 //E-Booking-flow Routes
 {path:'slotbooking',component: DurationComponent},
-// {path:'enableloaction',component:EnablelocationComponent},
+{path:'enableloaction',component:EnablelocationComponent},
 {path:'hub-details',component:HubdetailsComponent},
 {path:'homepage',component:HomepageComponent},
 
@@ -188,18 +195,21 @@ const routess: Routes = [
   {path:'kyc',component:KycstatusComponent},
   {path:'swapstation',component:SwapstationsComponent},
  
-
-
-
-
-
-]
-
-const routes: Routes = [
+  {path:'emergency',component:EmergencyComponent},
+  {path:'myaddress',component:MyaddressComponent},
+  {path:'add-address',component:AddadressComponent},
+  {path:'aboutapplication',component:AboutapplicationComponent},
+  {path:'security',component:SecurityComponent},
+  {path:'uploaddoc',component:UploaddocComponent},
   {
-    path: '',
-    loadChildren: () => import('../app/Tabs/tabs/tabs.module').then(m => m.TabsPageModule)
-  }
+    path: 'search',
+    loadChildren: () => import('./swapstations/search/search.module').then( m => m.SearchPageModule)
+  },
+  
+ {
+  path: 'tabs',
+  loadChildren: () => import('./Tabs/tabs/tabs.module').then( m => m.TabsPageModule)
+}
 ];
 @NgModule({
   imports: [
@@ -208,3 +218,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
+
+

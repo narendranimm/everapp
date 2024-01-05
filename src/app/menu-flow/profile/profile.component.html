@@ -1,3 +1,4 @@
+<ion-content class="scroller">
 <div class="btn-container">
     <div
         style="width: 100%; height: 100%; flex-direction: column; justify-content: flex-start; align-items: center; gap: 24px; display: inline-flex">
@@ -17,9 +18,9 @@
         <div style="width: 120px; height: 120px; position: relative">
             <img style="width: 120px; height: 120px; left: 0px; top: 0px; position: absolute; border-radius: 100px"
                 src="{{profileUrl}}{{imageSource}}" />
-            <button (click)="takePicture()" class="p_pic" >
+            <!-- <button (click)="takePicture()" class="p_pic" >
                 <div style="width: 12px; height: 12px; background: #3355B9"></div>
-            </button>
+            </button> -->
         </div>
         <div
             style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 18px; display: flex">
@@ -28,7 +29,7 @@
                 <div
                     style="color: #363636; font-size: 16px; font-family: Archivo; font-weight: 600; word-wrap: break-word">
                     Customer id</div>
-                <input type="text" placeholder="E0000001" class="c_idcss" value="C-{{loginuser?.UserID}}">
+                <input type="text" placeholder="E0000001" class="c_idcss" value="C-{{loginuser?.UserID}}" disabled>
 
             </div>
             <div
@@ -36,7 +37,7 @@
                 <div
                     style="width: 82px; color: #363636; font-size: 16px; font-family: Archivo; font-weight: 600; word-wrap: break-word">
                     Name</div>
-                <input type="text" placeholder="Manish Paul" class="p_name" value="{{loginuser?.FirstName}} {{loginuser?.LastName}}">
+                <input type="text" placeholder="Manish Paul" class="p_name" value="{{loginuser?.FirstName}} {{loginuser?.LastName}}" disabled>
 
             </div>
             <div
@@ -44,7 +45,7 @@
                 <div
                     style="width: 44.15px; color: #363636; font-size: 16px; font-family: Archivo; font-weight: 600; word-wrap: break-word">
                     Email</div>
-                <input type="text" placeholder="manishpaul@gmail.com" class="p_email" value="{{loginuser?.EmailID}}">
+                <input type="text" placeholder="manishpaul@gmail.com" class="p_email" value="{{loginuser?.EmailID}}" disabled>
 
             </div>
             <div
@@ -52,23 +53,24 @@
                 <div
                     style="width: 80.95px; color: #363636; font-size: 16px; font-family: Archivo; font-weight: 600; word-wrap: break-word">
                     Mobile no.</div>
-                <input type="text" placeholder="9876543210" class="p_mobile" value="{{loginuser?.MobileNo}}">
+                <input type="text" placeholder="9876543210" class="p_mobile" value="{{loginuser?.MobileNo}}" disabled>
             </div>
             <div
                 style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
                 <div
                     style="width: 80.95px; color: #363636; font-size: 16px; font-family: Archivo; font-weight: 600; word-wrap: break-word">
                     Gender</div>
-                <input type="text" placeholder="Male" class="p_gender" value="{{loginuser?.Gender}}">
+                <input type="text" placeholder="Male" class="p_gender" value="{{loginuser?.Gender}}" disabled>
             </div>
             <div
                 style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
                 <div
                     style="color: #363636; font-size: 16px; font-family: Archivo; font-weight: 600; word-wrap: break-word">
                     Date of birth</div>
-                <input type="text" placeholder="20-03-1980" class="p_dob" value="{{loginuser?.DateofBirth}}">
+                <input type="text" placeholder="20-03-1980" class="p_dob" value="{{loginuser?.DateofBirth}}"disabled>
 
             </div>
         </div>
     </div>
 </div>
+</ion-content>

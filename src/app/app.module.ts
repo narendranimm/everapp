@@ -123,6 +123,11 @@ import { SwapstationsComponent } from './swapstations/swapstations.component';
 import { ViewAllImagesComponent } from './view-all-images/view-all-images.component';
 import { CompletekycComponent } from './completekyc/completekyc.component';
 import { SharedModule } from './shared.module';
+import { EmergencyComponent } from './emergency/emergency.component';
+import { MyaddressComponent } from './myaddress/myaddress.component';
+import { AboutapplicationComponent } from './aboutapplication/aboutapplication.component';
+import { SecurityComponent } from './security/security.component';
+import { UploaddocComponent } from './uploaddoc/uploaddoc.component';
 import { CommonImpModule } from './common.module';
 
 providers: [Storage]
@@ -176,7 +181,12 @@ providers: [Storage]
     SettingsComponent,
     SwapstationsComponent,
     ViewAllImagesComponent,
-    CompletekycComponent
+    CompletekycComponent,
+    EmergencyComponent,
+    MyaddressComponent,
+    AboutapplicationComponent,
+    SecurityComponent,
+    UploaddocComponent
 
   ],
 
