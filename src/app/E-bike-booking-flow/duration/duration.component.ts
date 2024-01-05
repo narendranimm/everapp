@@ -311,7 +311,7 @@ boxselection(data:any,i:number){
  book() {
 
   this.modalController.dismiss();
-  this.router.navigateByUrl('/adhar');
+  // this.router.navigateByUrl('/adhar');
 
    if (this.isSolt) {
      this.customDate.markAllAsTouched();
@@ -337,10 +337,10 @@ boxselection(data:any,i:number){
          this.user.setNew('bookingNo',this.BookingID)
          this.user.setNew('startTime',this.startDate)
          this.user.setNew('endTime',this.endDate)
-        //  this.snackBar.open(JSON.stringify(res.message));
-        //  this.router.navigateByUrl('/booking_summary/'+this.BookingID);
-        this.dialog.open(CompletekycComponent);
-        this.router.navigateByUrl('/adhar');
+         this.snackBar.open(JSON.stringify(res.message));
+         this.router.navigateByUrl('/booking_summary/'+this.BookingID);
+        // this.dialog.open(CompletekycComponent);
+        // this.router.navigateByUrl('/adhar');
        },
        (error)=>{
          this.loader.dismissLoader();

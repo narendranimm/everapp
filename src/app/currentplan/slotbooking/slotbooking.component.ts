@@ -176,7 +176,7 @@ export class SlotbookingComponent implements OnInit {
 
 
   //last line
-  book() {debugger
+  book() {
 
     if (this.startDate == null && this.endDate == null) {
       this.snackBar.open("Please Select a Slot")

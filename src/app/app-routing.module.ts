@@ -93,6 +93,7 @@ import { SecurityComponent } from './security/security.component';
 import { UploaddocComponent } from './uploaddoc/uploaddoc.component';
 import { TrustedcontactComponent } from './trustedcontact/trustedcontact.component';
 import { TrustedcontactListComponent } from './trustedcontact-list/trustedcontact-list.component';
+import { NobookingComponent } from './nobooking/nobooking.component';
 
 
 
@@ -209,6 +210,7 @@ const routes: Routes = [
   },
   {path:'trustedcontacts',component:TrustedcontactComponent},
   {path:'trustedcontacts_list',component:TrustedcontactListComponent},
+  {path:'nobookings',component:NobookingComponent},
 
 
 
