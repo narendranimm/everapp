@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
 
 .otp {
-  flex: 1 1 0;
+ width: 40px;
   height: 44px;
+  border: none;
   border-bottom: 2px #E2E1E5 solid;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  background: transparent;
 }
 
 .otp-container {

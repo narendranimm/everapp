@@ -47,10 +47,10 @@ export class VerificationComponent implements OnInit {
 
   otpController(event: any, next: any, prev: any): any {
     if (event.target.value.length < 1 && prev) {
-      prev.setFocus()
+      prev?.setFocus()
     }
     else if (next && event.target.value.length > 0) {
-      next.setFocus();
+      next?.setFocus();
     }
     else {
       return 0;

@@ -145,7 +145,7 @@ line-height: normal;
 .links{
   text-decoration: none;
   color: #363636;
-
+background: none;
 font-family: 'Archivo', sans-serif;
 font-size: 14px;
 font-style: normal;
@@ -347,4 +347,7 @@ ion-modal ion-toolbar {
 }
 .desp-4{
  align-self: stretch; color: black; font-size: 10px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
+}
+.btn-container{
+  padding: 2%;
 }
