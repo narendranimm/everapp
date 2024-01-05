@@ -9,12 +9,19 @@
 <p class="intro-content">A 6 digit code has sent to your mobile number</p>
 <form  [formGroup]="verficationForm" >
 <div class="otp-container">
-  <ion-input placeholder="" type="number" #otp1 class="otp" size="1" onKeyPress="if(this.value.length==1) return false;"  required="true" maxLength="1" (keyup)="otpController($event,otp2,'')" formControlName="firstdigit"></ion-input>
-  <ion-input placeholder="" type="number" #otp2 class="otp" size="1" onKeyPress="if(this.value.length==1) return false;" required="true" maxLength="1" (keyup)="otpController($event,otp3,otp1)" formControlName="seconddigit"></ion-input>
-  <ion-input placeholder="" type="number" #otp3 class="otp" size="1" onKeyPress="if(this.value.length==1) return false;" required="true" maxLength="1" (keyup)="otpController($event,otp4,otp2)" formControlName="thirddigit"></ion-input>
-  <ion-input placeholder="" type="number" #otp4 class="otp" size="1" onKeyPress="if(this.value.length==1) return false;" required="true" maxLength="1" (keyup)="otpController($event,otp5,otp3)" formControlName="fourthdigit"></ion-input>
-  <ion-input placeholder="" type="number" #otp5 class="otp" size="1" onKeyPress="if(this.value.length==1) return false;" required="true" maxLength="1" (keyup)="otpController($event,otp6,otp4)" formControlName="fifthdigit"></ion-input>
-  <ion-input placeholder=""type="number" #otp6 class="otp" size="1" onKeyPress="if(this.value.length==1) return false;" required="true" maxLength="1" (keyup)="otpController($event,'',otp5)" formControlName="sixthdigit"></ion-input>
+  <ion-input type="text" #otp1  class="otp" maxlength="1" (keyup)="otpController($event,otp2,'')" formControlName="firstdigit" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ></ion-input>
+  <ion-input type="text" #otp2 class="otp" maxlength="1" (keyup)="otpController($event,otp3,otp1)" formControlName="seconddigit" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ></ion-input>
+  <ion-input type="text" #otp3 class="otp" maxlength="1" (keyup)="otpController($event,otp4,otp2)" formControlName="thirddigit" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ></ion-input>
+  <ion-input type="text" #otp4 class="otp" maxlength="1" (keyup)="otpController($event,otp5,otp3)" formControlName="fourthdigit" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ></ion-input>
+  <ion-input type="text" #otp5 class="otp" maxlength="1" (keyup)="otpController($event,otp6,otp4)" formControlName="fifthdigit" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ></ion-input>
+  <ion-input type="text" #otp6 class="otp" maxlength="1" (keyup)="otpController($event,'',otp5)" formControlName="sixthdigit" oninput="this.value=this.value.replace(/[^0-9]/g,'');" ></ion-input>
+
+  <!-- <input placeholder="" type="number" #otp1 class="otp" size="1"  required="true"  (keyup)="otpController($event,otp2,'')" formControlName="firstdigit" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" >
+  <input placeholder="" type="number" #otp2 class="otp" size="1" required="true"  (keyup)="otpController($event,otp3,otp1)" formControlName="seconddigit" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" >
+  <input placeholder="" type="number" #otp3 class="otp" size="1" required="true"  (keyup)="otpController($event,otp4,otp2)" formControlName="thirddigit" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" >
+  <input placeholder="" type="number" #otp4 class="otp" size="1" required="true"  (keyup)="otpController($event,otp5,otp3)" formControlName="fourthdigit" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" >
+  <input placeholder="" type="number" #otp5 class="otp" size="1" required="true"  (keyup)="otpController($event,otp6,otp4)" formControlName="fifthdigit" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" >
+  <input placeholder=""type="number" #otp6 class="otp" size="1" required="true"  (keyup)="otpController($event,'',otp5)" formControlName="sixthdigit"maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" > -->
 </div>
 <br><br>
 
