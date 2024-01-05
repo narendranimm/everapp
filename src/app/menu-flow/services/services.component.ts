@@ -39,5 +39,8 @@ export class ServicesComponent implements OnInit {
         this.router.navigateByUrl('/my-booking');
       }
     }
+    else{
+
+    }
   }
 }

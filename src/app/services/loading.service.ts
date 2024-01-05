@@ -52,10 +52,11 @@ async dismissLoader() {
       res.present();
     });
   }   
-  async presentLoading() {
+  async presentLoading(message:string) {
     const loading = await this.loadingController.create({
-      message: 'Please wait...',
-      translucent: true,
+      message: message,
+    duration: 3000
+
     });
     return await loading.present();
   }
@@ -75,4 +76,6 @@ async dismissLoader() {
 //       console.log('Error occured : ', err);
 //     });
 //   }
+
+
 }

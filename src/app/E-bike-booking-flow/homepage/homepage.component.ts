@@ -81,7 +81,7 @@ export class HomepageComponent implements OnInit {
 
   public sidebar: boolean = true;
   getbranchesByBID() {
-    this.loadingservice.simpleLoader('loading')
+    this.loadingservice.presentLoading('loading')
     this._bh.getbranchesByBID(this.bikeHubID, null).subscribe(
       (res: any) => {
         console.log('tests', res)
