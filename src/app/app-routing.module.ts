@@ -91,6 +91,8 @@ import { EnablelocationComponent } from './E-bike-booking-flow/enablelocation/en
 import { AboutapplicationComponent } from './aboutapplication/aboutapplication.component';
 import { SecurityComponent } from './security/security.component';
 import { UploaddocComponent } from './uploaddoc/uploaddoc.component';
+import { TrustedcontactComponent } from './trustedcontact/trustedcontact.component';
+import { TrustedcontactListComponent } from './trustedcontact-list/trustedcontact-list.component';
 
 
 
@@ -200,10 +202,13 @@ const routes: Routes = [
   {path:'add-address',component:AddadressComponent},
   {path:'aboutapplication',component:AboutapplicationComponent},
   {path:'security',component:SecurityComponent},
-  {path:'uploaddoc',component:UploaddocComponent},  {
+  {path:'uploaddoc',component:UploaddocComponent},
+  {
     path: 'search',
     loadChildren: () => import('./swapstations/search/search.module').then( m => m.SearchPageModule)
-  }
+  },
+  {path:'trustedcontacts',component:TrustedcontactComponent},
+  {path:'trustedcontacts_list',component:TrustedcontactListComponent},
 
 
 

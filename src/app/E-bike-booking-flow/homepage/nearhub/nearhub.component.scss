@@ -1,1 +1,28 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
+.hub-container{
+
+    display: flex;
+  
+  flex-flow: wrap row ;
+  align-items: center;
+  justify-content: center;
+   
+  }
+  .swap-battery-container::-webkit-scrollbar{
+    width: 0;
+  }
+  .swap-battery-child{
+    width: 140px;
+  height: 180px;
+  border: 2px solid whitesmoke;
+  
+  
+  }
+  .swap-content{
+    color: #363636;
+font-size: 14px;
+font-family: 'Open Sans', sans-serif;
+font-weight: 400;
+word-wrap: break-word
+  }

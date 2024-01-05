@@ -128,7 +128,12 @@ import { MyaddressComponent } from './myaddress/myaddress.component';
 import { AboutapplicationComponent } from './aboutapplication/aboutapplication.component';
 import { SecurityComponent } from './security/security.component';
 import { UploaddocComponent } from './uploaddoc/uploaddoc.component';
-
+import { TrustedcontactComponent } from './trustedcontact/trustedcontact.component';
+import { TrustedcontactListComponent } from './trustedcontact-list/trustedcontact-list.component';
+import {MatMenuModule} from '@angular/material/menu';
+import { TermsConditionsComponent } from './menu-flow/terms-conditions/terms-conditions.component';
+import { InviteFriendsComponent } from './menu-flow/invite-friends/invite-friends.component';
+import { ClaimsComponent } from './menu-flow/claims/claims.component';
 providers: [Storage]
 @NgModule({
   declarations: [AppComponent, SplashComponent, GetComponent, RegisterComponent, LogComponent, AadharComponent, SelfieComponent, NavComponent, PreviewComponent, CropComponent, AllowPermissionsComponent, CongratulationsComponent, EnablelocationComponent, HomepageComponent, HubdetailsComponent, HublistsComponent, BookingdetailsComponent, CommunicationAllowPermissionComponent, HublistsComponent, BikedetailsComponent, DurationComponent, DatetimeComponent, BatteryStationListComponent, BatteryStationComponent, BatteryListComponent, BatteryDetailsAvailableComponent, BatteryDetailsUnavailableComponent, BookingDetailsComponent, OffersComponent, CouponAppliedComponent, CouponAppliedDashboardComponent, PaymentGatewaysComponent, AddUpiIdComponent, AddCardComponent, AddEWalletComponent, PaymentOngoingComponent, AddPaymentOngoingComponent, BookingSuccessComponent, BookingDetailsAfterComponent, BikelistComponent, DurationComponent, DurationLaterComponent, BookingsummaryComponent, OffersComponent, CouponappliedComponent, PaymentComponent, PaymentgatewaysComponent, AddUPIIDComponent, AddcardComponent, EWalletComponent, BookingDetailsComponent, HomepageAfterbookingComponent, TimedetailsComponent, BookingsuccessComponent,
@@ -170,12 +175,10 @@ providers: [Storage]
     VerificationComponent,
     LoaderComponent,
     SettingsComponent,
-  
     HubbikeImagesComponent,
     SupportComponent,
     ServicesComponent,
     ViewsummaryComponent,
-  
     KycstatusComponent,
     SettingsComponent,
     SwapstationsComponent,
@@ -185,11 +188,16 @@ providers: [Storage]
     MyaddressComponent,
     AboutapplicationComponent,
     SecurityComponent,
-    UploaddocComponent
+    UploaddocComponent,
+    TrustedcontactComponent,
+    TrustedcontactListComponent,
+    TermsConditionsComponent,
+    InviteFriendsComponent,
+    ClaimsComponent
 
   ],
 
-  imports: [BrowserModule, MatExpansionModule,MatSlideToggleModule,MatDatepickerModule,MatProgressSpinnerModule,
+  imports: [BrowserModule, MatExpansionModule,MatSlideToggleModule,MatDatepickerModule,MatProgressSpinnerModule,MatMenuModule,
     // SocialLoginModule,
     IonicStorageModule.forRoot({ name: "mylocaldb" }), MatSnackBarModule,
     MatSelectModule,
