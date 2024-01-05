@@ -335,6 +335,8 @@ boxselection(data:any,i:number){
          this.loader.dismissLoader();
          this.BookingID = res.ID
          this.user.setNew('bookingNo',this.BookingID)
+         this.user.setNew('startTime',this.startDate)
+         this.user.setNew('endTime',this.endDate)
         //  this.snackBar.open(JSON.stringify(res.message));
         //  this.router.navigateByUrl('/booking_summary/'+this.BookingID);
         this.dialog.open(CompletekycComponent);
