@@ -1,7 +1,7 @@
 
 
 <mat-sidenav-container class="sidenav-container" style="background: #E8F0F9;">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport style=""
+  <mat-sidenav #drawer class="sidenav" fixedInViewport #sidenav
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
@@ -12,7 +12,7 @@
             <div style="width: 24px; height: 24px; position: relative">
                 <div class="btn-container">
                  
-                    <button style="background: transparent;border: none;color:black;" ><img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
+                    <button style="background: transparent;border: none;color:black;" (click)="sidenav.close()" ><img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
                   
                   </div>
             </div>
@@ -166,7 +166,7 @@
     <h1 class="greeting-head">Welcome {{logindata?.FirstName}} {{logindata?.LastName}}</h1>
     <p class="share-location"><img src="./assets/mdi_location.svg" alt=""> <button style="background: transparent;"   class="share-loc-content">Select your location</button></p>
     
-   
+    <input id="latlng" type="text" value="{{lati}},{{longi}}" />
    
     <div class="notification-card-p" id="open-modal" expand="block">
      <ion-card color="success" class="notify-card">
