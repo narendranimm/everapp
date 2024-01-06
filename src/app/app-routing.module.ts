@@ -95,6 +95,7 @@ import { TrustedcontactComponent } from './trustedcontact/trustedcontact.compone
 import { TrustedcontactListComponent } from './trustedcontact-list/trustedcontact-list.component';
 import { NobookingComponent } from './nobooking/nobooking.component';
 import { ConfirmpasswordComponent } from './confirmpassword/confirmpassword.component';
+import { ViewsummaryComponent } from './viewsummary/viewsummary.component';
 
 
 
@@ -184,7 +185,7 @@ const routes: Routes = [
 {path:'booking-summary-applied-m',component:BookingSummaryAppliedCouponComponent},
 {path:'payment-gateways-m',component:PaymentGatewayMComponent},
 {path:'booking-details-m',component:BookingMComponent},
-{path:'currentplan',component:CurrentplanComponent},
+// {path:'currentplan',component:CurrentplanComponent},
 {path:'bimages',component:HubbikeImagesComponent},
   {
     path: 'popup',
@@ -212,7 +213,8 @@ const routes: Routes = [
   {path:'trustedcontacts',component:TrustedcontactComponent},
   {path:'trustedcontacts_list',component:TrustedcontactListComponent},
   {path:'nobookings',component:NobookingComponent},
-  {path:'confirmpassword',component:ConfirmpasswordComponent}
+  {path:'confirmpassword',component:ConfirmpasswordComponent},
+  {path:'inovice',component:ViewsummaryComponent}
 
 
 

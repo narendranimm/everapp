@@ -80,11 +80,7 @@ export class TimeDetailsComponent implements OnInit, OnDestroy {
   
     })
   }
-  extendplan(){
-    console.log(this.ProductDetails)
-    this.storage.setNew('extendplandata',this.ProductDetails)
-    this.router.navigateByUrl('/currentplan/slot')
-  }
+ 
   showCounter(){
     let dateObject:any = new Date(this.ProductDetails.BookingStartDate);
     let dateObject2:any = new Date(this.ProductDetails.BookingEndDate);
@@ -107,5 +103,8 @@ export class TimeDetailsComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     // this.countDown = 'nuill';
   }
+  viewinvoice(){
+    this.router.navigateByUrl('/currentplan/slot')
 
+  }
 }
