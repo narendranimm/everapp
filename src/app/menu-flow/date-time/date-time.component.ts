@@ -192,16 +192,17 @@ export class DateTimeComponent  implements OnInit {
      this.snackBar.open(" Please Select A Slot!!!");
    } else {
      this.loader.simpleLoader('Loading...')
-     this.ordersaveData.ProductID = this.productId;
+    //  this.ordersaveData.ProductID = this.productId;
      this.ordersaveData.BookingStartDate = this.startDate;
      this.ordersaveData.BookingEndDate = this.endDate;
-     this.ordersaveData.TotalAmount=this.convertedCash
-     if(this.productId == null ){
-       this.snackBar.open("Please Select a Product")
-     this.loader.dismissLoader();
+     this.ordersaveData.TotalAmount=this.convertedCash;
+     this.ordersaveData.ServiceType=3506;
+    //  if(this.productId == null ){
+    //    this.snackBar.open("Please Select a Product")
+    //  this.loader.dismissLoader();
  
-       return;
-     }
+    //    return;
+    //  }
  
  
      this.bookingservice.book(this.ordersaveData).subscribe(
@@ -210,7 +211,7 @@ export class DateTimeComponent  implements OnInit {
          this.BookingID = res.ID
          this.user.setNew('bookingNo',this.BookingID)
          this.snackBar.open(JSON.stringify(res.message));
-         this.router.navigateByUrl('/booking_summary/'+this.BookingID);
+         this.router.navigateByUrl('/booking-summary-m/'+this.BookingID);
        },
        (error)=>{
          this.loader.dismissLoader();
@@ -250,7 +251,8 @@ export class DateTimeComponent  implements OnInit {
     "IsFullPaid":1,
     "WashAmount":0,        
     "SecurityAmount":0,
-    "CouponID":0
+    "CouponID":0,
+    "ServiceType":0
   }
 
   numberdata = {

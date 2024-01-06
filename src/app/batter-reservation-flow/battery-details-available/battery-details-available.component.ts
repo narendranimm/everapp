@@ -43,6 +43,8 @@ ProductDetails:any;
       this.ProductDetails=res;
       console.log(res)
       this.imageUrl=this.azimageUrl+this.ProductDetails.ImageName;
+      console.log(this.imageUrl)
+
       this.loader.dismissLoader();
     })
   }

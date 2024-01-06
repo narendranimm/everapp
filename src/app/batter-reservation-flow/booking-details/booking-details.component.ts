@@ -76,7 +76,9 @@ ProductDetails:any;
    
    this.content.scrollToTop(800);
  }
-
+ gotnext(){
+  this.router.navigateByUrl('/payment-gateway')
+ }
  payload={
   
     "ProductID":'NULL',

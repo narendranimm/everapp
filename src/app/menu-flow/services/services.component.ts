@@ -34,7 +34,7 @@ export class ServicesComponent implements OnInit {
     if (!isNaN(startTime) && !isNaN(endTime)) {
       const getDate = new Date().getTime();
       if(getDate <= endTime){
-        this.router.navigateByUrl('/currentplan');
+        this.router.navigateByUrl('/currentplan/plan');
       }else{
         this.router.navigateByUrl('/nobookings');
       }

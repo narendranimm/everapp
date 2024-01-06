@@ -18,7 +18,6 @@ export class TimedetailsComponent  implements OnInit {
   ngOnInit() {}
 
   getDetails(id:string) {
-    alert('')
     this._pd.getordersummeryByBookingNo(id).subscribe((res: any) => {
       console.log(res)
       this.ProductDetails = res;

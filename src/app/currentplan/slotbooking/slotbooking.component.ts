@@ -16,7 +16,7 @@ import { LoadingService } from 'src/app/services/loading.service';
 export class SlotbookingComponent implements OnInit {
 
   startDate: any = null;
-  endDate: any; any = null;
+  endDate: any = null;
   Amount: any;
   customDate!: FormGroup;
   productId: any = null;

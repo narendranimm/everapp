@@ -179,7 +179,7 @@ const routes: Routes = [
 {path:'wash-station-details',component:WashStationDetailsComponent},
 {path:'wash-slot-book',component:DateTimeComponent},
 {path:'offer-coupan-m',component:OfferCouponComponent},
-{path:'booking-summary-m',component:BookingSummaryComponent},
+{path:'booking-summary-m/:ID',component:BookingSummaryComponent},
 {path:'offers-m',component:OffersMComponent},
 {path:'coupan-applied-m',component:CouponappliedComponent},
 {path:'booking-summary-applied-m',component:BookingSummaryAppliedCouponComponent},

@@ -34,9 +34,9 @@
             <div class="card-parent">
                 <div class="card-child" *ngFor="let p of ProductList">
 
-                    <div class="inner-parent">
+                    <div class="inner-parent"  >
                         <div class="inner-child">
-                            <img class="bike-img"
+                            <img class="bike-img" [ngClass]="{'disablelist': !p.IsAvailable}"
                                 src="{{azimageUrl}}{{p.ImageName}}"
                                 alt="">
                                
@@ -71,7 +71,7 @@
                                 </svg>
 
                                 Available {{p.Quntity}}</p>
-                            <button class="view-btn"   (click)="gotoDetails(p.ProductID)">View details </button>
+                            <button class="view-btn"   (click)="gotoDetails(p.ProductID)" [ngClass]="{'disablelist': !p.IsAvailable}">View details </button>
 
                         </div>
                     </div>
