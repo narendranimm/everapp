@@ -34,7 +34,7 @@ ProductDetails:any;
   
   gotobooking(){
     this.user.setpId(this.ProductDetails.ProductID)
-    this.router.navigateByUrl('/slotbooking')
+    this.router.navigateByUrl('/booking-details-b')
   }
 
   getDetails(){

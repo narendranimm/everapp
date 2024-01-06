@@ -20,6 +20,7 @@ import { HttpClient } from '@angular/common/http';
 export class EnablelocationComponent  implements OnInit {
   slides:any=[]
   lati: any = '';  
+  useraddress:any;
   longi: any = '';  
   bikeHub:any;
 user:any;
@@ -88,6 +89,9 @@ profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
         this.longi = resp.coords.longitude;  
         this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${this.lati},${this.longi}&key=AIzaSyCU4W4iQLV5ydrW3UxZncI_JdLi1EsKH5A`).subscribe((res:any)=>{
           this.loc=res['plus_code']  
+          console.log(res.results[0].formatted_address)
+          console.log(res.results[8].formatted_address)
+          this.useraddress=res.results[8].formatted_address
           console.log(res)
           })
       })

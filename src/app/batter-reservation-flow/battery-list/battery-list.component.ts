@@ -12,7 +12,11 @@ import { environment } from 'src/environments/environment.prod';
   styleUrls: ['./battery-list.component.scss'],
 })
 export class BatteryListComponent implements OnInit {
-  
+  ProductList: any = [];
+  branchid: any;
+
+ 
+
 
   productname:any=null;
 
@@ -51,5 +55,19 @@ getbatterylist(){
     this.store.setpId(id);
     this.router.navigateByUrl('battery-details-available/'+id)
 
+  }
+  getListsearch() {
+    this._pd.productListBybranchId(this.branchid,this.productname).subscribe(
+      (res) => {
+        this.ProductList = res;
+      }, (error) => {
+
+      }
+    )
+  }
+  search(data:any){
+    console.log(this.searchValue)
+    this.productname=this.searchValue;
+     this.getListsearch();
   }
 }

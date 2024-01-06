@@ -166,8 +166,8 @@
     <h1 class="greeting-head">Welcome {{logindata?.FirstName}} {{logindata?.LastName}}</h1>
     <p class="share-location"><img src="./assets/mdi_location.svg" alt=""> <button style="background: transparent;"   class="share-loc-content">Select your location</button></p>
     
-    <input id="latlng" type="text" value="{{lati}},{{longi}}" />
-   
+    <!-- <input id="latlng" type="text" value="{{lati}},{{longi}}" /> -->
+    {{useraddress}}
     <div class="notification-card-p" id="open-modal" expand="block">
      <ion-card color="success" class="notify-card">
        <ion-card-header>
