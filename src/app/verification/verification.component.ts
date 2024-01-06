@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
 import { LoadingService } from '../services/loading.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CongratulationsComponent } from '../congratulations/congratulations.component';
-
+import { Plugins } from '@capacitor/core';
+const { Clipboard } = Plugins;
 @Component({
   selector: 'app-verification',
   templateUrl: './verification.component.html',
@@ -23,12 +24,12 @@ export class VerificationComponent implements OnInit {
   constructor(private reg: RegisterService, private loadingservice: LoadingService,public dialog: MatDialog,
     private _vf: FormBuilder, private router: Router, private register: RegisterService, private snackBar: MatSnackBar, private userdata: UserData) {
     this.verficationForm = this._vf.group({
-      firstdigit: ['', Validators.required],
-      seconddigit: ['', Validators.required],
-      thirddigit: ['', Validators.required],
-      fourthdigit: ['', Validators.required],
-      fifthdigit: ['', Validators.required],
-      sixthdigit: ['', Validators.required]
+      fst: ['', Validators.required],
+      scn: ['', Validators.required],
+      thrd: ['', Validators.required],
+      fth: ['', Validators.required],
+      fifth: ['', Validators.required],
+      sth: ['', Validators.required]
 
     })
     this.userdata.getuser().then(res => {
@@ -44,8 +45,24 @@ export class VerificationComponent implements OnInit {
     this.btndisabled = true;
 
   }
-
+  async copyToClipboard(text: string) {
+    await Clipboard.write({
+      string: text,
+    });
+    alert(text);
+  }
   otpController(event: any, next: any, prev: any): any {
+    console.log(event.target.value.length)
+    if(event.target.value.length ==6){
+      const digits: number[] = event.target.value.split('').map(Number);
+      this.verficationForm.controls.fst.setValue(digits[0]);
+      this.verficationForm.controls.scn.setValue(digits[1]);
+      this.verficationForm.controls.thrd.setValue(digits[2]);
+      this.verficationForm.controls.fth.setValue(digits[3]);
+      this.verficationForm.controls.fifth.setValue(digits[4]);
+      this.verficationForm.controls.sth.setValue(digits[5]);
+    // console.log(`Individual digits: ${digits.join(', ')}`);
+    }
     if (event.target.value.length < 1 && prev) {
       prev?.setFocus()
     }
@@ -72,7 +89,7 @@ export class VerificationComponent implements OnInit {
     //  setTimeout(() => {
     //   this.loaderService.display(false);
     // }, 800);
-    const otpString = `${otp.firstdigit}${otp.seconddigit}${otp.thirddigit}${otp.fourthdigit}${otp.fifthdigit}${otp.sixthdigit}`;
+    const otpString = `${otp.fst}${otp.scn}${otp.thrd}${otp.fourthdigit}${otp.fth}${otp.sth}`;
     console.log('OTP to verify', otpString);
 
     //  console.log(this.logindata.OTP == otpString)
