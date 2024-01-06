@@ -46,13 +46,14 @@ export class HomepageComponent implements OnInit {
   username = '';
   logindata!: any;
   show: boolean = true; 
- 
+  searchValue:any=null;
   private breakpointObserver = inject(BreakpointObserver);
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(map(result => result.matches), shareReplay());
   marker: any;
   hubsnearby: any = [];
   useraddress: string='';
+  filteredItems: any;
   constructor(private loadingservice: LoadingService, private hub_s: HubsService,
     public popoverController: PopoverController, private _bh: BookingService, private route: ActivatedRoute, private router: Router,
     private _pd: ProductServicesService, private userdata: UserData,private http:HttpClient
@@ -62,6 +63,13 @@ export class HomepageComponent implements OnInit {
 
         this.logindata = res;
         this.username = res.FirstName + ' ' + res.LastName;
+      }
+    })
+    this.userdata.getId('userlocation').then(res => {
+      if (res !== null) {
+
+        this.useraddress = res;
+        console.log(this.useraddress)
       }
     })
 
@@ -102,6 +110,7 @@ export class HomepageComponent implements OnInit {
     this.hub_s.getnearByHubsBasedonLatandLongID(this.postadd_Data).subscribe(res => {
       console.log('firsthubs',res)
       this.hubsnearby = res;
+      this.filteredItems = res;
       this.loadingservice.dismissLoader();
 
     },
@@ -110,17 +119,14 @@ export class HomepageComponent implements OnInit {
       }
     )
   }
+  //not using
   printCurrentPosition() {
     var coordinates = Geolocation.getCurrentPosition().then((resp) => {
       this.lati = resp.coords.latitude;
       this.longi = resp.coords.longitude;
-      this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${this.lati},${this.longi}&key=AIzaSyCU4W4iQLV5ydrW3UxZncI_JdLi1EsKH5A`).subscribe((res:any)=>{
-        this.loc=res['plus_code']  
-        console.log('addres',res)
-        console.log(res.results[0].formatted_address)
-        console.log(res.results[6].formatted_address)
-        this.useraddress=res.results[6].formatted_address
-        })
+      console.log(this.lati);
+      console.log(this.longi)
+     
       this.getNearByHubs()
     })
 console.log(coordinates)
@@ -141,7 +147,7 @@ console.log(coordinates)
 
   // }
   // geocodeLatLng(geocoder: any) {
-  //   const input = (document.getElementById("latlng") as HTMLInputElement)
+    // const input = (document.getElementById("latlng") as HTMLInputElement)
   //   if(input.value){
 
   //     const latlngstr = input.value.split('', 2);
@@ -170,7 +176,11 @@ console.log(coordinates)
     // goes to the bottom instead of instantly
     this.content.scrollToBottom(500);
   }
-
+  filterItems(searchTerm: string) {
+    this.filteredItems = this.hubsnearby.filter((item:any) =>
+      item.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
   scrollToTop() {
     // Passing a duration to the method makes it so the scroll slowly
     // goes to the top instead of instantly

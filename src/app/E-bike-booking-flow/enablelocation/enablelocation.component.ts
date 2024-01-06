@@ -83,7 +83,7 @@ profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
     })
     console.log('Current position:', coordinates);
   };
-  address(){
+  address(){debugger
     var coordinates = Geolocation.getCurrentPosition().then((resp) => { 
       this.lati = resp.coords.latitude;  
         this.longi = resp.coords.longitude;  
@@ -92,6 +92,7 @@ profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
           console.log(res.results[0].formatted_address)
           console.log(res.results[8].formatted_address)
           this.useraddress=res.results[8].formatted_address
+          this.userdata.setNew('userlocation',this.useraddress)
           console.log(res)
           })
       })
