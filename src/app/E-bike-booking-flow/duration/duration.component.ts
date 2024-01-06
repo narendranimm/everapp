@@ -141,10 +141,9 @@ export class DurationComponent implements OnInit {
       if (res !== null) {
         this.logindata = res;
         this.ordersaveData.MemberID = this.logindata.UserID;
+        this.checkKYC();
       } else {
-        // Handle the case when data is null
         console.log('Data is null. Handle accordingly.');
-        // You might want to set a default value or perform some other action
       }
     })
     this.dataService.combinedData$.subscribe(data => {
@@ -369,7 +368,13 @@ open() {
 
   this.isModelOpen=true;
 }
-
+checkKYC(){
+  this.bookingservice.getIskycVerify(this.ordersaveData.MemberID ).subscribe((res:any)=>{
+    if(res.IsSuccess){
+console.log(res.message)
+    }
+  })
+}
   //#region dummy data
   ordersaveData = {
     "OrderID": 123,

@@ -40,5 +40,9 @@ export class BookingService {
   getHubDetaislByHubID(branchID:number){
     return this.http.get(this.baseurl+`hubs/gethubdetails/${branchID}`)
   }
+
+  getIskycVerify(userid:number){
+    return this.http.get(this.baseurl+`api/documents/iskyc/${userid}`)
+  }
  
 }

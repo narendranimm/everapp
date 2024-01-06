@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { RegisterService } from '../registration-services/register.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarService } from '../snackbar.service';
 
 @Component({
   selector: 'app-uploaddoc',
@@ -29,7 +30,7 @@ export class UploaddocComponent implements OnInit {
   isBackA = false;
   isAllFIles: boolean = false;
 
-  constructor(private _pf: FormBuilder, public snackbar: MatSnackBar,
+  constructor(private _pf: FormBuilder,private snackbarService: SnackbarService,
     public dialog: MatDialog, private router: Router, private http: HttpClient, private rs: RegisterService, private snackBar: MatSnackBar) {
     this.personalForm = this._pf.group({
       adharno: ['', Validators.required],
@@ -172,12 +173,22 @@ export class UploaddocComponent implements OnInit {
   }
 
   gotonext() {
-    if (!this.isAllFIles) {
-      this.snackbar.open('Please Upload All Files');
-      return
-    }
+
+    // if (!this.isAllFIles) {
+    //   this.snackbar.open('Please Upload All Files');
+    //   return
+    // }
+  
     console.log(this.filedata)
-    alert('')
+    this.rs.saveDocuments(this.filedata).subscribe((res:any)=>{
+    console.log(res)
+    if(res.Status== "true"){
+      this.snackbarService.presentSnackbar(res.Message,1000,'bottom','success')
+
+    }else{
+
+    }
+    })
   }
 
   filedata: any =
