@@ -202,7 +202,8 @@ providers: [Storage]
     AddadressComponent,
     MyaddressComponent,
     FacerecognizationComponent,
-    ConfirmpasswordComponent
+    ConfirmpasswordComponent,
+    SettingsComponent
 
   ],
 

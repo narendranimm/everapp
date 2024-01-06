@@ -28,8 +28,8 @@ export interface MapGeocoderResponse {
 })
 export class HomepageComponent implements OnInit {
   loading: boolean = false;
-  lat: any = null;
-  lng: any = null;
+  lati: any = ''; 
+  longi: any = '';  
   location: any = {}
   keys: string[] = [];
   bikeHubID: any = 3502;
@@ -70,7 +70,7 @@ export class HomepageComponent implements OnInit {
   ngOnInit() {
     this.getbranchesByBID()
     this.printCurrentPosition();
-    this.address();
+    // this.address();
 
     this.getNearByHubs();
     
@@ -96,8 +96,8 @@ export class HomepageComponent implements OnInit {
     )
   }
   getNearByHubs() {
-    this.postadd_Data.TargetLatitude = this.lat;
-    this.postadd_Data.TargetLongitude = this.lng;
+    this.postadd_Data.TargetLatitude = this.lati;
+    this.postadd_Data.TargetLongitude = this.longi;
     this.postadd_Data.branchtype=3502;
     this.hub_s.getnearByHubsBasedonLatandLongID(this.postadd_Data).subscribe(res => {
       console.log('firsthubs',res)
@@ -112,9 +112,9 @@ export class HomepageComponent implements OnInit {
   }
   printCurrentPosition() {
     var coordinates = Geolocation.getCurrentPosition().then((resp) => {
-      this.lat = resp.coords.latitude;
-      this.lng = resp.coords.longitude;
-      this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=17.519523,78.381172&key=AIzaSyCU4W4iQLV5ydrW3UxZncI_JdLi1EsKH5A`).subscribe((res:any)=>{
+      this.lati = resp.coords.latitude;
+      this.longi = resp.coords.longitude;
+      this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${this.lati},${this.longi}&key=AIzaSyCU4W4iQLV5ydrW3UxZncI_JdLi1EsKH5A`).subscribe((res:any)=>{
         this.loc=res['plus_code']  
         console.log('addres',res)
         console.log(res.results[0].formatted_address)
@@ -155,16 +155,16 @@ console.log(coordinates)
   //       })
   //   }
   // }
-address(){
+// address(){
  
-  this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=17.519523,78.381172&key=AIzaSyCU4W4iQLV5ydrW3UxZncI_JdLi1EsKH5A`).subscribe((res:any)=>{
-  this.loc=res['plus_code']  
-  console.log('addres',res)
-  console.log(res.results[0].formatted_address)
-  console.log(res.results[6].formatted_address)
-  this.useraddress=res.results[6].formatted_address
-  })
-}
+//   this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=17.519523,78.381172&key=AIzaSyCU4W4iQLV5ydrW3UxZncI_JdLi1EsKH5A`).subscribe((res:any)=>{
+//   this.loc=res['plus_code']  
+//   console.log('addres',res)
+//   console.log(res.results[0].formatted_address)
+//   console.log(res.results[6].formatted_address)
+//   this.useraddress=res.results[6].formatted_address
+//   })
+// }
   scrollToBottom() {
     // Passing a duration to the method makes it so the scroll slowly
     // goes to the bottom instead of instantly
