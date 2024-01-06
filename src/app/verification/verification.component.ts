@@ -89,7 +89,8 @@ export class VerificationComponent implements OnInit {
     //  setTimeout(() => {
     //   this.loaderService.display(false);
     // }, 800);
-    const otpString = `${otp.fst}${otp.scn}${otp.thrd}${otp.fourthdigit}${otp.fth}${otp.sth}`;
+  
+    const otpString = `${otp.fst}${otp.scn}${otp.thrd}${otp.fth}${otp.fifth}${otp.sth}`;
     console.log('OTP to verify', otpString);
 
     //  console.log(this.logindata.OTP == otpString)

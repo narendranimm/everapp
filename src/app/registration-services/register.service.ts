@@ -3,15 +3,17 @@ import { Injectable } from '@angular/core';
 import { Observable, from } from 'rxjs';
 import { CapacitorHttp,  HttpResponse } from '@capacitor/core';
 import { environment } from 'src/environments/environment.prod';
+import { UserData } from '../providers/user-data';
 // import { Http } from '@capacitor-community/http';
 @Injectable({
   providedIn: 'root'
 })
+
 export class RegisterService {
  api_key:string=`4d7853a2-965f-11ee-8cbb-0200cd936042`;
 
 baseUrl:any=environment.apiurl;
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private store:UserData) { }
   signup(data:any):Observable<any>{
     return this.http.post(this.baseUrl+`members`,data)
   }
@@ -69,5 +71,16 @@ baseUrl:any=environment.apiurl;
   
   }
   return this.http.post(this.baseUrl+`setUserPin/`,data)
+  }
+
+  //save documents to db
+  saveDocuments(data:any){
+   this.store.getUserID().then(userID => {
+    // check if userid null or empty
+    data.UserID=userID
+  });
+    
+    
+ return   this.http.post(this.baseUrl+`documents/save`,data)
   }
 }

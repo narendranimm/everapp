@@ -136,7 +136,7 @@ import { InviteFriendsComponent } from './menu-flow/invite-friends/invite-friend
 import { ClaimsComponent } from './menu-flow/claims/claims.component';
 import { NobookingComponent } from './nobooking/nobooking.component';
 import { AddadressComponent } from './addadress/addadress.component';
-import { FacerecognizationComponent } from './facerecognization/facerecognization.component';
+// import { FacerecognizationComponent } from './facerecognization/facerecognization.component';
 import { ConfirmpasswordComponent } from './confirmpassword/confirmpassword.component';
 providers: [Storage]
 @NgModule({
@@ -201,9 +201,8 @@ providers: [Storage]
     NobookingComponent,
     AddadressComponent,
     MyaddressComponent,
-    FacerecognizationComponent,
-    ConfirmpasswordComponent,
-    SettingsComponent
+    // FacerecognizationComponent,
+    ConfirmpasswordComponent
 
   ],
 

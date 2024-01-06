@@ -37,6 +37,11 @@ setNew(key:any,data:any) {
   getuser(){
    return this._storage.get("loginuser")
   }
+  getUserID(): Promise<any> {
+    return this._storage.get("loginuser").then(res => {
+      return res.UserID;
+    });
+  }
   getusername(){
    this._storage.get("loginuser").then(res=>{
      console.log(res)
