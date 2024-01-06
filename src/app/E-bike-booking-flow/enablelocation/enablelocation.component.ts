@@ -108,5 +108,5 @@ profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
     
     })
   }
-
+  show: boolean = true;  
 }

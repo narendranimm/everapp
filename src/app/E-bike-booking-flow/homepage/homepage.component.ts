@@ -114,7 +114,13 @@ export class HomepageComponent implements OnInit {
     var coordinates = Geolocation.getCurrentPosition().then((resp) => {
       this.lat = resp.coords.latitude;
       this.lng = resp.coords.longitude;
-
+      this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=17.519523,78.381172&key=AIzaSyCU4W4iQLV5ydrW3UxZncI_JdLi1EsKH5A`).subscribe((res:any)=>{
+        this.loc=res['plus_code']  
+        console.log('addres',res)
+        console.log(res.results[0].formatted_address)
+        console.log(res.results[6].formatted_address)
+        this.useraddress=res.results[6].formatted_address
+        })
       this.getNearByHubs()
     })
 console.log(coordinates)

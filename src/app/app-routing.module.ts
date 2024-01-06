@@ -94,6 +94,7 @@ import { UploaddocComponent } from './uploaddoc/uploaddoc.component';
 import { TrustedcontactComponent } from './trustedcontact/trustedcontact.component';
 import { TrustedcontactListComponent } from './trustedcontact-list/trustedcontact-list.component';
 import { NobookingComponent } from './nobooking/nobooking.component';
+import { ConfirmpasswordComponent } from './confirmpassword/confirmpassword.component';
 
 
 
@@ -211,6 +212,7 @@ const routes: Routes = [
   {path:'trustedcontacts',component:TrustedcontactComponent},
   {path:'trustedcontacts_list',component:TrustedcontactListComponent},
   {path:'nobookings',component:NobookingComponent},
+  {path:'confirmpassword',component:ConfirmpasswordComponent}
 
 
 

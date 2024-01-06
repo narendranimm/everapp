@@ -129,7 +129,7 @@ line-height: normal;
   flex-flow: wrap row;
   align-items: center;
   justify-content: center;
-  column-gap: 2px;
+  column-gap: 10px;
   row-gap: 20px
 
 }
@@ -350,4 +350,7 @@ ion-modal ion-toolbar {
 }
 .desp-4{
  align-self: stretch; color: black; font-size: 10px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
+}
+.btn-container{
+  padding:2%;
 }
