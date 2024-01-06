@@ -24,13 +24,15 @@
 
         <div class="inner-parent">
             <div class="inner-child">
-                <img class="bike-img"
+                <img class="bike-img" [ngClass]="{'disablelist': !b.IsAvailable}"
                     src="{{azimageUrl}}{{b.ImageName}}"
                     alt="">
                    
             </div>
             <div class="inner-child">
                 <p class="bike-details1">{{b.ProductName}}</p>
+                <p class="bike-details"><ion-icon name="settings"  style='color:#3355B9;font-size: 10px;'></ion-icon> Capacity {{b.Color}}</p>
+                <!-- <p class="bike-details"><ion-icon name="bolt"></ion-icon>Charging Time {{b.Size}}</p> -->
                 <p class="bike-details"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                         viewBox="0 0 16 16" fill="none">
                         <g clip-path="url(#clip0_723_7562)">
@@ -45,7 +47,7 @@
                         </defs>
                     </svg>Available {{b.Quntity}}</p>
           
-                <button class="view-btn"   (click)="gotoBtryDetails(b.ProductID)" >View details </button>
+                <button class="view-btn"   (click)="gotoBtryDetails(b.ProductID)" [ngClass]="{'disablelist': !b.IsAvailable}" >View details </button>
 
             </div>
         </div>

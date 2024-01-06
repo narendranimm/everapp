@@ -27,3 +27,6 @@ this.userdata.setNew("loginuser",data)
 
   --time differenece
     {{ ProductDetails?.BookingStartDate | timeDifference:ProductDetails?.BookingEndDate }} 
+
+------ diable button
+ [ngClass]="{'disableslotbtn': startDate === null && endDate === null}"

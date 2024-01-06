@@ -90,4 +90,11 @@
     color: white;
     font-family: Archivo;
 
+    pointer-events: none;
+  }
+
+  .disableslotbtn{
+    background-color: #D1D1D1 !important;
+
+    pointer-events: none;
   }

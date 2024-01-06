@@ -401,7 +401,8 @@ console.log(res.message)
     "IsFullPaid":1,
     "WashAmount":0,        
     "SecurityAmount":0,
-    "CouponID":0
+    "CouponID":0,
+    "ServiceType":3507
   }
 
   numberdata = {

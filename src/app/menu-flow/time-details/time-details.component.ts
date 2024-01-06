@@ -104,7 +104,7 @@ export class TimeDetailsComponent implements OnInit, OnDestroy {
     // this.countDown = 'nuill';
   }
   viewinvoice(){
-    this.router.navigateByUrl('/currentplan/slot')
+    this.router.navigateByUrl('/invoice')
 
   }
 }
