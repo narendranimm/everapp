@@ -13,7 +13,6 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./currentplan.component.scss'],
 })
 export class CurrentplanComponent  implements OnInit {
-
   show=false;
   private subscription!: Subscription;
   azimageUrl:any=environment.azimageUrl_hub;
