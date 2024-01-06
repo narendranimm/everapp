@@ -40,13 +40,13 @@
   typography: mat.define-typography-config(),
   density: 0,
  ));
- .theme-dark{
-     @include mat.all-component-colors($my-theme-dark);
- }
+//  .theme-dark{
+    //  @include mat.all-component-colors($my-theme-dark);
+//  }
  
- .theme-light{
-     @include mat.all-component-colors($my-theme);
- }
+//  .theme-light{
+//      @include mat.all-component-colors($my-theme);
+//  }
 /* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
 
