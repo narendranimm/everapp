@@ -202,7 +202,7 @@ const routes: Routes = [
  
   {path:'emergency',component:EmergencyComponent},
   {path:'myaddress',component:MyaddressComponent},
-  {path:'add-address',component:AddadressComponent},
+  {path:'add-address/:id',component:AddadressComponent},
   {path:'aboutapplication',component:AboutapplicationComponent},
   {path:'security',component:SecurityComponent},
   {path:'uploaddoc',component:UploaddocComponent},

@@ -10,6 +10,9 @@ import { UserData } from '../providers/user-data';
 })
 
 export class RegisterService {
+  getaddressBYID():Observable<any> {
+    throw new Error('Method not implemented.');
+  }
  api_key:string=`4d7853a2-965f-11ee-8cbb-0200cd936042`;
 
 baseUrl:any=environment.apiurl;
@@ -82,5 +85,18 @@ baseUrl:any=environment.apiurl;
     
     
  return   this.http.post(this.baseUrl+`documents/save`,data)
+  }
+
+  postaddress(data:any):Observable<any>{
+    return this.http.post(this.baseUrl+`saveUserAddress`,data)
+  }
+  getaddress(data:any){
+    return this.http.get(this.baseUrl+`getaddress/1001`,data)
+  }
+  updateaddress(data:any){
+    return this.http.put(this.baseUrl+`members`,data)
+  }
+  deleteaddress(data:any){
+    return this.http.patch(this.baseUrl+`api/deleteUseraddress`,data)
   }
 }

@@ -138,6 +138,7 @@ import { NobookingComponent } from './nobooking/nobooking.component';
 import { AddadressComponent } from './addadress/addadress.component';
 // import { FacerecognizationComponent } from './facerecognization/facerecognization.component';
 import { ConfirmpasswordComponent } from './confirmpassword/confirmpassword.component';
+import {MatChipsModule} from '@angular/material/chips';
 providers: [Storage]
 @NgModule({
   declarations: [AppComponent, SplashComponent, GetComponent, RegisterComponent, LogComponent, AadharComponent, SelfieComponent, NavComponent, PreviewComponent, CropComponent, AllowPermissionsComponent, CongratulationsComponent, EnablelocationComponent, HomepageComponent, HubdetailsComponent, HublistsComponent, BookingdetailsComponent, CommunicationAllowPermissionComponent, HublistsComponent, BikedetailsComponent, DurationComponent, DatetimeComponent, BatteryStationListComponent, BatteryStationComponent, BatteryListComponent, BatteryDetailsAvailableComponent, BatteryDetailsUnavailableComponent, BookingDetailsComponent, OffersComponent, CouponAppliedComponent, CouponAppliedDashboardComponent, PaymentGatewaysComponent, AddUpiIdComponent, AddCardComponent, AddEWalletComponent, PaymentOngoingComponent, AddPaymentOngoingComponent, BookingSuccessComponent, BookingDetailsAfterComponent, BikelistComponent, DurationComponent, DurationLaterComponent, BookingsummaryComponent, OffersComponent, CouponappliedComponent, PaymentComponent, PaymentgatewaysComponent, AddUPIIDComponent, AddcardComponent, EWalletComponent, BookingDetailsComponent, HomepageAfterbookingComponent, TimedetailsComponent, BookingsuccessComponent,
@@ -202,11 +203,12 @@ providers: [Storage]
     AddadressComponent,
     MyaddressComponent,
     // FacerecognizationComponent,
-    ConfirmpasswordComponent
+    ConfirmpasswordComponent,
+    ViewsummaryComponent
 
   ],
 
-  imports: [BrowserModule, MatExpansionModule,MatSlideToggleModule,MatDatepickerModule,MatProgressSpinnerModule,MatMenuModule,
+  imports: [BrowserModule, MatExpansionModule,MatSlideToggleModule,MatDatepickerModule,MatProgressSpinnerModule,MatMenuModule,MatChipsModule,
     // SocialLoginModule,
     IonicStorageModule.forRoot({ name: "mylocaldb" }), MatSnackBarModule,
     MatSelectModule,

@@ -42,7 +42,7 @@ export class BookingService {
   }
 
   getIskycVerify(userid:number){
-    return this.http.get(this.baseurl+`api/documents/iskyc/${userid}`)
+    return this.http.get(this.baseurl+`documents/iskyc/${userid}`)
   }
  
 }
