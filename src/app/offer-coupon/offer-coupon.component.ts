@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonContent } from '@ionic/angular';
+import { IonContent, ModalController } from '@ionic/angular';
+import { OrderService } from '../services/Order.service';
+import { ModalcontentComponent } from '../modalcontent/modalcontent.component';
+import { LoadingService } from '../services/loading.service';
 
 @Component({
   selector: 'app-offer-coupon',
@@ -7,21 +10,55 @@ import { IonContent } from '@ionic/angular';
   styleUrls: ['./offer-coupon.component.scss'],
 })
 export class OfferCouponComponent  implements OnInit {
+  offers: any;
+  isAlertOpen = false;
+  alertButtons = ['Action'];
+  filteredItems: any;
 
-  constructor() { }
+  constructor(private os:OrderService,private modalController: ModalController,
+    private load:LoadingService) {
+    
+     }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getall();
+  }
+  getall(){
+    this.os.getAlloffers().subscribe(res=>{
+      this.filteredItems=res;
+      this.offers=res;
+    })
+  }
   @ViewChild(IonContent) content!: IonContent;
-
+  open(id:number){
+    // this.presentModal()
+  }
+  setOpen(isOpen: boolean) {
+    this.isAlertOpen = isOpen;
+  }
   scrollToBottom() {
     // Passing a duration to the method makes it so the scroll slowly
     // goes to the bottom instead of instantly
     this.content.scrollToBottom(500);
   }
-
+  filterItems(searchTerm: any, key: string) {
+    // this.load.presentLoading('Loading..')
+    
+    this.filteredItems = this.offers.filter((item:any) =>
+      item[key].toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
   scrollToTop() {
     // Passing a duration to the method makes it so the scroll slowly
     // goes to the top instead of instantly
     this.content.scrollToTop(500);
+  }
+  
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: ModalcontentComponent,
+    });
+
+    await modal.present();
   }
 }

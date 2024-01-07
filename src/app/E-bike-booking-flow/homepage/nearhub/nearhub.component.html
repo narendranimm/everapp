@@ -1,4 +1,4 @@
-<div *ngIf="slides.length > 0">
+<div *ngIf="slides?.length > 0">
   <swiper-container [modules]="swiperModules" [intialSlide]="4" [spaceBetween]="10" [slidesPerView]="2.5"> 
 
     <swiper-slide *ngFor="let slide of slides">

@@ -21,4 +21,7 @@ baseUrl:any=environment.apiurl;
   getnearByHubsBasedonLatandLongID(payload:any){
     return this.http.post(this.baseUrl+`hubs/getnearByHubsList`,payload);
   }
+  getnearByHubsBasedonLatandLongIDSearch(payload:any){
+    return this.http.post(this.baseUrl+`hubs/getnearByHubsListSearch`,payload);
+  }
 }

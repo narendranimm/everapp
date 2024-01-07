@@ -33,9 +33,13 @@ export class VerificationComponent implements OnInit {
 
     })
     this.userdata.getuser().then(res => {
+      if (res !== null) {
       this.logindata = res;
       this.mobileno = this.logindata.MobileNo;
       console.log(this.mobileno)
+      }else{
+        this.snackBar.open('Please Enter mobile No.')
+      }
 
     })
   }
@@ -81,8 +85,18 @@ export class VerificationComponent implements OnInit {
     this.otp = event;
     console.log(this.otp)
   }
+  async setUserdetails(){
 
-
+    let datad= await this.getuserbymobileno()
+    .then((data: any) => {
+      this.userdata.setNew("loginuser",data)
+      console.log('Data received:', data);   
+      
+    });
+  }
+  getuserbymobileno():Promise<any>{
+    return this.reg.getbymobileno(this.mobileno).toPromise()}
+   
 
   verifyOTP() {
     const otp = this.verficationForm?.value;
@@ -120,7 +134,7 @@ export class VerificationComponent implements OnInit {
   resend() {
     let data = {
       "mobileno": this.mobileno,
-      "otp": "2422"
+      "otp": "123456"
     }
     data.otp = this.generateOTP();
     this.loadingservice.simpleLoader('Loading..')
@@ -134,6 +148,7 @@ export class VerificationComponent implements OnInit {
         console.log(message);
        
         this.snackBar.open(message);
+        this.setUserdetails()
       }
       else {
         this.loadingservice.dismissLoader();

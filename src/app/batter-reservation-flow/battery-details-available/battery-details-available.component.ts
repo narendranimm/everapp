@@ -38,7 +38,7 @@ ProductDetails:any;
   }
 
   getDetails(){
-    // this.loader.simpleLoader('Loading...')
+     this.loader.simpleLoader('Loading...')
     this._pd.productDetails(this.productID).subscribe((res)=>{
       this.ProductDetails=res;
       console.log(res)

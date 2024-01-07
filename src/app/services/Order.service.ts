@@ -34,4 +34,7 @@ baseUrl:any=environment.apiurl;
     }
     return this.http.post(this.baseUrl+`orders/getUserCurrentBooking`,bookingdata);
   }
+  getoffers(){
+    return this.http.get(this.baseUrl+'admin/offers/getall')
+  }
 }

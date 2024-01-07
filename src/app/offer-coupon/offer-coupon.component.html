@@ -1,147 +1,152 @@
 <ion-content class="scroller">
-<div class="btn-container">
-<div style="width: 100%; height: 100%; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
-  <div style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 98px; display: inline-flex">
-      <div style="width: 24px; height: 24px; position: relative">
-        <div class="btn-container">
-          <button style="background: transparent;border: none;" routerLink="/booking-summary-m" ><img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
-          </div>
-      </div>
-      <div routerLink="/booking-summary-m" class="offers">Offers & benefits</div>
-  </div>
-  <div style="align-self: stretch; padding: 12px; background: #F2F2F2; border-radius: 20px; overflow: hidden; justify-content: space-between; align-items: center; display: inline-flex">
-      <div style="justify-content: flex-start; align-items: center; gap: 10px; display: flex">
-          <div style="width: 18px; height: 18px; position: relative">
-            
-          </div>
-          <div class="coupan">Type coupon code here</div>
-      </div>
-      <div class="apply">Apply</div>
-  </div>
-  <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: flex">
-      <div class="best-offer">Best offers for you</div>
-      <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
-          <div style="width: 328px; padding: 12px; background: #FBDBD6; border-radius: 10px; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-              <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
-                  <div style="align-self: stretch; height: 49px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 6px; display: flex">
-                      <div style="justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
-                          <div class="first">FIRSTRIDE20</div>
-                      </div>
-                      <div class="savings">You are saving ₹1,500 on this drive by using this coupon code</div>
-                  </div>
-                  <button  id="open-modal" style="width: 104px; height: 28px; padding-left: 10px; padding-right: 10px; padding-top: 16px; padding-bottom: 16px; background: #3355B9; border-radius: 24px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-                      <div style="color: white; font-size: 12px; font-family: Archivo; font-weight: 600; word-wrap: break-word">Apply</div>
-                  </button>
-                  <ion-modal #modal trigger="open-modal">
-                    <ng-template>
-                      <ion-content>
-                        
-                        <div style="width: 100%; height: 100%; padding-left: 24px; padding-right: 24px; padding-top: 36px; padding-bottom: 36px; background: white; box-shadow: 0px 1px 4px rgba(86.88, 128.89, 236.94, 0.25); border-radius: 16px; flex-direction: column; justify-content: center; align-items: center; gap: 16px; display: inline-flex">
-                            <div style="margin-left: 180px;">
-                                <button  class="allow-permission-btn"    (click)="modal.dismiss()"><img src="../assets/mingcute_close-line.svg" alt=""></button>
-                              </div>
-                          <div style="padding-top: 25px; padding-bottom: 23px; padding-left: 20px; padding-right: 18px; background: #6EDF72; border-radius: 120px; justify-content: center; align-items: center; display: inline-flex">
-                              <div style="width: 36px; height: 26px; position: relative; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
-                                  <div style="width: 18.04px; height: 0px; transform: rotate(45deg); transform-origin: 0 0; border: 5px white solid"></div>
-                                  <div style="width: 32.71px; height: 0px; transform: rotate(-45deg); transform-origin: 0 0; border: 5px white solid"></div>
-                              </div>
-                          </div>
-                          <div style="color: #3F3F3F; font-size: 24px; font-family: Archivo; font-weight: 700; word-wrap: break-word" routerLink="/booking-summary-applied-m">Congratulation</div>
-                          <div style="width: 232px; text-align: center; color: #717171; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">‘FIRSTRIDE20’ applied.</div>
-                          <div style="width: 232px; text-align: center; color: #363636; font-size: 16px; font-family: Archivo; font-weight: 700; word-wrap: break-word">You have saved ₹1,500 with this coupon</div>
-                      </div>
-                      </ion-content>
-                    </ng-template>
-                  </ion-modal>
-              </div>
-              
-              <div style="width: 68px; flex-direction: column; justify-content: center; align-items: flex-start; gap: 8px; display: inline-flex">
-                  <div style="align-self: stretch; text-align: center; color: #363636; font-size: 28px; font-family: Archivo; font-weight: 700; word-wrap: break-word">20% OFF</div>
-                  <div style="align-self: stretch; text-align: center; color: #363636; font-size: 12px; font-family: Archivo; font-weight: 400; word-wrap: break-word">up to ₹150</div>
-              </div>
-          </div>
-          <div style="width: 328px; padding: 12px; background: #D3EDFF; border-radius: 10px; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-              <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
-                  <div style="align-self: stretch; height: 49px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 6px; display: flex">
-                      <div style="justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
-                          <div class="first">TRYME10</div>
-                      </div>
-                      <div class="savings">You are saving ₹100 on this drive by using this coupon code</div>
-                  </div>
-                  <div style="width: 104px; height: 28px; padding-left: 10px; padding-right: 10px; padding-top: 16px; padding-bottom: 16px; background: #3355B9; border-radius: 24px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-                      <div style="color: white; font-size: 12px; font-family: Archivo; font-weight: 600; word-wrap: break-word">Apply</div>
-                  </div>
-              </div>
-              
-              <div style="width: 68px; flex-direction: column; justify-content: center; align-items: flex-start; gap: 8px; display: inline-flex">
-                  <div style="align-self: stretch; text-align: center; color: #363636; font-size: 28px; font-family: Archivo; font-weight: 700; word-wrap: break-word">10% OFF</div>
-                  <div style="align-self: stretch; text-align: center; color: #363636; font-size: 12px; font-family: Archivo; font-weight: 400; word-wrap: break-word">up to ₹150</div>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: flex">
-      <div class="best-offer">More offers</div>
-      <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
-          <div style="width: 328px; padding: 12px; background: #F2F2F2; border-radius: 10px; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-              <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
-                  <div style="align-self: stretch; height: 49px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 6px; display: flex">
-                      <div style="justify-content: flex-start; align-items: center; gap: 8px; display: inline-flex">
-                          <img style="width: 16px; height: 16px; border-radius: 12px" src="https://s3-alpha-sig.figma.com/img/7611/a740/47ce88da32970df573ae500e866bfe8c?Expires=1700438400&Signature=O3CpBf2O5NUjDqijMDb57zFJBQah9raw3JLXrxvWBNzEd0nr9IhMyJ8GOjNzm3DfsQLfMPZvXzwE0pH8GWDJLCjihOLk0ojFT0SxawBQELyZ5eY7N~nlDPWdGb89iHyyiRbraaMAqQ1HNIITqpUZZszskSuvPUi~ARFpp0XqhdL4MBkC-aVs~O2jp7oxIkhj6~-jsP3OCA5ChfHFELjXMNzIu804VXfb2WbSTm-Ad6K~HkbVezmjKR-hgFzQ612eP1tYvhGZ2hcIZu9TdaG5R71gKDFOKJfTJwn-4QlKt0-8c9xZ5rl2YcxUzmVq7aXD278l5JHYC8vFWv9oV4QaOw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" />
-                          <div class="first">ICICI20</div>
-                      </div>
-                      <div class="savings">You are saving ₹98 on this drive by using this coupon code</div>
-                  </div>
-                  <div style="width: 104px; height: 28px; padding-left: 10px; padding-right: 10px; padding-top: 16px; padding-bottom: 16px; background: #3355B9; border-radius: 24px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-                      <div style="color: white; font-size: 12px; font-family: Archivo; font-weight: 600; word-wrap: break-word">Apply</div>
-                  </div>
-              </div>
-              
-              <div style="width: 68px; flex-direction: column; justify-content: center; align-items: flex-start; gap: 8px; display: inline-flex">
-                  <div style="align-self: stretch; text-align: center; color: #363636; font-size: 28px; font-family: Archivo; font-weight: 700; word-wrap: break-word">20% OFF</div>
-                  <div style="align-self: stretch; text-align: center; color: #363636; font-size: 12px; font-family: Archivo; font-weight: 400; word-wrap: break-word">up to ₹150</div>
-              </div>
-          </div>
-          <div style="width: 328px; padding: 12px; background: #F2F2F2; border-radius: 10px; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-              <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
-                  <div style="align-self: stretch; height: 49px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 6px; display: flex">
-                      <div style="justify-content: flex-start; align-items: center; gap: 8px; display: inline-flex">
-                          <img style="width: 16px; height: 16px; border-radius: 12px" src="https://s3-alpha-sig.figma.com/img/3fc0/2c45/d14ce3972ad9b903a011e4133f47d2d5?Expires=1700438400&Signature=ExGcPEBcDGCtkOIjCG2NUshL7rrQiGtKYR3868x9bbs12GnlcU2pa4KVg4zTM~xNrnf3c7P-8TrSQkG61JeOMhTLtgup9rlmNrXXrQLxfMMSkG76epxFXNCG5u-AVPMbYRQBeixPgnkg1CdRo0Xu~c97MIPSktZZk8-667HmQNk~GxImI3gqFWG8z5Z-zH6kUQHXr3E8pTmjrX-Ez-I52Uc15PTDwv2q1XQKQ3spNfGhyaB0LV~iOiuMcYR4ot5t-TLbgSruUIv3iZ4yMakOcLsFFJlMeJfD3-aPuzJjsZDM-h4bCkHGyZrSVfp46WuQeKt5R8X2Y7cEeRp8P69b8w__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" />
-                          <div class="first">AXIS30</div>
-                      </div>
-                      <div class="savings">You are saving ₹80 on this drive by using this coupon code</div>
-                  </div>
-                  <div style="width: 104px; height: 28px; padding-left: 10px; padding-right: 10px; padding-top: 16px; padding-bottom: 16px; background: #3355B9; border-radius: 24px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-                      <div style="color: white; font-size: 12px; font-family: Archivo; font-weight: 600; word-wrap: break-word">Apply</div>
-                  </div>
-              </div>
-              
-              <div style="width: 68px; flex-direction: column; justify-content: center; align-items: flex-start; gap: 8px; display: inline-flex">
-                  <div style="align-self: stretch; text-align: center; color: #363636; font-size: 28px; font-family: Archivo; font-weight: 700; word-wrap: break-word">30% OFF</div>
-                  <div style="align-self: stretch; text-align: center; color: #363636; font-size: 12px; font-family: Archivo; font-weight: 400; word-wrap: break-word">up to ₹150</div>
-              </div>
-          </div>
-          <div style="width: 328px; padding: 12px; background: #F2F2F2; border-radius: 10px; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-              <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
-                  <div style="align-self: stretch; height: 49px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 6px; display: flex">
-                      <div style="justify-content: flex-start; align-items: center; gap: 8px; display: inline-flex">
-                          <img style="width: 16px; height: 16px; border-radius: 12px" src="https://s3-alpha-sig.figma.com/img/79d0/a79f/59ad99fa60444a3df738ef4ec6b59733?Expires=1700438400&Signature=WtbBEL1TvsncTr-dDAR1JWBxlIdF7VvNDoNgpXmSQ64Tu9IOFxewLWW1cpKm5~fk7H2zBc6K2Twc63bde4783B5dXW9hBbkl51-YBybd2ZteCaYnftmWQGAQIofOaf7o5t-L9y4vFFIPFTUDhAtG7WvlyoOkk7pRT8GiOGBXdBk6pj1WoMyeMn8S2LommSwBPS93KbmxSarYX418tzNV6bcwrjC8wer0taKNqBmBp-HNEjDC9ax6DQjcmUFpIZQj-0I0TITOrwlmIepE6FhT7c553e-gJN4PTR60aTtvtAKApB2Nm~TnRLfJlHmpQMtfCaxtoMoaaYC-g5Y349Eogg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" />
-                          <div class="first">PHONEPE30</div>
-                      </div>
-                      <div class="savings">You are saving ₹80 on this drive by using this coupon code</div>
-                  </div>
-                  <div style="width: 104px; height: 28px; padding-left: 10px; padding-right: 10px; padding-top: 16px; padding-bottom: 16px; background: #3355B9; border-radius: 24px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-                      <div style="color: white; font-size: 12px; font-family: Archivo; font-weight: 600; word-wrap: break-word">Apply</div>
-                  </div>
-              </div>
-              
-              <div style="width: 68px; flex-direction: column; justify-content: center; align-items: flex-start; gap: 8px; display: inline-flex">
-                  <div style="align-self: stretch; text-align: center; color: #363636; font-size: 28px; font-family: Archivo; font-weight: 700; word-wrap: break-word">30% OFF</div>
-                  <div style="align-self: stretch; text-align: center; color: #363636; font-size: 12px; font-family: Archivo; font-weight: 400; word-wrap: break-word">up to ₹150</div>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
-</div>
+    <div class="btn-container">
+        <div
+            style="width: 100%; height: 100%; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
+            <div
+                style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 98px; display: inline-flex">
+                <div style="width: 24px; height: 24px; position: relative">
+                    <div class="btn-container">
+                        <button style="background: transparent;border: none;" routerLink="/booking-summary-m">
+                            <img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
+                    </div>
+                </div>
+                <div routerLink="/booking-summary-m" class="offers">Offers & benefits</div>
+            </div>
+            <div
+                style="align-self: stretch; padding: 12px; background: #F2F2F2; border-radius: 20px; overflow: hidden; justify-content: space-between; align-items: center; display: inline-flex">
+                <div style="justify-content: flex-start; align-items: center; gap: 10px; display: flex">
+                    <!-- <div style="width: 18px; height: 18px; position: relative"> -->
+                    <!-- <div style="width: 15px; height: 10.50px; left: 1.50px; top: 3.75px; position: absolute; background: #3355B9"></div> -->
+                    <!-- </div> -->
+                    <!-- <div class="coupan">Type coupon code here</div> -->
+                </div>
+                <!-- <div class="apply">Apply</div> -->
+                <ion-searchbar placeholder="Type coupon code here" 
+                  (ionChange)="filterItems($event.detail.value, 'CouponCode')"
+                  
+                  name="searchValue" showCancelButton="focus"
+                    animated></ion-searchbar>
+            </div>
+            <div
+                style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: flex">
+                <div class="best-offer">Best offers for you</div>
+                <div
+                    style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
+                    <div *ngFor="let f of filteredItems" class="startingdiv">
+                        <div
+                            style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
+                            <div
+                                style="align-self: stretch; height: 49px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 6px; display: flex">
+                                <div
+                                    style="justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
+                                    <div class="first">{{f.CouponCode}}</div>
+                                </div>
+                                <div class="savings">
+                                    You are saving ₹1,500 on this drive by using this coupon code</div>
+                            </div>
+                            <button  id="open-modal" (click)="open(f.CouponID)"
+                                style="width: 104px; height: 28px; padding-left: 10px; padding-right: 10px; padding-top: 16px; padding-bottom: 16px; background: #3355B9; border-radius: 24px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+                                <div
+                                    style="color: white; font-size: 12px; font-family: Archivo; font-weight: 600; word-wrap: break-word">
+                                    Apply
+
+                                </div>
+                            </button>
+
+                        </div>
+
+                        <div
+                            style="width: 68px; flex-direction: column; justify-content: center; align-items: flex-start; gap: 8px; display: inline-flex">
+                            <div
+                                style="align-self: stretch; text-align: center; color: #363636; font-size: 28px; font-family: Archivo; font-weight: 700; word-wrap: break-word">
+                                {{f.DiscountPercentage}}% OFF</div>
+                            <div
+                                style="align-self: stretch; text-align: center; color: #363636; font-size: 12px; font-family: Archivo; font-weight: 400; word-wrap: break-word">
+                                up to ₹150</div>
+                        </div>
+                    </div>
+                    <div
+                        style="width: 328px; padding: 12px; background: #D3EDFF; border-radius: 10px; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+                        <div
+                            style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
+                            <div
+                                style="align-self: stretch; height: 49px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 6px; display: flex">
+                                <div
+                                    style="justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
+                                    <div class="first">TRYME10</div>
+                                </div>
+                                <div class="savings">You are saving ₹100 on this drive by using this coupon code</div>
+                            </div>
+                            <div
+                                style="width: 104px; height: 28px; padding-left: 10px; padding-right: 10px; padding-top: 16px; padding-bottom: 16px; background: #3355B9; border-radius: 24px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+                                <div
+                                    style="color: white; font-size: 12px; font-family: Archivo; font-weight: 600; word-wrap: break-word">
+                                    Apply</div>
+                            </div>
+                        </div>
+
+                        <div
+                            style="width: 68px; flex-direction: column; justify-content: center; align-items: flex-start; gap: 8px; display: inline-flex">
+                            <div
+                                style="align-self: stretch; text-align: center; color: #363636; font-size: 28px; font-family: Archivo; font-weight: 700; word-wrap: break-word">
+                                10% OFF</div>
+                            <div
+                                style="align-self: stretch; text-align: center; color: #363636; font-size: 12px; font-family: Archivo; font-weight: 400; word-wrap: break-word">
+                                up to ₹150</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <ion-modal #modal trigger="open-modal">
+        <ng-template>
+            <ion-content>
+                <div
+                    style="width: 100%; height: 100%; padding-left: 24px; padding-right: 24px; padding-top: 36px; padding-bottom: 36px; background: white; box-shadow: 0px 1px 4px rgba(86.88, 128.89, 236.94, 0.25); border-radius: 16px; flex-direction: column; justify-content: center; align-items: center; gap: 16px; display: inline-flex">
+                    <div
+                        style="width: 24px; height: 24px; justify-content: center; align-items: center; display: inline-flex">
+    
+                        <button class="allow-permission-btn" (click)="modal.dismiss()">
+                            <img src="../assets/mingcute_close-line.svg" alt=""></button>
+    
+                    </div>
+                    <div
+                        style="padding-top: 25px; padding-bottom: 23px; padding-left: 20px; padding-right: 18px; background: #6EDF72; border-radius: 120px; justify-content: center; align-items: center; display: inline-flex">
+                        <div
+                            style="width: 36px; height: 26px; position: relative; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+                            <div
+                                style="width: 18.04px; height: 0px; transform: rotate(45deg); transform-origin: 0 0; border: 5px white solid">
+                            </div>
+                            <div
+                                style="width: 32.71px; height: 0px; transform: rotate(-45deg); transform-origin: 0 0; border: 5px white solid">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="color: #3F3F3F; font-size: 24px; font-family: Archivo; font-weight: 700; word-wrap: break-word"
+                        routerLink="/booking-summary-applied-m">Congratulation</div>
+                    <div
+                        style="width: 232px; text-align: center; color: #717171; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">
+                        ‘FIRSTRIDE20’ applied.</div>
+                    <div
+                        style="width: 232px; text-align: center; color: #363636; font-size: 16px; font-family: Archivo; font-weight: 700; word-wrap: break-word">
+                        You have saved ₹1,500 with this coupon</div>
+                </div>
+            </ion-content>
+        </ng-template>
+    </ion-modal>
 </ion-content>
+
+
+<!-- ionmodel -->
+<!-- <ion-button (click)="setOpen(true)">Click Me</ion-button>
+<ion-alert
+  [isOpen]="isAlertOpen"
+  header="A Short Title Is Best"
+  subHeader="A Sub Header Is Optional"
+  message="You have saved ₹1,500 with this coupon"
+  [buttons]="alertButtons"
+  (didDismiss)="setOpen(false)"
+></ion-alert> -->
+

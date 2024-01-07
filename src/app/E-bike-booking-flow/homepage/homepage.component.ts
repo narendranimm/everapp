@@ -119,6 +119,32 @@ export class HomepageComponent implements OnInit {
       }
     )
   }
+  clearSearch() {
+  this.getNearByHubs();
+  }
+  search(data:any){
+    console.log(this.searchValue)
+    this.searchValue;
+     this.getNearByHubsSearch();
+  }
+  getNearByHubsSearch() {
+    this.loadingservice.simpleLoader('Loading...')
+    this.search_data.TargetLatitude = this.lati;
+    this.search_data.TargetLongitude = this.longi;
+    this.search_data.branchtype=3502;
+    this.search_data.SearchKeyword=this.searchValue;
+    this.hub_s.getnearByHubsBasedonLatandLongIDSearch(this.search_data).subscribe(res => {
+      console.log('search',res)
+      this.hubsnearby = res;
+      this.filteredItems = res;
+      this.loadingservice.dismissLoader();
+
+    },
+      (error) => {
+        this.loadingservice.dismissLoader();
+      }
+    )
+  }
   //not using
   printCurrentPosition() {
     var coordinates = Geolocation.getCurrentPosition().then((resp) => {
@@ -176,31 +202,19 @@ console.log(coordinates)
     // goes to the bottom instead of instantly
     this.content.scrollToBottom(500);
   }
-  filterItems(searchTerm: string) {
-    this.filteredItems = this.hubsnearby.filter((item:any) =>
-      item.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+  filterItems(searchTerm:any) {
+      this.filteredItems = this.hubsnearby.filter((item :any)=>
+        Object.values(item).some((value:any) =>
+          value.toString().toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      );
   }
   scrollToTop() {
     // Passing a duration to the method makes it so the scroll slowly
     // goes to the top instead of instantly
     this.content.scrollToTop(500);
   }
-  search(data:any){
-    this.postadd_Data.TargetLatitude = null;
-    this.postadd_Data.TargetLongitude = null;
-    this.postadd_Data.branchtype=3502;
-    this.hub_s.getnearByHubsBasedonLatandLongID(this.postadd_Data).subscribe(res => {
-      console.log(res)
-      this.hubsnearby = res;
-      this.loadingservice.dismissLoader();
-
-    },
-      (error) => {
-        this.loadingservice.dismissLoader();
-      }
-    )
-  }
+ 
   gotohubdetails(id:number){
     this.userdata.setNew("hubid",id)
     
@@ -211,6 +225,13 @@ console.log(coordinates)
     "TargetLongitude": null,
     "branchtype":0,
     "RadiusInKm": 50
+  }
+  search_data = {
+    "TargetLatitude": null,
+    "TargetLongitude": null,
+    "branchtype":0,
+    "RadiusInKm": 50,
+    "SearchKeyword":null
   }
 
 
