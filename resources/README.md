@@ -30,3 +30,7 @@ this.userdata.setNew("loginuser",data)
 
 ------ diable button
  [ngClass]="{'disableslotbtn': startDate === null && endDate === null}"
+
+ ---ionic snacbar
+  this.snackbarService.presentSnackbar(res.Message,1000,'bottom','success')
+private snackbarService: SnackbarService

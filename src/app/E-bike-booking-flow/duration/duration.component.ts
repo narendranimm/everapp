@@ -61,7 +61,7 @@ export class DurationComponent implements OnInit {
   BookingID:any;
   priceData: any;
   washtype:any=0;
-  securitydeposit: any;
+  securitydeposit: number=0;
   ispopupclosed:boolean=false;
   isModelOpen:boolean=false;
    modal:boolean=false;
@@ -320,7 +320,8 @@ boxselection(data:any,i:number){
      this.ordersaveData.ProductID = this.productId;
      this.ordersaveData.BookingStartDate = this.startDate;
      this.ordersaveData.BookingEndDate = this.endDate;
-     this.ordersaveData.TotalAmount=this.convertedCash
+     this.convertedCash =this.convertedCash +this.securitydeposit
+     this.ordersaveData.TotalAmount=this.convertedCash;
      if(this.productId == null ){
        this.snackBar.open("Please Select a Product")
      this.loader.dismissLoader();
