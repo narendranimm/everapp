@@ -5,8 +5,8 @@
     color: var(--Primary, #3355B9);
     font-family: 'Open Sans', sans-serif;
 font-size: 24px;
-font-style: normal;
-font-weight: 600;
+
+
 line-height: normal;
 }
 
@@ -29,8 +29,8 @@ line-height: normal;
     
     font-family: 'Open Sans', sans-serif;
 font-size: 14px;
-font-style: normal;
-font-weight: 400;
+
+font-weight: 100;
 line-height: normal;
 }
 .country-code{
@@ -86,11 +86,15 @@ ion-item{
     
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
+    font-weight: 400;
     word-wrap: break-word
 }
 .l-name{
   height: 40px;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+ 
 }
 .f-name{
     display: flex;
@@ -98,7 +102,7 @@ ion-item{
     
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
+    font-weight: 400;
     word-wrap: break-word
 }
 .register-btn{
@@ -112,7 +116,7 @@ background: #3355B9;
 color: #FFF;
 font-family: 'Open Sans', sans-serif;
 font-size: 14px;
-font-style: normal;
+
 font-weight: 700;
 line-height: normal;
 }
@@ -134,7 +138,7 @@ word-wrap: break-word
 .google-btn-content{
     font-family: 'Open Sans', sans-serif;
 font-size: 14px;
-font-style: normal;
+
 font-weight: 400;
 line-height: normal;
 
@@ -151,7 +155,7 @@ color: #6D6D6D;
 text-align: center;
 font-family: 'Open Sans', sans-serif;
 font-size: 14px;
-font-style: normal;
+
 font-weight: 400;
 line-height: normal;
 }
@@ -159,7 +163,7 @@ line-height: normal;
     color: var(--Primary, #3355B9);
     font-family: 'Open Sans', sans-serif;
 font-size: 14px;
-font-style: normal;
+
 font-weight: 700;
 line-height: normal;
 text-decoration-line: underline;
@@ -186,10 +190,10 @@ tr{
     background: transparent;
 }
 .name-f{
-    width: 82px;  font-size: 13px;  font-family: 'Open Sans', sans-serif; font-weight: 600; word-wrap: break-word
+      font-size: 16px;  font-family: 'Open Sans', sans-serif; font-weight: 600; word-wrap: break-word
 }
 .name-l{
-    width: 79.90px;  font-size: 13px; font-family: 'Open Sans', sans-serif; font-weight: 600; word-wrap: break-word 
+   font-size: 16px; font-family: 'Open Sans', sans-serif; font-weight: 600; word-wrap: break-word 
 }
 .email{
   display: flex;

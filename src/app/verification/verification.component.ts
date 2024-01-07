@@ -95,7 +95,10 @@ export class VerificationComponent implements OnInit {
 
     //  console.log(this.logindata.OTP == otpString)
     if (this.logindata.OTP == otpString) {
-      this.dialog.open(CongratulationsComponent);
+      this.dialog.open(CongratulationsComponent,{
+        width:'280px',
+        height:'217px'
+      });
       this.router.navigate(['/enableloaction'])
     } else {
       this.snackBar.open("invalid otp");

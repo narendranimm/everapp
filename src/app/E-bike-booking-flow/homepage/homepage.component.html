@@ -71,7 +71,7 @@
               </g>
               </svg>
           </div>
-          <div class="menu-links" ><a class="links" routerLink="/kyc">KYC</a></div>
+          <div class="menu-links" ><a style="color: #363636; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word;text-decoration: none;"routerLink="/kyc">KYC</a></div>
       </div>
         <div
           style="align-self: stretch; padding: 12px; border-bottom: 1px #E8E7E7 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
@@ -199,7 +199,7 @@
         <div class="search-result-bike">
           <h1 class="greeting-head">Welcome {{username}}</h1>
           <!-- <p class="notify-content" *ngIf="show">  Share your location</p> -->
-         {{useraddress}}
+        <div><img src="./assets/mdi_location.svg" alt="">{{useraddress}}<img src="../assets/fe_arrow-down.svg" alt=""></div> 
           <div id="submit" >
             <!-- <img src="./assets/mdi_location.svg" alt=""> -->
             <!-- {{lat}} - {{lng}} -->
@@ -213,18 +213,17 @@
 
           <div style="display: flex; align-items: center;justify-content: center;">
           
-              <div routerLink="/search-result-bike"
-              style="width: 100%;  padding: 1px; background: #F2F2F2; border-radius: 20px; overflow: hidden; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex" >
-                <div style="width: 18px; height: 18px; position: relative">
+              <div >
+
                 <!-- <img src="../assets/tabler_search.svg" > -->
-                <ion-searchbar placeholder="Search by stations, bike model or distance"
+                <ion-searchbar placeholder="Search by stations, bike model or distance" style="width: 100%;"
                 [(ngModel)]="searchValue"
                 name="searchValue" 
                 showCancelButton="focus"
                 (input)="search($event)"
                 animated
                 ></ion-searchbar>
-                </div>
+             
                 <!-- <div  style="color: #3355B9; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">
                   </div> -->
                     <!-- <input matInput  name="searchValue" (input)="search($event)" class="search" 

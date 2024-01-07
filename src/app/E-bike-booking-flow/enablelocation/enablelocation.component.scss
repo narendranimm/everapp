@@ -89,7 +89,7 @@ text-decoration: none;
     margin-top: -92px;
 }
 .notify-title{
-    color: #000;
+   color: #000;
     font-family: 'Open Sans', sans-serif;
 font-size: 16px;
 font-style: normal;
@@ -97,7 +97,7 @@ font-weight: 600;
 line-height: normal;
 }
 .hub-content{
-  align-self: stretch; color: #363636; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
+  align-self: stretch;  font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
 }
 .location{
   align-self: stretch; text-align: center; color: #3F3F3F; font-size: 18px; font-family: 'Open Sans', sans-serif; font-weight: 700; word-wrap: break-word
@@ -338,19 +338,14 @@ ion-modal ion-toolbar {
   float:right;
 }
 .desp-1{
- color: #363636; font-size: 14px; font-family: 'Open Sans', sans-serif;font-weight: 700; word-wrap: break-word
+  font-size: 12px; font-family: 'Open Sans', sans-serif;font-weight: 700; word-wrap: break-word
 
 }
 .desp-2{
-  color: black; font-size: 10px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
+   font-size: 10px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
 
 }
-.desp-3{
-  align-self: stretch; color: #363636; font-size: 14px;font-family: 'Open Sans', sans-serif; font-weight: 700; word-wrap: break-word
-}
-.desp-4{
- align-self: stretch; color: black; font-size: 10px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
-}
+
 .btn-container{
   padding:2%;
 }
