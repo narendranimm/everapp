@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonContent } from '@ionic/angular';
+import { IonContent, ModalController } from '@ionic/angular';
+import { OrderService } from '../services/Order.service';
+import { ModalcontentComponent } from '../modalcontent/modalcontent.component';
 
 @Component({
   selector: 'app-offer-coupon',
@@ -7,12 +9,22 @@ import { IonContent } from '@ionic/angular';
   styleUrls: ['./offer-coupon.component.scss'],
 })
 export class OfferCouponComponent  implements OnInit {
+  offers: any;
 
-  constructor() { }
+  constructor(private os:OrderService,private modalController: ModalController) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getall();
+  }
+  getall(){
+    this.os.getAlloffers().subscribe(res=>{
+      this.offers=res;
+    })
+  }
   @ViewChild(IonContent) content!: IonContent;
-
+  open(id:number){
+    this.presentModal();
+  }
   scrollToBottom() {
     // Passing a duration to the method makes it so the scroll slowly
     // goes to the bottom instead of instantly
@@ -23,5 +35,13 @@ export class OfferCouponComponent  implements OnInit {
     // Passing a duration to the method makes it so the scroll slowly
     // goes to the top instead of instantly
     this.content.scrollToTop(500);
+  }
+  
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: ModalcontentComponent,
+    });
+
+    await modal.present();
   }
 }

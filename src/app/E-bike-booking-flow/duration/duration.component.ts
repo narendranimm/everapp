@@ -320,6 +320,7 @@ boxselection(data:any,i:number){
      this.ordersaveData.ProductID = this.productId;
      this.ordersaveData.BookingStartDate = this.startDate;
      this.ordersaveData.BookingEndDate = this.endDate;
+     this.ordersaveData.SecurityAmount=this.securitydeposit
      this.convertedCash =this.convertedCash +this.securitydeposit
      this.ordersaveData.TotalAmount=this.convertedCash;
      if(this.productId == null ){
@@ -380,26 +381,26 @@ console.log(res.message)
   ordersaveData = {
     "OrderID": 123,
     "ProductID": 0,
-    "BookingStartDate": this.datePipe.transform(Date.now(), 'yyyy-MM-dd HH:mm:ss'),
-    "BookingEndDate": this.datePipe.transform(Date.now(), 'yyyy-MM-dd HH:mm:ss'),
+    "BookingStartDate": null,
+    "BookingEndDate": null,
     "IsActive": true,
     "BookingNo": "ABC123",
     "HubID": 0,
     "MemberID": 0,
     "BookingStatus": 2,
     "AddressID": 1011,
-    "BookingAmount": 1000.00,
-    "AdvanceAmount": 200.00,
-    "DiscountAmount": 100.00,
-    "TaxAmount": 180.00,
-    "TotalAmount": 1280.00,
-    "PaidAmount": 400.00,
+    "BookingAmount": 0,
+    "AdvanceAmount": 0,
+    "DiscountAmount": 0,
+    "TaxAmount": 0,
+    "TotalAmount": 0,
+    "PaidAmount": 0,
     "IsCancel": false,
-    "Remarks": "Good service",
+    "Remarks": "Bike Booking",
     "CreatedOn": "2023-11-28T00:30:42",
     "DeliveredOn": "2023-11-30T00:30:42",
-    "PaymentConfirmedOn": "2023-11-29T00:30:42",
-    "IsFullPaid":1,
+    "PaymentConfirmedOn": null,
+    "IsFullPaid":0,
     "WashAmount":0,        
     "SecurityAmount":0,
     "CouponID":0,

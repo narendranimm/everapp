@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { ModalcontentComponent } from 'src/app/modalcontent/modalcontent.component';
 import { OrderService } from 'src/app/services/Order.service';
 
 @Component({
@@ -9,7 +11,7 @@ import { OrderService } from 'src/app/services/Order.service';
 export class OffersComponent  implements OnInit {
   offers: any;
 
-  constructor(private os:OrderService) { }
+  constructor(private os:OrderService,private modalController:ModalController) { }
 
   ngOnInit() {this.getAll()}
   getAll(){
@@ -20,6 +22,14 @@ export class OffersComponent  implements OnInit {
 
   }
   applyCoupon(id:number){
+    this.presentModal()
+  }
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: ModalcontentComponent, // Your modal component
+      cssClass: 'custom-modal-class', // Optional: Add a custom CSS class for styling
+    });
 
+    await modal.present();
   }
 }
