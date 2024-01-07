@@ -213,26 +213,28 @@
 
           <div style="display: flex; align-items: center;justify-content: center;">
           
-              <div routerLink="/search-result-bike"
+              <!-- <div 
               style="width: 100%;  padding: 1px; background: #F2F2F2; border-radius: 20px; overflow: hidden; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex" >
                 <div style="width: 18px; height: 18px; position: relative">
-                <!-- <img src="../assets/tabler_search.svg" > -->
-                <ion-searchbar placeholder="Search by stations, bike model or distance"
-                [(ngModel)]="searchValue"
-                name="searchValue" 
-                showCancelButton="focus"
-                (input)="search($event)"
-                animated
-                ></ion-searchbar>
-                </div>
-                <!-- <div  style="color: #3355B9; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">
-                  </div> -->
-                    <!-- <input matInput  name="searchValue" (input)="search($event)" class="search" 
-                    placeholder="Search by stations, bike model or distance"> -->
+              <img src="../assets/tabler_search.svg" > 
               </div>
-          </div>
+              
+                 <div  style="color: #3355B9; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">
+                  </div> 
+                    <input matInput  name="searchValue" (input)="search($event)" class="search" 
+                    placeholder="Search by stations, bike model or distance"> 
+              </div>-->
+          </div> 
         
-         
+          <ion-searchbar style="width: 100%;"
+          placeholder="Search by stations, bike model or distance"
+         [(ngModel)]="searchValue"
+         name="searchValue" 
+         showCancelButton="focus"
+         (input)="search($event)"
+         (ionClear)="clearSearch()"
+         animated
+         ></ion-searchbar>
          
            
         </div>
