@@ -351,3 +351,20 @@ ion-modal ion-toolbar {
 .btn-container{
   padding: 2%;
 }
+.toolbar{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position:fixed;
+
+	bottom:2px;
+	
+	background-color:#0C9;
+	color:#FFF;
+
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+  
+}

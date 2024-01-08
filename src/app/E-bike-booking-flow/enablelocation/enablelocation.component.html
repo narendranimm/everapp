@@ -141,8 +141,8 @@
         </div>
       </div>
   </mat-sidenav>
-  <mat-sidenav-content style="height: 100rem; ">
-    <mat-toolbar style="background: white;" >
+  <mat-sidenav-content style="height: 100rem; background: #E8F0F9;">
+    <mat-toolbar style="background: #E8F0F9;" >
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -151,6 +151,8 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
+     
+      
     
         <div class="name-child">
          <img  src="./assets/EVER (3).svg" alt="">
@@ -160,15 +162,47 @@
         <img  src="./assets/tdesign_notification-filled.svg" alt=""></div>
         
     </mat-toolbar>
-    <ion-content>
-        <div class="btn-container" >
-    <div class="main-container">
+    <ion-toolbar class="toolbar" >
+      <div style="width: 100%; height: 100%; padding-top: 8px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; background: white; box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16); justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+        <div style="flex: 1 1 0; height: 41px; justify-content: space-between; align-items: flex-start; display: flex">
+            <div routerLink="/enableloaction" style="width: 72px; flex-direction: column; justify-content: center; align-items: center; gap: 8px; display: inline-flex">
+                <div style="width: 24px; height: 24px; position: relative">
+                    <img src="../assets/Frame 2608398.svg" style="width: 18.06px; height: 18.06px; left: 7.64px; top: 0px; position: absolute; transform: rotate(25.04deg); transform-origin: 0 0;" >
+                </div>
+                <div style="color: #3355B9; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Ever</div>
+            </div>
+            <div routerLink="/homepage" style="width: 72px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 8px; display: inline-flex">
+                <div style="width: 24px; height: 24px; position: relative">
+                  <img src="../assets/mdi_motorbike-electric.svg" style="width: 18.06px; height: 18.06px; left: 7.64px; top: 0px; position: absolute;  transform-origin: 0 0;" >
+                </div>
+                <div style="color: rgba(54, 54, 54, 0.60); font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">EV Rentals</div>
+            </div>
+            <div routerLink="/swapstation" style="width: 72px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 8px; display: inline-flex">
+                <div style="width: 24px; height: 24px; position: relative">
+                  <img src="../assets/clarity_battery-solid (1).svg" style="width: 18.06px; height: 18.06px; left: 7.64px; top: 0px; position: absolute;  transform-origin: 0 0;" >
+                </div>
+                <div style="color: rgba(54, 54, 54, 0.60); font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Swap station</div>
+            </div>
+            <div routerLink="/services" style="width: 72px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 8px; display: inline-flex">
+                <div style="width: 24px; height: 24px; position: relative">
+                  <img src="../assets/ri_hand-heart-fill.svg" style="width: 18.06px; height: 18.06px; left: 7.64px; top: 0px; position: absolute; transform-origin: 0 0;" >
+                </div>
+                <div style="color: rgba(54, 54, 54, 0.60); font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Services</div>
+            </div>
+        </div>
+    </div>
+    
+   </ion-toolbar>
+    <ion-content style="background: #E8F0F9;">
+        <div class="btn-container"style="background: #E8F0F9;" >
+    <div class="main-container"style="background: #E8F0F9;">
     <h1 class="greeting-head">Welcome {{logindata?.FirstName}} {{logindata?.LastName}}</h1>
     <p class="share-location" *ngIf="show; else elseBlock"><img src="./assets/mdi_location.svg" alt=""> <button style="background: transparent;"   class="share-loc-content">Select your location</button></p>
     
     <!-- <input id="latlng" type="text" value="{{lati}},{{longi}}" /> -->
-    <ng-template #elseBlock><img src="./assets/mdi_location.svg" alt="">{{useraddress}}<img src="../assets/fe_arrow-down.svg" alt=""></ng-template> 
-    <div class="notification-card-p" id="open-modal" expand="block" *ngIf="show;" >
+    <ng-template class="element" #elseBlock><img src="./assets/mdi_location.svg" alt="">{{useraddress}}<img src="../assets/fe_arrow-down.svg" alt=""></ng-template> 
+  
+    <div class="notification-card-p"  *ngIf="show;" id="open-modal" expand="block" >
      <ion-card color="success" class="notify-card">
        <ion-card-header>
          <h1 class="notify-title">Want better hub suggestions?</h1> 
@@ -178,7 +212,9 @@
       <img src="./assets/card.svg" alt="" >
      </div>
      </ion-card>
+   
     </div>
+  
     <ion-modal #modal trigger="open-modal">
       <ng-template>
         <ion-content>
@@ -208,7 +244,7 @@
      
 
      </div>  
-     <div class="parent">
+     <div class="parent" style="background: #E8F0F9;">
       <div style="width: 158px; height: 158px; padding: 12px; background: white;  border-radius: 10px; overflow: hidden;  flex-direction: column; justify-content: space-between; align-items: flex-start; display: inline-flex" routerLink="/homepage">
         <div style="width: 74px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 2px; display: flex">
             <div class="desp-1">EV Rentals</div>
@@ -231,11 +267,11 @@
       </div>
   </div>
 
-  <div style="width: 158px; height: 158px; padding: 12px; background: white;  border-radius: 10px; overflow: hidden;  flex-direction: column; justify-content: space-between; align-items: flex-start; display: inline-flex">
+  <!-- <div style="width: 158px; height: 158px; padding: 12px; background: white;  border-radius: 10px; overflow: hidden;  flex-direction: column; justify-content: space-between; align-items: flex-start; display: inline-flex">
     <div style="align-self: stretch; height: 34.88px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 2px; display: flex">
         <div class="desp-1">EV bike taxi</div>
         <div class="desp-2">Eco-friendly transportation</div>
-    </div>
+    </div><br>
     <div style=" padding-left: 8px; padding-right: 8px; padding-top: 6px; padding-bottom: 6px; background: #F8E9C4; border-radius: 20px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
       <div style="color: #AC7C00; font-size: 10px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Coming soon...</div>
       </div>
@@ -246,29 +282,30 @@
     </div>
 
   
-</div>
-<div style="width: 158px; height: 158px; padding: 12px; background: white;  border-radius: 10px; overflow: hidden;  flex-direction: column; justify-content: space-between; align-items: flex-start; display: inline-flex">
+</div>-->
+<!-- <div style="width: 158px; height: 158px; padding: 12px; background: white;  border-radius: 10px; overflow: hidden;  flex-direction: column; justify-content: space-between; align-items: flex-start; display: inline-flex">
   <div style="align-self: stretch; height: 35px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 2px; display: flex">
       <div class="desp-1">Delivery</div>
       <div class="desp-2" >Quick and affordable</div>
       
-  </div>
-  <div style=" padding-left: 8px; padding-right: 8px; padding-top: 6px; padding-bottom: 6px; background: #F8E9C4; border-radius: 20px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+  </div><br>
+  <div style=" padding-left: 8px; padding-right: 8px; padding-top: 6px; padding-bottom: 6px; background: #F8E9C4; border-radius: 20px; justify-content: center; align-items: center; gap: 10px; display: inline-flex;">
     <div style="color: #AC7C00; font-size: 10px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Coming soon...</div>
     </div>
   <div style="width: 134px; height: 82.01px; justify-content: center; align-items: center; display: inline-flex">
       <img style="width: 134px; height: 82.01px" src="../assets/image 7.png" />
   </div>
-</div>
+</div> -->
 
-     </div>   
+     </div>    
 
-     <div style="text-align: start; color: #95A2CA; font-size: 18px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Navigating cities,<br/>Empowering lives</div>
-   <div class="cities">
-    <img src="../assets/cities.svg" alt="">
+     <div style="background: #E8F0F9;text-align: start; color: #95A2CA; font-size: 18px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Navigating cities,<br/>Empowering lives</div>
+   <div style="background: #E8F0F9;">
+    <img src="../assets/cities.svg" alt="" style="float: right;background: #E8F0F9;width: 100%;">
    </div>
-   
+
 </ion-content>
+
 
  </mat-sidenav-content>
 </mat-sidenav-container> 

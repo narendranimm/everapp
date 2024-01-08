@@ -91,7 +91,7 @@ profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
           this.loc=res['plus_code']  
           console.log(res.results[0].formatted_address)
           console.log(res.results[8].formatted_address)
-          this.useraddress=res.results[8].formatted_address
+          this.useraddress=res.results[0].formatted_address
           this.userdata.setNew('userlocation',this.useraddress)
           console.log(res)
           })

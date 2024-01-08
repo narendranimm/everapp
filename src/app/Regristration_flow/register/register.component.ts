@@ -29,6 +29,7 @@ export class RegisterComponent implements OnInit {
   maxDate!: Date;
   date!: Date;
   readonly minAge = 18;
+  submitted = false;
 
   constructor(private loadingservice: LoadingService,
     private router: Router,private userdata:UserData,private _snackBar: MatSnackBar,
@@ -61,6 +62,8 @@ export class RegisterComponent implements OnInit {
       Gender: 1000
     })
   }
+
+  get f() { return this.regForm.controls; }
 
   openDialog() {
     const dialogRef = this.dialog.open(CommunicationAllowPermissionComponent,

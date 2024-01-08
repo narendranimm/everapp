@@ -98,7 +98,7 @@
               </div>
           </div>
       
-          <ion-input  type="mobile" class="phone" placeholder="0000000" formControlName="MobileNo"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ></ion-input>
+          <ion-input  type="number" class="phone" placeholder="0000000" formControlName="MobileNo"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ></ion-input>
          
       </div>
 
@@ -142,6 +142,7 @@
     <ion-checkbox color="primary" [(ngModel)]="isChecked"  [ngModelOptions]="{standalone: true}" (ionChange)="onChange($event)"> </ion-checkbox>
     <span >I agree<a routerLink="/tc" style="margin: 0 5px;">terms & conditions</a></span>
   </div>
+  <div style="color:red" *ngIf="submitted && f.checkbox.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
 <button class="register-btn"  type="submit"  (click)="register()" >Register</button>
  
 <!-- <mat-form-field style="display:none">
