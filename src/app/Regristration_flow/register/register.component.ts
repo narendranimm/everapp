@@ -125,18 +125,24 @@ this.isChecked=true;
  
     this.reg.signup(data).subscribe(
       (res: PostResult) => {
-        if(res.status == 'true'){
-          this.loadingservice.dismissLoader();
-          console.log(res)
-          this.data = res;
-          this.snackBar.open(res.message.toString());
-          this.router.navigate(['/login'])
+        if(res){
+
+          if(res.status == 'true'){
+            this.loadingservice.dismissLoader();
+            console.log(res)
+            this.data = res;
+            this.snackBar.open(res.message.toString());
+            this.router.navigate(['/login'])
+          }else{
+            this.loadingservice.dismissLoader();
+  
+            this.snackBar.open(JSON.stringify(res.message));
+  
+            
+          }
         }else{
           this.loadingservice.dismissLoader();
 
-          this.snackBar.open(JSON.stringify(res.message));
-
-          
         }
      
     })
