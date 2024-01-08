@@ -1,3 +1,5 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
 .btn-container{
     padding: 4%;
 }
@@ -8,4 +10,10 @@
     justify-content: center;
     flex-direction: column;
     padding: 5%;
+}
+.notification{
+    font-size: 12px; font-family: 'Open Sans', sans-serif; font-weight: 400; 
+}
+.notify-card{
+    opacity: 0.60;  font-size: 16px; font-family: 'Open Sans', sans-serif; font-weight: 700; 
 }

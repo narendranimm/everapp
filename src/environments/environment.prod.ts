@@ -9,3 +9,4 @@ apiurl:'https://172.188.80.209:8443/api/',
   azimageUrl_pic:'https://everdevuat.blob.core.windows.net/profilepic/',
 
 };
+

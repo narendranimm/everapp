@@ -239,9 +239,9 @@
         
           <!-- <input type="text" value="{{lat}},{{lng}}" id="latlng"> -->
 
-          <div id="map"></div>
+        <br>
 
-          <div style="display: flex; align-items: center;justify-content: center;">
+          <!-- <div style="display: flex; align-items: center;justify-content: center;"> -->
           
               <!-- <div 
               style="width: 100%;  padding: 1px; background: #F2F2F2; border-radius: 20px; overflow: hidden; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex" >
@@ -254,7 +254,7 @@
                     <input matInput  name="searchValue" (input)="search($event)" class="search" 
                     placeholder="Search by stations, bike model or distance"> 
               </div>-->
-          </div> 
+          <!-- </div>  -->
         
           <ion-searchbar style="width: 100%;"
           placeholder="Search by stations, bike model or distance"
@@ -267,7 +267,7 @@
          ></ion-searchbar>
          
            
-        </div>
+        </div><br>
         <div style="width: 100%;  justify-content: space-between; align-items: center; display: inline-flex">
           <div class="nearhub">Hubs near you</div>
           <img src="./assets/ri_arrow-right-s-line.svg"
@@ -276,11 +276,11 @@
         </div>
 
 
+<br>
 
+        <br> 
 
-        <br> <br>
-
-        <app-nearhub [slides]="filteredItems"></app-nearhub>
+        <app-nearhub [slides]="filteredItems"></app-nearhub><br>
         <!-- <app-nearhub [slides]="hubsnearby"></app-nearhub> -->
         <!-- <app-nearhub [slides]="bikeHubID"></app-nearhub> -->
         <!-- all hubs -->

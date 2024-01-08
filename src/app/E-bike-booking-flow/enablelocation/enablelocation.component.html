@@ -141,7 +141,7 @@
         </div>
       </div>
   </mat-sidenav>
-  <mat-sidenav-content style="height: 100rem; background: #E8F0F9;">
+  <mat-sidenav-content style=" background: #E8F0F9;height: 100%;">
     <mat-toolbar style="background: #E8F0F9;" >
       <button
         type="button"
@@ -193,17 +193,17 @@
     </div>
     
    </ion-toolbar> -->
-    <ion-content style="background: #E8F0F9;">
+    <ion-content style="background: #E8F0F9;height: 90rem;">
         <div class="btn-container"style="background: #E8F0F9;" >
     <div class="main-container"style="background: #E8F0F9;">
     <h1 class="greeting-head">Welcome {{logindata?.FirstName}} {{logindata?.LastName}}</h1>
     <p class="share-location" *ngIf="show; else elseBlock"><img src="./assets/mdi_location.svg" alt=""> <button style="background: transparent;"   class="share-loc-content">Select your location</button></p>
     
     <!-- <input id="latlng" type="text" value="{{lati}},{{longi}}" /> -->
-    <ng-template class="cut_text" #elseBlock><img src="./assets/mdi_location.svg" alt="">{{useraddress | slice:0:50}}<img src="../assets/fe_arrow-down.svg" alt=""></ng-template> 
+    <ng-template class="cut_text" #elseBlock><img src="./assets/mdi_location.svg" alt="">{{useraddress | slice:0:45}}<img src="../assets/fe_arrow-down.svg" alt=""></ng-template> 
   
-    <div class="notification-card-p"  *ngIf="show;" id="open-modal" expand="block" >
-     <ion-card color="success" class="notify-card">
+    <div class="notification-card-p"  *ngIf="show;" >
+     <ion-card style="background:  #6EDF72;" class="notify-card"  id="open-modal" expand="block">
        <ion-card-header>
          <h1 class="notify-title">Want better hub suggestions?</h1> 
          <p class="notify-content">Share your location<img src="../assets/ph_arrow-right-bold.svg" style="margin-bottom: -5px;" alt=""> </p>
@@ -244,7 +244,8 @@
      
 
      </div>  
-     <div class="parent" style="background: #E8F0F9;">
+     <div style="background: #E8F0F9;height: 600px;"> 
+     <div class="parent" >
       <div style="width: 158px; height: 158px; padding: 12px; background: white;  border-radius: 10px; overflow: hidden;  flex-direction: column; justify-content: space-between; align-items: flex-start; display: inline-flex" routerLink="/homepage">
         <div style="width: 74px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 2px; display: flex">
             <div class="desp-1">EV Rentals</div>
@@ -272,8 +273,8 @@
         <div class="desp-1">EV bike taxi</div>
         <div class="desp-2">Eco-friendly transportation</div>
     </div><br>
-    <div style=" padding-left: 8px; padding-right: 8px; padding-top: 6px; padding-bottom: 6px; background: #F8E9C4; border-radius: 20px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-      <div style="color: #AC7C00; font-size: 10px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Coming soon...</div>
+    <div style=" padding-left: 8px; padding-right: 8px; padding-top: 4px; padding-bottom: 4px; background: #F8E9C4; border-radius: 20px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+      <div class="coming-desp">Coming soon...</div>
       </div>
     <div style="width: 134px; height: 97.24px; position: relative; background: white">
 
@@ -289,21 +290,20 @@
       <div class="desp-2" >Quick and affordable</div>
       
   </div><br>
-  <div style=" padding-left: 8px; padding-right: 8px; padding-top: 6px; padding-bottom: 6px; background: #F8E9C4; border-radius: 20px; justify-content: center; align-items: center; gap: 10px; display: inline-flex;">
-    <div style="color: #AC7C00; font-size: 10px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Coming soon...</div>
+  <div style=" padding-left: 8px; padding-right: 8px; padding-top: 4px; padding-bottom: 4px; background: #F8E9C4; border-radius: 20px; justify-content: center; align-items: center; gap: 10px; display: inline-flex;">
+    <div class="coming-desp">Coming soon...</div>
     </div>
   <div style="width: 134px; height: 82.01px; justify-content: center; align-items: center; display: inline-flex">
       <img style="width: 134px; height: 82.01px" src="../assets/image 7.png" />
   </div>
+  
 </div>
-
+<div style="background: #E8F0F9;text-align: start; color: #95A2CA; font-size: 18px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Navigating cities,<br/>Empowering lives</div>
+  <div style="float: right;">
+    <img src="../assets/cities.svg" alt="" >
+</div>
      </div>    
-
-     <div style="background: #E8F0F9;text-align: start; color: #95A2CA; font-size: 18px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Navigating cities,<br/>Empowering lives</div>
-   <div style="background: #E8F0F9;">
-    <img src="../assets/cities.svg" alt="" style="float: right;background: #E8F0F9;width: 100%;">
-   </div>
-
+    </div>
 </ion-content>
 
 

@@ -74,7 +74,7 @@ ion-item{
 }
 
 .btn-container{
-    margin: 10px;
+   padding: 2%;
 }
 .phone{
     border: none;
@@ -242,4 +242,19 @@ tr{
 }
 #checkbox:checked{
     background-color: blue;
+}
+.element{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position:fixed;
+    width: 100%;
+      bottom:2px;
+      
+      
+  
+   
+    
 }
