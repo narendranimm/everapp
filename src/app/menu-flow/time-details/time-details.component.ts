@@ -84,7 +84,9 @@ export class TimeDetailsComponent implements OnInit, OnDestroy {
   showCounter(){
     let dateObject:any = new Date(this.ProductDetails.BookingStartDate);
     let dateObject2:any = new Date(this.ProductDetails.BookingEndDate);
-    this.counter = Math.floor((dateObject.getTime()- dateObject2.getTime()) / 1000);
+    console.log(dateObject.getTime())
+    console.log(dateObject2.getTime())
+    this.counter = Math.floor((dateObject2.getTime()- dateObject.getTime()) / 1000);
 
     // Using the timer function to create an observable that decrements the counter value at a fixed interval
     this.countDown = timer(0, this.tick).subscribe(() => --this.counter);
@@ -104,7 +106,7 @@ export class TimeDetailsComponent implements OnInit, OnDestroy {
     // this.countDown = 'nuill';
   }
   viewinvoice(){
-    this.router.navigateByUrl('/invoice')
+    this.router.navigateByUrl('invoice')
 
   }
 }
