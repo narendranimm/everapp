@@ -86,7 +86,7 @@ text-decoration: none;
 }
 .image-container{
     float: right;
-    margin-top: -92px;
+    margin-top: -104px;
 }
 .notify-title{
    color: #000;
@@ -94,7 +94,8 @@ text-decoration: none;
 font-size: 16px;
 font-style: normal;
 font-weight: 600;
-line-height: normal;
+
+
 }
 .hub-content{
   align-self: stretch;  font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
@@ -348,4 +349,26 @@ ion-modal ion-toolbar {
 
 .btn-container{
   padding:2%;
+}
+.toolbar{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position:fixed;
+
+	bottom:2px;
+	
+	background-color:#0C9;
+	color:#FFF;
+
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+  
+}
+.element {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

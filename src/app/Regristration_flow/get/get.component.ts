@@ -93,7 +93,7 @@ export class GetComponent  implements OnInit {
         if(result.hasPermission){
           localStorage.setItem('permissionRequested', 'true');
               if(this.userid != null){
-                this.router.navigateByUrl('/homepage')
+                this.router.navigateByUrl('/enableloaction')
               }else{
                 this.router.navigateByUrl('/register')
         
@@ -102,7 +102,7 @@ export class GetComponent  implements OnInit {
               
              
               if(this.userid != null){
-                this.router.navigateByUrl('/homepage')
+                this.router.navigateByUrl('/enableloaction')
               }else{
                 this.router.navigateByUrl('/register')
         

@@ -36,6 +36,7 @@ export class SwapstationsComponent  implements OnInit {
   username = '';
   logindata!: any;
   show: boolean = true; 
+  useraddress:any;
  
   private breakpointObserver = inject(BreakpointObserver);
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -103,6 +104,14 @@ export class SwapstationsComponent  implements OnInit {
     var coordinates = Geolocation.getCurrentPosition().then((resp) => {
       this.lat = resp.coords.latitude;
       this.lng = resp.coords.longitude;
+      this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${this.lat},${this.lng}&key=AIzaSyCU4W4iQLV5ydrW3UxZncI_JdLi1EsKH5A`).subscribe((res:any)=>{
+        this.loc=res['plus_code']  
+        console.log(res.results[0].formatted_address)
+        console.log(res.results[8].formatted_address)
+        this.useraddress=res.results[0].formatted_address
+        this.userdata.setNew('userlocation',this.useraddress)
+        console.log(res)
+        })
 
       this.getNearByHubs()
     })

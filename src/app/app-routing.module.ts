@@ -214,7 +214,7 @@ const routes: Routes = [
   {path:'trustedcontacts_list',component:TrustedcontactListComponent},
   {path:'nobookings',component:NobookingComponent},
   {path:'confirmpassword',component:ConfirmpasswordComponent},
-  {path:'inovice',component:ViewsummaryComponent}
+  {path:'invoice',component:ViewsummaryComponent}
 
 
 

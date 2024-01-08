@@ -1,3 +1,5 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
 .success-container{
  
 padding: 25px 18px 23px 20px;
@@ -7,13 +9,16 @@ background: #6EDF72;
 }
 .success-logo-container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
 align-items: center;
+padding: 10%;
+row-gap: 20px;
 }
 .title{
-    color: #3F3F3F;
+
 text-align: center;
-font-family: Archivo;
+font-family: 'Open Sans', sans-serif;
 font-size: 18px;
 font-style: normal;
 font-weight: 700;
@@ -23,7 +28,7 @@ line-height: normal;
     color: #717171;
 
     text-align: center;
-    font-family: Archivo;
+    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
