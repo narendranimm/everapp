@@ -36,9 +36,12 @@
                 <div style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
                     <div><span class="id">Hub centre</span><span class="name"> : {{ProductDetails?.HubCenterName}}</span></div>
                 </div>
-                <div style="width: 100%"><span style="color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Start date & time</span><span style="color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word"> : 7 Sep | 11.00 am</span></div>
-                <div style="width: 100%"><span style="color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">End date & time</span><span style="color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word"> : 14 Oct | 10.59 am</span></div>
-                <div style="width: 100%"><span style="color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Duration</span><span style="color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word"> : 7 days</span></div>
+                <div style="width: 100%"><span style="color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Start date & time</span><span style="color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word"> 
+                    : {{ProductDetails?.BookingStartDate | customDateTime }}</span></div>
+                <div style="width: 100%"><span style="color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">End date & time</span><span style="color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">
+                     : {{ProductDetails?.BookingEndDate | customDateTime}}</span></div>
+                <div style="width: 100%"><span style="color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Duration</span><span style="color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word"> 
+                    : {{ ProductDetails?.BookingStartDate | timeDifference:ProductDetails?.BookingEndDate }}</span></div>
             </div>
         </div>
     </div>

@@ -99,45 +99,19 @@
         <!-- cross mark image -->
 
    </div>
-      <div
-        style="width: 304px; left: 18px; top: 49px; position: absolute; justify-content: flex-start; align-items: center; gap: 8px; display: inline-flex">
-     <!-- <div style="width: 24px; height: 24px; position: relative">
-              <div style="width: 20px; height: 20px; left: 2px; top: 2px; position: absolute; background: #2c2c2e"></div>
-          </div>  -->
-       <div style="width: 24px; height: 24px; position: relative;flex-shrink: 0;"> 
-          <!-- cross mark image -->
-         
-          <mat-radio-button color="primary" name="washtype" id="fee" [value]='0' [(ngModel)]="washtype" ></mat-radio-button>
-          <!-- cross mark image -->
-
-      </div>
-        <div
-          style="flex: 1 1 0; height: 19px; justify-content: space-between; align-items: center; display: flex">
-          <div
-            style=" font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">
-            Water wash basic </div>
-          <div
-            style=" font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">
-            Free</div>
-        </div>
-      </div>
-      <div
-        style="width: 304px; left: 18px; top: 85px; position: absolute; justify-content: flex-start; align-items: center; gap: 8px; display: inline-flex">
-        <div style="width: 24px; height: 24px; position: relative">
-        <mat-radio-button color="primary" type="radio" name="washtype" id="fee" [value]='49' [(ngModel)]="washtype" ></mat-radio-button>
-
-        </div>
-        <div
-          style="flex: 1 1 0; height: 19px; justify-content: space-between; align-items: center; display: flex">
-          <div
-            style="  font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">
-            Foam wash premium</div>
-          <div
-            style="  font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">
-            ₹49</div>
-        </div>
-      </div>
-
+  
+      
+      <ion-list>
+        <ion-radio-group [(ngModel)]="washtype" name="washtype">
+        
+    
+          <ion-item *ngFor="let color of foods1">
+            <ion-radio [value]="color.viewValue" ></ion-radio>
+            <ion-label> {{ color.value }}</ion-label> <ion-label  slot="end">{{ color.lable }}</ion-label>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+    
         <div
           style="height: 152px; left: 18px; top: 133px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
           <div
@@ -147,10 +121,10 @@
             style="align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
 
 
-            <div [class]="f.cssstyle" *ngFor="let f of washfee; index as i">
-              <div
-                style="width: 100px; height: 118px; position: relative; background: white; border-radius: 8px; overflow: hidden; border: 1px #E8E7E7 solid">
-                <a (click)="boxselection(f,i)">
+            <div  [class]="f.cssstyle" *ngFor="let f of washfee; index as i">
+              <div [class]="f.astyle"
+                style="width: 100px; height: 118px; position: relative; border-radius: 8px; overflow: hidden; border: 1px #E8E7E7 solid">
+                <a (click)="boxselection(f,i)" >
                   <div class="coupan-type">
                     {{f.feetype}}</div>
                   <div class="coupan-type"
@@ -166,14 +140,9 @@
           </div>
         </div>
       </div>
-      <div style="padding: 2%;">
-    
-      <button  class="procd_btn" (click)="book()"
-       >
-        <div
-           class="proceed-btn">
-          Proceed next</div>
-      </button>
+      <div style="padding: 2%;">    
+      <button  class="procd_btn" (click)="book()">
+        <div class="proceed-btn"> Proceed next</div> </button>
     </div>
 
   </ng-template>

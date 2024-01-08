@@ -15,7 +15,7 @@ export class SnackbarService {
       position,
       color,
     });
-
+//danger,warning for color
     toast.present();
   }
 }

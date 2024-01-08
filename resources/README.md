@@ -34,3 +34,9 @@ this.userdata.setNew("loginuser",data)
  ---ionic snacbar
   this.snackbarService.presentSnackbar(res.Message,1000,'bottom','success')
 private snackbarService: SnackbarService
+
+
+--------split time and date
+        this.datePart = res.BookingStartDate.split('T')[0];
+        this.timePart = res.BookingStartDate.split('T')[1];
+        ---

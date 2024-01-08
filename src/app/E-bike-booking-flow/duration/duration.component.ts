@@ -14,7 +14,8 @@ import { UserData } from 'src/app/providers/user-data';
 import { LoadingService } from 'src/app/services/loading.service';
 interface Food {
   value: string;
-  viewValue: string;
+  viewValue: number;
+  lable:string;
 }
 @Component({
   selector: 'app-duration',
@@ -38,18 +39,10 @@ export class DurationComponent implements OnInit {
   selectoptionThree: any;
   selectoptionTwo: any=null;
   selectoptionone: any;
-  foods: Food[] = [
-    { value: '1', viewValue: '1' },
-    { value: '2', viewValue: '2' },
-    { value: '3', viewValue: '3' },
-    { value: '4', viewValue: '4' },
-    { value: '5', viewValue: '5' },
-    { value: '6', viewValue: '6' },
-  ];
+ 
   foods1: Food[] = [
-    { value: 'hours', viewValue: 'hours' },
-    { value: 'days', viewValue: 'days' },
-    { value: 'weeks', viewValue: 'weeks' },
+    { value: 'Foam wash premium', viewValue: 0,lable:'Free' },
+    { value: 'Water Wash ', viewValue: 49 ,lable: '₹49'},
 
   ];
   logindata: any;
@@ -301,14 +294,15 @@ export class DurationComponent implements OnInit {
 
 boxselection(data:any,i:number){
   console.log('selected Amount',data )
-  this.washfee.forEach(e => {e.cssstyle =''});
+  this.washfee.forEach(e => {e.cssstyle ='',e.astyle=''});
   this.washfee[i].cssstyle='box_border';
+  this.washfee[i].astyle='seletiondiv';
   this.securitydeposit=this.washfee[i].amount;
   console.log(this.washtype)
   console.log(this.securitydeposit)
 }
  //last line
- book() {
+ book() {debugger
 
   this.modalController.dismiss();
   // this.router.navigateByUrl('/adhar');
@@ -324,7 +318,9 @@ boxselection(data:any,i:number){
      this.ordersaveData.SecurityAmount=this.securitydeposit
      this.ordersaveData.WashAmount=this.washtype
      this.ordersaveData.BookingAmount =this.convertedCash
-     this.ordersaveData.TotalAmount=this.convertedCash;
+     this.ordersaveData.AdvanceAmount=0
+     this.ordersaveData.PaidAmount=0;
+     this.ordersaveData.TotalAmount=0;
      if(this.productId == null ){
        this.snackBar.open("Please Select a Product")
      this.loader.dismissLoader();
@@ -335,13 +331,22 @@ boxselection(data:any,i:number){
  
      this.bookingservice.book(this.ordersaveData).subscribe(
        (res: any) => {
-         this.loader.dismissLoader();
-         this.BookingID = res.ID
-         this.user.setNew('bookingNo',this.BookingID)
-         this.user.setNew('startTime',this.startDate)
-         this.user.setNew('endTime',this.endDate)
-         this.snackBar.open(JSON.stringify(res.message));
-         this.router.navigateByUrl('/booking_summary/'+this.BookingID);
+        if(res ){
+
+          this.loader.dismissLoader();
+if(!res.Id){
+  this.snackBar.open('booking failed');
+
+}
+          this.BookingID = res.ID
+          this.user.setNew('bookingNo',this.BookingID)
+          this.user.setNew('startTime',this.startDate)
+          this.user.setNew('endTime',this.endDate)
+          this.snackBar.open(JSON.stringify(res.message));
+          this.router.navigateByUrl('/booking_summary/'+this.BookingID);
+        }else{
+          this.loader.dismissLoader();
+        }
         // this.dialog.open(CompletekycComponent);
         // this.router.navigateByUrl('/adhar');
        },
@@ -358,9 +363,9 @@ boxselection(data:any,i:number){
 proced() {
   this.ispopupclosed = true;
   this.modalController.dismiss();
-  if (this.ispopupclosed) {
-    this.convertedCash = this.convertedCash + this.washtype + this.securitydeposit;
-  }
+  // if (this.ispopupclosed) {
+   // this.convertedCash = this.convertedCash + this.washtype + this.securitydeposit;
+  // }
 
 }
 closepopup(){
@@ -390,7 +395,7 @@ console.log(res.message)
     "HubID": 0,
     "MemberID": 0,
     "BookingStatus": 2,
-    "AddressID": 1011,
+    "AddressID": 0,
     "BookingAmount": 0,
     "AdvanceAmount": 0,
     "DiscountAmount": 0,
@@ -420,12 +425,15 @@ console.log(res.message)
   'description':'You will pay the entire amount in case of any damage',
   'feetype':'1,500 + iD Proofs',
   'cssstyle':'',
+  'astyle':'',
  },
   {
   'amount':49,
   'description':'You will pay ₹15,000 in case of any damage',
   'feetype':'Basic',
   'cssstyle':'',
+  'astyle':'',
+
 
  },
   {
@@ -433,6 +441,8 @@ console.log(res.message)
   'description':'You will pay ₹5,000 in case of any damage',
   'feetype':'Premium',
   'cssstyle':'',
+  'astyle':'',
+
 
  }
 ]

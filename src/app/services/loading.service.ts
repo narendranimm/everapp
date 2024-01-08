@@ -26,7 +26,8 @@ async simpleLoader(message: string) {
 }
 async dismissLoader() {
   this.isLoading = false;
-    return await this.loadingController.dismiss().then(() => console.log('dismissed'));
+     await this.loadingController.dismiss()
+    //  .then(() => console.log('dismissed'));
   
 }
   // Auto hide show loader
@@ -55,10 +56,22 @@ async dismissLoader() {
   async presentLoading(message:string) {
     const loading = await this.loadingController.create({
       message: message,
-    duration: 3000
-
+    duration: 2000
     });
     return await loading.present();
+  }
+  async present(message:string) {
+    this.isLoading = true;
+    return await this.loadingController.create({
+      message: message,
+    }).then(a => {
+      a.present().then(() => {
+        console.log('presented');
+        if (!this.isLoading) {
+          a.dismiss().then(() => console.log('abort presenting'));
+        }
+      });
+    });
   }
    // Simple loader
   // simpleLoader(Message:string) {

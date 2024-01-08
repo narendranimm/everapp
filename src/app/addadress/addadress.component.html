@@ -24,10 +24,13 @@
       <div style="align-self: stretch; height: 70px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
           <div style="align-self: stretch; color: #363636; font-size: 16px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Save address as</div>
           <div style="justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
-            <mat-chip-listbox aria-label="Fish selection" *ngFor="let item of items" formControlName="optional_address">
+            <!-- <mat-chip-listbox aria-label="Fish selection" *ngFor="let item of items" formControlName="AddressType">
                 <mat-chip-option>{{item.name}}</mat-chip-option>
            
-              </mat-chip-listbox>
+              </mat-chip-listbox> -->
+              <ion-chip *ngFor="let option of items" (click)="selectChip(option)"  [class.selected]="selectedChip === option.id">
+                {{ option.name }}
+              </ion-chip>
             <!-- <ion-chip color="secondary" *ngFor="let item of items" formControlName="optional_address" (click)="selectChip(item)" >{{item.name}}</ion-chip> -->
             <!-- <ion-content>
                 <ion-chip style="color: red;" *ngFor="let item of items" (click)="selectChip(item)" [class.selected]="item === selectedChip" >

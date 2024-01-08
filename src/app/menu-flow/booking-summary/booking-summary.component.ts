@@ -14,6 +14,8 @@ import { OrderService } from 'src/app/services/Order.service';
 export class BookingSummaryComponent  implements OnInit {
   bookingid:any;
   ProductDetails: any;
+  datePart: any;
+  timePart: any;
   constructor( private snackBar: MatSnackBar,
     private route: ActivatedRoute, private _pd: OrderService,
     private _bh: BookingService, private router: Router, private user: UserData,
@@ -25,9 +27,16 @@ export class BookingSummaryComponent  implements OnInit {
 
   ngOnInit() {this.getDetails()}
   getDetails() {
-    this._pd.getordersummeryByBookingNo(this.bookingid).subscribe((res) => {
+    this._pd.getordersummeryByBookingNo(this.bookingid).subscribe((res:any) => {
       console.log(res)
-      this.ProductDetails = res;
+      if(res){
+
+        this.ProductDetails = res;        
+        this.datePart = res.BookingStartDate.split('T')[0];
+        this.timePart = res.BookingStartDate.split('T')[1];
+      
+      }
+
     })
   }
 }
