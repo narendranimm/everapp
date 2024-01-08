@@ -9,12 +9,12 @@
 <p class="intro-content">A 6 digit code has sent to your mobile number</p>
 <form  [formGroup]="verficationForm" >
 <div class="otp-container">
-  <input type="number" #otp1  class="otp" maxlength="6" (keyup)="otpController($event,otp2,'')" formControlName="fst" oninput="this.value=this.value.replace(/[^0-9]/g,'');" onKeyPress="if(this.value.length==1) return false;" >
-  <input type="number" #otp2 class="otp" maxlength="1" (keyup)="otpController($event,otp3,otp1)" formControlName="scn" oninput="this.value=this.value.replace(/[^0-9]/g,'');" onKeyPress="if(this.value.length==1) return false;"  >
-  <input type="number" #otp3 class="otp" maxlength="1" (keyup)="otpController($event,otp4,otp2)" formControlName="thrd" oninput="this.value=this.value.replace(/[^0-9]/g,'');" onKeyPress="if(this.value.length==1) return false;"  >
-  <input type="number" #otp4 class="otp" maxlength="1" (keyup)="otpController($event,otp5,otp3)" formControlName="fth" oninput="this.value=this.value.replace(/[^0-9]/g,'');" onKeyPress="if(this.value.length==1) return false;"  >
-  <input type="number" #otp5 class="otp" maxlength="1" (keyup)="otpController($event,otp6,otp4)" formControlName="fifth" oninput="this.value=this.value.replace(/[^0-9]/g,'');" onKeyPress="if(this.value.length==1) return false;"  >
-  <input type="number" #otp6 class="otp" maxlength="1" (keyup)="otpController($event,'',otp5)" formControlName="sth" oninput="this.value=this.value.replace(/[^0-9]/g,'');" onKeyPress="if(this.value.length==1) return false;"  >
+  <ion-input type="number" #otp1  class="otp" maxlength="6" (keyup)="otpController($event,otp2,'')" formControlName="fst" oninput="this.value=this.value.replace(/[^0-9]/g,'');"  ></ion-input>
+  <ion-input type="number" #otp2 class="otp" maxlength="1" (keyup)="otpController($event,otp3,otp1)" formControlName="scn" oninput="this.value=this.value.replace(/[^0-9]/g,'');"   ></ion-input>
+  <ion-input type="number" #otp3 class="otp" maxlength="1" (keyup)="otpController($event,otp4,otp2)" formControlName="thrd" oninput="this.value=this.value.replace(/[^0-9]/g,'');"   ></ion-input>
+  <ion-input type="number" #otp4 class="otp" maxlength="1" (keyup)="otpController($event,otp5,otp3)" formControlName="fth" oninput="this.value=this.value.replace(/[^0-9]/g,'');"   ></ion-input>
+  <ion-input type="number" #otp5 class="otp" maxlength="1" (keyup)="otpController($event,otp6,otp4)" formControlName="fifth" oninput="this.value=this.value.replace(/[^0-9]/g,'');"   ></ion-input>
+  <ion-input type="number" #otp6 class="otp" maxlength="1" (keyup)="otpController($event,'',otp5)" formControlName="sth" oninput="this.value=this.value.replace(/[^0-9]/g,'');"   ></ion-input>
 
   <!-- <input placeholder="" type="number" #otp1 class="otp" size="1"  required="true"  (keyup)="otpController($event,otp2,'')" formControlName="firstdigit" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" >
   <input placeholder="" type="number" #otp2 class="otp" size="1" required="true"  (keyup)="otpController($event,otp3,otp1)" formControlName="seconddigit" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" >

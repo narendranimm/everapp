@@ -125,7 +125,7 @@ this.isChecked=true;
     const picname = this.regForm.get('FirstName')!.value +'_'+ this.regForm.get('LastName')!.value;
     this.regForm.controls.ProfilePhoto.setValue(picname);
     const data = this.regForm.value;
- 
+   
     this.reg.signup(data).subscribe(
       (res: PostResult) => {
         if(res.status == 'true'){
