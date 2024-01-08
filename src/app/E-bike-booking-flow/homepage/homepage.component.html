@@ -229,7 +229,7 @@
         <div class="search-result-bike">
           <h1 class="greeting-head">Welcome {{username}}</h1>
           <!-- <p class="notify-content" *ngIf="show">  Share your location</p> -->
-        <div><img src="./assets/mdi_location.svg" alt="">{{useraddress}}<img src="../assets/fe_arrow-down.svg" alt=""></div> 
+        <div><img src="./assets/mdi_location.svg" alt="">{{useraddress | slice:0:50}}<img src="../assets/fe_arrow-down.svg" alt=""></div> 
           <div id="submit" >
             <!-- <img src="./assets/mdi_location.svg" alt=""> -->
             <!-- {{lat}} - {{lng}} -->

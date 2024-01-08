@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RegisterService } from '../registration-services/register.service';
 import { ActivatedRoute } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { UserData } from '../providers/user-data';
 
 @Component({
   selector: 'app-myaddress',
@@ -12,9 +13,12 @@ export class MyaddressComponent  implements OnInit {
 data:any;
 address:any;
 addressid:any;
-  constructor(private _ad:RegisterService,private route: ActivatedRoute,public alertController: AlertController) { 
+  id!: number;
+  constructor(private _ad:RegisterService,private route: ActivatedRoute,public alertController: AlertController,private user: UserData,) { 
     this.addressid = route.snapshot.params["ID"];
     console.log("this is branchid value = " + this.addressid);
+
+ 
   }
 
   ngOnInit() {
@@ -62,7 +66,7 @@ async presentDeleteAlert() {
         text: 'Delete',
         handler: () => {
           console.log('Delete clicked');
-          this.delterecrd()
+          this.delterecrd(this.id)
           // Call your delete method or perform the deletion here
         },
       },
@@ -71,8 +75,8 @@ async presentDeleteAlert() {
 
   await alert.present();
 }
-  delterecrd() {
-    this._ad.deleteaddress(this.data).subscribe((res)=>{
+  delterecrd(id:number) {
+    this._ad.deleteaddress(id).subscribe((res)=>{
         console.log(res)
     })
   }

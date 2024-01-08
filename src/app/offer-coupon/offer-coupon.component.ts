@@ -3,6 +3,8 @@ import { IonContent, ModalController } from '@ionic/angular';
 import { OrderService } from '../services/Order.service';
 import { ModalcontentComponent } from '../modalcontent/modalcontent.component';
 import { LoadingService } from '../services/loading.service';
+import { ActivatedRoute } from '@angular/router';
+import { UserData } from '../providers/user-data';
 
 @Component({
   selector: 'app-offer-coupon',
@@ -14,14 +16,22 @@ export class OfferCouponComponent  implements OnInit {
   isAlertOpen = false;
   alertButtons = ['Action'];
   filteredItems: any;
+  ProductDetails: any;
+  bookingNo!: string;
 
-  constructor(private os:OrderService,private modalController: ModalController,
+  constructor(private os:OrderService,private modalController: ModalController,private _pd: OrderService,private route:ActivatedRoute,private userdata: UserData,
     private load:LoadingService) {
-    
+      this.userdata.getId('bookingNo').then(data => {
+        if (data !== null) {
+          this.bookingNo = data;
+          this.getDetails()
+        }
+      })
      }
 
   ngOnInit() {
     this.getall();
+    this.getDetails() 
   }
   getall(){
     this.os.getAlloffers().subscribe(res=>{
@@ -60,5 +70,11 @@ export class OfferCouponComponent  implements OnInit {
     });
 
     await modal.present();
+  }
+  getDetails() {
+    this._pd.getordersummeryByBookingNo(this.bookingNo).subscribe((res) => {
+      console.log(res)
+      this.ProductDetails = res;
+    })
   }
 }

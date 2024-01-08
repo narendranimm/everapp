@@ -96,7 +96,7 @@ baseUrl:any=environment.apiurl;
   updateaddress(data:any){
     return this.http.put(this.baseUrl+`members`,data)
   }
-  deleteaddress(data:any){
-    return this.http.patch(this.baseUrl+`api/deleteUseraddress`,data)
+  deleteaddress(id:number){
+    return this.http.delete(this.baseUrl+`deleteUseraddress/`+id)
   }
 }

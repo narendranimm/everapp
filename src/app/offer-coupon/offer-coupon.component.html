@@ -1,32 +1,30 @@
 <ion-content class="scroller">
     <div class="btn-container">
         <div
-            style="width: 100%; height: 100%; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
+            style="width: 100%; height: 100%; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex" >
             <div
                 style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 98px; display: inline-flex">
                 <div style="width: 24px; height: 24px; position: relative">
                     <div class="btn-container">
-                        <button style="background: transparent;border: none;" routerLink="/booking-summary-m">
+                        <button style="background: transparent;border: none;" routerLink="/booking_summary/{{bookingNo}}">
                             <img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
                     </div>
                 </div>
                 <div routerLink="/booking-summary-m" class="offers">Offers & benefits</div>
             </div>
-            <div
-                style="align-self: stretch; padding: 12px; background: #F2F2F2; border-radius: 20px; overflow: hidden; justify-content: space-between; align-items: center; display: inline-flex">
-                <div style="justify-content: flex-start; align-items: center; gap: 10px; display: flex">
+           
                     <!-- <div style="width: 18px; height: 18px; position: relative"> -->
                     <!-- <div style="width: 15px; height: 10.50px; left: 1.50px; top: 3.75px; position: absolute; background: #3355B9"></div> -->
                     <!-- </div> -->
                     <!-- <div class="coupan">Type coupon code here</div> -->
-                </div>
+               
                 <!-- <div class="apply">Apply</div> -->
                 <ion-searchbar placeholder="Type coupon code here" 
                   (ionChange)="filterItems($event.detail.value, 'CouponCode')"
                   
                   name="searchValue" showCancelButton="focus"
                     animated></ion-searchbar>
-            </div>
+           
             <div
                 style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: flex">
                 <div class="best-offer">Best offers for you</div>
@@ -44,13 +42,12 @@
                                 <div class="savings">
                                     You are saving ₹1,500 on this drive by using this coupon code</div>
                             </div>
-                            <button  id="open-modal" (click)="open(f.CouponID)"
+                            <button    (click)="open(f.CouponID)" (click)="setOpen(true)"
                                 style="width: 104px; height: 28px; padding-left: 10px; padding-right: 10px; padding-top: 16px; padding-bottom: 16px; background: #3355B9; border-radius: 24px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-                                <div
-                                    style="color: white; font-size: 12px; font-family: Archivo; font-weight: 600; word-wrap: break-word">
+                            
                                     Apply
 
-                                </div>
+                               
                             </button>
 
                         </div>
@@ -65,36 +62,7 @@
                                 up to ₹150</div>
                         </div>
                     </div>
-                    <div
-                        style="width: 328px; padding: 12px; background: #D3EDFF; border-radius: 10px; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-                        <div
-                            style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
-                            <div
-                                style="align-self: stretch; height: 49px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 6px; display: flex">
-                                <div
-                                    style="justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
-                                    <div class="first">TRYME10</div>
-                                </div>
-                                <div class="savings">You are saving ₹100 on this drive by using this coupon code</div>
-                            </div>
-                            <div
-                                style="width: 104px; height: 28px; padding-left: 10px; padding-right: 10px; padding-top: 16px; padding-bottom: 16px; background: #3355B9; border-radius: 24px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-                                <div
-                                    style="color: white; font-size: 12px; font-family: Archivo; font-weight: 600; word-wrap: break-word">
-                                    Apply</div>
-                            </div>
-                        </div>
-
-                        <div
-                            style="width: 68px; flex-direction: column; justify-content: center; align-items: flex-start; gap: 8px; display: inline-flex">
-                            <div
-                                style="align-self: stretch; text-align: center; color: #363636; font-size: 28px; font-family: Archivo; font-weight: 700; word-wrap: break-word">
-                                10% OFF</div>
-                            <div
-                                style="align-self: stretch; text-align: center; color: #363636; font-size: 12px; font-family: Archivo; font-weight: 400; word-wrap: break-word">
-                                up to ₹150</div>
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
 
@@ -140,13 +108,13 @@
 
 
 <!-- ionmodel -->
-<!-- <ion-button (click)="setOpen(true)">Click Me</ion-button>
-<ion-alert
+
+<ion-alert routerLink="/booking-details"
   [isOpen]="isAlertOpen"
   header="A Short Title Is Best"
   subHeader="A Sub Header Is Optional"
   message="You have saved ₹1,500 with this coupon"
   [buttons]="alertButtons"
   (didDismiss)="setOpen(false)"
-></ion-alert> -->
+></ion-alert>
 
