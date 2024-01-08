@@ -45,6 +45,11 @@ export class DateTimeComponent  implements OnInit {
   ispopupclosed:boolean=false;
   isModelOpen:boolean=false;
    modal:boolean=false;
+
+   
+  amount: number = 0; // Input amount
+  convertedCash: number  = 100; // Converted cash value
+
   @ViewChild(IonContent) content!: IonContent;
 
   constructor( private snackBar: MatSnackBar,
@@ -157,6 +162,7 @@ export class DateTimeComponent  implements OnInit {
     console.log('daily rate',this.dailyRate)
     console.log('week rate',this.weeklyRate)
     console.log('hour rate',this.hourlyRate)
+    this.convertedCash=this.priceData.filter((x:any)=>x.PayTypes == 'wash')[0].Amount
    })
   }
   duration() {
@@ -178,9 +184,6 @@ export class DateTimeComponent  implements OnInit {
   }
 
   
-  amount: number = 0; // Input amount
-  convertedCash: number  = 0; // Converted cash value
-
 
 
  //last line
@@ -197,6 +200,7 @@ export class DateTimeComponent  implements OnInit {
      this.ordersaveData.BookingEndDate = this.endDate;
      this.ordersaveData.TotalAmount=this.convertedCash;
      this.ordersaveData.ServiceType=3506;
+     this.ordersaveData.Remarks='Wash service';
     //  if(this.productId == null ){
     //    this.snackBar.open("Please Select a Product")
     //  this.loader.dismissLoader();
@@ -236,15 +240,15 @@ export class DateTimeComponent  implements OnInit {
     "HubID": 0,
     "MemberID": 0,
     "BookingStatus": 2,
-    "AddressID": 1011,
-    "BookingAmount": 1000.00,
-    "AdvanceAmount": 200.00,
-    "DiscountAmount": 100.00,
-    "TaxAmount": 180.00,
-    "TotalAmount": 1280.00,
-    "PaidAmount": 400.00,
+    "AddressID": 0,
+    "BookingAmount": 0,
+    "AdvanceAmount": 0,
+    "DiscountAmount": 0,
+    "TaxAmount": 0,
+    "TotalAmount": 0,
+    "PaidAmount": 0,
     "IsCancel": false,
-    "Remarks": "Good service",
+    "Remarks": '',
     "CreatedOn": "2023-11-28T00:30:42",
     "DeliveredOn": "2023-11-30T00:30:42",
     "PaymentConfirmedOn": "2023-11-29T00:30:42",

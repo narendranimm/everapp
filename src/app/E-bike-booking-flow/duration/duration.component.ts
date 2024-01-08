@@ -305,6 +305,7 @@ boxselection(data:any,i:number){
   this.washfee[i].cssstyle='box_border';
   this.securitydeposit=this.washfee[i].amount;
   console.log(this.washtype)
+  console.log(this.securitydeposit)
 }
  //last line
  book() {
@@ -321,7 +322,8 @@ boxselection(data:any,i:number){
      this.ordersaveData.BookingStartDate = this.startDate;
      this.ordersaveData.BookingEndDate = this.endDate;
      this.ordersaveData.SecurityAmount=this.securitydeposit
-     this.convertedCash =this.convertedCash +this.securitydeposit
+     this.ordersaveData.WashAmount=this.washtype
+     this.ordersaveData.BookingAmount =this.convertedCash
      this.ordersaveData.TotalAmount=this.convertedCash;
      if(this.productId == null ){
        this.snackBar.open("Please Select a Product")

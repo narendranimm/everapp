@@ -56,7 +56,7 @@ export class RegisterComponent implements OnInit {
       Token: 'null',
       ParentID: '1000',
       IsRegisteredByMobile: 'true',
-      ProfilePhoto:"test.png",
+      ProfilePhoto:"default.jpeg",
       userId: 0,
       Gender: 1000
     })
@@ -102,7 +102,16 @@ export class RegisterComponent implements OnInit {
 
     this.content.scrollToTop(500);
   }
+  isChecked: boolean = false;
+
+  onChange(event: any) {
+this.isChecked=true;
+  }
   register() {
+    if(!this.isChecked){
+      this.snackBar.open('Please select terms and conditions')
+      return
+    }
     if(!this.regForm.valid) {
      
       this.regForm.markAllAsTouched();

@@ -32,7 +32,7 @@
       </div>
       <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
           <div class="name-l" >Last name</div>
-          <input placeholder="Surname" type="text" required formControlName="LastName"  oninput="this.value = this.value.replace(/[^a-z.]/g, '').replace(/(\..*)\./g, '$1');"
+          <input placeholder="Last Name" type="text" required formControlName="LastName"  oninput="this.value = this.value.replace(/[^a-z.]/g, '').replace(/(\..*)\./g, '$1');"
           style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
           <div *ngIf="regForm.get('LastName')?.invalid && regForm.get('LastName')?.touched" class="error">
             <div  *ngIf="regForm.get('LastName')?.hasError('required')">Last name is required.</div>
@@ -139,7 +139,7 @@
       
   </div>
   <div style="margin: 0 5px; display: flex;align-items: center;gap: 10px;">
-    <ion-checkbox color="primary"> </ion-checkbox>
+    <ion-checkbox color="primary" [(ngModel)]="isChecked"  [ngModelOptions]="{standalone: true}" (ionChange)="onChange($event)"> </ion-checkbox>
     <span >I agree<a routerLink="/tc" style="margin: 0 5px;">terms & conditions</a></span>
   </div>
 <button class="register-btn"  type="submit"  (click)="register()" >Register</button>
