@@ -1,3 +1,4 @@
+<form action="" [formGroup]="trustedForm">
 <div class="btn-container">
 <div style="width: 100%; height: 100%; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
   <div style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 104px; display: inline-flex">
@@ -13,15 +14,13 @@
   <div style="align-self: stretch; color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">This contact won’t be saved in your devices’s address book.</div>
   <div style="align-self: stretch; height: 70px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
       <div style="color: #363636; font-size: 16px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">First name</div>
-      <div style="align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: white; border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-          <div style="opacity: 0.60; color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">First name</div>
-      </div>
+      <input type="text" placeholder="First name" formControlName="fname" style="align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: white; border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+      
   </div>
   <div style="align-self: stretch; height: 70px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
       <div style="color: #363636; font-size: 16px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Last name</div>
-      <div style="align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: white; border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-          <div style="opacity: 0.60; color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Last name</div>
-      </div>
+      <input type="text" placeholder="Last name" formControlName="lname" style="align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px; background: white; border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+       
   </div>
   <div style="align-self: stretch; height: 70px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
       <div style="align-self: stretch; color: #363636; font-size: 16px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Mobile no.</div>
@@ -65,11 +64,12 @@
               <div style="color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">+91</div>
           </div>
 
-          <div style="opacity: 0.60; color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">0000 0000</div>
+          <ion-input  type="number" class="phone" formControlName="mobile"  placeholder="00000 00000"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" onKeyPress="if(this.value.length==10) return false" ></ion-input>
       </div>
   </div>
-  <div routerLink="/trustedcontacts_list" style="width: 328px; height: 48px; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: center; align-items: center; display: inline-flex">
+  <button routerLink="/trustedcontacts_list" style="width: 100%; height: 48px; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: center; align-items: center; display: inline-flex">
       <div style="color: white; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Save</div>
-  </div>
+  </button>
 </div>
 </div>
+</form>

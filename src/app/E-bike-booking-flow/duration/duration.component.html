@@ -48,7 +48,7 @@
           
 
      
-
+<div class="container">
   <div style="width: 360px; padding-top:300px; padding-bottom: 14.50px; padding-left: 16px; padding-right: 16px;  justify-content: center; align-items: center; gap: 83px; display: inline-flex">
       <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
           <div style="color: black; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Total</div>
@@ -69,15 +69,16 @@
  
   </div>
 </div>
+</div>
 </form>
 </div>
 
-<ion-modal [isOpen]="isModelOpen" [initialBreakpoint]="1.0" [breakpoints]="[0, 0.25, 0.5, 0.75]">
+<ion-modal [isOpen]="isModelOpen" [initialBreakpoint]="1.0" [breakpoints]="[0, 0.25, 0.5, 0.75,1]">
   <ng-template>
     <div
       style="width: 100%; height: 100%; position: relative; background: white; border-top-left-radius: 20px; border-top-right-radius: 20px; overflow: hidden">
       <div
-        style="left: 18px; top: 16px; position: absolute; color: #363636; font-size: 16px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">
+        style="left: 18px; top: 26px; position: absolute; color: #363636; font-size: 16px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word;padding:2%">
         Choose your preferred option</div>
       <div style="width: 24px; height: 24px; left: 322px; top: 12px; position: absolute"> 
         <!-- cross mark image -->
@@ -113,28 +114,28 @@
       </ion-list>
     
         <div
-          style="height: 152px; left: 18px; top: 133px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
+          style="height: 152px; left: 18px; top: 133px; position: absolute; flex-direction: column; justify-content: center; align-items: flex-start; gap: 12px; display: inline-flex">
           <div
-            style="color: #363636; font-size: 16px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">
+            style="color: black; font-size: 18px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">
             Security deposit</div>
           <div
             style="align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
 
-
+        <div class="parent">
             <div  [class]="f.cssstyle" *ngFor="let f of washfee; index as i">
               <div [class]="f.astyle"
                 style="width: 100px; height: 118px; position: relative; border-radius: 8px; overflow: hidden; border: 1px #E8E7E7 solid">
                 <a (click)="boxselection(f,i)" >
                   <div class="coupan-type">
                     {{f.feetype}}</div>
-                  <div class="coupan-type"
-                   >
-                    ₹{{f.amount}}/day</div>
+                    <div style="text-align: center; color: black; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">₹{{f.amount}}/day</div>
+                    
                   <div class="coupan-type"
                    >
                     {{f.description}}</div>
                 </a>
               </div>
+            </div>
             </div>
 
           </div>
