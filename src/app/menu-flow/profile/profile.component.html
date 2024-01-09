@@ -16,8 +16,13 @@
                 Profile</div>
         </div>
         <div style="width: 120px; height: 120px; position: relative">
-            <img style="width: 120px; height: 120px; left: 0px; top: 0px; position: absolute; border-radius: 100px"
+            <img *ngIf="imageSource" style="width: 120px; height: 120px; left: 0px; top: 0px; position: absolute; border-radius: 100px"
                 src="{{profileUrl}}{{imageSource}}" />
+              
+                <ion-avatar *ngIf="!imageSource" >
+                  <img alt="Silhouette of a person's head" style="width: 120px; height: 120px; left: 0px; top: 0px; position: absolute; border-radius: 100px" src="https://ionicframework.com/docs/img/demos/avatar.svg"  
+                    />
+                </ion-avatar>
             <!-- <button (click)="takePicture()" class="p_pic" >
                 <div style="width: 12px; height: 12px; background: #3355B9"></div>
             </button> -->

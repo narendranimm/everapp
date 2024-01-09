@@ -64,7 +64,7 @@ export class RegisterComponent implements OnInit {
       Token: 'null',
       ParentID: '1000',
       IsRegisteredByMobile: 'true',
-      ProfilePhoto: "default.jpeg",
+      ProfilePhoto: null,
       userId: 0,
       Gender: 1000
     })

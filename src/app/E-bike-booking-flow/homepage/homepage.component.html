@@ -20,7 +20,11 @@
         style="align-self: stretch; padding: 12px; background: #F2F2F2; border-radius: 10px;  justify-content: space-between; align-items: center; display: inline-flex">
         <div style="justify-content: flex-start; align-items: center; gap: 17px; display: flex">
           <img style="width: 48px; height: 48px; position: relative; border-radius: 100px"
-            src="{{profileUrl}}{{logindata?.ProfilePhoto}}" />
+            src="{{profileUrl}}{{logindata?.ProfilePhoto}}" *ngIf="logindata?.ProfilePhoto" />
+            <ion-avatar *ngIf="!logindata?.ProfilePhoto" >
+              <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg"  
+                />
+            </ion-avatar>
           <div
             style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 6px; display: inline-flex">
             <div style="color: #ece2e2; font-size: 18px; font-family: Archivo; font-weight: 500; word-wrap: break-word">
