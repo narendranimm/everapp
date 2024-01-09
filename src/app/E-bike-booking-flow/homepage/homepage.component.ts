@@ -1,6 +1,6 @@
 import { Component, HostListener, Input, OnInit, inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable, of } from 'rxjs';
+import { Observable, Subscription, interval, of, timer } from 'rxjs';
 import { catchError, map, shareReplay } from 'rxjs/operators';
 import { ViewChild, ElementRef } from '@angular/core';
 import { IonContent, PopoverController } from '@ionic/angular';
@@ -17,6 +17,7 @@ import { Geolocation, GeolocationPlugin } from '@capacitor/geolocation';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoadingService } from 'src/app/services/loading.service';
 import { HubsService } from 'src/app/services/Hubs.service';
+import { OrderService } from 'src/app/services/Order.service';
 export interface MapGeocoderResponse {
   status: google.maps.GeocoderStatus;
   results: google.maps.GeocoderResult[];
@@ -54,7 +55,18 @@ export class HomepageComponent implements OnInit {
   hubsnearby: any = [];
   useraddress: string='';
   filteredItems: any;
-  constructor(private loadingservice: LoadingService, private hub_s: HubsService,
+  countDown!: Subscription;
+  countDown$!: Observable<any>;
+  counter = 0;
+  tick = 300; //(interval for the timer in (Milliseconds))
+  BookingStartDate: any;
+  BookingEndDate: any;
+  isshowTimer: boolean=false;
+  bookingNo: any;
+  ProductDetails: any;
+
+  constructor(private loadingservice: LoadingService,
+     private hub_s: HubsService,private os:OrderService,
     public popoverController: PopoverController, private _bh: BookingService, private route: ActivatedRoute, private router: Router,
     private _pd: ProductServicesService, private userdata: UserData,private http:HttpClient
   ) {
@@ -70,6 +82,26 @@ export class HomepageComponent implements OnInit {
 
         this.useraddress = res;
         console.log(this.useraddress)
+      }
+    })
+    this.userdata.getId('startTime').then(res => {
+      if (res !== null) {
+
+        this.BookingStartDate = res;
+      }
+    })
+    this.userdata.getId('bookingNo').then(res => {
+      if (res !== null) {
+
+        this.bookingNo = res;
+        this.showCounter()
+      }
+    })
+    this.userdata.getId('endTime').then(res => {
+      if (res !== null) {
+
+        this.BookingEndDate = res;
+        this.showCounter()
       }
     })
 
@@ -88,6 +120,39 @@ export class HomepageComponent implements OnInit {
 
 
   public sidebar: boolean = true;
+  showCounter(){
+    this.isshowTimer=true;
+    
+    let dateObject:any = new Date(this.BookingStartDate);
+    let dateObject2:any = new Date(this.BookingEndDate);
+    console.log(dateObject.getTime())
+    console.log(dateObject2.getTime())
+    this.counter = Math.floor((dateObject2.getTime()- dateObject.getTime()) / 1000);
+
+    // Using the timer function to create an observable that decrements the counter value at a fixed interval
+    this.countDown = timer(0, this.tick).subscribe(() => --this.counter);
+
+    // Using the interval function to create an observable that emits values at a fixed interval
+    this.countDown$ = interval(1000).pipe(
+      map(() => {
+        // Calculating the remaining time in seconds
+        return Math.floor(
+          (dateObject.getTime()- dateObject2.getTime()) / 1000
+        );
+      })
+    );
+
+    if(this.bookingNo){
+      this.getDetails();
+
+    }
+  }
+  getDetails() {
+    this.os.getordersummeryByBookingNo(this.bookingNo).subscribe((res) => {
+      console.log(res)
+      this.ProductDetails = res;
+    })
+  }
   getbranchesByBID() {
     this.loadingservice.presentLoading('loading')
     this._bh.getbranchesByBID(this.bikeHubID, null).subscribe(
