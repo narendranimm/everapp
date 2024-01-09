@@ -16,12 +16,12 @@ const { Clipboard } = Plugins;
 })
 export class VerificationComponent implements OnInit {
   showLoader!: boolean;
-  otp = '';
+  UserOTP = '';
   isDisabled: boolean = true;
   verficationForm!: FormGroup;
   logindata: any;
   mobileno: any;
-  constructor(private reg: RegisterService, private loadingservice: LoadingService,public dialog: MatDialog,
+  constructor(private reg: RegisterService, private loadingservice: LoadingService, public dialog: MatDialog,
     private _vf: FormBuilder, private router: Router, private register: RegisterService, private snackBar: MatSnackBar, private userdata: UserData) {
     this.verficationForm = this._vf.group({
       fst: ['', Validators.required],
@@ -32,13 +32,14 @@ export class VerificationComponent implements OnInit {
       sth: ['', Validators.required]
 
     })
-    this.userdata.getuser().then(res => {
+    this.userdata.getuser().then(res => {debugger
       if (res !== null) {
-      this.logindata = res;
-      this.mobileno = this.logindata.MobileNo;
-      console.log(this.mobileno)
-      }else{
+        // this.logindata = res;
+        this.UserOTP = res.OTP;
+        this.mobileno = res.MobileNo;
+      } else {
         this.snackBar.open('Please Enter mobile No.')
+        this.router.navigateByUrl('login')
       }
 
     })
@@ -57,7 +58,7 @@ export class VerificationComponent implements OnInit {
   }
   otpController(event: any, next: any, prev: any): any {
     console.log(event.target.value.length)
-    if(event.target.value.length ==6){
+    if (event.target.value.length == 6) {
       const digits: number[] = event.target.value.split('').map(Number);
       this.verficationForm.controls.fst.setValue(digits[0]);
       this.verficationForm.controls.scn.setValue(digits[1]);
@@ -65,7 +66,7 @@ export class VerificationComponent implements OnInit {
       this.verficationForm.controls.fth.setValue(digits[3]);
       this.verficationForm.controls.fifth.setValue(digits[4]);
       this.verficationForm.controls.sth.setValue(digits[5]);
-    // console.log(`Individual digits: ${digits.join(', ')}`);
+      // console.log(`Individual digits: ${digits.join(', ')}`);
     }
     if (event.target.value.length < 1 && prev) {
       prev?.setFocus()
@@ -82,46 +83,45 @@ export class VerificationComponent implements OnInit {
 
 
   onInputChange(event: any) {
-    this.otp = event;
-    console.log(this.otp)
   }
-  async setUserdetails(){
+  async setUserdetails() {
 
-    let datad= await this.getuserbymobileno()
-    .then((data: any) => {
-      this.userdata.setNew("loginuser",data)
-      console.log('Data received:', data);   
-      
-    });
+    let datad = await this.getuserbymobileno()
+      .then((data: any) => {
+        this.UserOTP = data.OTP;
+        this.userdata.setNew("loginuser", data)
+        console.log('Data received:', data);
+
+      });
   }
-  getuserbymobileno():Promise<any>{
-    return this.reg.getbymobileno(this.mobileno).toPromise()}
-   
+  getuserbymobileno(): Promise<any> {
+    return this.reg.getbymobileno(this.mobileno).toPromise()
+  }
+
 
   verifyOTP() {
     const otp = this.verficationForm?.value;
     //  setTimeout(() => {
     //   this.loaderService.display(false);
     // }, 800);
-  
+
     const otpString = `${otp.fst}${otp.scn}${otp.thrd}${otp.fth}${otp.fifth}${otp.sth}`;
-    console.log('OTP to verify', otpString);
 
     //  console.log(this.logindata.OTP == otpString)
-    if (this.logindata.OTP == otpString) {
-   
-        this.dialog.open(CongratulationsComponent,{
-          width:'280px',
-          height:'217px'
-        });
-    
- 
-    
+    if (this.UserOTP == otpString) {
+
+      this.dialog.open(CongratulationsComponent, {
+        width: '280px',
+        height: '217px'
+      });
+
+
+
       this.router.navigate(['/enableloaction'])
     } else {
       this.snackBar.open("invalid otp");
-      this.router.navigate(['/verification'])
-    
+      // this.router.navigate(['/verification'])
+
     }
 
 
@@ -136,6 +136,13 @@ export class VerificationComponent implements OnInit {
   }
   //resend otp
   resend() {
+    debugger
+    if (!this.mobileno) {
+      this.router.navigateByUrl('/login')
+
+      this.snackBar.open('Please Enter Mobile');
+      return
+    }
     let data = {
       "mobileno": this.mobileno,
       "otp": "123456"
@@ -144,23 +151,20 @@ export class VerificationComponent implements OnInit {
     this.loadingservice.simpleLoader('Loading..')
     this.reg.resendsms(data).subscribe(
       (res: any) => {
-     
-      console.log(res)
-      if (res.status) {
-        this.loadingservice.dismissLoader();
-        let message: string = res.message;
-        console.log(message);
-       
-        this.snackBar.open(message);
-        this.setUserdetails()
-      }
-      else {
-        this.loadingservice.dismissLoader();
-    
-      
 
-      }
-    })
+        console.log(res)
+        if (res.status) {
+          this.loadingservice.dismissLoader();
+          let message: string = res.message;
+          console.log(message);
+
+          this.snackBar.open(message);
+          this.setUserdetails()
+        }
+        else {
+          this.loadingservice.dismissLoader();
+        }
+      })
   }
 }
 

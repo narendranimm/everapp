@@ -14,12 +14,29 @@ export class ProfileComponent  implements OnInit {
   imageSource:any=null;
   loginuser: any;
   profileUrl: any = environment.azimageUrl_pic;
-
+  genderdata:any=[
+    {"name":'Select',"value":0},
+    {"name":'Male',"value":3500},
+    {"name":'Female',"value":3500},
+    {"name":'Prefer not say',"value":1},
+  ]
   constructor(private store:UserData) {
 
     this.store.getuser().then(data=>{
       if(data !== null){
         this.loginuser=data;
+        
+        switch (this.loginuser.MemberType) {
+          case 3500:
+            this.loginuser.Gender='Male';
+            break;
+          case 3500:
+            this.loginuser.Gender='FeMale';
+            break;
+        
+          default:
+            break;
+        }
         console.log(this.loginuser)
         this.imageSource=this.loginuser.ProfilePhoto;
 
