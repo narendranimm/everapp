@@ -20,7 +20,7 @@ import { HttpClient } from '@angular/common/http';
 export class EnablelocationComponent  implements OnInit {
   slides:any=[]
   lati: any = '';  
-  useraddress:any;
+  useraddress:any=null;
   longi: any = '';  
   bikeHub:any;
 user:any;
@@ -47,6 +47,13 @@ profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
   
           this.logindata = res;
           this.username = res.FirstName + ' ' + res.LastName;
+        }
+      })
+      this.userdata.getId('userlocation').then(res => {
+        if (res !== null) {
+  
+          this.useraddress = res;
+          console.log(this.useraddress)
         }
       })
   
