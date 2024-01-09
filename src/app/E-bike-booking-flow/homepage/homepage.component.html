@@ -2,7 +2,7 @@
   <mat-sidenav #drawer class="sidenav" #sidenav [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) ===false">
     <div
-      style="width: 100%; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
+      style="width: 100%;padding: 2%; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
       <div
         style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 124px; display: inline-flex">
         <div style="width: 24px; height: 24px; position: relative">
@@ -273,20 +273,20 @@
            
         </div><br>
         <!-- show tiemr -->
-        <div *ngIf="isshowTimer" style="width: 100%; height: 100px; padding: 10px; background: white; box-shadow: 0px 2px 6px rgba(51, 85, 185, 0.25); border-radius: 20px; overflow: hidden; border: 1px rgba(51, 85, 185, 0.10) solid; justify-content: center; align-items: center; gap: 9px; display: inline-flex">
-          <div style="flex: 1 1 0; height: 55px; justify-content: flex-start; align-items: flex-start; gap: 6px; display: flex">
+        <div *ngIf="isshowTimer" style="width: 100%; height: 100px; background: white; box-shadow: 0px 2px 6px rgba(51, 85, 185, 0.25); border-radius: 10px; overflow: hidden; border: 1px rgba(51, 85, 185, 0.10) solid; justify-content: center; align-items: center; gap: 9px; display: inline-flex">
+          <div style="flex: 1 1 0; height: 50px; justify-content: flex-start; align-items: flex-start; gap: 6px; display: flex">
              
-              <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 6px; display: inline-flex">
-                  <div style="color: black; font-size: 16px; font-family: Archivo; font-weight: 600; word-wrap: break-word">Bike model 1</div>
-                  <div style="align-self: stretch; height: 13px; flex-direction: column; justify-content: center; align-items: flex-start; gap: 6px; display: flex">
-                      <div><span style="color: black; font-size: 12px; font-family: Archivo; font-weight: 600; word-wrap: break-word">Vehicle number </span><span style="color: black; font-size: 12px; font-family: Archivo; font-weight: 400; word-wrap: break-word">: TS09RK1996</span></div>
-                  </div>
-                  <div style="color: #3355B9; font-size: 12px; font-family: Archivo; font-weight: 600; text-decoration: underline; word-wrap: break-word">View details</div>
+              <div style=" flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 6px; display: inline-flex">
+                  <div style="color: black; font-size: 16px; font-family: Archivo; font-weight: 600; word-wrap: break-word;line-height: 1.2;">Bike model 1</div>
+                  
+                      <div><span style="color: black; font-size: 12px; font-family: Archivo; font-weight: 600; word-wrap: break-word;line-height: 1.2;">Vehicle number </span><span style="color: black; font-size: 12px; font-family: Archivo; font-weight: 400; word-wrap: break-word">: TS09RK1996</span></div>
+                  
+                  <div style="color: #3355B9; font-size: 12px; font-family: Archivo; font-weight: 600; text-decoration: underline; word-wrap: break-word;line-height: 1.2;">View details</div>
               </div>
           </div>
         
-          <button routerLink="/time-details-m" style="padding-left: 12px; padding-right: 12px; padding-top: 6px; padding-bottom: 6px; background: #2FB735; border-radius: 12px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
-              <div style="text-align: center; color: white; font-size: 10px; font-family: Archivo; font-weight: 400; word-wrap: break-word">Remaining in</div>
+          <button routerLink="/time-details-m" style="padding-left: 12px; padding-right: 12px; padding-top: 22px; padding-bottom: 22px; background: #2FB735; border-radius: 12px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 6px; display: inline-flex">
+              <div style="text-align: center; color: white; font-size: 12px; font-family: Archivo; font-weight: 400; word-wrap: break-word">Remaining in</div>
               <div style="justify-content: center; align-items: flex-start; gap: 6px; display: inline-flex">
                 <table>
                   <tr>
