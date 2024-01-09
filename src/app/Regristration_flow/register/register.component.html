@@ -65,30 +65,6 @@
                   <div style="width: 3.20px; height: 3.20px; left: 7.40px; top: 7.40px; position: absolute; background: #6666B3"></div>
                   <div style="width: 3.54px; height: 3.54px; left: 7.23px; top: 7.23px; position: absolute">
                       <div style="width: 0.20px; height: 0.20px; left: 1.45px; top: -0px; position: absolute; background: #3355B9"></div>
-                      <div style="width: 0.20px; height: 0.20px; left: 1.03px; top: 0.11px; position: absolute; background: #3355B9"></div>
-                      <div style="width: 0.20px; height: 0.20px; left: 0.64px; top: 0.33px; position: absolute; background: #3355B9"></div>
-                      <div style="width: 0.20px; height: 0.20px; left: 0.33px; top: 0.64px; position: absolute; background: #3355B9"></div>
-                      <div style="width: 0.20px; height: 0.20px; left: 0.11px; top: 1.03px; position: absolute; background: #3355B9"></div>
-                      <div style="width: 0.20px; height: 0.20px; left: -0px; top: 1.45px; position: absolute; background: #3355B9"></div>
-                      <div style="width: 0.20px; height: 0.20px; left: -0px; top: 1.89px; position: absolute; background: #3355B9"></div>
-                      <div style="width: 0.20px; height: 0.20px; left: 0.11px; top: 2.32px; position: absolute; background: #3355B9"></div>
-                      <div style="width: 0.20px; height: 0.20px; left: 0.33px; top: 2.70px; position: absolute; background: #3355B9"></div>
-                      <div style="width: 0.20px; height: 0.20px; left: 0.64px; top: 3.01px; position: absolute; background: #3355B9"></div>
-                      <div style="width: 0.20px; height: 0.20px; left: 1.03px; top: 3.23px; position: absolute; background: #3355B9"></div>
-                      <div style="width: 0.20px; height: 0.20px; left: 1.45px; top: 3.34px; position: absolute; background: #3355B9"></div>
-                      <div style="width: 0.20px; height: 0.20px; left: 1.89px; top: 3.34px; position: absolute; background: #3355B9"></div>
-                      <div style="width: 0.20px; height: 0.20px; left: 2.32px; top: 3.23px; position: absolute; background: #3355B9"></div>
-                      <div style="width: 0.20px; height: 0.20px; left: 2.70px; top: 3.01px; position: absolute; background: #3355B9"></div>
-                      <div style="width: 0.20px; height: 0.20px; left: 3.01px; top: 2.70px; position: absolute; background: #3355B9"></div>
-                      <div style="width: 0.20px; height: 0.20px; left: 3.23px; top: 2.32px; position: absolute; background: #3355B9"></div>
-                      <div style="width: 0.20px; height: 0.20px; left: 3.34px; top: 1.89px; position: absolute; background: #3355B9"></div>
-                      <div style="width: 0.20px; height: 0.20px; left: 3.34px; top: 1.45px; position: absolute; background: #3355B9"></div>
-                      <div style="width: 0.20px; height: 0.20px; left: 3.23px; top: 1.03px; position: absolute; background: #3355B9"></div>
-                      <div style="width: 0.20px; height: 0.20px; left: 3.01px; top: 0.64px; position: absolute; background: #3355B9"></div>
-                      <div style="width: 0.20px; height: 0.20px; left: 2.70px; top: 0.33px; position: absolute; background: #3355B9"></div>
-                      <div style="width: 0.20px; height: 0.20px; left: 2.32px; top: 0.11px; position: absolute; background: #3355B9"></div>
-                      <div style="width: 0.20px; height: 0.20px; left: 1.89px; top: -0px; position: absolute; background: #3355B9"></div>
-                      <div style="width: 0.90px; height: 0.90px; left: 1.32px; top: 1.32px; position: absolute; background: #3355B9"></div>
                   </div>
               </div>
               <div style=" font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">
@@ -125,19 +101,16 @@
       
       <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
           <div class="gender">Gender</div>
-          <select formControlName="Gender" placeholder="select" value="select" style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: space-between; align-items: center; display: inline-flex">
-            <option value="1000" selected  >Select</option>
-              <option>Male</option>
-              <option>Female</option>
-              <option >Prefer not say</option>
-            </select>
+          <select formControlName="MemberType" placeholder="select" value="select"
+          style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: space-between; align-items: center; display: inline-flex">
+          <option [value]="p.value" *ngFor ="let p of genderdata">{{p.name}}</option>
+        
+        </select>
             <div *ngIf="regForm.get('Gender')?.invalid && regForm.get('Gender')?.touched" class="error">
-              <div  *ngIf="regForm.get('Gender')?.hasError('required')">Gender required</div>
-       
+              <div  *ngIf="regForm.get('Gender')?.hasError('required')">Gender required</div>       
             </div>
 
       </div>
-      
   </div>
 
   <span > <ion-checkbox color="primary" [(ngModel)]="isChecked"  [ngModelOptions]="{standalone: true}" (ionChange)="onChange($event)"> </ion-checkbox>

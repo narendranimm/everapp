@@ -57,7 +57,8 @@ nav(){
 async sendOTP(){
   if(!this.otpForm.valid){
     this.otpForm.markAllAsTouched();
-    this.snackBar.open("plaese Enter Mobile No.");
+    this.snackBar.open("plaese Enter Valid Mobile No.");
+    return;
   }
   this.loadingservice.simpleLoader('Loading ..')
   //need to handle error
