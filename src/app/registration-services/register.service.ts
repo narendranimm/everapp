@@ -100,4 +100,10 @@ baseUrl:any=environment.apiurl;
   getaddressBYADID(id:any):Observable<any> {
     return this.http.get(this.baseUrl+`getAddressByAdID/`+id)
   }
+  getTrustedaddress(id:any):Observable<any> {
+    return this.http.get(this.baseUrl+`gettrustedcontatcts/`+id)
+  }
+  saveTrustedaddress(data:any):Observable<any> {
+    return this.http.post(this.baseUrl+`saveTrustedContacts`,data)
+  }
 }
