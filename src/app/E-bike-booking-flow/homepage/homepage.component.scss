@@ -105,7 +105,7 @@ word-wrap: break-word;
       @include flex;
     }
     .hub-card{
-       width:84px;
+       width:100px;
        border-radius: 10px;
        background: #F1F1F1;
     }
@@ -144,7 +144,7 @@ word-wrap: break-word;
     }
     @media screen and (max-width:400px) {
       .hub-card{
-        width:124px;
+        width:126px;
         height: 58px;
       
       }
@@ -253,9 +253,8 @@ word-wrap: break-word;
       width:328px;
       height: 42px;
       border-radius: 20px;
-background: #F2F2F2;
-border:transparent;
-
+      background: #F2F2F2;
+      border:transparent;
     }
     .search-bar-container{
       @include flex;

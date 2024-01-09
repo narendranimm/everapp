@@ -35,7 +35,7 @@ private snackbarService: SnackbarService,private router:Router
 this.storage.clear();
 //put snap bar and redirect to login page.
 this.snackbarService.presentSnackbar('Logout Done Successfully !!!',1000,'bottom','success')
-this.router.navigateByUrl('/enableloaction')
+this.router.navigateByUrl('/register')
   }
  toggleControl = new FormControl(false);
   @HostBinding('class')  className = '';

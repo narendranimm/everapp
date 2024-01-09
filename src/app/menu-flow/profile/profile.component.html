@@ -7,7 +7,7 @@
             <div style="width: 24px; height: 24px; position: relative">
                 <div class="container">
                     <div class="btn-container">
-                        <a routerLink="/homepage"><img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></a>
+                        <a routerLink="/homepage"><img class="icon" src="./assets/ic_round-arrow-back (3).svg" alt=""></a>
                     </div>
 
                 </div>
@@ -67,7 +67,7 @@
                 <div
                     style="color: #363636; font-size: 16px; font-family: Archivo; font-weight: 600; word-wrap: break-word">
                     Date of birth</div>
-                <input type="text" placeholder="20-03-1980" class="p_dob" value="{{loginuser?.DateofBirth}}"disabled>
+                <input type="text" placeholder="20-03-1980" class="p_dob" value="{{loginuser?.DateofBirth | date: 'dd/MM/yyyy' }}"disabled>
 
             </div>
         </div>

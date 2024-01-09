@@ -9,7 +9,7 @@
           <div class="btn-container">
 
             <button style="background: transparent;border: none;color:black;" (click)="sidenav.close()"><img
-                class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
+                class="icon" src="./assets/ic_round-arrow-back (3).svg" alt=""></button>
 
           </div>
         </div>
@@ -71,7 +71,7 @@
               </g>
               </svg>
           </div>
-          <div class="menu-links" ><a style="color: #363636; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word;text-decoration: none;"routerLink="/kyc">KYC</a></div>
+          <div class="menu-links" ><button class="links"routerLink="/kyc">KYC</button></div>
       </div>
         <div
           style="align-self: stretch; padding: 12px; border-bottom: 1px #E8E7E7 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
@@ -229,7 +229,7 @@
         <div class="search-result-bike">
           <h1 class="greeting-head">Welcome {{username}}</h1>
           <!-- <p class="notify-content" *ngIf="show">  Share your location</p> -->
-        <div><img src="./assets/mdi_location.svg" alt="">{{useraddress | slice:0:50}}<img src="../assets/fe_arrow-down.svg" alt=""></div> 
+        <div><img src="./assets/mdi_location.svg" alt="">{{useraddress | slice:0:45}}<img src="../assets/fe_arrow-down.svg" alt=""></div> 
           <div id="submit" >
             <!-- <img src="./assets/mdi_location.svg" alt=""> -->
             <!-- {{lat}} - {{lng}} -->

@@ -96,6 +96,7 @@ import { TrustedcontactListComponent } from './trustedcontact-list/trustedcontac
 import { NobookingComponent } from './nobooking/nobooking.component';
 import { ConfirmpasswordComponent } from './confirmpassword/confirmpassword.component';
 import { ViewsummaryComponent } from './viewsummary/viewsummary.component';
+import { ViewAllImagesComponent } from './view-all-images/view-all-images.component';
 
 
 
@@ -214,7 +215,8 @@ const routes: Routes = [
   {path:'trustedcontacts_list',component:TrustedcontactListComponent},
   {path:'nobookings',component:NobookingComponent},
   {path:'confirmpassword',component:ConfirmpasswordComponent},
-  {path:'invoice',component:ViewsummaryComponent}
+  {path:'invoice',component:ViewsummaryComponent},
+  {path:'view-all-images',component:ViewAllImagesComponent}
 
 
 

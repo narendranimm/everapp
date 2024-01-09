@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonContent } from '@ionic/angular';
 
 @Component({
   selector: 'app-view-all-images',
@@ -10,5 +11,5 @@ export class ViewAllImagesComponent  implements OnInit {
   constructor() { }
 
   ngOnInit() {}
-
+  @ViewChild(IonContent) content!: IonContent;
 }

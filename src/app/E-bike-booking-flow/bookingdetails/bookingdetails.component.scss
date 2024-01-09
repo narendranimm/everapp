@@ -60,3 +60,19 @@ color: white; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight
 .map-btn{
  text-align: center; color: white; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 400; letter-spacing: 0.10px; word-wrap: break-word
 }
+.btn-map{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position:fixed;
+
+	bottom:2px;
+	
+
+	color:#FFF;
+
+	text-align:center;
+
+}

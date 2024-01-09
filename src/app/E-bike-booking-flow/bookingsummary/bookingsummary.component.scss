@@ -30,10 +30,28 @@
     color:#3355B9 ; font-size: 14px; font-family: Archivo; font-weight: 700; word-wrap: break-word
 }
 .scroller{ 
-   height: 34rem;
+   height: 38rem;
  }
 .button{
 display:flex;
 align-items: center;
 justify-content: center;
 }
+.toolbar{
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   row-gap: 20px;
+   position:fixed;
+ 
+    bottom:2px;
+    
+   
+    color:#FFF;
+ 
+    text-align:center;
+   
+   
+ }

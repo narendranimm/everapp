@@ -207,7 +207,8 @@ providers: [Storage]
     // FacerecognizationComponent,
     ConfirmpasswordComponent,
     ViewsummaryComponent,
-    ModalcontentComponent
+    ModalcontentComponent,
+    ViewAllImagesComponent
 
   ],
 
