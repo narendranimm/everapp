@@ -32,7 +32,7 @@ export class VerificationComponent implements OnInit {
       sth: ['', Validators.required]
 
     })
-    this.userdata.getuser().then(res => {debugger
+    this.userdata.getuser().then(res => {
       if (res !== null) {
         // this.logindata = res;
         this.UserOTP = res.OTP;
@@ -139,7 +139,7 @@ export class VerificationComponent implements OnInit {
   }
   //resend otp
   resend() {
-    debugger
+    
     if (!this.mobileno) {
       this.router.navigateByUrl('/login')
 

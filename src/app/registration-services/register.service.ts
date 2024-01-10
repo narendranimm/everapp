@@ -64,7 +64,7 @@ baseUrl:any=environment.apiurl;
   }
   return this.http.post(this.baseUrl+`updateUserKycStatus/`,data)
   }
-  setUserPin(userid:number,pin:number){
+  setUserPin(userid:any,pin:any){
   let data=  {
     "userid":userid,
     "pin":pin,

@@ -303,7 +303,7 @@ boxselection(data:any,i:number){
 }
 
  //last line
- book() {debugger
+ book() {
 if(!this.customDate.valid){
   this.customDate.markAllAsTouched();
   this.snackBar.open(" All fields are required ");

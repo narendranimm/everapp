@@ -11,11 +11,23 @@ import { SnackbarService } from 'src/app/snackbar.service';
   styleUrls: ['./settings.component.scss'],
 })
 export class SettingsComponent  implements OnInit {
- 
+  logindata:any;
 
   constructor(private overlay:OverlayContainer,private storage:UserData,
-private snackbarService: SnackbarService,private router:Router
-) { }
+private snackbarService: SnackbarService,private router:Router,private userdata:UserData
+) { 
+
+  
+  this.userdata.getuser().then(res => {
+    if (res !== null) {
+      this.logindata = res;
+      console.log(res)
+
+    } else {
+    }
+
+  })
+}
 
   ngOnInit() {
     this.toggleControl.valueChanges.subscribe(
@@ -37,6 +49,17 @@ this.storage.clear();
 this.snackbarService.presentSnackbar('Logout Done Successfully !!!',1000,'bottom','success')
 this.router.navigateByUrl('/register')
   }
+security(){
+  if(  this.logindata.SecurityPin){
+    this.snackbarService.presentSnackbar("Security PIN Setup Already Done",1000,'bottom','success')
+
+  }else{
+
+    this.router.navigateByUrl("/security")
+  }
+}
+
+  ///csss
  toggleControl = new FormControl(false);
   @HostBinding('class')  className = '';
  darkClassName = 'theme-dark';

@@ -34,10 +34,17 @@
         <div style=" font-size: 16px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">My
           addresses</div>
       </div>
-      <div routerLink="/security"
+      
+        <div 
         style="align-self: stretch; padding: 12px; border-bottom: 1px #E8E7E7 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-        <div style=" font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">Security</div>
+        <div style=" font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">
+          <button (click)="security()">
+            Security
+
+          </button>
+        </div>
       </div>
+    
       <div routerLink="/trustedcontacts_list"
         style="align-self: stretch; padding: 12px; border-bottom: 1px #E8E7E7 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
         <div style=" font-size: 16px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Trusted

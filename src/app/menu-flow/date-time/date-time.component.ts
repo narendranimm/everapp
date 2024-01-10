@@ -133,7 +133,7 @@ export class DateTimeComponent implements OnInit {
 
   //last line
   book() {
-    debugger
+    
 
 
     if (!this.startDate || !this.startTime) {
