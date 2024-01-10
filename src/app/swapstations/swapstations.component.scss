@@ -136,7 +136,7 @@ line-height: normal;
 }
 .hub-card{
    width:140px;
-  
+  height: 84px;
 }
 .horizontal-scroll {
   overflow: auto;
@@ -367,4 +367,10 @@ ion-modal ion-toolbar {
 	text-align:center;
 	box-shadow: 2px 2px 3px #999;
   
+}
+.nearhub{
+  color: #363636; font-size: 14px; font-family: 'Open Sans', sans-serif;font-weight: bold; word-wrap: break-word
+}
+.allhub{
+  color: #363636; font-size: 14px; font-family: 'Open Sans', sans-serif;font-weight: bold; word-wrap: break-word
 }

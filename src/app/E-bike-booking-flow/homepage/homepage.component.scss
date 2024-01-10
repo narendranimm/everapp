@@ -260,7 +260,7 @@ word-wrap: break-word;
       @include flex;
     }
     .scroller{
-      height: 90rem;
+      height: 108rem;
     }
     .btn-container{
       padding: 4%;
@@ -383,4 +383,13 @@ border-top: 2px solid rgb(209, 206, 206);
 	text-align:center;
 	box-shadow: 2px 2px 3px #999;
   
+}
+.search{
+  --border-radius:20px;
+  --background: #F2F2F2;
+  --border:none;
+  --box-shadow: none;
+}
+::placeholder{
+  --color: #3355B9; font-size: 12px;
 }

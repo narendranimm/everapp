@@ -66,10 +66,10 @@ export class DurationComponent implements OnInit {
       private route: ActivatedRoute, private user: UserData, private dataService: DataservicesService) {
 
     // console.log( this.datePipe.transform(Date.now(), 'yyyy-MM-dd HH:mm:ss'));
-    // this.customDate = this.bk.group({
-    //   date: ['', Validators.required],
-    //   time: ['', Validators.required]
-    // })
+    this.customDate = this.bk.group({
+      date: ['', Validators.required],
+      time: ['', Validators.required]
+    })
 
     this.totalHours = this.convertToHours(this.Number);
     this.totalHours = this.convertToHoursin(this.Number);
@@ -301,9 +301,13 @@ boxselection(data:any,i:number){
   console.log(this.washtype)
   console.log(this.securitydeposit)
 }
+
  //last line
  book() {debugger
-
+if(!this.customDate.valid){
+  this.customDate.markAllAsTouched();
+  this.snackBar.open(" All fields are required ");
+}else{
   this.modalController.dismiss();
   // this.router.navigateByUrl('/adhar');
 
@@ -357,7 +361,7 @@ if(!res.Id){
        }
      )
    }
- 
+  }
 }
 
 proced() {

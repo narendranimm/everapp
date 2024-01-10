@@ -1,6 +1,6 @@
 
 <div class="btn-container">
- <form action="">
+ <form action="" [formGroup]="customDate">
  <div style="width: 100%; height: 100%; flex-direction: column; justify-content: flex-start; align-items: center; gap: 24px; display: inline-flex">
   <div style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 108px; display: inline-flex">
       <div style="width: 24px; height: 24px; position: relative">
@@ -31,13 +31,13 @@
           <div style="align-self: stretch; color: #363636; font-size: 18px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Set date & time</div>
       </div>
       <div class="input-group">
-        <input type="datetime-local" name="startDate" [(ngModel)]="startDate"  (change)="onStartTimeChange($event)" placeholder="Select end date and time">
+        <input type="datetime-local" name="startDate" [(ngModel)]="startDate"  (change)="onStartTimeChange($event)" placeholder="Select end date and time" formControlName="date">
         <span class="highlight"></span>
         <span class="bar"></span>
         <label>Select start date and time</label>
       </div>
-      <div class="input-group1">
-        <input type="datetime-local" name="endDate"  [(ngModel)]="endDate" (change)="onEndTimeChange($event)" placeholder="Select end date and time"  >
+      <div class="input-group">
+        <input type="datetime-local" name="endDate"  [(ngModel)]="endDate" (change)="onEndTimeChange($event)" placeholder="Select end date and time" formControlName="time" >
         <span class="highlight1"></span>
         <span class="bar1"></span>
         <label>Select end date and time</label>
@@ -54,7 +54,7 @@
           <div style="color: black; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Total</div>
           <div style="color: black; font-size: 20px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">₹{{convertedCash}}</div>
       </div>
-      <button (click)="open()"
+      <button (click)="open()" 
       style="flex: 1 1 0; align-self: stretch; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: space-between; align-items: center; display: inline-flex">
       <div class="book" >Book now</div>
       <div
@@ -73,7 +73,7 @@
 </form>
 </div>
 
-<ion-modal [isOpen]="isModelOpen" [initialBreakpoint]="1.0" [breakpoints]="[0, 0.25, 0.5, 0.75,1]">
+<ion-modal [isOpen]="isModelOpen" [initialBreakpoint]="0.5" >
   <ng-template>
     <div
       style="width: 100%; height: 100%; position: relative; background: white; border-top-left-radius: 20px; border-top-right-radius: 20px; overflow: hidden">

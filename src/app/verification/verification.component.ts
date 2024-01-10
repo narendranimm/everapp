@@ -114,6 +114,9 @@ export class VerificationComponent implements OnInit {
         width: '280px',
         height: '217px'
       });
+      setTimeout(() => {
+        this.dialog.closeAll()
+     }, 3000)
 
 
 

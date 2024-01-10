@@ -10,6 +10,7 @@ import { LocationService } from 'src/app/location.service';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
 import { UserData } from 'src/app/providers/user-data';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -38,7 +39,7 @@ profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
       map(result => result.matches),
       shareReplay()
     );
-    constructor(private _bh:BookingService,private element: ElementRef,private userdata: UserData,private http:HttpClient,
+    constructor(private _bh:BookingService,private element: ElementRef,private userdata: UserData,private http:HttpClient,private route:Router,
       // private authService: SocialAuthService, 
       public navCtrl: NavController,private location:LocationService,private geolocation: Geolocation ) {
       this.getbranchesByBID();
@@ -47,6 +48,7 @@ profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
   
           this.logindata = res;
           this.username = res.FirstName + ' ' + res.LastName;
+       
         }
       })
       this.userdata.getId('userlocation').then(res => {
@@ -56,12 +58,20 @@ profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
           console.log(this.useraddress)
         }
       })
+      this.userdata.getuser().then(res => {
+        if (res !== null) {
+  
+          this.logindata = res;
+          this.route.navigateByUrl('/enableloaction')
+        }
+        })
   
     }
     ngOnInit() {
       this.printCurrentPosition();
       // this.slides=[];
-      this.address()
+      this.address();
+     
     }
 
   @HostListener("wheel", ["$event"])

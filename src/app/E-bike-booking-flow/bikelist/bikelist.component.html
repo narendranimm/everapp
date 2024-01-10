@@ -21,13 +21,15 @@
                         </div>
                         <div style="color: #3355B9; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Search by vehicle model or performance</div>
                         </div> -->
-                        <ion-searchbar placeholder="Search by vehicle model"
-                        [(ngModel)]="searchValue"
-                        name="searchValue" 
-                        showCancelButton="focus"
-                        (input)="search($event)"
-                        animated
-                        ></ion-searchbar>
+                        <ion-searchbar style="width: 100%;" class="search"
+          placeholder="Search by stations, bike model or distance"
+         [(ngModel)]="searchValue"
+         name="searchValue" 
+         showCancelButton="focus"
+         (input)="search($event)"
+       
+         animated
+         ></ion-searchbar>
                     <!-- <input matInput [(ngModel)]="searchValue" name="searchValue" (input)="search($event)" class="search" placeholder="Search by vehicle model or performance"> -->
                 </div>
             </form>

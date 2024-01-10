@@ -282,6 +282,7 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator{
 .input-group {
   position: relative;
   margin: 5px 0 20px;
+  
 }
 
 input {
@@ -290,7 +291,7 @@ input {
   display: block;
   width: 300px;
   border: none;
-  border-bottom: 1px solid #757575;
+  background: #F2F2F2; border-radius: 100px;
 }
 
 input:focus {
@@ -298,7 +299,7 @@ input:focus {
 }
 
 label {
-  color: #999;
+  color: black;
   font-size: 18px;
   font-weight: normal;
   position: absolute;
@@ -314,7 +315,7 @@ input:focus ~ label,
 input:valid ~ label {
   top: -20px;
   font-size: 14px;
-  color: #4285f4;
+  color: black;
 }
 
 .bar {
