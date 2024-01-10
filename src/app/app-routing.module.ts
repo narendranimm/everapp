@@ -211,7 +211,7 @@ const routes: Routes = [
     path: 'search',
     loadChildren: () => import('./swapstations/search/search.module').then( m => m.SearchPageModule)
   },
-  {path:'trustedcontacts',component:TrustedcontactComponent},
+  {path:'trustedcontacts/:id',component:TrustedcontactComponent},
   {path:'trustedcontacts_list',component:TrustedcontactListComponent},
   {path:'nobookings',component:NobookingComponent},
   {path:'confirmpassword',component:ConfirmpasswordComponent},
