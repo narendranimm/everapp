@@ -59,8 +59,7 @@ baseUrl:any=environment.apiurl;
   let data=  {
       "userid":userid,
       "pin":null,
-      "iskyc":iskyc
-  
+      "iskyc":iskyc  
   }
   return this.http.post(this.baseUrl+`updateUserKycStatus/`,data)
   }
@@ -72,6 +71,13 @@ baseUrl:any=environment.apiurl;
   
   }
   return this.http.post(this.baseUrl+`setUserPin/`,data)
+  }
+  removeUser(userid:any,isactive:any){
+  let data=  {
+    "UserID":userid,
+    "IsActive":isactive  
+  }
+  return this.http.post(this.baseUrl+`removeUser`,data)
   }
 
   //save documents to db
@@ -91,9 +97,7 @@ baseUrl:any=environment.apiurl;
   getaddress(id:any){
     return this.http.get(this.baseUrl+`getaddress/`+id)
   }
-  updateaddress(data:any){
-    return this.http.put(this.baseUrl+`members`,data)
-  }
+ 
   deleteaddress(payload:any){
     return this.http.post(this.baseUrl+`deleteUseraddress`,payload)
   }

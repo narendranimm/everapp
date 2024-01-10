@@ -3,6 +3,8 @@ import { Component, HostBinding, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 import { UserData } from 'src/app/providers/user-data';
+import { RegisterService } from 'src/app/registration-services/register.service';
+import { LoadingService } from 'src/app/services/loading.service';
 import { SnackbarService } from 'src/app/snackbar.service';
 
 @Component({
@@ -13,8 +15,9 @@ import { SnackbarService } from 'src/app/snackbar.service';
 export class SettingsComponent  implements OnInit {
   logindata:any;
 
-  constructor(private overlay:OverlayContainer,private storage:UserData,
-private snackbarService: SnackbarService,private router:Router,private userdata:UserData
+  constructor(private overlay:OverlayContainer,private storage:UserData,private _rs:RegisterService,
+private snackbarService: SnackbarService,private router:Router,private userdata:UserData,
+private loading:LoadingService
 ) { 
 
   
@@ -58,7 +61,23 @@ security(){
     this.router.navigateByUrl("/security")
   }
 }
+remove(){
+  this.loading.simpleLoader('Loading....')
+  this.logindata.ISActive=false;
+  this._rs.removeUser(this.logindata.UserID,false).subscribe((res:any)=>{
+    console.log(res)
+    this.loading.dismissLoader();
+    if(res.status == 'true'){
+      this.router.navigateByUrl('/register')
 
+    }
+
+  },(error)=>{
+    this.loading.dismissLoader();
+  }
+  )
+
+}
   ///csss
  toggleControl = new FormControl(false);
   @HostBinding('class')  className = '';
