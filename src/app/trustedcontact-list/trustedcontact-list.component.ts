@@ -20,7 +20,7 @@ export class TrustedcontactListComponent implements OnInit {
 
     this.userdata.getuser().then(res => {
       this.userid = res.UserID;
-
+      console.log(this.userid)
       this.getlist();
 
     })
@@ -36,7 +36,7 @@ export class TrustedcontactListComponent implements OnInit {
       this.users = res;
       this.loadingservice.dismissLoader();
 
-
+      console.log(res)
     }, (error)=>{
       this.loadingservice.dismissLoader();
     }

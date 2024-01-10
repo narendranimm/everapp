@@ -3,7 +3,7 @@
   <div style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 104px; display: inline-flex">
       <div style="width: 24px; height: 24px; position: relative">
         <div class="btn-container">
-          <a routerLink="/trustedcontacts"><img class="icon" src="./assets/ic_round-arrow-back (3).svg" alt=""></a>
+          <a routerLink="/setting"><img class="icon" src="./assets/ic_round-arrow-back (3).svg" alt=""></a>
           </div>
       </div>
       <div style="color: #363636; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Trusted contacts</div>
@@ -20,8 +20,8 @@
       <ion-item>
         <ion-label>
           <div style="justify-content: flex-start; align-items: center; gap: 17px; display: flex">
-            <div style="width:48px;height: 48px; padding-top: 11px; padding-bottom: 12px; background: #3355B9; border-radius: 100%; overflow: hidden; justify-content: center; align-items: center; display: flex">
-                <div style="color: white; font-size: 18px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">{{ f.LastName.substring(0, 1)| titlecase }}</div>
+            <div style="width:48px;height: 48px; padding-top: 11px; padding-bottom: 12px;background: #3355B9;  border-radius: 100%; overflow: hidden; justify-content: center; align-items: center; display: flex">
+                <div style=" font-size: 18px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word;color:white">{{ f.FirstName | slice:0:1}}</div>
             </div>
             <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 6px; display: inline-flex">
                 <div style="color: #363636; font-size: 18px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">{{f.FirstName}}  {{f.LastName}}</div>
@@ -36,7 +36,7 @@
   </ion-list>
  
   <div class="btn-submit">
-  <div routerLink="/trustedcontacts/0" style="width: 328px; height: 48px; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: center; align-items: center; display: inline-flex">
+  <div routerLink="/trustedcontacts/0" style="width: 338px; height: 48px; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: center; align-items: center; display: inline-flex">
       <div style="color: white; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Add trusted contacts</div>
   </div>
   </div>

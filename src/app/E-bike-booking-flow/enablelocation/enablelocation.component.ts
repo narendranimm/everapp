@@ -71,6 +71,7 @@ profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
       this.printCurrentPosition();
       // this.slides=[];
       this.address();
+      this.direction()
      
     }
 
@@ -127,4 +128,12 @@ profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
     })
   }
   show: boolean = true;  
+
+  direction(){
+    this.http.get(`https://maps.googleapis.com/maps/api/directions/json?destination=Montreal&origin=Toronto&key=AIzaSyCU4W4iQLV5ydrW3UxZncI_JdLi1EsKH5A`).subscribe((res:any)=>{
+   console.log(res)
+  })
+  }
+
+  
 }
