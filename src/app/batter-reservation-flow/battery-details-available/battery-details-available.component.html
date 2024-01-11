@@ -238,7 +238,7 @@
           
             <div style="width: 360px; padding-top: 20px; padding-bottom: 19px; padding-left: 16px; padding-right: 16px; left: 0px; top: 650px; position: absolute; border-top: 1px #E2E2E2 solid; justify-content: center; align-items: flex-start; gap: 47px; display: inline-flex;background: white;">
                 <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
-                    <div style="color: black; font-size: 20px; font-family: Archivo; font-weight: 600; word-wrap: break-word">₹5,00</div>
+                    <div style="color: black; font-size: 20px; font-family: Archivo; font-weight: 600; word-wrap: break-word">₹{{ProductDetails?.Price}}</div>
                     <div style="color: black; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">per battery</div>
                 </div>
                 <button routerLink="/booking-details-b"  [ngClass]="{'disableslotbtn': !ProductDetails?.IsAvailable}"
