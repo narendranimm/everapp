@@ -21,18 +21,40 @@
       
       <div 
       style="align-self: stretch; height: 105px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 16px; display: flex">
-          <div *ngFor="let d of ordersList" 
+          <div *ngFor="let d of ordersList"  [ngSwitch]="d.ServiceType"
           style="align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
               <img src="{{azimageUrl}}{{d.ImageName}}"
                style="width:124px; height: 141px; position: relative; background: linear-gradient(180deg, rgba(168, 181, 187, 0) 0%, #A6B3B9 100%); border-radius: 12px">
               <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
-                  <div class="p-name">
-                    {{d.ProductName}}</div>
+                <!-- <ng-container *ngSwitchCase="'A'"> -->
+                  
+                <ng-container *ngSwitchCase="3508">
+                  <div class="p-name"> {{d.ProductName}}</div>
+                  {{d.BookingDate |  date:'medium'}}
+                  <!-- 3506	WashHub 3507	Bike 3508	Battery -->
+                  <!-- batery -->
+                  <!-- Template for items with category A -->
+                </ng-container>
+                <ng-container *ngSwitchCase="3507">
+                  <div class="p-name"> {{d.ProductName}}</div>
                   <div class="st-date">
                     {{d.BookingStartDate |  date:'medium'}}  -
                      {{d.BookingEndDate|  date:'medium'}} </div>
                   <div style="align-self: stretch; color: black; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">
-                    7 days</div>
+                    {{ d?.BookingStartDate | timeDifference:d?.BookingEndDate }} 
+
+                  </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="3506">
+                  <div class="p-name"> {{d.BranchName}}</div>
+                  <div class="st-date">
+                    {{d.BookingStartDate |  date:'medium'}}  </div>
+                  <div style="align-self: stretch; color: black; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">
+                    <!-- {{ d?.BookingStartDate | timeDifference:d?.BookingEndDate }}  -->
+
+                  </div>
+                </ng-container>
+
                   <div style="width: 112px; padding-left: 10px; padding-right: 10px; padding-top: 8px; padding-bottom: 8px; border-radius: 24px; border: 1px #3355B9 solid; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
                       <button  routerLink="/time-details-m/{{d.BookingNo}}" 
                       style="color: #3355B9; font-size: 14px; font-family: Archivo; font-weight: 600; word-wrap: break-word;background: none;">
@@ -54,7 +76,7 @@
             <div style="align-self: stretch; opacity: 0.60; text-align: center; color: black; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">It looks like this space is ready and waiting for your next adventure.</div>
         </div>
         <div style="padding-top: 100px;">
-        <button style="width: 240px; height: 48px; padding-left: 24px; padding-right: 24px; padding-top: 16px; padding-bottom: 16px; background: #3355B9; border-radius: 100px; overflow: hidden; flex-direction: column; justify-content: center; align-items: center; gap: 10px; display: flex">
+          <button routerLink="/enableloaction" style="width: 240px; height: 48px; padding-left: 24px; padding-right: 24px; padding-top: 16px; padding-bottom: 16px; background: #3355B9; border-radius: 100px; overflow: hidden; flex-direction: column; justify-content: center; align-items: center; gap: 10px; display: flex">
             <div style="text-align: center; color: white; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; letter-spacing: 0.10px; word-wrap: break-word">Book now</div>
         </button>
        

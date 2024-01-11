@@ -40,3 +40,5 @@ private snackbarService: SnackbarService
         this.datePart = res.BookingStartDate.split('T')[0];
         this.timePart = res.BookingStartDate.split('T')[1];
         ---
+
+    <!-- 3506	WashHub 3507	Bike 3508	Battery -->     

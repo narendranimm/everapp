@@ -58,4 +58,37 @@ ProductDetails:any;
     
     this.content.scrollToTop(800);
   }
+
+
+
+
+
+  ordersaveData = {
+    "OrderID": 123,
+    "ProductID": 0,
+    "BookingStartDate": null,
+    "BookingEndDate": null,
+    "IsActive": true,
+    "BookingNo": "ABC123",
+    "HubID": 0,
+    "MemberID": 0,
+    "BookingStatus": 2,
+    "AddressID": 0,
+    "BookingAmount": 0,
+    "AdvanceAmount": 0,
+    "DiscountAmount": 0,
+    "TaxAmount": 0,
+    "TotalAmount": 0,
+    "PaidAmount": 0,
+    "IsCancel": false,
+    "Remarks": "Bike Booking",
+    "CreatedOn": "2023-11-28T00:30:42",
+    "DeliveredOn": "2023-11-30T00:30:42",
+    "PaymentConfirmedOn": null,
+    "IsFullPaid": 0,
+    "WashAmount": 0,
+    "SecurityAmount": 0,
+    "CouponID": 0,
+    "ServiceType": 3508
+  }
 }
