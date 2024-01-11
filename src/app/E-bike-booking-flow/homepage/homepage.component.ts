@@ -169,8 +169,8 @@ export class HomepageComponent implements OnInit {
     )
   }
   getNearByHubs() {
-    this.postadd_Data.TargetLatitude = this.lati;
-    this.postadd_Data.TargetLongitude = this.longi;
+    this.postadd_Data.TargetLatitude = this.lati == ''?  null : this.lati;
+    this.postadd_Data.TargetLongitude = this.longi == ''?  null : this.lati;
     this.postadd_Data.branchtype=3502;
     this.hub_s.getnearByHubsBasedonLatandLongID(this.postadd_Data).subscribe(res => {
       console.log('firsthubs',res)
@@ -193,6 +193,7 @@ export class HomepageComponent implements OnInit {
      this.getNearByHubsSearch();
   }
   getNearByHubsSearch() {
+    //if lati and  long is same or empty then no list
     this.loadingservice.simpleLoader('Loading...')
     this.search_data.TargetLatitude = this.lati;
     this.search_data.TargetLongitude = this.longi;
@@ -210,15 +211,15 @@ export class HomepageComponent implements OnInit {
       }
     )
   }
-  //not using
-  printCurrentPosition() {
+  //sing for lati and longi
+  printCurrentPosition() {debugger
     var coordinates = Geolocation.getCurrentPosition().then((resp) => {
       this.lati = resp.coords.latitude;
       this.longi = resp.coords.longitude;
       console.log(this.lati);
       console.log(this.longi)
-     
-      this.getNearByHubs()
+     //hide for now for same lati and longi getting 
+      // this.getNearByHubs()
     })
 console.log(coordinates)
   };

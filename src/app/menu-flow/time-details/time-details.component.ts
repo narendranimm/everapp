@@ -33,15 +33,18 @@ export class TimeDetailsComponent implements OnInit, OnDestroy {
   tick = 300; //(interval for the timer in (Milliseconds))
  bookingNo:any=null;
  ProductDetails:any;
-  constructor(private _pd:OrderService,private a_router:ActivatedRoute,private storage:UserData,private router:Router) {
-    this.storage.getuser().then(res => {
-      if (res !== null) {
+ orderdid:any;
+  constructor(private _pd:OrderService,private os:OrderService,private a_router:ActivatedRoute,private storage:UserData,private router:Router) {
+    let id=a_router.snapshot.params['ID']
+    this.getDetails(id)
+    // this.storage.getuser().then(res => {
+    //   if (res !== null) {
 
-        let data = res;
-        const id = res.UserID;
-        this.getDetails(id);
-      }
-    })
+    //     let data = res;
+    //     const id = res.UserID;
+    //     this.getDetails(id);
+    //   }
+    // })
     }
     
   private getTimeDifference (s_dat:any,e_dat:any) {
@@ -52,7 +55,7 @@ export class TimeDetailsComponent implements OnInit, OnDestroy {
       this.allocateTimeUnits(this.timeDifference);
   }
   
-  private allocateTimeUnits (timeDifference:any) {
+    private allocateTimeUnits (timeDifference:any) {
      this.secondsToDday = Math.floor((timeDifference) / (this.milliSecondsInASecond) % this.SecondsInAMinute);
      this.minutesToDday = Math.floor((timeDifference) / (this.milliSecondsInASecond * this.minutesInAnHour) % this.SecondsInAMinute);
      this.hoursToDday = Math.floor((timeDifference) / (this.milliSecondsInASecond * this.minutesInAnHour * this.SecondsInAMinute) % this.hoursInADay);
@@ -65,21 +68,36 @@ export class TimeDetailsComponent implements OnInit, OnDestroy {
   
   
 
-  getDetails(id:number) {
-    this._pd.getUserCurrentBooking(id).subscribe((res: any) => {
+  getDetails(id:any) {
+    this.os.getordersummeryByBookingNo(id).subscribe((res: any) => {
       console.log(res)
       this.ProductDetails = res;
       if (res) {
         this.showCounter();
   
-        this.getTimeDifference(res.BookingStartDate, res.BookingEndDate)
+        //this.getTimeDifference(res.BookingStartDate, res.BookingEndDate)
       }
-      else{
-        this.router.navigateByUrl('/my-booking')
-      }
+     // else{
+        // this.router.navigateByUrl('/my-booking')
+     // }
   
     })
   }
+  // getDetails(id:number) {
+  //   this._pd.getUserCurrentBooking(id).subscribe((res: any) => {
+  //     console.log(res)
+  //     this.ProductDetails = res;
+  //     if (res) {
+  //       this.showCounter();
+  
+  //       this.getTimeDifference(res.BookingStartDate, res.BookingEndDate)
+  //     }
+  //     else{
+  //       this.router.navigateByUrl('/my-booking')
+  //     }
+  
+  //   })
+  // }
  
   showCounter(){
     let dateObject:any = new Date(this.ProductDetails.BookingStartDate);
