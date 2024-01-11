@@ -1,13 +1,15 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { IonContent } from '@ionic/angular';
+import { map } from 'rxjs';
 import { UploadsuccessComponent } from 'src/app/popups/uploadsuccess/uploadsuccess.component';
 import { RegisterService } from 'src/app/registration-services/register.service';
 import { environment } from 'src/environments/environment';
+
 
 
 @Component({
@@ -16,11 +18,14 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./aadhar.component.scss'],
 })
 export class AadharComponent implements OnInit {
+ 
   personalForm!: FormGroup;
   isAdhar: boolean = false
   isvoter: boolean = false;
   islicence: boolean = false
   isDialogOpen!: boolean;
+  total!: number;
+
   constructor(private cd: ChangeDetectorRef,public dialog: MatDialog,private router: Router, private _pf: FormBuilder, private http: HttpClient, private rs: RegisterService, private snackBar: MatSnackBar) {
     this.personalForm = this._pf.group({
       adharno: ['',Validators.required ],
@@ -108,6 +113,29 @@ export class AadharComponent implements OnInit {
         }
       })
   }
+
+  upload(file: File, userId: string, fileType: string) {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('userid', userId);
+    formData.append('filetype', fileType);
+    return this.http.post<any>('https://172.188.80.209:8443/api/upload/'+fileType, {
+      reportProgress: true,
+      observe: 'events'
+    }).pipe(
+      map((event: HttpEvent<any>) => {
+        if (event.type === HttpEventType.UploadProgress) {
+         
+          const percentDone = Math.round(100 * event.loaded / this.total);
+          return { status: 'progress', message: percentDone };
+        }
+        if (event.type === HttpEventType.Response) {
+          return event.body;
+        }
+      }),
+     
+    );
+    }
   // myupload(){
   //   if(!this.personalForm.valid) {
 

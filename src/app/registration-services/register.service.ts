@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpHeaders, HttpParams, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, from } from 'rxjs';
 import { CapacitorHttp,  HttpResponse } from '@capacitor/core';
@@ -110,4 +110,6 @@ baseUrl:any=environment.apiurl;
   saveTrustedaddress(data:any):Observable<any> {
     return this.http.post(this.baseUrl+`saveTrustedContacts`,data)
   }
+
+
 }

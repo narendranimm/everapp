@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class LoaderService {
+  [x: string]: any;
 
   private loadingSubject = new BehaviorSubject<boolean>(false);
 

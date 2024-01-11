@@ -183,7 +183,7 @@ address(){
   gotohubdetails(id:number){
     this.userdata.setNew("hubid",id)
     
-        this.router.navigateByUrl('/hub-details')
+        this.router.navigateByUrl('/battery-station')
       }
   postadd_Data = {
     "TargetLatitude": null,
