@@ -11,7 +11,7 @@
       </div>
       <div class="battery-list">Battery list</div>
   </div>
-  <ion-searchbar placeholder="Search by vehicle model"
+  <ion-searchbar placeholder="Search by vehicle model" class="search"
                         [(ngModel)]="searchValue"
                         name="searchValue" 
                         showCancelButton="focus"
@@ -45,7 +45,7 @@
                                 <rect width="16" height="16" fill="white" />
                             </clipPath>
                         </defs>
-                    </svg>Available {{b.Quntity}}</p>
+                    </svg>Available {{b.Quntity}}</p><br>
           
                 <button class="view-btn"   (click)="gotoBtryDetails(b.ProductID)" [ngClass]="{'disablelist': !b.IsAvailable}" >View details </button>
 

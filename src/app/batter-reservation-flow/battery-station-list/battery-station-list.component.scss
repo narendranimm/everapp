@@ -3,8 +3,8 @@
 .batter-list-p {
     display: flex;
     flex-flow: wrap row;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     column-gap: 20px;
     row-gap: 20px;
     padding: 2%;

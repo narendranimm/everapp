@@ -37,6 +37,7 @@
     "@capacitor/ios": "^5.5.1",
     "@capacitor/keyboard": "5.0.6",
     "@capacitor/preferences": "^5.0.6",
+    "@capacitor/share": "^5.0.6",
     "@ionic/angular": "^7.5.7",
     "@ionic/cordova-builders": "^10.0.0",
     "@ionic/pwa-elements": "^3.2.2",

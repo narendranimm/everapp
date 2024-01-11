@@ -5,8 +5,8 @@
     display: flex;
   
   flex-flow: wrap row ;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
    
   }
   .swap-battery-container::-webkit-scrollbar{

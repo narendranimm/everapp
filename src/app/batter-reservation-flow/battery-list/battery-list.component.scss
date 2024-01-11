@@ -32,8 +32,8 @@
   }
   .card-parent{
     display:flex;
-    align-items: center;
-    justify-content: center;
+    align-items:flex-start;
+    justify-content: flex-start;
     flex-flow: wrap column;
     column-gap: 20px;
     row-gap: 20px;
@@ -46,7 +46,7 @@
   }
   .bike-img{
    width: 110px;
-   height: 123px;
+   height: 160px;
     align-self: stretch;
     border-radius: 12px
   }
@@ -59,7 +59,7 @@
   }
   .inner-child{
     width: 135px;
-    height: 133px;
+    height: 160px;
     
   }
   .view-btn{
@@ -111,4 +111,10 @@ line-height: normal;
 
   .disablelist{
     background-color: #BBBBBB;
+  }
+  .search{
+    --border-radius:20px;
+    --background: #F2F2F2;
+    --border:none;
+    --box-shadow: none;
   }

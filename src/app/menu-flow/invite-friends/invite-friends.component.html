@@ -24,7 +24,7 @@
   <div  style="align-self: stretch; height: 109px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: flex">
       <div style="color: black; font-size: 18px; font-family: Archivo; font-weight: 700; word-wrap: break-word">Invite with</div>
       <div style="align-self: stretch; justify-content: space-between; align-items: flex-start; display: inline-flex">
-          <button (click)="share()" style="background: none;width: 64px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+          <button (click)="shares()" style="background: none;width: 64px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
               <div style="width: 47.63px; height: 48px; position: relative">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                     <g clip-path="url(#clip0_164_5257)">
@@ -48,18 +48,18 @@
                     </defs>
                   </svg>
               </div>
-              <button (click)="share()" style="background: none; color: rgba(54, 54, 54, 0.60); font-size: 12px; font-family: Archivo; font-weight: 400; word-wrap: break-word">WhatsApp</button>
+              <button (click)="shares()" style="background: none; color: rgba(54, 54, 54, 0.60); font-size: 12px; font-family: Archivo; font-weight: 400; word-wrap: break-word">WhatsApp</button>
             </button>
-          <button (click)="share()" style="background:none;width: 64px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+          <button (click)="shares()" style="background:none;width: 64px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
               <div style="width: 48px; height: 48px; position: relative">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
                     <path d="M23.9141 5C13.2108 5 4.91406 12.8402 4.91406 23.43C4.91406 28.9693 7.18412 33.7556 10.8812 37.0618C11.1915 37.3395 11.3788 37.7287 11.3916 38.1451L11.495 41.525C11.5281 42.603 12.6416 43.3045 13.6281 42.869L17.3993 41.2039C17.7189 41.063 18.0774 41.0367 18.4142 41.1296C20.1472 41.606 21.9915 41.8599 23.9141 41.8599C34.6173 41.8599 42.9141 34.0197 42.9141 23.4299C42.9141 12.84 34.6173 5 23.9141 5Z" fill="#0099FF"/>
                     <path d="M13.0601 28.6559L18.6142 20.1023C19.4976 18.7415 21.3895 18.4027 22.7151 19.3677L27.1326 22.5839C27.3299 22.7275 27.57 22.8049 27.8166 22.8042C28.0632 22.8035 28.3029 22.7248 28.4993 22.58L34.4653 18.1849C35.2615 17.5983 36.3011 18.5233 35.7681 19.3442L30.214 27.8979C29.3305 29.2585 27.4384 29.5974 26.1129 28.6324L21.6953 25.4161C21.498 25.2726 21.258 25.1953 21.0114 25.196C20.7649 25.1967 20.5253 25.2753 20.3289 25.42L14.3626 29.8152C13.5665 30.4016 12.527 29.4768 13.0601 28.6559Z" fill="white"/>
                   </svg>
               </div>
-              <button (click)="share()"  style="background: none; color: rgba(54, 54, 54, 0.60); font-size: 12px; font-family: Archivo; font-weight: 400; word-wrap: break-word">Messenger</button>
+              <button (click)="shares()"  style="background: none; color: rgba(54, 54, 54, 0.60); font-size: 12px; font-family: Archivo; font-weight: 400; word-wrap: break-word">Messenger</button>
             </button>
-          <button (click)="share()" style="background:none;width: 64px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+          <button (click)="shares()" style="background:none;width: 64px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
               <div style="width: 48px; height: 48px; position: relative">
                   <div style="width: 40.46px; height: 40.46px; left: 4.46px; top: 4px; position: absolute">
                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
@@ -82,7 +82,7 @@
                       </svg>
                   </div>
               </div>
-              <button (click)="share()"  style="background: none; color: rgba(54, 54, 54, 0.60); font-size: 12px; font-family: Archivo; font-weight: 400; word-wrap: break-word">Instagram</button>
+              <button (click)="shares()"  style="background: none; color: rgba(54, 54, 54, 0.60); font-size: 12px; font-family: Archivo; font-weight: 400; word-wrap: break-word">Instagram</button>
             </button>
           <div style="width: 64px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
               <div style="width: 48px; height: 48px; position: relative">

@@ -46,6 +46,7 @@ getbatterylist(){
     (res:any) => {
       this.loader.dismissLoader()
       this.batteryHub = res;
+      console.log(res)
     }, (error) => {
       this.loader.dismissLoader()
     })
@@ -60,6 +61,7 @@ getbatterylist(){
     this._pd.productListBybranchId(this.branchid,this.productname).subscribe(
       (res) => {
         this.ProductList = res;
+        console.log(res)
       }, (error) => {
 
       }

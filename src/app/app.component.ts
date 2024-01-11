@@ -1,6 +1,6 @@
 import { Component, ViewChild ,Inject, OnInit} from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
-import { IonModal } from '@ionic/angular';
+import { ActionSheetController, IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { CommunicationAllowPermissionComponent } from './communication-allow-permission/communication-allow-permission.component';
 // import { SocialAuthService } from '@abacritt/angularx-social-login';
@@ -21,12 +21,38 @@ export class AppComponent implements OnInit {
 
   maxDate!: Date;
   date!: Date;
+  presentingElement:any;
 
+
+
+
+  canDismiss = async () => {
+    const actionSheet = await this.actionSheetCtrl.create({
+      header: 'Are you sure?',
+      buttons: [
+        {
+          text: 'Yes',
+          role: 'confirm',
+        },
+        {
+          text: 'No',
+          role: 'cancel',
+        },
+      ],
+    });
+
+    actionSheet.present();
+
+    const { role } = await actionSheet.onWillDismiss();
+
+    return role === 'confirm';
+  };
 
   constructor(
     // public dialog: MatDialog,private authService: SocialAuthService,colorMode:ModeService) {
     public dialog: MatDialog,
     // private authService: SocialAuthService,
+    private actionSheetCtrl: ActionSheetController,
     colorMode:ModeService) {
       colorMode.darkMode$.subscribe((darkMode) => {
         if (darkMode) {
@@ -39,7 +65,13 @@ export class AppComponent implements OnInit {
  
  
   openDialog() {
-    const dialogRef = this.dialog.open(CommunicationAllowPermissionComponent);
+    const dialogRef = this.dialog.open(CommunicationAllowPermissionComponent,{
+      width:'280px',
+      height:'290px',
+    
+    }
+      
+      );
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -58,6 +90,7 @@ export class AppComponent implements OnInit {
     // });
     this.maxDate = new Date();
     this.maxDate.setMonth(this.maxDate.getMonth() - 12 * 18);
+    this.presentingElement = document.querySelector('.ion-page');
    
 
 
