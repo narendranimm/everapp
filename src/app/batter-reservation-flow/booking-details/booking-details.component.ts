@@ -16,129 +16,146 @@ import { environment } from 'src/environments/environment.prod';
   templateUrl: './booking-details.component.html',
   styleUrls: ['./booking-details.component.scss'],
 })
-export class BookingDetailsComponent  implements OnInit {
+export class BookingDetailsComponent implements OnInit {
 
-  productID:any;
-  HubID:any;
+  productID: any;
+  HubID: any;
   @ViewChild(IonContent) content!: IonContent;
-  azimageUrl:any=environment.azimageUrl_hub;
-  imageUrl:any;
+  azimageUrl: any = environment.azimageUrl_hub;
+  imageUrl: any;
   BookingID: any;
-
-  constructor( private snackBar: MatSnackBar,public dialog: MatDialog,
-    private loader:LoadingService,public modalController: ModalController,private _ps:ProductServicesService,
-     private router: Router, private bookingservice: BookingService,
-      private route: ActivatedRoute, private user: UserData,) {
-    this.user.getId('hubid').then(data=>{
-      if(data !== null){
-        this.payload.HubID=data;
+  coupon: number = 0;
+  Toatlcharge: any = 0;
+  userid:any=0
+  constructor(private snackBar: MatSnackBar, public dialog: MatDialog,
+    private loader: LoadingService, public modalController: ModalController, private _ps: ProductServicesService,
+    private router: Router, private bookingservice: BookingService,
+    private route: ActivatedRoute, private user: UserData,) {
+    this.user.getId('hubid').then(data => {
+      if (data !== null) {
+        this.payload.HubID = data;
 
       }
     })
-    this.user.getId('pId').then(data=>{
-      if(data !== null){
-        this.productID=data;
-        this.payload.ProductID=data;
+    //late save userid and pidhubid all in one ..and recall
+    this.user.getuser().then(data => {
+      if (data !== null) {
+        this.userid = data.UserID;
+        alert(this.userid)
+      }
+    })
+    this.user.getId('pId').then(data => {
+      if (data !== null) {
+        this.productID = data;
+        this.payload.ProductID = data;
         this.getDetails();
       }
     })
 
-}
+  }
 
-ProductDetails:any;
- ngOnInit() {
- }
- 
- gotobooking(){
-   this.router.navigateByUrl('/slotbooking')
- }
+  ProductDetails: any;
+  ngOnInit() {
+  }
 
- getDetails(){
-   this.loader.simpleLoader('Loading...')
-   //get details by product id and hubid
-   this._ps.getdatailsByPIDNdHubId(this.payload).subscribe(
-    (res:any)=>{
-      if(res){
+  gotobooking() {
+    this.router.navigateByUrl('/slotbooking')
+  }
 
-        this.ProductDetails=res;
-        console.log(res)
-        this.imageUrl=this.azimageUrl+this.ProductDetails.ImageName;
-        this.SaveOrder();
+  getDetails() {
+    this.loader.simpleLoader('Loading...')
+    //get details by product id and hubid
+    this._ps.getdatailsByPIDNdHubId(this.payload).subscribe(
+      (res: any) => {
+        if (res) {
+
+          this.ProductDetails = res;
+          console.log(res)
+          this.imageUrl = this.azimageUrl + this.ProductDetails.ImageName;
+
+        }
+        this.loader.dismissLoader();
+      },
+      (error: any) => {
+        this.loader.dismissLoader();
+
       }
-     this.loader.dismissLoader();
-   },
-   (error:any)=>{
-    this.loader.dismissLoader();
+    )
+  }
 
-   }
-   )
- }
+  scrollToBottom() {
 
- scrollToBottom() {
- 
-   this.content.scrollToBottom(800);
- }
+    this.content.scrollToBottom(800);
+  }
 
- scrollToTop() {
-   
-   this.content.scrollToTop(800);
- }
- gotnext(){
-  this.router.navigateByUrl('/payment-gateway')
- }
- payload={
-  
-    "ProductID":0,
-    "HubID":0
+  scrollToTop() {
 
- }
-SaveOrder(){
+    this.content.scrollToTop(800);
+  }
+  gotnext() {
+    this.SaveOrder()
+  }
+  payload = {
+
+    "ProductID": 0,
+    "HubID": 0
+
+  }
+  SaveOrder() {
     this.loader.simpleLoader('Loading...')
     this.ordersaveData.ProductID = this.payload.ProductID;
-    this.ordersaveData.BookingStartDate =null;
+    this.ordersaveData.MemberID = this.userid;
+    this.ordersaveData.BookingStartDate = null;
     this.ordersaveData.BookingEndDate = null;
-    this.ordersaveData.SecurityAmount=0
-    this.ordersaveData.WashAmount=0
-    this.ordersaveData.BookingAmount =0
-    this.ordersaveData.AdvanceAmount=0
-    this.ordersaveData.PaidAmount=0;
-    this.ordersaveData.TotalAmount=0;
-    this.ordersaveData.HubID=this.payload.HubID;
-    if(this.productID == null ){
+    this.ordersaveData.SecurityAmount = 0
+    this.ordersaveData.WashAmount = 0
+    this.ordersaveData.BookingAmount = this.ProductDetails.Price
+    this.ordersaveData.AdvanceAmount = 0
+    this.ordersaveData.PaidAmount = 0;
+    this.ordersaveData.TotalAmount = Math.floor(this.ProductDetails.price + this.coupon + this.ProductDetails.TaxAmount)
+    this.ordersaveData.HubID = this.ProductDetails.BranchID;
+    if ( this.payload.ProductID == null) {
       this.snackBar.open("Please Select a Product")
-    this.loader.dismissLoader();
+      this.loader.dismissLoader();
+      return;
+    }
+    if (this.userid == 0) {
+      this.snackBar.open("Please Login for booking")
+      this.loader.dismissLoader();
       return;
     }
 
 
     this.bookingservice.book(this.ordersaveData).subscribe(
       (res: any) => {
-       if(res ){
+        if (res) {
 
-         this.loader.dismissLoader();
-if(!res.Id){
- this.snackBar.open('booking failed');
+          this.loader.dismissLoader();
+          if (res.Status == 'false') {
+            this.snackBar.open('booking failed');
+            return
 
-}
-         this.BookingID = res.ID
-         this.user.setNew('bookingNo',this.BookingID)
-        //  this.user.setNew('startTime',null)
-        //  this.user.setNew('endTime',null)
-         this.snackBar.open(JSON.stringify(res.message));
-         this.router.navigateByUrl('/pay/'+this.BookingID);
-       }else{
-         this.loader.dismissLoader();
-       }
-       // this.dialog.open(CompletekycComponent);
-       // this.router.navigateByUrl('/adhar');
+          }
+          this.BookingID = res.ID
+          this.user.setNew('bookingNo', this.BookingID)
+          this.user.setNew('totalamount',this.ordersaveData.TotalAmount)
+          //  this.user.setNew('TotalAmount',this.)
+          //  this.user.setNew('endTime',null)
+          this.snackBar.open(JSON.stringify(res.message));
+          this.router.navigateByUrl('/payment-gateway/3508')
+        } else {
+          this.loader.dismissLoader();
+        }
+        // this.dialog.open(CompletekycComponent);
+        // this.router.navigateByUrl('/adhar');
       },
-      (error)=>{
+      (error) => {
         this.loader.dismissLoader();
         this.snackBar.open('booking failed');
-        
+
       }
     )
-}
+  }
   //#region dummy data
   ordersaveData = {
     "OrderID": 123,
@@ -162,11 +179,11 @@ if(!res.Id){
     "CreatedOn": "2023-11-28T00:30:42",
     "DeliveredOn": "2023-11-30T00:30:42",
     "PaymentConfirmedOn": null,
-    "IsFullPaid":0,
-    "WashAmount":0,        
-    "SecurityAmount":0,
-    "CouponID":0,
-    "ServiceType":3508
+    "IsFullPaid": 0,
+    "WashAmount": 0,
+    "SecurityAmount": 0,
+    "CouponID": 0,
+    "ServiceType": 3508
   }
 }
 
