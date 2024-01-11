@@ -137,7 +137,6 @@ import { ClaimsComponent } from './menu-flow/claims/claims.component';
 import { NobookingComponent } from './nobooking/nobooking.component';
 import { AddadressComponent } from './addadress/addadress.component';
 // import { FacerecognizationComponent } from './facerecognization/facerecognization.component';
-import { ConfirmpasswordComponent } from './confirmpassword/confirmpassword.component';
 import {MatChipsModule} from '@angular/material/chips';
 import { ModalcontentComponent } from './modalcontent/modalcontent.component';
 import {MatRadioModule} from '@angular/material/radio';
@@ -205,7 +204,6 @@ providers: [Storage]
     AddadressComponent,
     MyaddressComponent,
     // FacerecognizationComponent,
-    ConfirmpasswordComponent,
     ViewsummaryComponent,
     ModalcontentComponent,
     ViewAllImagesComponent
