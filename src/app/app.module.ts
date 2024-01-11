@@ -140,6 +140,7 @@ import { AddadressComponent } from './addadress/addadress.component';
 import {MatChipsModule} from '@angular/material/chips';
 import { ModalcontentComponent } from './modalcontent/modalcontent.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { PreviousBookingComponent } from './previous-booking/previous-booking.component';
 
 providers: [Storage]
 @NgModule({
@@ -208,6 +209,7 @@ providers: [Storage]
     ViewsummaryComponent,
     ModalcontentComponent,
     ViewAllImagesComponent,
+    PreviousBookingComponent
   
 
   ],
