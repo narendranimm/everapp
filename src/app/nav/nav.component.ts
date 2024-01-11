@@ -3,6 +3,9 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 import { Component, HostBinding, OnInit, inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable, map, shareReplay } from 'rxjs';
+import { LoadingService } from '../services/loading.service';
+import { UserData } from '../providers/user-data';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -10,7 +13,7 @@ import { Observable, map, shareReplay } from 'rxjs';
   styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent  implements OnInit {
-
+  userid:any=null
  
   private breakpointObserver = inject(BreakpointObserver);
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -18,7 +21,23 @@ export class NavComponent  implements OnInit {
       map(result => result.matches),
       shareReplay()
     );
-    constructor(private overlay:OverlayContainer) { }
+    constructor(private overlay:OverlayContainer,private localdata:UserData,private router:Router) {
+      this.localdata.getuser().then((res:any) => {debugger
+        if (res !== null) {
+          this.userid = res.UserID;
+          if(this.userid){
+           this.router.navigate(['/enableloaction']);
+           return
+          }
+          else{
+            this.router.navigate(['/'])
+  
+          }
+        }
+        
+    
+      })
+     }
 
     ngOnInit() {
       this.toggleControl.valueChanges.subscribe(

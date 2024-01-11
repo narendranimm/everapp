@@ -212,7 +212,7 @@ export class HomepageComponent implements OnInit {
     )
   }
   //sing for lati and longi
-  printCurrentPosition() {debugger
+  printCurrentPosition() {
     var coordinates = Geolocation.getCurrentPosition().then((resp) => {
       this.lati = resp.coords.latitude;
       this.longi = resp.coords.longitude;

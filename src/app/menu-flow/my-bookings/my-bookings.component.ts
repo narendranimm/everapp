@@ -46,5 +46,5 @@ export class MyBookingsComponent implements OnInit {
     }
     )
   }
- 
+
 }

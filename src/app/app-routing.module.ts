@@ -96,6 +96,7 @@ import { TrustedcontactListComponent } from './trustedcontact-list/trustedcontac
 import { NobookingComponent } from './nobooking/nobooking.component';
 import { ViewsummaryComponent } from './viewsummary/viewsummary.component';
 import { ViewAllImagesComponent } from './view-all-images/view-all-images.component';
+import { PreviousBookingComponent } from './previous-booking/previous-booking.component';
 
 
 
@@ -185,6 +186,7 @@ const routes: Routes = [
 {path:'booking-summary-applied-m',component:BookingSummaryAppliedCouponComponent},
 {path:'payment-gateways-m',component:PaymentGatewayMComponent},
 {path:'booking-details-m',component:BookingMComponent},
+{path:'previousbooking/:ID/:typeid',component:PreviousBookingComponent},
 // {path:'currentplan',component:CurrentplanComponent},
 {path:'bimages',component:HubbikeImagesComponent},
   {

@@ -7,6 +7,7 @@ import { CommunicationAllowPermissionComponent } from './communication-allow-per
 import { register } from 'swiper/element/bundle';
 import { UserData } from './providers/user-data';
 import { ModeService } from './mode.service';
+import { Router } from '@angular/router';
 
 
 register();
@@ -17,43 +18,17 @@ register();
 })
 export class AppComponent implements OnInit {
   value: any;
-  
-
-  maxDate!: Date;
+    maxDate!: Date;
   date!: Date;
   presentingElement:any;
+ 
+  userid: any;
 
-
-
-
-  canDismiss = async () => {
-    const actionSheet = await this.actionSheetCtrl.create({
-      header: 'Are you sure?',
-      buttons: [
-        {
-          text: 'Yes',
-          role: 'confirm',
-        },
-        {
-          text: 'No',
-          role: 'cancel',
-        },
-      ],
-    });
-
-    actionSheet.present();
-
-    const { role } = await actionSheet.onWillDismiss();
-
-    return role === 'confirm';
-  };
-
-  constructor(
-    // public dialog: MatDialog,private authService: SocialAuthService,colorMode:ModeService) {
-    public dialog: MatDialog,
-    // private authService: SocialAuthService,
+  constructor(private router:Router,
+    public dialog: MatDialog,private localdata:UserData,
     private actionSheetCtrl: ActionSheetController,
     colorMode:ModeService) {
+     
       colorMode.darkMode$.subscribe((darkMode) => {
         if (darkMode) {
           document.body.classList.add('dark-theme');
@@ -63,7 +38,27 @@ export class AppComponent implements OnInit {
       })
     }
  
- 
+    canDismiss = async () => {
+      const actionSheet = await this.actionSheetCtrl.create({
+        header: 'Are you sure?',
+        buttons: [
+          {
+            text: 'Yes',
+            role: 'confirm',
+          },
+          {
+            text: 'No',
+            role: 'cancel',
+          },
+        ],
+      });
+  
+      actionSheet.present();
+  
+      const { role } = await actionSheet.onWillDismiss();
+  
+      return role === 'confirm';
+    };
   openDialog() {
     const dialogRef = this.dialog.open(CommunicationAllowPermissionComponent,{
       width:'280px',
@@ -95,4 +90,6 @@ export class AppComponent implements OnInit {
 
 
 }
+
+
 }

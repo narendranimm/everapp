@@ -34,16 +34,11 @@
                   <!-- 3506	WashHub 3507	Bike 3508	Battery -->
                   <!-- batery -->
                   <!-- Template for items with category A -->
-                </ng-container>
-                <ng-container *ngSwitchCase="3507">
-                  <div class="p-name"> {{d.ProductName}}</div>
-                  <div class="st-date">
-                    {{d.BookingStartDate |  date:'medium'}}  -
-                     {{d.BookingEndDate|  date:'medium'}} </div>
-                  <div style="align-self: stretch; color: black; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">
-                    {{ d?.BookingStartDate | timeDifference:d?.BookingEndDate }} 
-
-                  </div>
+                  <div style="width: 112px; padding-left: 10px; padding-right: 10px; padding-top: 8px; padding-bottom: 8px; border-radius: 24px; border: 1px #3355B9 solid; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+                    <button     routerLink="/previousbooking/{{d.BookingNo}}/3508" 
+                    style="color: #3355B9; font-size: 14px; font-family: Archivo; font-weight: 600; word-wrap: break-word;background: none;">
+                    View status</button>
+                </div>
                 </ng-container>
                 <ng-container *ngSwitchCase="3506">
                   <div class="p-name"> {{d.BranchName}}</div>
@@ -53,13 +48,29 @@
                     <!-- {{ d?.BookingStartDate | timeDifference:d?.BookingEndDate }}  -->
 
                   </div>
-                </ng-container>
-
                   <div style="width: 112px; padding-left: 10px; padding-right: 10px; padding-top: 8px; padding-bottom: 8px; border-radius: 24px; border: 1px #3355B9 solid; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-                      <button  routerLink="/time-details-m/{{d.BookingNo}}" 
-                      style="color: #3355B9; font-size: 14px; font-family: Archivo; font-weight: 600; word-wrap: break-word;background: none;">
-                      View status</button>
+                    <button routerLink="/previousbooking/{{d.BookingNo}}/3506" 
+                    style="color: #3355B9; font-size: 14px; font-family: Archivo; font-weight: 600; word-wrap: break-word;background: none;">
+                    View status</button>
+                </div>
+                </ng-container>
+                <ng-container *ngSwitchCase="3507">
+                  <div class="p-name"> {{d.ProductName}}</div>
+                  <div class="st-date">
+                    {{d.BookingStartDate |  date:'medium'}}  -
+                     {{d.BookingEndDate|  date:'medium'}} </div>
+                  <div style="align-self: stretch; color: black; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">
+                    {{ d?.BookingStartDate | timeDifference:d?.BookingEndDate }} 
                   </div>
+                  <div style="width: 112px; padding-left: 10px; padding-right: 10px; padding-top: 8px; padding-bottom: 8px; border-radius: 24px; border: 1px #3355B9 solid; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+                    <button  routerLink="/time-details-m/{{d.BookingNo}}" 
+                    style="color: #3355B9; font-size: 14px; font-family: Archivo; font-weight: 600; word-wrap: break-word;background: none;">
+                    View status</button>
+                </div>
+                </ng-container>
+              
+
+                 
               </div>
           </div>
       </div>
