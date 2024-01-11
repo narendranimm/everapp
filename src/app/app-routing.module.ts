@@ -130,7 +130,7 @@ const routes: Routes = [
 {path:'booking_summary/:ID',component:BookingsummaryComponent},
 {path:'offer-coupan',component:OfferCouponComponent},
 {path:'booking-summary-after-coupan',component:BookingSummaryAfterCoupanComponent},
-{path:'payment-gateway',component:PaymentgatewaysComponent},
+{path:'payment-gateway/:id',component:PaymentgatewaysComponent},
 {path:'coupan-applied-e',component:CouponappliedComponent},
 {path:'addupiid',component:AddUPIIDComponent},
 {path:'addcard-e',component:AddcardComponent},
