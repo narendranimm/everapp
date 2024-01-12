@@ -22,21 +22,7 @@ export class NavComponent  implements OnInit {
       shareReplay()
     );
     constructor(private overlay:OverlayContainer,private localdata:UserData,private router:Router) {
-      this.localdata.getuser().then((res:any) => {
-        if (res !== null) {
-          this.userid = res.UserID;
-          if(this.userid){
-           this.router.navigate(['/enableloaction']);
-           return
-          }
-          else{
-            this.router.navigate(['/'])
-  
-          }
-        }
-        
-    
-      })
+     
      }
 
     ngOnInit() {

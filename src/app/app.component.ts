@@ -1,7 +1,6 @@
 import { Component, ViewChild ,Inject, OnInit} from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { ActionSheetController, IonModal } from '@ionic/angular';
-import { OverlayEventDetail } from '@ionic/core/components';
 import { CommunicationAllowPermissionComponent } from './communication-allow-permission/communication-allow-permission.component';
 // import { SocialAuthService } from '@abacritt/angularx-social-login';
 import { register } from 'swiper/element/bundle';
@@ -85,8 +84,7 @@ export class AppComponent implements OnInit {
     // });
     this.maxDate = new Date();
     this.maxDate.setMonth(this.maxDate.getMonth() - 12 * 18);
-    this.presentingElement = document.querySelector('.ion-page');
-   
+    this.presentingElement = document.querySelector('.ion-page'); 
 
 
 }
