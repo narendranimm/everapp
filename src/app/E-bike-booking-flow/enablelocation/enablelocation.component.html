@@ -243,7 +243,7 @@
           <div class="cut_text" *ngIf="useraddress">
             <img src="./assets/mdi_location.svg" alt="">
             {{useraddress | slice:0:25}}
-            <img src="../assets/fe_arrow-down.svg" alt=""></div>
+            <img src="../assets/fe_arrow-down.svg" alt="" style="margin-bottom: -4px;"></div>
 
           <div class="notification-card-p" *ngIf="!useraddress">
             <ion-card style="background:  #6EDF72;" class="notify-card" id="open-modal" expand="block">
@@ -357,16 +357,25 @@
             </div>
 
           </div>
+          <!-- <div class="element">
           <div
-            style="background: #E8F0F9;text-align: start; color: #95A2CA; font-size: 18px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">
+            style="background: #E8F0F9;text-align: start; color: #95A2CA; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word;margin-top: -20px;margin-left: -40px;">
             Navigating cities,<br />Empowering lives</div>
-          <div style="float: right;">
-            <img src="../assets/cities.svg" alt="">
-          </div>
-        </div>
+         
+            <img src="../assets/cities.svg" alt="" style="margin-right: 20px;">
+         
+        </div> -->
+        <div style="text-align: center; color: #95A2CA; font-size: 18px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word;margin-left: -20px;">Navigating cities,<br/>Empowering lives</div>
+        <div style="width: 117px; height: 69.58px; position: relative">
+            <div style="width: 107.10px; height: 61.60px; left: 7.41px; top: 30px; position: absolute">
+              <img src="../assets/cities.svg" alt="" style="margin-right: 20px;">
+            </div>
+            </div>
+      </div>
       </div>
     </ion-content>
 
 
   </mat-sidenav-content>
 </mat-sidenav-container>
+

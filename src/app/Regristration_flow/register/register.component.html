@@ -21,9 +21,9 @@
       <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
           <div class="name-f" >First name</div>
           
-          <input placeholder="First name" type="text" required  style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px;color:black; padding-bottom: 12px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex;display:none;">
+          <input  placeholder="First name" type="text" required  style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px;color:black; padding-bottom: 12px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex;display:none;">
 
-          <input placeholder="First name" formControlName="FirstName"  oninput="this.value = this.value.replace(/[^a-z.]/g, '').replace(/(\..*)\./g, '$1');"
+          <input class="fname" placeholder="First name" formControlName="FirstName"  oninput="this.value = this.value.replace(/[^a-z.]/g, '').replace(/(\..*)\./g, '$1');"
           style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
           <div *ngIf="regForm.get('FirstName')?.invalid && regForm.get('FirstName')?.touched" class="error">
             <div  *ngIf="regForm.get('FirstName')?.hasError('required')">First name is required.</div>
@@ -84,10 +84,20 @@
     <div  *ngIf="regForm.get('MobileNo')?.hasError('required')">Mobile no required</div>
     <div  *ngIf="regForm.get('MobileNo')?.hasError('pattern')">Mobile no required 10 numbers</div>
   </div>
-  <div style="align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
+  <div style="align-self: stretch; justify-content: flex-start; align-items: flex-start; display: inline-flex">
       <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
           <div class="dob">Date of birth</div>
-          <input type="date"    formControlName="DateofBirth" placeholder="dd/mm/yyyy" style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: space-between; align-items: center; display: inline-flex">
+      
+            
+          
+           <div class="date">
+            <input matInput [matDatepicker]="picker" class="date1" placeholder="dd/mm/yyyy" formControlName="DateofBirth">
+           
+            <mat-datepicker-toggle matIconSuffix [for]="picker" style="margin-left: -70px;"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </div>
+          
+          <!-- <input type="date"    formControlName="DateofBirth" placeholder="dd/mm/yyyy" style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: space-between; align-items: center; display: inline-flex"> -->
           <div *ngIf="regForm.get('DateofBirth')?.invalid && regForm.get('DateofBirth')?.touched" class="error">
             <div  *ngIf="regForm.get('DateofBirth')?.hasError('required')">Date of birth required</div>
             <div *ngIf="regForm.get('DateofBirth')?.hasError('underage')">Age should be above 18 years</div> 
@@ -113,12 +123,15 @@
       </div>
   </div>
 
-  <span > <ion-checkbox color="primary" [(ngModel)]="isChecked"  [ngModelOptions]="{standalone: true}" (ionChange)="onChange($event)"> </ion-checkbox>
+  <span style="margin-top: -40px;"> <ion-checkbox color="primary" [(ngModel)]="isChecked"  [ngModelOptions]="{standalone: true}" (ionChange)="onChange($event)"> </ion-checkbox>
    I agree<a routerLink="/tc" style="margin: 0 5px;">terms & conditions</a></span>
 
   <div style="color:red" *ngIf="submitted && f.checkbox.errors" class="invalid-feedback">Accept Ts & Cs is required</div><br>
-<button class="register-btn"  type="submit"  (click)="register()" >Register</button>
- 
+  <div class="element">
+  <button class="register-btn"  type="submit"  (click)="register()" >Register</button>
+
+  <p style="padding-top: 15%;" >Already have an account? <button style="background: none;margin: none;color: blue;" routerLink="/login"> Log in </button></p>
+  </div>
 <!-- <mat-form-field style="display:none">
 
   <input matInput value="{{data | json}}" #message>
@@ -128,9 +141,7 @@
 </div>
 </div>
 </div>
-<div class="element">
-<p >Already have an account? <button style="background: none;margin: none;color: blue;" routerLink="/login"> Log in </button></p>
-</div>
+
 </form> 
 
 <!-- <div>{{data | json}}</div> -->

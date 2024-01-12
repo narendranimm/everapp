@@ -19,6 +19,13 @@ line-height: normal;
      font-size: 16px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word;
     
 }
+input:focus
+{
+    border: 1px solid #1670BE;
+    box-shadow: 0 0 3px #1670BE;
+    outline-offset: 0px;
+    outline: none;
+}
 .error{
     color: red;
     font-family: 'Open Sans', sans-serif;

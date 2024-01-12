@@ -102,7 +102,12 @@ word-wrap: break-word;
         column-gap: 20px;
     }
     .hub-container{
-      @include flex;
+      display: flex;
+        flex-flow: wrap row;
+        align-items: center;
+        justify-content: center;
+        row-gap: 20px;
+        column-gap: 20px;
     }
     .hub-card{
        width:110px;

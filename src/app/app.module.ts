@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { RouteReuseStrategy } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { IonAccordion, IonAccordionGroup, IonIcon, IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -141,6 +142,8 @@ import {MatChipsModule} from '@angular/material/chips';
 import { ModalcontentComponent } from './modalcontent/modalcontent.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { PreviousBookingComponent } from './previous-booking/previous-booking.component';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 providers: [Storage]
 @NgModule({
@@ -214,7 +217,8 @@ providers: [Storage]
 
   ],
 
-  imports: [BrowserModule, MatExpansionModule,MatSlideToggleModule,MatDatepickerModule,MatProgressSpinnerModule,MatMenuModule,MatChipsModule,MatRadioModule,
+  imports: [BrowserModule, MatExpansionModule,MatSlideToggleModule,MatDatepickerModule,MatProgressSpinnerModule,MatMenuModule,MatChipsModule,MatRadioModule,BrowserAnimationsModule,  MatDatepickerModule,
+    MatNativeDateModule ,
     // SocialLoginModule,
     IonicStorageModule.forRoot({ name: "mylocaldb" }), MatSnackBarModule,
     MatSelectModule,
@@ -226,7 +230,7 @@ providers: [Storage]
     provideFirebaseApp(() => initializeApp({ "projectId": "otp-project-eb64c", "appId": "1:459119525785:web:b8c64ab6b6daaf7e941d08", "databaseURL": "https://otp-project-eb64c-default-rtdb.firebaseio.com", "storageBucket": "otp-project-eb64c.appspot.com", "apiKey": "AIzaSyA_lRy00xcn2oOICSOMEakyVpgNSoFopUk", "authDomain": "otp-project-eb64c.firebaseapp.com", "messagingSenderId": "459119525785", "measurementId": "G-4BRTCEDX5J" })),
     provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
   
-  providers: [
+  providers: [ MatDatepickerModule,  
     AndroidPermissions,
     {
       provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true

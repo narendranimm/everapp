@@ -233,7 +233,9 @@
         <div class="search-result-bike">
           <h1 class="greeting-head">Welcome {{username}}</h1>
           <!-- <p class="notify-content" *ngIf="show">  Share your location</p> -->
-        <div><img src="./assets/mdi_location.svg" alt="">{{useraddress | slice:0:25}}<img src="../assets/fe_arrow-down.svg" alt=""></div> 
+        <div>    <img src="./assets/mdi_location.svg" alt="">
+          {{useraddress | slice:0:25}}
+          <img src="../assets/fe_arrow-down.svg" alt="" style="margin-bottom: -4px;"></div> 
           <div id="submit" >
             <!-- <img src="./assets/mdi_location.svg" alt=""> -->
             <!-- {{lat}} - {{lng}} -->
@@ -329,10 +331,10 @@
 
           <div class="hub-card" *ngFor="let b of bikeHub">
             <div (click)="gotohubdetails(b.BranchID)"
-              style="width: 120px; height: 100%;  background: #F1F1F1; border-radius: 10px;  justify-content:flex-start; align-items: center; gap: 12px; display: inline-flex">
+              style="width: 130px; height: 100%;  background: #F1F1F1; border-radius: 10px;  justify-content:flex-start; align-items: center; gap: 12px; display: inline-flex;padding: 2%;">
               <img style="width: 54px; height: 54px; border-radius: 10px" src="{{azimageUrl}}{{b.ProfileImage}}" />
               <div
-                style="flex: 1 1 0; height: 58px; flex-direction: column; justify-content: center; align-items: flex-start; gap: 8px; display: inline-flex">
+                style="flex: 1 1 0; height: 58px; flex-direction: column; justify-content: center; align-items: flex-start; gap: 4px; display: inline-flex">
                 <div class="hub-content">{{b.BranchName | lowercase}}</div>
               </div>
             </div>

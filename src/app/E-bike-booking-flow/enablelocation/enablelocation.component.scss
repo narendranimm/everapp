@@ -361,7 +361,7 @@ ion-modal ion-toolbar {
 
 	bottom:2px;
 	
-	background-color:#0C9;
+
 	color:#FFF;
 
 	text-align:center;
@@ -380,4 +380,17 @@ color: #AC7C00; font-size: 10px; font-family: 'Open Sans', sans-serif;font-weigh
 }
 ::placeholder{
   --color: #3355B9; font-size: 12px;
+}
+
+.element{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+.child{
+
+  width:200px;
 }
