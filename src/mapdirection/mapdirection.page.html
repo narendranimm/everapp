@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>mapdirection</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label [(ngModel)]="sourceLoacation" position="floating">From</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label [(ngModel)]="destionation" position="floating">To</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <div #mapElement class="map"></div>
+</ion-content>
