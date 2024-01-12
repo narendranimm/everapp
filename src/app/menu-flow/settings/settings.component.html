@@ -25,8 +25,10 @@
           </div>
           <!-- <div style=" font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">Dark</div>  -->
           <!-- <mat-slide-toggle labelPosition="before" ></mat-slide-toggle> -->
-          <ion-toggle [enableOnOffLabels]="true" [formControl]="toggleControl"></ion-toggle>
-
+          <!-- <ion-toggle [enableOnOffLabels]="true" [formControl]="toggleControl"></ion-toggle> -->
+          <ion-toggle [(ngModel)]="themeToggle" (ionChange)="toggleChange($event)" justify="space-between"
+          >Dark Mode</ion-toggle
+        >
         </div>
       </div>
       <div routerLink="/myaddress"
@@ -64,7 +66,7 @@
   <div class="btn-submit">
     <div class="btn-space">
       <div
-        style="width: 328px; padding: 12px; background: #F2F2F2; border-radius: 24px; overflow: hidden; border-top: 1px solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+        style="width: 328px; padding: 12px;  border-radius: 24px; overflow: hidden; border-top: 1px solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
         <div style="width: 24px; height: 24px; position: relative">
           <img src="../assets/ant-design_logout-outlined.svg" alt="logout">
         </div>
