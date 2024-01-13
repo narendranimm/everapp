@@ -1,49 +1,31 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { GoogleMap } from '@capacitor/google-maps';
 @Component({
   selector: 'app-mapdirection',
   templateUrl: './mapdirection.page.html',
   styleUrls: ['./mapdirection.page.scss'],
 })
-export class MapdirectionPage implements OnInit {
-  sourceLoacation='';
-  destionation='';
-@ViewChild('mapElement',{static:false}) mapElement: any;
- directionsService = new google.maps.DirectionsService();
- directionsRenderer = new google.maps.DirectionsRenderer();
-  constructor() { }
+export class MapdirectionPage  {
+  @ViewChild('map')
+  mapRef!: ElementRef<HTMLElement>;
+  newMap!: GoogleMap;
+  apiKey = 'AIzaSyCU4W4iQLV5ydrW3UxZncI_JdLi1EsKH5A';
+constructor(){}
 
-  ngOnInit() {
+  async createMap(){
+
+    const newMap = await GoogleMap.create({
+      id: 'my-map', // Unique identifier for this map instance
+      element: this.mapRef.nativeElement, // reference to the capacitor-google-map element
+      apiKey: this.apiKey, // Your Google Maps API Key
+      config: {
+        center: {
+          // The initial position to be rendered by the map
+          lat: 33.6,
+          lng: -117.9,
+        },
+        zoom: 8, // The initial zoom level to be rendered by the map
+      },
+    });
   }
-ngAfterViewInt(){
-this.loadMapwithDirection()
-}
-loadMapwithDirection(){
-
-  var map = new google.maps.Map(this.mapElement.nativeElement,
-  {
-    zoom:7,
-    center: {lat:41.85,lng:-87.95}
-  });
-  this.directionsRenderer.setMap(map);
-}
-
- calcRoute(directionsService:any,directionsRenderer:any) {
-  directionsService = new google.maps.DirectionsService();
-  directionsRenderer = new google.maps.DirectionsRenderer();
-  var start = this.sourceLoacation;
-  var end = this.destionation;
-  var request = {
-    origin: start,
-    destination: end,
-    travelMode: 'DRIVING'
-  };
-  directionsService.route(request, function(result:any, status:any) {
-    if (status == 'OK') {
-      directionsRenderer.setDirections(result);
-    }else{
-      window.alert('Direction failes')
-    }
-  });
-}
 }
