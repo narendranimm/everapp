@@ -2,10 +2,12 @@ import { LocationStrategy } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { LoadingController, ModalController } from '@ionic/angular';
+import { CommunicationAllowPermissionComponent } from 'src/app/communication-allow-permission/communication-allow-permission.component';
 import { NavbarService } from 'src/app/navbar.service';
 import { UserData } from 'src/app/providers/user-data';
 import { RegisterService } from 'src/app/registration-services/register.service';
@@ -32,7 +34,7 @@ export class SelfieComponent implements OnInit {
   show: boolean = true;
   istakenpic: boolean=false;
  
-  constructor(private location: LocationStrategy,private snackBar: MatSnackBar,private router: Router, private _rf: FormBuilder, private reg: RegisterService, private http: HttpClient, private userdata: UserData) {
+  constructor(public dialog: MatDialog,private location: LocationStrategy,private snackBar: MatSnackBar,private router: Router, private _rf: FormBuilder, private reg: RegisterService, private http: HttpClient, private userdata: UserData) {
     this.imagesend = this._rf.group({
       imageSource: ''
     })
@@ -96,7 +98,16 @@ export class SelfieComponent implements OnInit {
       this.snackBar.open("please select your pic");
       this.router.navigate(['/selfie'])
     }else{
-      this.router.navigate(['/booking_summary/ABC123'])
+     
+        this.dialog.open(CommunicationAllowPermissionComponent, {
+          width: '320px',
+          height: '300px'
+        });
+        setTimeout(() => {
+          this.dialog.closeAll()
+       }, 3000)
+ 
+      this.router.navigate(['/booking-details'])
     }
   }
 }

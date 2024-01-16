@@ -144,6 +144,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import { PreviousBookingComponent } from './previous-booking/previous-booking.component';
 import { MatNativeDateModule } from '@angular/material/core';
 
+import {MatRippleModule} from '@angular/material/core';
 
 providers: [Storage]
 @NgModule({
@@ -212,13 +213,14 @@ providers: [Storage]
     ViewsummaryComponent,
     ModalcontentComponent,
     ViewAllImagesComponent,
-    PreviousBookingComponent
+    PreviousBookingComponent,
+   
   
 
   ],
 
   imports: [BrowserModule, MatExpansionModule,MatSlideToggleModule,MatDatepickerModule,MatProgressSpinnerModule,MatMenuModule,MatChipsModule,MatRadioModule,BrowserAnimationsModule,  MatDatepickerModule,
-    MatNativeDateModule ,
+    MatNativeDateModule ,MatRippleModule,
     // SocialLoginModule,
     IonicStorageModule.forRoot({ name: "mylocaldb" }), MatSnackBarModule,
     MatSelectModule,

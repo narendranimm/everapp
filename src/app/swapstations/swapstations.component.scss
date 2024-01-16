@@ -1,11 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
 
-.container{display: flex;
-width: 328px;
-flex-direction: column;
-align-items: flex-start;
-gap: 24px;
-}
+
 .company-name{
     display: flex;
     align-items: center;
@@ -359,9 +354,8 @@ ion-modal ion-toolbar {
   align-items: center;
   position:fixed;
 
-	bottom:2px;
-	
-	background-color:#0C9;
+	bottom:1px;
+
 	color:#FFF;
 
 	text-align:center;
@@ -373,4 +367,7 @@ ion-modal ion-toolbar {
 }
 .allhub{
   color: #363636; font-size: 14px; font-family: 'Open Sans', sans-serif;font-weight: bold; word-wrap: break-word
+}
+.scroller{
+  height: 108rem;
 }

@@ -27,8 +27,9 @@
           <!-- <mat-slide-toggle labelPosition="before" ></mat-slide-toggle> -->
           <!-- <ion-toggle [enableOnOffLabels]="true" [formControl]="toggleControl"></ion-toggle> -->
           <ion-toggle [(ngModel)]="themeToggle" (ionChange)="toggleChange($event)" justify="space-between"
-          >Dark Mode</ion-toggle
-        >
+          >Dark Mode</ion-toggle>
+        
+      
         </div>
       </div>
       <div routerLink="/myaddress"
@@ -40,7 +41,7 @@
         <div 
         style="align-self: stretch; padding: 12px; border-bottom: 1px #E8E7E7 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
         <div style=" font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">
-          <button (click)="security()">
+          <button (click)="security()" style="background: none;">
             Security
 
           </button>
@@ -66,12 +67,12 @@
   <div class="btn-submit">
     <div class="btn-space">
       <div
-        style="width: 328px; padding: 12px;  border-radius: 24px; overflow: hidden; border-top: 1px solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+        style="width: 328px; padding: 12px;  border-radius: 24px; overflow: hidden; border: 1px solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
         <div style="width: 24px; height: 24px; position: relative">
           <img src="../assets/ant-design_logout-outlined.svg" alt="logout">
         </div>
         <div style="color: #E33629; font-size: 14px; font-family: Archivo; font-weight: 700; word-wrap: break-word">
-          <button (click)="logout()">
+          <button (click)="logout()" style="background: none;">
             Log out
           </button>
         </div>
@@ -79,14 +80,14 @@
     </div>
     <div class="btn-space">
       <div
-        style="width: 328px; height: 100%; padding: 12px; border-radius: 24px; border: 1px #E8E7E7 solid; justify-content: center; align-items: center; gap: 8px; display: inline-flex">
+        style="width: 328px; height: 100%; padding: 12px; border-radius: 24px; border: 1px #706b6b solid; justify-content: center; align-items: center; gap: 8px; display: inline-flex">
         <div style="width: 24px; height: 24px; position: relative">
           <img src="../assets/mdi_delete.svg" alt="delete">
 
         </div>
         <div
           style="color: #E33629; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">
-         <button (click)="remove()">
+         <button (click)="remove()" style="background: none;">
 
            Delete account
          </button>

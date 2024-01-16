@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
 
 .otp {
- width: 40px;
+ width: 44px;
   height: 44px;
   border: none;
   border-bottom: 2px #E2E1E5 solid;
@@ -354,3 +354,11 @@ $width: 100px;
   word-wrap: break-word;
   padding: 5%;
 }
+.my-color{
+  background: #D1D1D1;
+  color: rgb(138, 126, 126);
+ }
+ .color{
+  background: #3355B9;
+  color: white;
+ }

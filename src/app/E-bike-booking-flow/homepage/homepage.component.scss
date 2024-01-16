@@ -265,7 +265,7 @@ word-wrap: break-word;
       @include flex;
     }
     .scroller{
-      height: 100rem;
+      height: 108rem;
     }
     .btn-container{
       padding: 4%;
@@ -291,8 +291,7 @@ word-wrap: break-word
     
 font-size: 18px;
 font-family: 'Open Sans', sans-serif;
-font-weight: 700;
-word-wrap: break-word
+
   }
   @media screen and (max-height:650px) {
     .scroller{
@@ -380,9 +379,9 @@ border-top: 2px solid rgb(209, 206, 206);
   align-items: center;
   position:fixed;
 
-	bottom:2px;
+	bottom:1px;
 	
-	background-color:#0C9;
+
 	color:#FFF;
 
 	text-align:center;
@@ -397,4 +396,17 @@ border-top: 2px solid rgb(209, 206, 206);
 }
 ::placeholder{
   --color: #3355B9; font-size: 12px;
+}
+.name{
+ color: #ece2e2; font-size: 18px; font-family: 'Open Sans', sans-serif; 
+}
+
+.ever-home{
+ color: rgba(54, 54, 54, 0.60); font-size: 12px; font-family: 'Open Sans', sans-serif; font-weight: 700; word-wrap: break-word
+}
+.rental-ever{
+color: #3355B9; font-size: 12px; font-family: 'Open Sans', sans-serif; font-weight: 700; word-wrap: break-word
+}
+.swap-ever{
+color: rgba(54, 54, 54, 0.60); font-size: 12px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
 }

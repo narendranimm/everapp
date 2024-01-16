@@ -93,7 +93,7 @@
            <div class="date">
             <input matInput [matDatepicker]="picker" class="date1" placeholder="dd/mm/yyyy" formControlName="DateofBirth">
            
-            <mat-datepicker-toggle matIconSuffix [for]="picker" style="margin-left: -70px;"></mat-datepicker-toggle>
+            <mat-datepicker-toggle matIconSuffix [for]="picker" style="margin-left: -80px;margin-top: -6px;"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </div>
           
@@ -112,7 +112,7 @@
       <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
           <div class="gender">Gender</div>
           <select formControlName="MemberType" placeholder="select" value="select"
-          style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: space-between; align-items: center; display: inline-flex">
+          style="width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 12px; padding-bottom: 12px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: space-between; align-items: center; display: inline-flex;color:black">
           <option [value]="p.value" *ngFor ="let p of genderdata">{{p.name}}</option>
         
         </select>
@@ -127,15 +127,10 @@
    I agree<a routerLink="/tc" style="margin: 0 5px;">terms & conditions</a></span>
 
   <div style="color:red" *ngIf="submitted && f.checkbox.errors" class="invalid-feedback">Accept Ts & Cs is required</div><br>
-  <div class="element">
-  <button class="register-btn"  type="submit"  (click)="register()" >Register</button>
 
-  <p style="padding-top: 15%;" >Already have an account? <button style="background: none;margin: none;color: blue;" routerLink="/login"> Log in </button></p>
-  </div>
-<!-- <mat-form-field style="display:none">
+  <button  matRipple class="register-btn"  type="submit"  (click)="register()" >Register</button>
 
-  <input matInput value="{{data | json}}" #message>
-</mat-form-field> -->
+
 </div>
 </div>
 </div>
@@ -143,6 +138,9 @@
 </div>
 
 </form> 
+<div style="text-align: center;">
+  <p style="padding-top: 15%;" >Already have an account? <button style="background: none;color: blue;" routerLink="/login"> Log in </button></p>
+</div> 
 
 <!-- <div>{{data | json}}</div> -->
 <div *ngIf="showLoader">

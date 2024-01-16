@@ -22,6 +22,9 @@ baseUrl:any=environment.apiurl;
   getAlloffers(){
     return this.http.get(this.baseUrl+`admin/offers/getall`);
   }
+  getAlloffersById(taskId:any): Observable<any> {
+    return this.http.get(this.baseUrl+`admin/offers/getall/${taskId}`)
+}
   getordersummeryByBookingNo(bookingNo:string){
   let  bookingdata = {
       "BookingNo": bookingNo

@@ -37,6 +37,7 @@ export class SwapstationsComponent  implements OnInit {
   logindata!: any;
   show: boolean = true; 
   useraddress:any;
+  isModelOpen=false;
  
   private breakpointObserver = inject(BreakpointObserver);
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -60,7 +61,7 @@ export class SwapstationsComponent  implements OnInit {
   ngOnInit() {
     this.getbranchesByBID()
     this.printCurrentPosition();
-    this.address();
+  
 
     this.getNearByHubs();
     
@@ -147,13 +148,7 @@ console.log(coordinates)
   //       })
   //   }
   // }
-address(){
- 
-  this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=17.519523,78.381172&key=AIzaSyCU4W4iQLV5ydrW3UxZncI_JdLi1EsKH5A`).subscribe((res:any)=>{
-  this.loc=res['plus_code']  
-  console.log(res)
-  })
-}
+
   scrollToBottom() {
     // Passing a duration to the method makes it so the scroll slowly
     // goes to the bottom instead of instantly
@@ -191,7 +186,10 @@ address(){
     "branchtype":0,
     "RadiusInKm": 50
   }
+  open() {
 
+    this.isModelOpen=true;
+  }
 
 }
 

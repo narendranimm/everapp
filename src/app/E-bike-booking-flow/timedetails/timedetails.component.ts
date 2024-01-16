@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { UserData } from 'src/app/providers/user-data';
 import { OrderService } from 'src/app/services/Order.service';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-timedetails',
@@ -8,26 +10,30 @@ import { OrderService } from 'src/app/services/Order.service';
   styleUrls: ['./timedetails.component.scss'],
 })
 export class TimedetailsComponent  implements OnInit {
-  bookingNo:any=null;
+  bookingNo:any;
   ProductDetails:any;
-  constructor(private _pd:OrderService,private a_router:ActivatedRoute) {
-  let id=a_router.snapshot.params["ID"];
-    this.getDetails(id)
+  azimageUrl: any = environment.azimageUrl_hub;
+  constructor(private _pd:OrderService,private a_router:ActivatedRoute,private userdata:UserData) {
+    this.userdata.getId('bookingNo').then(data => {
+      if (data !== null) {
+        this.bookingNo = data;
+        this.getDetails()
+      }
+    })
    }
 
-  ngOnInit() {}
-
-  getDetails(id:string) {
-    this._pd.getordersummeryByBookingNo(id).subscribe((res: any) => {
+  ngOnInit() {
+   
+  }
+  getDetails() {
+    this._pd.getordersummeryByBookingNo(this.bookingNo).subscribe((res: any) => {
       console.log(res)
       this.ProductDetails = res;
-      if (res) {
-
-        // this.gettimedfrnc(res.BookingStartDate, res.BookingEndDate)
-      }
+      
 
     })
   }
+
 
 
 

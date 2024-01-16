@@ -64,8 +64,10 @@ export class HomepageComponent implements OnInit {
   isshowTimer: boolean=false;
   bookingNo: any;
   ProductDetails: any;
-
-  constructor(private loadingservice: LoadingService,
+  ordersList:any;
+  userid: any;
+  isModelOpen=false;
+  constructor(private loadingservice: LoadingService,private or_service: OrderService,
      private hub_s: HubsService,private os:OrderService,
     public popoverController: PopoverController, private _bh: BookingService, private route: ActivatedRoute, private router: Router,
     private _pd: ProductServicesService, private userdata: UserData,private http:HttpClient
@@ -106,12 +108,22 @@ export class HomepageComponent implements OnInit {
     })
 
   }
+  open() {
 
+    this.isModelOpen=true;
+  }
+  gerOrdersByUserID() {
+    this.or_service.getorderbyUserID(this.userid).subscribe(
+      (res:any) => {
+      this.ordersList = res;
+      console.log(res)
+      })
+    }
   ngOnInit() {
     this.getbranchesByBID()
     this.printCurrentPosition();
     // this.address();
-
+   this.gerOrdersByUserID();
     this.getNearByHubs();
     
   }

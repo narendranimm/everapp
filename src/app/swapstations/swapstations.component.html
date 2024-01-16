@@ -16,7 +16,7 @@
 
         <div class=menu>Menu</div>
       </div>
-      <div
+      <div matRipple
         style="align-self: stretch; padding: 12px; background: #F2F2F2; border-radius: 10px;  justify-content: space-between; align-items: center; display: inline-flex">
         <div style="justify-content: flex-start; align-items: center; gap: 17px; display: flex">
           <img style="width: 48px; height: 48px; position: relative; border-radius: 100px"
@@ -25,7 +25,7 @@
               <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg"  
                 />
             </ion-avatar>
-          <div
+          <div matRipple
             style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 6px; display: inline-flex">
             <div style="color: #ece2e2; font-size: 18px; font-family: Archivo; font-weight: 500; word-wrap: break-word">
               <a class="links" routerLink="/profile">{{logindata?.FirstName}} {{logindata?.LastName}}</a>
@@ -43,7 +43,7 @@
       </div>
       <div
         style="align-self: stretch; height: 440px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
-        <div
+        <div matRipple routerLink="/my-booking"
           style="align-self: stretch; padding: 12px; border-bottom: 1px #E8E7E7 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
           <div style="width: 24px; height: 24px; position: relative">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -55,7 +55,7 @@
           <div style="color: #363636; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word"><button
               class="links" routerLink="/my-booking">My bookings</button></div>
         </div>
-        <div
+        <div matRipple routerLink="/notification"
           style="align-self: stretch; padding: 12px; border-bottom: 1px #E8E7E7 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
           <div style="width: 24px; height: 24px; position: relative">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -77,7 +77,7 @@
           </div>
           <div class="menu-links" ><a class="links" routerLink="/kyc">KYC</a></div>
       </div>
-        <div
+        <div matRipple routerLink="/services"
           style="align-self: stretch; padding: 12px; border-bottom: 1px #E8E7E7 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
           <div style="width: 24px; height: 24px; position: relative">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -92,7 +92,7 @@
           <div style="color: #363636; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word"><button
               class="links" routerLink="/services">Services</button></div>
         </div>
-        <div
+        <div matRipple routerLink="/invite-friends"
           style="align-self: stretch; padding: 12px; border-bottom: 1px #E8E7E7 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
           <div style="width: 24px; height: 24px; position: relative">
             <div style="width: 24px; height: 24px; left: 0px; top: 0px; position: absolute">
@@ -113,7 +113,7 @@
           <div style="color: #363636; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word"><button
               class="links" routerLink="/invite-friends">Invite friends</button></div>
         </div>
-        <div
+        <div matRipple routerLink="/support"
           style="align-self: stretch; padding: 12px; border-bottom: 1px #E8E7E7 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
           <div style="width: 24px; height: 24px; position: relative">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -134,7 +134,7 @@
           <div style="color: #363636; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word"><button
               class="links" routerLink="/support">Support</button></div>
         </div>
-        <div
+        <div matRipple routerLink="/tc"
           style="align-self: stretch; padding: 12px; border-bottom: 1px #E8E7E7 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
           <div style="width: 24px; height: 24px; position: relative">
             <div style="width: 24px; height: 24px; left: 0px; top: 0px; position: absolute">
@@ -156,7 +156,7 @@
           <div style="color: #363636; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word"><button
               class="links" routerLink="/tc">Terms & Conditions</button></div>
         </div>
-        <div
+        <div matRipple routerLink="/claims"
           style="align-self: stretch; padding: 12px; border-bottom: 1px #E8E7E7 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
           <div style="width: 24px; height: 24px; position: relative">
 
@@ -167,7 +167,7 @@
           <div style="color: #363636; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word"><button
               class="links" routerLink="/claims">Claims</button></div>
         </div>
-        <div
+        <div matRipple
           style="align-self: stretch; padding: 12px; border-bottom: 1px #E8E7E7 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
           <div style="width: 24px; height: 24px; position: relative">
 
@@ -197,28 +197,28 @@
       <span class="example-spacer"></span>
       <img src="./assets/tdesign_notification-filled.svg" alt="" routerLink="/notification">
     </mat-toolbar>
-    <!-- <ion-toolbar class="toolbar">
+    <ion-toolbar class="toolbar">
       <div style="width: 100%; height: 100%; padding-top: 8px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; background: white; box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16); justify-content: center; align-items: center; gap: 10px; display: inline-flex">
         <div style="flex: 1 1 0; height: 41px; justify-content: space-between; align-items: flex-start; display: flex">
             <div routerLink="/enableloaction" style="width: 72px; flex-direction: column; justify-content: center; align-items: center; gap: 8px; display: inline-flex">
                 <div style="width: 24px; height: 24px; position: relative">
-                  <ion-tab-button tab="home">
-                    <img src="../assets/Frame 2608398.svg" style="width: 18.06px; height: 18.06px; left: 7.64px; top: 0px; position: absolute; transform: rotate(25.04deg); transform-origin: 0 0;" >
-                  </ion-tab-button>
+                 
+                    <img src="../assets/Frame 2608398 (2).svg" style="width: 18.06px; height: 18.06px; left: 7.64px; top: 0px; position: absolute; transform: rotate(25.04deg); transform-origin: 0 0;" >
+              
                   </div>
-                <div style="color: #3355B9; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Ever</div>
+                <div style="color: rgba(54, 54, 54, 0.60); font-size: 12px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Ever</div>
             </div>
             <div routerLink="/homepage" style="width: 72px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 8px; display: inline-flex">
                 <div style="width: 24px; height: 24px; position: relative">
-                  <img src="../assets/mdi_motorbike-electric.svg" style="width: 18.06px; height: 18.06px; left: 7.64px; top: 0px; position: absolute;  transform-origin: 0 0;" >
+                  <img src="../assets/mdi_motorbike-electric (2).svg" style="width: 18.06px; height: 18.06px; left: 7.64px; top: 0px; position: absolute;  transform-origin: 0 0;" >
                 </div>
                 <div style="color: rgba(54, 54, 54, 0.60); font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">EV Rentals</div>
             </div>
             <div routerLink="/swapstation" style="width: 72px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 8px; display: inline-flex">
                 <div style="width: 24px; height: 24px; position: relative">
-                  <img src="../assets/clarity_battery-solid (1).svg" style="width: 18.06px; height: 18.06px; left: 7.64px; top: 0px; position: absolute;  transform-origin: 0 0;" >
+                  <img src="../assets/clarity_battery-solid (3).svg" style="width: 18.06px; height: 18.06px; left: 7.64px; top: 0px; position: absolute;  transform-origin: 0 0;" >
                 </div>
-                <div style="color: rgba(54, 54, 54, 0.60); font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Swap station</div>
+                <div style="color: #3355B9; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">Swap station</div>
             </div>
             <div routerLink="/services" style="width: 72px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 8px; display: inline-flex">
                 <div style="width: 24px; height: 24px; position: relative">
@@ -229,13 +229,19 @@
         </div>
     </div>
   
-   </ion-toolbar> -->
+   </ion-toolbar>
     <ion-content class="scroller" style="background: white;">
+   
       <div class="btn-container" style="background: white;height: 100%;">
         <div class="search-result-bike">
           <h1 class="greeting-head">Welcome {{username}}</h1>
           <!-- <p class="notify-content" *ngIf="show">  Share your location</p> -->
-          <img src="./assets/mdi_location.svg" alt="">{{useraddress | slice:0:25}}<img src="../assets/fe_arrow-down.svg" alt="">
+      <button style="background: none;" (click)="open()"> <img src="./assets/mdi_location.svg" alt="">{{useraddress | slice:0:35}}<img src="../assets/fe_arrow-down.svg" alt=""></button> 
+      <ion-modal [isOpen]="isModelOpen" [initialBreakpoint]="0.5" >
+        <ng-template>
+  
+      </ng-template>
+      </ion-modal>
           <div id="submit" >
             <!-- <img src="./assets/mdi_location.svg" alt=""> -->
             <!-- {{lat}} - {{lng}} -->
@@ -313,9 +319,55 @@
         <!-- <app-swap-battery-scroll [slides]="slider"></app-swap-battery-scroll> -->
 
       </div>
-     
+  
     </ion-content>
-    
+    <!-- <ion-modal [isOpen]="isModelOpen" [initialBreakpoint]="0.5" style="border-top-left-radius: 20px; border-top-right-radius: 20px;">
+      <ng-template>
+    <div style="width: 100%; height: 100%; padding: 16px; background: white; border-top-left-radius: 20px; border-top-right-radius: 20px; overflow: hidden; flex-direction: column; justify-content: flex-start; align-items: center; gap: 11px; display: inline-flex">
+      <div style="align-self: stretch; height: 291px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 11px; display: flex">
+          <div style="width: 328px; justify-content: space-between; align-items: center; display: inline-flex">
+              <div style="justify-content: flex-start; align-items: center; gap: 10px; display: flex">
+                  <div style="width: 24px; height: 24px; position: relative">
+                      <div style="width: 24px; height: 24px; left: 0px; top: 0px; position: absolute; background: #3355B9"></div>
+                  </div>
+                  <div style="color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Location permission is off</div>
+              </div>
+              <div style="padding-left: 14px; padding-right: 14px; padding-top: 8px; padding-bottom: 8px; background: #3355B9; border-radius: 24px; justify-content: center; align-items: center; gap: 10px; display: flex">
+                  <div style="color: white; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Allow</div>
+              </div>
+          </div>
+          <div style="width: 328px; height: 0px; border: 1px #E8E7E7 solid"></div>
+          <div style="height: 170px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
+              <div style="align-self: stretch; justify-content: space-between; align-items: center; display: inline-flex">
+                  <div style="color: #363636; font-size: 16px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Saved address</div>
+                  <div style="width: 24px; height: 24px; position: relative; background: #3355B9; border-radius: 24px; overflow: hidden">
+                      <div style="width: 6px; height: 10px; left: 10px; top: 7px; position: absolute; background: white"></div>
+                  </div>
+              </div>
+              <div style="align-self: stretch; height: 134px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
+                  <div style="align-self: stretch; height: 63px; padding-left: 8px; padding-right: 8px; padding-top: 12px; padding-bottom: 12px; background: #EBEEF8; border-radius: 8px; overflow: hidden;  justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
+                      <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 4px; display: inline-flex">
+                          <div style="text-align: center; color: black; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Address 1</div>
+                          <div style="align-self: stretch; color: rgba(0, 0, 0, 0.70); font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">2/50, AFG Road, Hyderabad, Telengana</div>
+                      </div>
+                  </div>
+              
+              </div>
+          </div>
+          <div style="width: 328px; height: 0px; border: 1px #E8E7E7 solid"></div>
+          <ion-searchbar style="width: 100%;" class="search"
+        placeholder="Search by location"
+   
+       name="searchValue" 
+       showCancelButton="focus"
+      
+      
+       animated
+       ></ion-searchbar>
+      </div>
+  </div>
+  </ng-template>
+  </ion-modal> -->
   </mat-sidenav-content>
 </mat-sidenav-container>
 

@@ -289,9 +289,9 @@ input {
   font-size: 18px;
   padding: 10px 10px 10px 5px;
   display: block;
-  width: 300px;
+
   border: none;
-  background: #F2F2F2; border-radius: 100px;
+  background: #F2F2F2; 
 }
 
 input:focus {
@@ -300,12 +300,12 @@ input:focus {
 
 label {
   color: black;
-  font-size: 18px;
+  font-size: 12px;
   font-weight: normal;
   position: absolute;
   pointer-events: none;
   left: 5px;
-  top: 10px;
+  top: -5px;
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
@@ -313,7 +313,7 @@ label {
 
 input:focus ~ label,
 input:valid ~ label {
-  top: -20px;
+  top: -25px;
   font-size: 14px;
   color: black;
 }
@@ -329,7 +329,7 @@ input:valid ~ label {
   content: '';
   height: 2px;
   width: 0;
-  bottom: 1px;
+  bottom: 100px;
   position: absolute;
   background: #4285f4;
   transition: 0.2s ease all;
@@ -343,6 +343,7 @@ input:valid ~ label {
 
 .bar:after {
   right: 50%;
+  
 }
 
 input:focus ~ .bar:before,
@@ -356,6 +357,7 @@ input:focus ~ .bar:after {
   width: 100px;
   top: 25%;
   left: 0;
+  bottom: 40px;
   pointer-events: none;
   opacity: 0.5;
 }
@@ -381,105 +383,6 @@ input:focus ~ .highlight {
 }
 
 
-.input-group1 {
-  position: relative;
-  margin: 5px 0 20px;
-}
-
-input {
-  font-size: 18px;
-  padding: 10px 10px 10px 5px;
-  display: block;
-  width: 300px;
-  border: none;
-  border-bottom: 1px solid #757575;
-}
-
-input:focus {
-  outline: none;
-}
-
-label {
-  color: #999;
-  font-size: 18px;
-  font-weight: normal;
-  position: absolute;
-  pointer-events: none;
-  left: 5px;
-  top: 10px;
-  transition: 0.2s ease all;
-  -moz-transition: 0.2s ease all;
-  -webkit-transition: 0.2s ease all;
-}
-
-input:focus ~ label,
-input:valid ~ label {
-  top: -20px;
-  font-size: 14px;
-  color: #4285f4;
-}
-
-.bar1 {
-  position: relative;
-  display:block;
-  width:315px;
-}
-
-.bar1:before,
-.bar1:after {
-  content: '';
-  height: 2px;
-  width: 0;
-  bottom: 1px;
-  position: absolute;
-  background: #4285f4;
-  transition: 0.2s ease all;
-  -moz-transition: 0.2s ease all;
-  -webkit-transition: 0.2s ease all;
-}
-
-.bar1:before {
-  left: 50%;
-}
-
-.bar1:after {
-  right: 50%;
-}
-
-input:focus ~ .bar:before,
-input:focus ~ .bar:after {
-  width: 50%;
-}
-
-.highlight1 {
-  position: absolute;
-  height: 60%;
-  width: 100px;
-  top: 25%;
-  left: 0;
-  pointer-events: none;
-  opacity: 0.5;
-}
-
-input:focus ~ .highlight {
-  -webkit-animation: inputHighlighter 0.3s ease;
-  -moz-animation: inputHighlighter 0.3s ease;
-  animation: inputHighlighter 0.3s ease;
-}
-
-/* animations */
-@-webkit-keyframes inputHighlighter {
-  from { background: #4285f4; }
-  to   { width: 0; background: transparent; }
-}
-@-moz-keyframes inputHighlighter {
-  from { background: #4285f4; }
-  to   { width: 0; background: transparent; }
-}
-@keyframes inputHighlighter {
-  from { background: #4285f4; }
-  to   { width: 0; background: transparent; }
-}
 .seletiondiv{
   background:  rgba(74.50, 120.30, 255, 0.20) 0%;
   

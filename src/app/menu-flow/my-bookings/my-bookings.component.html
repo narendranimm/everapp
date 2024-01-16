@@ -30,7 +30,7 @@
                   
                 <ng-container *ngSwitchCase="3508">
                   <div class="p-name"> {{d.ProductName}}</div>
-                  {{d.BookingDate |  date:'medium'}}
+                  {{d.BookingDate |  date:'mediumDate'}}
                   <!-- 3506	WashHub 3507	Bike 3508	Battery -->
                   <!-- batery -->
                   <!-- Template for items with category A -->
@@ -43,7 +43,7 @@
                 <ng-container *ngSwitchCase="3506">
                   <div class="p-name"> {{d.BranchName}}</div>
                   <div class="st-date">
-                    {{d.BookingStartDate |  date:'medium'}}  </div>
+                    {{d.BookingStartDate |  date:'mediumDate'}}  </div>
                   <div style="align-self: stretch; color: black; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">
                     <!-- {{ d?.BookingStartDate | timeDifference:d?.BookingEndDate }}  -->
 
@@ -57,8 +57,8 @@
                 <ng-container *ngSwitchCase="3507">
                   <div class="p-name"> {{d.ProductName}}</div>
                   <div class="st-date">
-                    {{d.BookingStartDate |  date:'medium'}}  -
-                     {{d.BookingEndDate|  date:'medium'}} </div>
+                    {{d.BookingStartDate |  date:'mediumDate'}}  -
+                     {{d.BookingEndDate|  date:'mediumDate'}} </div>
                   <div style="align-self: stretch; color: black; font-size: 14px; font-family: Archivo; font-weight: 400; word-wrap: break-word">
                     {{ d?.BookingStartDate | timeDifference:d?.BookingEndDate }} 
                   </div>

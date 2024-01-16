@@ -5,6 +5,7 @@ import { ModalcontentComponent } from '../modalcontent/modalcontent.component';
 import { LoadingService } from '../services/loading.service';
 import { ActivatedRoute } from '@angular/router';
 import { UserData } from '../providers/user-data';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-offer-coupon',
@@ -19,7 +20,7 @@ export class OfferCouponComponent  implements OnInit {
   ProductDetails: any;
   bookingNo!: string;
 
-  constructor(private os:OrderService,private modalController: ModalController,private _pd: OrderService,private route:ActivatedRoute,private userdata: UserData,
+  constructor(public dialog: MatDialog, private os:OrderService,private modalController: ModalController,private _pd: OrderService,private route:ActivatedRoute,private userdata: UserData,
     private load:LoadingService) {
       this.userdata.getId('bookingNo').then(data => {
         if (data !== null) {
@@ -37,6 +38,7 @@ export class OfferCouponComponent  implements OnInit {
     this.os.getAlloffers().subscribe(res=>{
       this.filteredItems=res;
       this.offers=res;
+      console.log(res)
     })
   }
   @ViewChild(IonContent) content!: IonContent;
@@ -67,9 +69,19 @@ export class OfferCouponComponent  implements OnInit {
   async presentModal() {
     const modal = await this.modalController.create({
       component: ModalcontentComponent,
+    
     });
 
     await modal.present();
+  }
+  opendialog(){
+    this.dialog.open(ModalcontentComponent, {
+      width: '320px',
+      height: '300px'
+    });
+    setTimeout(() => {
+      this.dialog.closeAll()
+   }, 3000)
   }
   getDetails() {
     this._pd.getordersummeryByBookingNo(this.bookingNo).subscribe((res) => {

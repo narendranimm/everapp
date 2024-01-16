@@ -32,6 +32,7 @@ loggedIn:any;
 loc:any
 azimageUrl:any='https://everdevuat.blob.core.windows.net/hubs/';
 profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
+isModelOpen=false;
   private breakpointObserver = inject(BreakpointObserver);
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -135,5 +136,8 @@ profileUrl:any='https://everdevuat.blob.core.windows.net/profilepic/';
   })
   }
 
-  
+  open() {
+
+    this.isModelOpen=true;
+  }
 }

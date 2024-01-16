@@ -14,7 +14,8 @@ line-height: normal;
 .error{
   color: red;
   font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
+  font-size: 12px;
+  margin-top: -5px;
 }
 .gap{
     padding: 2%;
@@ -24,6 +25,7 @@ line-height: normal;
     flex-flow: wrap column;
     align-items: center;
     justify-content: center;
+    background: white;
 }
 .intro-para{
     
@@ -242,7 +244,9 @@ input:focus
     outline-offset: 0px;
     outline: none;
 }
-
+option{
+    color: black;
+}
 
 ::placeholder{
   color: black;
@@ -272,3 +276,5 @@ input:focus
 .date1{
     width:158px;align-self: stretch; height: 40px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px;  border-radius: 24px; overflow: hidden; border: 1px #E2E1E5 solid; justify-content: space-between; align-items: center; display: inline-flex
 }
+
+
