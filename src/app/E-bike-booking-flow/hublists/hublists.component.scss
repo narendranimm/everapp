@@ -1,14 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
 .search{
   width:328px;
   height: 42px;
   border-radius: 20px;
-background: #F2F2F2;
+
 
 border:none;
 }
 ::placeholder{
   color: var(--Primary, #3355B9);
-  font-family: Archivo;
+  font-family: 'Open Sans', sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -75,4 +76,13 @@ line-height: normal;
 }
 .scroller{
   height: 750px;
+}
+.branch-name{
+ align-self: stretch; color: #363636; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
+}
+.walk{
+ flex: 1 1 0; color: #363636; font-size: 14px; font-family: 'Open Sans', sans-serif; font-weight: 400; word-wrap: break-word
+}
+.hub-list-container-content{
+  color: #363636; font-size: 8px; font-family: 'Open Sans', sans-serif; font-weight: 400;
 }

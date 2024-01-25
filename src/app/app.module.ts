@@ -145,6 +145,8 @@ import { PreviousBookingComponent } from './previous-booking/previous-booking.co
 import { MatNativeDateModule } from '@angular/material/core';
 
 import {MatRippleModule} from '@angular/material/core';
+import { NgOtpInputModule } from  'ng-otp-input';
+
 
 providers: [Storage]
 @NgModule({
@@ -220,7 +222,7 @@ providers: [Storage]
   ],
 
   imports: [BrowserModule, MatExpansionModule,MatSlideToggleModule,MatDatepickerModule,MatProgressSpinnerModule,MatMenuModule,MatChipsModule,MatRadioModule,BrowserAnimationsModule,  MatDatepickerModule,
-    MatNativeDateModule ,MatRippleModule,
+    MatNativeDateModule ,MatRippleModule, NgOtpInputModule,
     // SocialLoginModule,
     IonicStorageModule.forRoot({ name: "mylocaldb" }), MatSnackBarModule,
     MatSelectModule,

@@ -1,5 +1,5 @@
 <div class="btn-container">
-  <button style="background: transparent;border: none;"routerLink="/adhar"><img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
+  <button style="background: transparent;border: none;"routerLink="/verification"><img class="icon" src="./assets/zondicons_arrow-left.svg" alt=""></button>
   </div>
   
 
@@ -7,8 +7,8 @@
   <div *ngIf="show; else elseBlock">
   <div class="selfie-btn-container">
     <div style="width: 100%; height: 100%; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
-      <div class="intro-photo" style="color: #3355B9; font-size: 24px; font-family: Archivo; font-weight: 700; line-height: 20px; word-wrap: break-word">Take your photo</div>
-      <div style="width: 315px; color: #363636; font-size: 16px; font-family: Archivo; font-weight: 400; word-wrap: break-word">Please take your self photo.</div>
+      <div class="intro-photo" style="color: #3355B9; font-size: 24px;  font-weight: 700; line-height: 20px; word-wrap: break-word">Take your photo</div>
+      <div style="width: 315px; color: #363636; font-size: 16px;  font-weight: 400; word-wrap: break-word">Please take your self photo.</div>
   </div>
       <button (click)="show = !show" style="background: none;padding: 2%;">
         <button (click)="takePicture()" class="selfie-btn"  >open camera</button>

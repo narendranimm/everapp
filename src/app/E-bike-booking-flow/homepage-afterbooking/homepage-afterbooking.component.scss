@@ -291,3 +291,20 @@ ion-modal ion-toolbar {
 .scroll{
   height: 200rem;
 }
+
+::ng-deep .city-field{
+  width: 328px !important;
+
+
+}
+::ng-deep .label{
+margin-left: 40px !important;
+}
+::ng-deep .icon{
+  margin-left: 10px !important;
+  }
+  .btn-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

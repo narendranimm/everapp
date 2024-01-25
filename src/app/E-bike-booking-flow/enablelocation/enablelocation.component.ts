@@ -21,6 +21,7 @@ import { Router } from '@angular/router';
 export class EnablelocationComponent  implements OnInit {
   slides:any=[]
   lati: any = '';  
+  greeting:any;
   useraddress:any=null;
   longi: any = '';  
   bikeHub:any;
@@ -72,7 +73,7 @@ isModelOpen=false;
       this.printCurrentPosition();
       // this.slides=[];
       this.address();
-      this.direction()
+    this.status()
      
     }
 
@@ -130,14 +131,19 @@ isModelOpen=false;
   }
   show: boolean = true;  
 
-  direction(){
-    this.http.get(`https://maps.googleapis.com/maps/api/directions/json?destination=Montreal&origin=Toronto&key=AIzaSyCU4W4iQLV5ydrW3UxZncI_JdLi1EsKH5A`).subscribe((res:any)=>{
-   console.log(res)
-  })
-  }
+
 
   open() {
 
     this.isModelOpen=true;
   }
+
+  status(){
+    const date = new Date;
+    const hours = date.getHours();
+    const time=(hours < 12)? "morning" :
+               (((hours) <= 18 && hours >= 12 ) ? "afternoon" : "night");
+console.log(time);
+this.greeting=time
+}
 }

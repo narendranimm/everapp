@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit ,ViewChildren} from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { RegisterService } from '../registration-services/register.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserData } from '../providers/user-data';
@@ -8,6 +8,7 @@ import { LoadingService } from '../services/loading.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CongratulationsComponent } from '../congratulations/congratulations.component';
 import { Plugins } from '@capacitor/core';
+import { NgOtpInputConfig } from 'ng-otp-input';
 const { Clipboard } = Plugins;
 @Component({
   selector: 'app-verification',
@@ -21,16 +22,32 @@ export class VerificationComponent implements OnInit {
   verficationForm!: FormGroup;
   logindata: any;
   mobileno: any;
+  otp:any;
+  otpConfig :NgOtpInputConfig = {
+    allowNumbersOnly: true,
+    length: 6,
+    isPasswordInput: false,
+    disableAutoFocus: false,
+    placeholder: '',
+    inputStyles:{
+      'display':'flex'
+    },
+    containerStyles:{
+      'display':'flex'
+    },
+    inputClass:'each_input',
+    containerClass:'all_inputs'
+  };
   constructor(private reg: RegisterService, private loadingservice: LoadingService, public dialog: MatDialog,
     private _vf: FormBuilder, private router: Router, private register: RegisterService, private snackBar: MatSnackBar, private userdata: UserData) {
     this.verficationForm = this._vf.group({
-      fst: ['', Validators.required],
-      scn: ['', Validators.required],
-      thrd: ['', Validators.required],
-      fth: ['', Validators.required],
-      fifth: ['', Validators.required],
-      sth: ['', Validators.required]
-
+      // fst: ['', Validators.required],
+      // scn: ['', Validators.required],
+      // thrd: ['', Validators.required],
+      // fth: ['', Validators.required],
+      // fifth: ['', Validators.required],
+      // sth: ['', Validators.required]
+      // otp:new FormControl('', Validators.required)
     })
     this.userdata.getuser().then(res => {
       if (res !== null) {
@@ -100,19 +117,20 @@ export class VerificationComponent implements OnInit {
 
 
   verifyOTP() {
-    const otp = this.verficationForm?.value;
+  
     //  setTimeout(() => {
     //   this.loaderService.display(false);
     // }, 800);
-
-    const otpString = `${otp.fst}${otp.scn}${otp.thrd}${otp.fth}${otp.fifth}${otp.sth}`;
+console.log(this.otp)
+    // const otpString = `${otp.fst}${otp.scn}${otp.thrd}${otp.fth}${otp.fifth}${otp.sth}`;
 
     //  console.log(this.logindata.OTP == otpString)
-    if (this.UserOTP == otpString) {
+    if (this.UserOTP == this.otp) {
 
       this.dialog.open(CongratulationsComponent, {
         width: '280px',
-        height: '217px'
+        height: '217px',
+        panelClass:'mydialog'
       });
       setTimeout(() => {
         this.dialog.closeAll()
@@ -120,7 +138,7 @@ export class VerificationComponent implements OnInit {
 
 
 
-      this.router.navigate(['/enableloaction'])
+      this.router.navigate(['/selfie'])
     } else {
       this.snackBar.open("invalid otp");
       // this.router.navigate(['/verification'])
@@ -130,8 +148,21 @@ export class VerificationComponent implements OnInit {
 
 
   }
-
-
+  title = 'otp';
+  form!: FormGroup;
+  formInput = ['input1', 'input2', 'input3', 'input4', 'input5', 'input6'];
+  @ViewChildren('formRow') rows: any;
+  keyUpEvent(event:any, index:any) {
+    let pos = index;
+    if (event.keyCode === 8 && event.which === 8) {
+     pos = index - 1 ;
+    } else {
+     pos = index + 1 ;
+    }
+    if (pos > -1 && pos < this.formInput.length ) {
+     this.rows._results[pos].nativeElement.focus();
+    }
+   }
   generateOTP(): string {
     // Generate a random 6-digit number
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
@@ -169,6 +200,11 @@ export class VerificationComponent implements OnInit {
         }
       })
   }
+
+handle(event:any){
+  this.otp=event;
+  console.log(this.otp)
+}
 }
 
 

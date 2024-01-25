@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonContent, ModalController } from '@ionic/angular';
+import { IonContent, IonModal, ModalController } from '@ionic/angular';
 import { OrderService } from '../services/Order.service';
 import { ModalcontentComponent } from '../modalcontent/modalcontent.component';
 import { LoadingService } from '../services/loading.service';
@@ -19,6 +19,7 @@ export class OfferCouponComponent  implements OnInit {
   filteredItems: any;
   ProductDetails: any;
   bookingNo!: string;
+  showModal=true;
 
   constructor(public dialog: MatDialog, private os:OrderService,private modalController: ModalController,private _pd: OrderService,private route:ActivatedRoute,private userdata: UserData,
     private load:LoadingService) {
@@ -74,10 +75,12 @@ export class OfferCouponComponent  implements OnInit {
 
     await modal.present();
   }
-  opendialog(){
+  opendialog(data:any){
     this.dialog.open(ModalcontentComponent, {
       width: '320px',
-      height: '300px'
+      height: '300px',
+      panelClass: 'custom-modalbox',
+      data:data
     });
     setTimeout(() => {
       this.dialog.closeAll()
@@ -89,4 +92,25 @@ export class OfferCouponComponent  implements OnInit {
       this.ProductDetails = res;
     })
   }
+
+  @ViewChild(IonModal) modal!: IonModal;
+
+
+
+  cancel() {
+    this.modal.dismiss(null, 'cancel');
+  }
+
+
+  onWillDismiss(event: Event) {
+    // const ev = event as CustomEvent<OverlayEventDetail<string>>;
+    // if (ev.detail.role === 'confirm') {
+      // this.message = `Hello, ${ev.detail.data}!`;
+    // }
+  }
+
+
+ 
+
+
 }

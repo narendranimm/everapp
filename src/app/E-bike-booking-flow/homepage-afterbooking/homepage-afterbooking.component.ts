@@ -9,6 +9,7 @@ import { SocialAuthService } from '@abacritt/angularx-social-login';
 import { NavController } from '@ionic/angular';
 import { environment } from 'src/environments/environment.prod';
 import { UserData } from 'src/app/providers/user-data';
+import { FormControl } from '@angular/forms';
 const CountdownTimeUnits: Array<[string, number]> = [
   ['Y', 1000 * 60 * 60 * 24 * 365], // years
   ['M', 1000 * 60 * 60 * 24 * 30], // months
@@ -160,5 +161,5 @@ export class HomepageAfterbookingComponent  implements OnInit, OnDestroy {
         this.subscription.unsubscribe();
       }
   
-  
+      disableSelect = new FormControl(false);
 }

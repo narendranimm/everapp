@@ -89,3 +89,8 @@ ion-modal ion-toolbar {
   gap: 12px;
   display: inline-flex
 }
+.custom-modalbox{
+  mat-dialog-container {
+border-radius: 100%;
+}
+}

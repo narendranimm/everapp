@@ -112,7 +112,7 @@ word-wrap: break-word;
     .hub-card{
        width:110px;
        border-radius: 10px;
-       background: #F1F1F1;
+      
     }
     .hub-near-image{
       border-radius: 10px;
@@ -254,13 +254,13 @@ word-wrap: break-word;
     font-weight: 400;
     line-height: normal;
     }
-    .search{
-      width:328px;
-      height: 42px;
-      border-radius: 20px;
-      background: #F2F2F2;
-      border:transparent;
-    }
+    // .search{
+    //   width:328px;
+    //   height: 42px;
+    //   border-radius: 20px;
+   
+    //   border:transparent;
+    // }
     .search-bar-container{
       @include flex;
     }
@@ -288,9 +288,11 @@ font-weight: 700;
 word-wrap: break-word
   }
   .greeting-head{
-    
-font-size: 18px;
+    color: #363636;
+font-size: 14px;
+
 font-family: 'Open Sans', sans-serif;
+font-weight: bolder;
 
   }
   @media screen and (max-height:650px) {
@@ -390,7 +392,7 @@ border-top: 2px solid rgb(209, 206, 206);
 }
 .search{
   --border-radius:20px;
-  --background: #F2F2F2;
+ 
   --border:none;
   --box-shadow: none;
 }
@@ -398,7 +400,7 @@ border-top: 2px solid rgb(209, 206, 206);
   --color: #3355B9; font-size: 12px;
 }
 .name{
- color: #ece2e2; font-size: 18px; font-family: 'Open Sans', sans-serif; 
+  font-size: 18px; font-family: 'Open Sans', sans-serif; 
 }
 
 .ever-home{

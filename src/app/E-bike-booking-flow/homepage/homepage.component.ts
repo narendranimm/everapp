@@ -67,6 +67,7 @@ export class HomepageComponent implements OnInit {
   ordersList:any;
   userid: any;
   isModelOpen=false;
+  greeting:any;
   constructor(private loadingservice: LoadingService,private or_service: OrderService,
      private hub_s: HubsService,private os:OrderService,
     public popoverController: PopoverController, private _bh: BookingService, private route: ActivatedRoute, private router: Router,
@@ -123,9 +124,9 @@ export class HomepageComponent implements OnInit {
     this.getbranchesByBID()
     this.printCurrentPosition();
     // this.address();
-   this.gerOrdersByUserID();
+  //  this.gerOrdersByUserID();
     this.getNearByHubs();
-    
+    this.status()
   }
   @ViewChild(IonContent) content!: IonContent;
   data = [];
@@ -313,5 +314,14 @@ console.log(coordinates)
   }
 
 
+  status(){
+    const date = new Date;
+    const hours = date.getHours();
+    const time=(hours < 12)? "Morning" :
+               (((hours) <= 18 && hours >= 12 ) ? "Afternoon" : "Night");
+console.log(time);
+this.greeting=time
+}
+ 
 }
 

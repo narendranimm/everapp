@@ -5,7 +5,7 @@
       <button style="background: transparent;border: none;" routerLink="/currentplan/plan"><img class="icon"
           src="./assets/zondicons_arrow-left.svg" alt=""></button>
     </div>
-    <div style="color: black; font-size: 12px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">
+    <div style="color: black; font-size: 12px; font-weight: 400; word-wrap: break-word">
       Date & time</div>
   </div>
 
@@ -14,7 +14,7 @@
     <div
       style="align-self: stretch; height: 25px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
       <div
-        style="align-self: stretch; color: #363636; font-size: 18px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">
+        style="align-self: stretch; color: #363636; font-size: 18px; font-weight: 700; word-wrap: break-word">
         Set date & time </div>
     </div>
     <input type="datetime-local" placeholder="Select end date and time" [(ngModel)]="startDate" name="startDate"
@@ -32,10 +32,10 @@
     <div
       style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
       <div
-        style="color: black; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">
+        style="color: black; font-size: 14px; font-weight: 400; word-wrap: break-word">
         Total</div>
       <div
-        style="color: black; font-size: 20px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">
+        style="color: black; font-size: 20px; font-weight: 700; word-wrap: break-word">
         ₹{{convertedCash}}</div>
     </div>
     <button   [ngClass]="{'disableslotbtn': startDate === null && endDate === null}"

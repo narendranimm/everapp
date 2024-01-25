@@ -107,7 +107,7 @@ export class SelfieComponent implements OnInit {
           this.dialog.closeAll()
        }, 3000)
  
-      this.router.navigate(['/booking-details'])
+      this.router.navigate(['/enableloaction'])
     }
   }
 }

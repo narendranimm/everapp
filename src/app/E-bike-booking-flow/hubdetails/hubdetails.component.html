@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
 <div style="width: 100%; height: 100%; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
   <div style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 106px; display: inline-flex">
     <div class="btn-container">
@@ -12,9 +12,7 @@
     <div style="align-self: stretch; justify-content: space-between; align-items: center; display: inline-flex">
         <div class="hub-name" >{{bikeHub?.BranchName }}</div>
         <div style="justify-content: flex-start; align-items: center; gap: 12px; display: flex">
-            <!-- <button (click)="share()"style="width: 24px; height: 24px; position: relative;background: none;">
-                 <img src="./assets/Frame 2608256.svg" alt="">
-            </button> -->
+         
         </div>
     </div>
     <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
@@ -48,14 +46,14 @@
        style="flex: 1 1 0; align-self: stretch; padding-left: 12px; padding-right: 12px; padding-top: 14px; padding-bottom: 14px; background: #3355B9; border-radius: 24px; overflow: hidden; justify-content: space-between; align-items: center; display: inline-flex">
           <div class="vehicle" >Select your vehicle</div>
           <div style="width: 24px; height: 24px; position: relative">
-           <!-- <img src="./assets/ic_round-arrow-back.svg" alt=""> -->
+         
            <ion-icon name="arrow-forward"  style="font-size: 2em;color: white;"></ion-icon>
 
           </div>
         </button>
   </div>
   <div style="height: 330px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex"  >
-      <img  style="align-self: stretch; height: 230px; border-radius: 12px" src="{{azimageUrl}}{{f_image}}" />
+      <img  style="align-self: stretch; height: 230px; border-radius: 12px" src="{{azimageUrl}}{{s_image}}" />
       <div style="width: 328px; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex" >
           <img style="width: 108px; align-self: stretch; border-radius: 12px"
           src="{{azimageUrl}}{{s_image}}"
@@ -74,4 +72,1382 @@
   </div>
   </div>
 </div>
+</div> -->
+<div style="width: 100%; height: 100%; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
+    <div style="align-self: stretch; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+        <div style="width: 24px; height: 24px; position: relative">
+          <button style="background: transparent;border: none;" routerLink="/enableloaction">
+            <img class="icon" src="./assets/ic_round-arrow-back (3).svg" alt=""></button>
+        </div>
+        <div style="color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">EV Rentals</div>
+    </div>
+    <div style="align-self: stretch; height: 276px; flex-direction: column; justify-content: center; align-items: center; gap: 2px; display: flex;">
+
+           
+            <div style="position: absolute;top: 40px;display: flex;align-items: center;justify-content: center;flex-direction: column;">
+                <mat-form-field class="city-field" appearance="outline">
+               
+                  <ion-icon matPrefix name="business-outline" style="color: blue;" class="icon"></ion-icon>
+                  <mat-label class="label">  City</mat-label>
+                  <mat-select [disabled]="disableSelect.value">
+                    
+                    <mat-option value="option1">Hyderabad</mat-option>
+               
+                  </mat-select>
+                </mat-form-field>
+         
+         
+     
+                <mat-form-field class="city-field" appearance="outline" >
+                  <ion-icon matPrefix name="business-outline" style="color: blue;" class="icon"></ion-icon>
+                  <mat-label class="label"> Hub station</mat-label>
+                  <mat-select  >
+                    
+                    <mat-option *ngFor="let h of bikeHub" >{{h.BranchName}}</mat-option>
+            
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field class="city-field" appearance="outline" routerLink="/customselection">
+                  <ion-icon matPrefix name="calendar-outline"  style="color: blue;" class="icon"></ion-icon>
+                 
+                  <mat-label class="label"> Start date and time</mat-label>
+                  <mat-select [disabled]="disableSelect.value">
+                    
+                  
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field class="city-field" appearance="outline">
+                  <ion-icon matPrefix name="calendar-outline"  style="color: blue;" class="icon"></ion-icon>
+                  <mat-label class="label"> End date and time</mat-label>
+                  <mat-select [disabled]="disableSelect.value">
+                    
+                  
+                  </mat-select>
+                </mat-form-field>
+              
+                    <button (click)="gotobikelist()" style="width: 328px; height: 48px; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px;">
+                        <div style="color: white; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Search bike</div>
+                    </button>
+           
+            </div>
+    </div>
+<br><br>
+    <div style="width: 360px; height: 269px; position: relative">
+        <div style="width: 351px; height: 195px; left: 9px; top: 44px; position: absolute; opacity: 0.20">
+            <div style="width: 321.30px; height: 172.65px; left: 22.24px; top: -0px; position: absolute">
+                <div style="width: 321.30px; height: 166.41px; left: 0px; top: 6.23px; position: absolute">
+                    <div style="width: 49.61px; height: 36.50px; left: 226.66px; top: 14.39px; position: absolute">
+                        <div style="width: 49.61px; height: 36.50px; left: 0px; top: 0px; position: absolute; background: #CFCDCD"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 46.44px; top: 10.12px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 34.13px; top: 10.12px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 21.83px; top: 10.12px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 9.53px; top: 10.12px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 46.44px; top: 20.24px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 34.13px; top: 20.24px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 21.83px; top: 20.24px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 9.53px; top: 20.24px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 46.44px; top: 30.36px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 34.13px; top: 30.36px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 21.83px; top: 30.36px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 9.53px; top: 30.36px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    </div>
+                    <div style="width: 49.61px; height: 36.50px; left: 271.68px; top: 129.92px; position: absolute">
+                        <div style="width: 49.61px; height: 36.50px; left: 0px; top: 0px; position: absolute; background: #CFCDCD"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 46.44px; top: 10.12px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 34.13px; top: 10.12px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 21.83px; top: 10.12px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 9.53px; top: 10.12px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 46.44px; top: 20.23px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 34.13px; top: 20.23px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 21.83px; top: 20.23px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 9.53px; top: 20.23px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 46.44px; top: 30.35px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 34.13px; top: 30.35px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 21.83px; top: 30.35px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 9.53px; top: 30.35px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    </div>
+                    <div style="width: 49.61px; height: 36.50px; left: 226.66px; top: 44.71px; position: absolute">
+                        <div style="width: 49.61px; height: 36.50px; left: 0px; top: 0px; position: absolute; background: #CFCDCD"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 46.44px; top: 10.11px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 34.13px; top: 10.11px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 21.83px; top: 10.11px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 9.53px; top: 10.11px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 46.44px; top: 20.24px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 34.13px; top: 20.24px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 21.83px; top: 20.24px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 9.53px; top: 20.24px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 46.44px; top: 30.35px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 34.13px; top: 30.35px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 21.83px; top: 30.35px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.35px; height: 5.57px; left: 9.53px; top: 30.35px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    </div>
+                    <div style="width: 49.61px; height: 63.49px; left: 271.68px; top: 66.43px; position: absolute">
+                        <div style="width: 49.61px; height: 63.49px; left: 0px; top: 0px; position: absolute; background: #F7F7F7"></div>
+                        <div style="width: 18.66px; height: 15.68px; left: 27.78px; top: 2.78px; position: absolute; background: #CFCDCD"></div>
+                        <div style="width: 18.66px; height: 15.68px; left: 3.18px; top: 2.78px; position: absolute; background: #CFCDCD"></div>
+                        <div style="width: 18.66px; height: 15.68px; left: 27.78px; top: 23.02px; position: absolute; background: #CFCDCD"></div>
+                        <div style="width: 18.66px; height: 15.68px; left: 3.18px; top: 23.02px; position: absolute; background: #CFCDCD"></div>
+                        <div style="width: 18.66px; height: 15.68px; left: 27.78px; top: 43.25px; position: absolute; background: #CFCDCD"></div>
+                        <div style="width: 18.66px; height: 15.68px; left: 3.18px; top: 43.25px; position: absolute; background: #CFCDCD"></div>
+                    </div>
+                    <div style="width: 44.50px; height: 56.94px; left: 170.16px; top: 37.45px; position: absolute">
+                        <div style="width: 44.50px; height: 56.94px; left: 0px; top: 0px; position: absolute; background: #F7F7F7"></div>
+                        <div style="width: 16.73px; height: 14.07px; left: 24.92px; top: 2.50px; position: absolute; background: #CFCDCD"></div>
+                        <div style="width: 16.73px; height: 14.07px; left: 2.85px; top: 2.50px; position: absolute; background: #CFCDCD"></div>
+                        <div style="width: 16.73px; height: 14.07px; left: 24.92px; top: 20.64px; position: absolute; background: #CFCDCD"></div>
+                        <div style="width: 16.73px; height: 14.07px; left: 2.85px; top: 20.64px; position: absolute; background: #CFCDCD"></div>
+                        <div style="width: 16.73px; height: 14.07px; left: 24.92px; top: 38.79px; position: absolute; background: #CFCDCD"></div>
+                        <div style="width: 16.73px; height: 14.07px; left: 2.85px; top: 38.79px; position: absolute; background: #CFCDCD"></div>
+                    </div>
+                    <div style="width: 48.92px; height: 72.23px; left: 167.95px; top: 93.85px; position: absolute">
+                        <div style="width: 46.98px; height: 71.21px; left: 0.97px; top: 1.02px; position: absolute; background: #E0DFDF"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 44.94px; top: 8.93px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 33.29px; top: 8.93px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 21.64px; top: 8.93px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 9.99px; top: 8.93px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 44.94px; top: 18.50px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 33.29px; top: 18.50px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 21.64px; top: 18.50px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 9.99px; top: 18.50px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 44.94px; top: 28.09px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 33.29px; top: 28.09px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 21.64px; top: 28.09px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 9.99px; top: 28.09px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 44.94px; top: 37.66px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 33.29px; top: 37.66px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 21.64px; top: 37.66px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 9.99px; top: 37.66px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 44.94px; top: 47.25px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 33.29px; top: 47.25px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 21.64px; top: 47.25px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 9.99px; top: 47.25px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 44.94px; top: 56.82px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 33.29px; top: 56.82px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 21.64px; top: 56.82px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 9.99px; top: 56.82px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 44.94px; top: 66.40px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 33.29px; top: 66.40px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 21.64px; top: 66.40px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 6.01px; height: 5.27px; left: 9.99px; top: 66.40px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 48.92px; height: 1.08px; left: 0px; top: 0px; position: absolute; background: white"></div>
+                    </div>
+                    <div style="width: 58.15px; height: 85.86px; left: 222.39px; top: 80.22px; position: absolute">
+                        <div style="width: 55.85px; height: 84.65px; left: 1.15px; top: 1.21px; position: absolute; background: #E0DFDF"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 53.42px; top: 10.61px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 39.58px; top: 10.61px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 25.73px; top: 10.61px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 11.88px; top: 10.61px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 53.42px; top: 22px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 39.58px; top: 22px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 25.73px; top: 22px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 11.88px; top: 22px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 53.42px; top: 33.39px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 39.58px; top: 33.39px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 25.73px; top: 33.39px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 11.88px; top: 33.39px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 53.42px; top: 44.78px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 39.58px; top: 44.78px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 25.73px; top: 44.78px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 11.88px; top: 44.78px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 53.42px; top: 56.16px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 39.58px; top: 56.16px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 25.73px; top: 56.16px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 11.88px; top: 56.16px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 53.42px; top: 67.55px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 39.58px; top: 67.55px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 25.73px; top: 67.55px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 11.88px; top: 67.55px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 53.42px; top: 78.94px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 39.58px; top: 78.94px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 25.73px; top: 78.94px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 11.88px; top: 78.94px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 58.15px; height: 1.28px; left: 0px; top: 0px; position: absolute; background: white"></div>
+                    </div>
+                    <div style="width: 49.62px; height: 127.23px; left: 103.86px; top: 39.18px; position: absolute">
+                        <div style="width: 49.61px; height: 36.50px; left: 0px; top: 90.74px; position: absolute">
+                            <div style="width: 49.61px; height: 36.50px; left: 0px; top: 0px; position: absolute; background: #CFCDCD"></div>
+                            <div style="width: 6.35px; height: 5.57px; left: 46.44px; top: 10.12px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                            <div style="width: 6.35px; height: 5.57px; left: 34.14px; top: 10.12px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                            <div style="width: 6.35px; height: 5.57px; left: 21.83px; top: 10.12px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                            <div style="width: 6.35px; height: 5.57px; left: 9.53px; top: 10.12px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                            <div style="width: 6.35px; height: 5.57px; left: 46.44px; top: 20.23px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                            <div style="width: 6.35px; height: 5.57px; left: 34.14px; top: 20.23px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                            <div style="width: 6.35px; height: 5.57px; left: 21.83px; top: 20.23px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                            <div style="width: 6.35px; height: 5.57px; left: 9.53px; top: 20.23px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                            <div style="width: 6.35px; height: 5.57px; left: 46.44px; top: 30.35px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                            <div style="width: 6.35px; height: 5.57px; left: 34.14px; top: 30.35px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                            <div style="width: 6.35px; height: 5.57px; left: 21.83px; top: 30.35px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                            <div style="width: 6.35px; height: 5.57px; left: 9.53px; top: 30.35px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        </div>
+                        <div style="width: 40.73px; height: 27.36px; left: 8.88px; top: -0px; position: absolute">
+                            <div style="width: 13.68px; height: 1.59px; left: 3.19px; top: 13.68px; position: absolute; transform: rotate(90deg); transform-origin: 0 0; background: #E0DFDF"></div>
+                            <div style="width: 13.68px; height: 1.59px; left: 39.14px; top: 13.68px; position: absolute; transform: rotate(90deg); transform-origin: 0 0; background: #E0DFDF"></div>
+                            <div style="width: 13.68px; height: 1.59px; left: 21.16px; top: 13.68px; position: absolute; transform: rotate(90deg); transform-origin: 0 0; background: #E0DFDF"></div>
+                            <div style="width: 40.73px; height: 1.40px; left: 0px; top: 25.96px; position: absolute; background: white"></div>
+                            <div style="width: 40.73px; height: 1.40px; left: 0px; top: 12.98px; position: absolute; background: white"></div>
+                            <div style="width: 13.68px; height: 1.59px; left: 3.19px; top: 0.70px; position: absolute; transform: rotate(90deg); transform-origin: 0 0; background: #E0DFDF"></div>
+                            <div style="width: 13.68px; height: 1.59px; left: 39.14px; top: 0.70px; position: absolute; transform: rotate(90deg); transform-origin: 0 0; background: #E0DFDF"></div>
+                            <div style="width: 13.68px; height: 1.59px; left: 21.16px; top: 0.70px; position: absolute; transform: rotate(90deg); transform-origin: 0 0; background: #E0DFDF"></div>
+                            <div style="width: 40.73px; height: 1.40px; left: 0px; top: 0px; position: absolute; background: white"></div>
+                        </div>
+                        <div style="width: 49.61px; height: 63.49px; left: 0px; top: 27.25px; position: absolute">
+                            <div style="width: 49.61px; height: 63.49px; left: 0px; top: 0px; position: absolute; background: #F7F7F7"></div>
+                            <div style="width: 18.66px; height: 15.68px; left: 27.78px; top: 2.78px; position: absolute; background: #CFCDCD"></div>
+                            <div style="width: 18.66px; height: 15.68px; left: 3.18px; top: 2.78px; position: absolute; background: #CFCDCD"></div>
+                            <div style="width: 18.66px; height: 15.68px; left: 27.78px; top: 23.02px; position: absolute; background: #CFCDCD"></div>
+                            <div style="width: 18.66px; height: 15.68px; left: 3.18px; top: 23.02px; position: absolute; background: #CFCDCD"></div>
+                            <div style="width: 18.66px; height: 15.68px; left: 27.78px; top: 43.25px; position: absolute; background: #CFCDCD"></div>
+                            <div style="width: 18.66px; height: 15.68px; left: 3.18px; top: 43.25px; position: absolute; background: #CFCDCD"></div>
+                        </div>
+                    </div>
+                    <div style="width: 46.98px; height: 71.21px; left: 0.97px; top: 94.88px; position: absolute; background: #E0DFDF"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 44.94px; top: 102.78px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 33.29px; top: 102.78px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 21.64px; top: 102.78px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 9.99px; top: 102.78px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 44.94px; top: 112.36px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 33.29px; top: 112.36px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 21.64px; top: 112.36px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 9.99px; top: 112.36px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 44.94px; top: 121.94px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 33.29px; top: 121.94px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 21.64px; top: 121.94px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 9.99px; top: 121.94px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 44.94px; top: 131.52px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 33.29px; top: 131.52px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 21.64px; top: 131.52px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 9.99px; top: 131.52px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 44.94px; top: 141.10px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 33.29px; top: 141.10px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 21.64px; top: 141.10px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 9.99px; top: 141.10px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 44.94px; top: 150.68px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 33.29px; top: 150.68px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 21.64px; top: 150.68px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 9.99px; top: 150.68px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 44.94px; top: 160.26px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 33.29px; top: 160.25px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 21.64px; top: 160.25px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 6.01px; height: 5.27px; left: 9.99px; top: 160.26px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 48.92px; height: 1.08px; left: 0px; top: 93.85px; position: absolute; background: white"></div>
+                    <div style="width: 33.56px; height: 50.87px; left: 7.68px; top: 43.24px; position: absolute; background: #E0DFDF"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 39.09px; top: 48.88px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 30.77px; top: 48.88px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 22.44px; top: 48.88px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 14.12px; top: 48.88px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 39.09px; top: 55.73px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 30.77px; top: 55.73px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 22.44px; top: 55.73px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 14.12px; top: 55.73px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 39.09px; top: 62.57px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 30.77px; top: 62.58px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 22.44px; top: 62.57px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 14.12px; top: 62.58px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 39.09px; top: 69.42px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 30.77px; top: 69.42px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 22.44px; top: 69.42px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 14.12px; top: 69.42px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 39.09px; top: 76.26px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 30.77px; top: 76.26px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 22.44px; top: 76.26px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 14.12px; top: 76.26px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 39.09px; top: 83.10px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 30.77px; top: 83.10px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 22.44px; top: 83.10px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 14.12px; top: 83.10px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 39.09px; top: 89.95px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 30.77px; top: 89.95px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 22.44px; top: 89.95px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 4.30px; height: 3.77px; left: 14.12px; top: 89.95px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                    <div style="width: 34.95px; height: 0.77px; left: 6.98px; top: 42.51px; position: absolute; background: white"></div>
+                    <div style="width: 58.15px; height: 144.68px; left: 54.67px; top: 21.39px; position: absolute">
+                        <div style="width: 55.85px; height: 84.65px; left: 1.15px; top: 60.04px; position: absolute; background: #E0DFDF"></div>
+                        <div style="width: 34.40px; height: 11.83px; left: 11.88px; top: 48.21px; position: absolute; background: #E0DFDF"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 53.42px; top: 69.44px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 39.58px; top: 69.44px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 25.73px; top: 69.44px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 11.88px; top: 69.44px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 53.42px; top: 80.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 39.58px; top: 80.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 25.73px; top: 80.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 11.88px; top: 80.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 53.42px; top: 92.21px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 39.58px; top: 92.21px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 25.73px; top: 92.21px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 39.58px; top: 59.60px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 25.73px; top: 59.59px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 11.88px; top: 92.21px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 53.42px; top: 103.60px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 39.58px; top: 103.60px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 25.73px; top: 103.60px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 11.88px; top: 103.60px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 53.42px; top: 114.99px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 39.58px; top: 114.99px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 25.73px; top: 114.99px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 11.88px; top: 114.99px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 53.42px; top: 126.38px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 39.58px; top: 126.38px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 25.73px; top: 126.38px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 11.88px; top: 126.38px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 53.42px; top: 137.76px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 39.58px; top: 137.76px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 25.73px; top: 137.76px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 7.15px; height: 6.27px; left: 11.88px; top: 137.76px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        <div style="width: 58.15px; height: 1.28px; left: 0px; top: 58.82px; position: absolute; background: white"></div>
+                        <div style="width: 37.32px; height: 48.21px; left: 10.41px; top: -0px; position: absolute">
+                            <div style="width: 12.53px; height: 1.46px; left: 2.92px; top: 35.68px; position: absolute; transform: rotate(90deg); transform-origin: 0 0; background: #E0DFDF"></div>
+                            <div style="width: 12.53px; height: 1.46px; left: 35.86px; top: 35.68px; position: absolute; transform: rotate(90deg); transform-origin: 0 0; background: #E0DFDF"></div>
+                            <div style="width: 12.53px; height: 1.46px; left: 19.39px; top: 35.68px; position: absolute; transform: rotate(90deg); transform-origin: 0 0; background: #E0DFDF"></div>
+                            <div style="width: 37.32px; height: 1.28px; left: 0px; top: 46.93px; position: absolute; background: white"></div>
+                            <div style="width: 37.32px; height: 1.28px; left: 0px; top: 35.04px; position: absolute; background: white"></div>
+                            <div style="width: 12.53px; height: 1.46px; left: 2.92px; top: 23.78px; position: absolute; transform: rotate(90deg); transform-origin: 0 0; background: #E0DFDF"></div>
+                            <div style="width: 12.53px; height: 1.46px; left: 35.86px; top: 23.78px; position: absolute; transform: rotate(90deg); transform-origin: 0 0; background: #E0DFDF"></div>
+                            <div style="width: 12.53px; height: 1.46px; left: 19.39px; top: 23.78px; position: absolute; transform: rotate(90deg); transform-origin: 0 0; background: #E0DFDF"></div>
+                            <div style="width: 37.32px; height: 1.28px; left: 0px; top: 23.14px; position: absolute; background: white"></div>
+                            <div style="width: 12.53px; height: 1.46px; left: 2.92px; top: 11.89px; position: absolute; transform: rotate(90deg); transform-origin: 0 0; background: #E0DFDF"></div>
+                            <div style="width: 12.53px; height: 1.46px; left: 35.86px; top: 11.89px; position: absolute; transform: rotate(90deg); transform-origin: 0 0; background: #E0DFDF"></div>
+                            <div style="width: 12.53px; height: 1.46px; left: 19.39px; top: 11.89px; position: absolute; transform: rotate(90deg); transform-origin: 0 0; background: #E0DFDF"></div>
+                            <div style="width: 37.32px; height: 1.28px; left: 0px; top: 11.25px; position: absolute; background: white"></div>
+                            <div style="width: 12.53px; height: 1.46px; left: 35.86px; top: -0px; position: absolute; transform: rotate(90deg); transform-origin: 0 0; background: #E0DFDF"></div>
+                            <div style="width: 12.53px; height: 1.46px; left: 19.39px; top: -0px; position: absolute; transform: rotate(90deg); transform-origin: 0 0; background: #E0DFDF"></div>
+                        </div>
+                    </div>
+                    <div style="width: 76.79px; height: 65.25px; left: 75.96px; top: -0px; position: absolute">
+                        <div style="width: 3.73px; height: 5.75px; left: 0px; top: 32.30px; position: absolute; background: #E0DFDF"></div>
+                        <div style="width: 7.44px; height: 46.98px; left: 46.28px; top: 18.27px; position: absolute; background: #E0DFDF"></div>
+                        <div style="width: 5.78px; height: 9.31px; left: 47.11px; top: 3.14px; position: absolute; background: #E0DFDF"></div>
+                        <div style="width: 9.92px; height: 8.69px; left: 76.38px; top: 27.22px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #CFCDCD"></div>
+                        <div style="width: 74.79px; height: 30.61px; left: 1.73px; top: 0.45px; position: absolute; background: #CACACA"></div>
+                        <div style="width: 75.78px; height: 5.08px; left: 1.01px; top: 13.82px; position: absolute; background: #E0DFDF"></div>
+                        <div style="width: 15.25px; height: 8.31px; left: 42.61px; top: 12.19px; position: absolute">
+                            <div style="width: 15.25px; height: 8.31px; left: 0px; top: 0px; position: absolute; background: #E0DFDF"></div>
+                            <div style="width: 2.93px; height: 2.57px; left: 12.79px; top: 4.90px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                            <div style="width: 2.93px; height: 2.57px; left: 9.09px; top: 4.90px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                            <div style="width: 2.93px; height: 2.57px; left: 5.39px; top: 4.90px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #F7F7F7"></div>
+                        </div>
+                        <div style="width: 3.99px; height: 3.50px; left: 48px; top: -0px; position: absolute; background: #CACACA"></div>
+                        <div style="width: 3.41px; height: 2.99px; left: 0.16px; top: 31.06px; position: absolute; background: #CACACA"></div>
+                    </div>
+                </div>
+                <div style="width: 48.66px; height: 14.39px; left: 177.54px; top: -0px; position: absolute; background: white"></div>
+                <div style="width: 23.86px; height: 7.06px; left: 284.56px; top: 5.84px; position: absolute; background: white"></div>
+                <div style="width: 54.40px; height: 14.61px; left: 18.64px; top: 2.20px; position: absolute; background: white"></div>
+            </div>
+            <div style="width: 255.92px; height: 150.59px; left: 56.11px; top: 21.72px; position: absolute">
+                <div style="width: 255.92px; height: 150.59px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                <div style="width: 255.92px; height: 150.59px; left: 0px; top: 0px; position: absolute; opacity: 0.90; background: white"></div>
+            </div>
+            <div style="width: 351px; height: 13.30px; left: 0px; top: 181.70px; position: absolute; background: #CDD3E7"></div>
+            <div style="width: 53.97px; height: 90.88px; left: 32.71px; top: 97.41px; position: absolute">
+                <div style="width: 53.97px; height: 89.60px; left: 0px; top: 0px; position: absolute">
+                    <div style="width: 50.54px; height: 1.92px; left: 52.25px; top: 3.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 50.54px; height: 1.92px; left: 52.25px; top: 3.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.20; background: white"></div>
+                    <div style="width: 53.97px; height: 1.92px; left: 53.97px; top: 1.92px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 53.97px; height: 1.92px; left: 53.97px; top: 1.92px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.40; background: white"></div>
+                    <div style="width: 46.56px; height: 85.77px; left: 50.27px; top: 89.60px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 46.56px; height: 85.77px; left: 50.27px; top: 89.60px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.50; background: white"></div>
+                    <div style="width: 14.74px; height: 85.77px; left: 50.27px; top: 89.60px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.20; background: black"></div>
+                    <div style="width: 16.80px; height: 1.92px; left: 52.25px; top: 3.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.20; background: black"></div>
+                    <div style="width: 18.51px; height: 1.92px; left: 53.97px; top: 1.92px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.20; background: black"></div>
+                </div>
+                <div style="width: 25.73px; height: 84.30px; left: 6.75px; top: 6.34px; position: absolute">
+                    <div style="width: 6.24px; height: 9.67px; left: 25.73px; top: 9.67px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 15.99px; top: 9.67px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 6.24px; top: 9.67px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 25.73px; top: 21.31px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 15.99px; top: 21.31px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 6.24px; top: 21.31px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 25.73px; top: 38.58px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 15.99px; top: 38.58px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 6.25px; top: 38.58px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 25.73px; top: 50.22px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 15.99px; top: 50.23px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 6.24px; top: 50.22px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 25.73px; top: 67.49px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 15.99px; top: 67.49px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 6.25px; top: 67.49px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 7.81px; height: 12.08px; left: 20.67px; top: 84.30px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 7.81px; height: 12.08px; left: 12.87px; top: 84.30px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                </div>
+                <div style="width: 25.73px; height: 84.30px; left: 6.75px; top: 6.34px; position: absolute; opacity: 0.20">
+                    <div style="width: 6.24px; height: 9.67px; left: 25.73px; top: 9.67px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 15.99px; top: 9.67px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 6.24px; top: 9.67px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 25.73px; top: 21.31px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 15.99px; top: 21.31px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 6.24px; top: 21.31px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 25.73px; top: 38.58px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 15.99px; top: 38.58px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 6.25px; top: 38.58px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 25.73px; top: 50.22px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 15.99px; top: 50.23px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 6.24px; top: 50.22px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 25.73px; top: 67.49px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 15.99px; top: 67.49px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 6.24px; height: 9.67px; left: 6.25px; top: 67.49px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 7.81px; height: 12.08px; left: 20.67px; top: 84.30px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 7.81px; height: 12.08px; left: 12.87px; top: 84.30px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                </div>
+                <div style="width: 23.45px; height: 82.52px; left: 7.89px; top: 7.13px; position: absolute; opacity: 0.80">
+                    <div style="width: 3.97px; height: 8.08px; left: 23.45px; top: 8.08px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 3.97px; height: 8.08px; left: 13.71px; top: 8.08px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 3.97px; height: 8.08px; left: 3.97px; top: 8.08px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 3.97px; height: 8.08px; left: 23.45px; top: 19.73px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 3.97px; height: 8.08px; left: 13.71px; top: 19.73px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 3.97px; height: 8.08px; left: 3.97px; top: 19.73px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 3.97px; height: 8.08px; left: 23.45px; top: 36.99px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 3.97px; height: 8.08px; left: 13.71px; top: 36.99px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 3.97px; height: 8.08px; left: 3.97px; top: 36.99px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 3.97px; height: 8.08px; left: 23.45px; top: 48.64px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 3.97px; height: 8.08px; left: 13.71px; top: 48.64px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 3.97px; height: 8.08px; left: 3.97px; top: 48.64px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 3.97px; height: 8.08px; left: 23.45px; top: 65.90px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 3.97px; height: 8.08px; left: 13.71px; top: 65.90px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 3.97px; height: 8.08px; left: 3.97px; top: 65.90px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 4.96px; height: 10.11px; left: 18.11px; top: 82.52px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                    <div style="width: 4.96px; height: 10.11px; left: 10.30px; top: 82.52px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: white"></div>
+                </div>
+                <div style="width: 27.65px; height: 62.56px; left: 5.79px; top: 16px; position: absolute">
+                    <div style="width: 8.16px; height: 0.67px; left: 27.65px; top: 0.67px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 8.16px; height: 0.67px; left: 17.90px; top: 0.67px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 8.16px; height: 0.67px; left: 8.16px; top: 0.67px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 8.16px; height: 0.67px; left: 27.65px; top: 12.32px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 8.16px; height: 0.67px; left: 17.90px; top: 12.32px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 8.16px; height: 0.67px; left: 8.16px; top: 12.32px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 8.16px; height: 0.67px; left: 27.65px; top: 29.58px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 8.16px; height: 0.67px; left: 17.90px; top: 29.58px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 8.16px; height: 0.67px; left: 8.16px; top: 29.58px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 8.16px; height: 0.67px; left: 27.65px; top: 41.23px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 8.16px; height: 0.67px; left: 17.90px; top: 41.23px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 8.16px; height: 0.67px; left: 8.16px; top: 41.23px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 8.16px; height: 0.67px; left: 27.65px; top: 58.49px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 8.16px; height: 0.67px; left: 17.90px; top: 58.49px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 8.16px; height: 0.67px; left: 8.16px; top: 58.49px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 18.98px; height: 0.67px; left: 23.06px; top: 62.56px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                </div>
+                <div style="width: 3.26px; height: 1.26px; left: 50.26px; top: 20.99px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                <div style="width: 3.26px; height: 1.26px; left: 47.12px; top: 23.45px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                <div style="width: 3.26px; height: 1.26px; left: 45.49px; top: 20.99px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                <div style="width: 3.26px; height: 1.26px; left: 46.25px; top: 11.49px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                <div style="width: 3.26px; height: 1.26px; left: 43.10px; top: 13.96px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                <div style="width: 3.26px; height: 1.26px; left: 43.10px; top: 8.89px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                <div style="width: 3.26px; height: 1.26px; left: 41.46px; top: 11.49px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                <div style="width: 3.26px; height: 1.26px; left: 41.92px; top: 78.32px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                <div style="width: 3.26px; height: 1.26px; left: 38.78px; top: 75.72px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                <div style="width: 14.81px; height: 22.50px; left: 35.45px; top: 35.25px; position: absolute">
+                    <div style="width: 3.26px; height: 1.26px; left: 14.81px; top: 3.86px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                    <div style="width: 3.26px; height: 1.26px; left: 11.66px; top: 6.33px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                    <div style="width: 3.26px; height: 1.26px; left: 11.66px; top: 1.26px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                    <div style="width: 3.26px; height: 1.26px; left: 10.03px; top: 3.86px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                    <div style="width: 3.26px; height: 1.26px; left: 8.05px; top: 20.04px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                    <div style="width: 3.26px; height: 1.26px; left: 4.90px; top: 22.50px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                    <div style="width: 3.26px; height: 1.26px; left: 4.90px; top: 17.44px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                    <div style="width: 3.26px; height: 1.26px; left: 14.75px; top: 14.37px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                    <div style="width: 3.26px; height: 1.26px; left: 11.60px; top: 11.77px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                    <div style="width: 3.26px; height: 1.26px; left: 3.26px; top: 20.04px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                </div>
+                <div style="width: 3.26px; height: 1.26px; left: 50.21px; top: 68.03px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                <div style="width: 3.26px; height: 1.26px; left: 47.06px; top: 70.49px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                <div style="width: 3.26px; height: 1.26px; left: 47.06px; top: 65.42px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                <div style="width: 3.26px; height: 1.26px; left: 50.21px; top: 85.30px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                <div style="width: 3.26px; height: 1.26px; left: 47.06px; top: 87.76px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                <div style="width: 3.26px; height: 1.26px; left: 47.06px; top: 82.70px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                <div style="width: 3.26px; height: 1.26px; left: 45.43px; top: 68.03px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: black"></div>
+                <div style="width: 50.54px; height: 1.92px; left: 1.72px; top: 30.82px; position: absolute">
+                    <div style="width: 50.54px; height: 1.92px; left: 50.54px; top: 1.92px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 50.54px; height: 1.92px; left: 50.54px; top: 1.92px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.20; background: white"></div>
+                    <div style="width: 16.80px; height: 1.92px; left: 50.54px; top: 1.92px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.20; background: black"></div>
+                </div>
+                <div style="width: 50.54px; height: 1.92px; left: 1.72px; top: 59.73px; position: absolute">
+                    <div style="width: 50.54px; height: 1.92px; left: 50.54px; top: 1.92px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 50.54px; height: 1.92px; left: 50.54px; top: 1.92px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.20; background: white"></div>
+                    <div style="width: 16.80px; height: 1.92px; left: 50.54px; top: 1.92px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.20; background: black"></div>
+                </div>
+                <div style="width: 50.54px; height: 1.92px; left: 1.72px; top: 88.96px; position: absolute">
+                    <div style="width: 50.54px; height: 1.92px; left: 50.54px; top: 1.92px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 50.54px; height: 1.92px; left: 50.54px; top: 1.92px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.20; background: white"></div>
+                    <div style="width: 16.80px; height: 1.92px; left: 50.54px; top: 1.92px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.20; background: black"></div>
+                </div>
+            </div>
+            <div style="width: 36.89px; height: 96.31px; left: 288.16px; top: 91.99px; position: absolute">
+                <div style="width: 36.89px; height: 96.31px; left: 0px; top: 0px; position: absolute">
+                    <div style="width: 36.89px; height: 96.31px; left: 0px; top: 0px; position: absolute">
+                        <div style="width: 36.89px; height: 19.29px; left: 0px; top: 77.02px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 36.89px; height: 19.29px; left: 0px; top: 38.51px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 36.89px; height: 19.29px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                    </div>
+                    <div style="width: 36.89px; height: 96.31px; left: 0px; top: 0px; position: absolute; opacity: 0.70">
+                        <div style="width: 36.89px; height: 19.29px; left: 0px; top: 77.02px; position: absolute; background: white"></div>
+                        <div style="width: 36.89px; height: 19.29px; left: 0px; top: 38.51px; position: absolute; background: white"></div>
+                        <div style="width: 36.89px; height: 19.29px; left: 0px; top: 0px; position: absolute; background: white"></div>
+                    </div>
+                </div>
+                <div style="width: 36.89px; height: 96.31px; left: 0px; top: 0px; position: absolute">
+                    <div style="width: 36.89px; height: 57.80px; left: 0px; top: 19.26px; position: absolute">
+                        <div style="width: 36.89px; height: 57.80px; left: 0px; top: 0px; position: absolute">
+                            <div style="width: 36.89px; height: 19.29px; left: 0px; top: 38.51px; position: absolute; background: #407BFF"></div>
+                            <div style="width: 36.89px; height: 19.29px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        </div>
+                        <div style="width: 36.89px; height: 57.80px; left: 0px; top: 0px; position: absolute; opacity: 0.20">
+                            <div style="width: 36.89px; height: 19.29px; left: 0px; top: 38.51px; position: absolute; background: white"></div>
+                            <div style="width: 36.89px; height: 19.29px; left: 0px; top: 0px; position: absolute; background: white"></div>
+                        </div>
+                    </div>
+                    <div style="width: 12.64px; height: 19.29px; left: 0px; top: 77.02px; position: absolute; opacity: 0.10; background: black"></div>
+                    <div style="width: 12.64px; height: 19.29px; left: 0px; top: 57.76px; position: absolute; opacity: 0.10; background: black"></div>
+                    <div style="width: 12.64px; height: 19.29px; left: 0px; top: 38.51px; position: absolute; opacity: 0.10; background: black"></div>
+                    <div style="width: 12.64px; height: 19.29px; left: 0px; top: 19.25px; position: absolute; opacity: 0.10; background: black"></div>
+                    <div style="width: 12.64px; height: 19.29px; left: 0px; top: 0px; position: absolute; opacity: 0.10; background: black"></div>
+                    <div style="width: 19.61px; height: 14.99px; left: 15.45px; top: 2.34px; position: absolute">
+                        <div style="width: 8.58px; height: 13.39px; left: 1.08px; top: 0.80px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 8.58px; height: 13.39px; left: 1.08px; top: 0.80px; position: absolute; opacity: 0.20; background: black"></div>
+                        <div style="width: 8.58px; height: 13.39px; left: 9.66px; top: 0.80px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 19.61px; height: 0.80px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 19.61px; height: 0.80px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: white"></div>
+                        <div style="width: 7.47px; height: 7.10px; left: 1.50px; top: 2.85px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 7.47px; height: 7.44px; left: 1.50px; top: 4.33px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 7.47px; height: 7.67px; left: 1.50px; top: 5.60px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 7.47px; height: 7.10px; left: 10.22px; top: 1.59px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 7.47px; height: 7.10px; left: 10.22px; top: 6.73px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 7.47px; height: 8.93px; left: 10.22px; top: 3.07px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 2.99px; height: 0.80px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                        <div style="width: 19.61px; height: 0.80px; left: 0px; top: 14.19px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 19.61px; height: 0.80px; left: 0px; top: 14.19px; position: absolute; opacity: 0.20; background: white"></div>
+                        <div style="width: 2.99px; height: 0.80px; left: 0px; top: 14.19px; position: absolute; opacity: 0.20; background: black"></div>
+                    </div>
+                    <div style="width: 19.61px; height: 14.99px; left: 15.45px; top: 21.63px; position: absolute">
+                        <div style="width: 8.58px; height: 13.39px; left: 1.08px; top: 0.80px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 8.58px; height: 13.39px; left: 1.08px; top: 0.80px; position: absolute; opacity: 0.20; background: black"></div>
+                        <div style="width: 8.58px; height: 13.39px; left: 9.67px; top: 0.80px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 19.61px; height: 0.80px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 19.61px; height: 0.80px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: white"></div>
+                        <div style="width: 7.47px; height: 7.10px; left: 1.50px; top: 2.85px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 7.47px; height: 7.44px; left: 1.50px; top: 4.33px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 7.47px; height: 7.67px; left: 1.50px; top: 5.59px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 7.47px; height: 7.10px; left: 10.22px; top: 1.59px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 7.47px; height: 7.10px; left: 10.22px; top: 6.73px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 7.47px; height: 8.93px; left: 10.22px; top: 3.07px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 2.99px; height: 0.80px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                        <div style="width: 19.61px; height: 0.80px; left: 0px; top: 14.19px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 19.61px; height: 0.80px; left: 0px; top: 14.19px; position: absolute; opacity: 0.20; background: white"></div>
+                        <div style="width: 2.99px; height: 0.80px; left: 0px; top: 14.19px; position: absolute; opacity: 0.20; background: black"></div>
+                    </div>
+                    <div style="width: 19.61px; height: 14.99px; left: 15.45px; top: 40.93px; position: absolute">
+                        <div style="width: 8.58px; height: 13.39px; left: 1.08px; top: 0.80px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 8.58px; height: 13.39px; left: 1.08px; top: 0.80px; position: absolute; opacity: 0.20; background: black"></div>
+                        <div style="width: 8.58px; height: 13.39px; left: 9.66px; top: 0.80px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 19.61px; height: 0.80px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 19.61px; height: 0.80px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: white"></div>
+                        <div style="width: 7.47px; height: 7.10px; left: 1.50px; top: 2.85px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 7.47px; height: 7.44px; left: 1.50px; top: 4.33px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 7.47px; height: 7.67px; left: 1.50px; top: 5.60px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 7.47px; height: 7.10px; left: 10.22px; top: 1.59px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 7.47px; height: 7.10px; left: 10.22px; top: 6.73px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 7.47px; height: 8.93px; left: 10.22px; top: 3.07px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 2.99px; height: 0.80px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                        <div style="width: 19.61px; height: 0.80px; left: 0px; top: 14.19px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 19.61px; height: 0.80px; left: 0px; top: 14.19px; position: absolute; opacity: 0.20; background: white"></div>
+                        <div style="width: 2.99px; height: 0.80px; left: 0px; top: 14.19px; position: absolute; opacity: 0.20; background: black"></div>
+                    </div>
+                    <div style="width: 19.61px; height: 14.99px; left: 15.45px; top: 60.23px; position: absolute">
+                        <div style="width: 8.58px; height: 13.39px; left: 1.08px; top: 0.80px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 8.58px; height: 13.39px; left: 1.08px; top: 0.80px; position: absolute; opacity: 0.20; background: black"></div>
+                        <div style="width: 8.58px; height: 13.39px; left: 9.66px; top: 0.80px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 19.61px; height: 0.80px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 19.61px; height: 0.80px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: white"></div>
+                        <div style="width: 7.47px; height: 7.10px; left: 1.50px; top: 2.85px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 7.47px; height: 7.44px; left: 1.50px; top: 4.34px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 7.47px; height: 7.67px; left: 1.50px; top: 5.60px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 7.47px; height: 7.10px; left: 10.22px; top: 1.59px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 7.47px; height: 7.10px; left: 10.22px; top: 6.73px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 7.47px; height: 8.93px; left: 10.22px; top: 3.08px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 2.99px; height: 0.80px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                        <div style="width: 19.61px; height: 0.80px; left: 0px; top: 14.19px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 19.61px; height: 0.80px; left: 0px; top: 14.19px; position: absolute; opacity: 0.20; background: white"></div>
+                        <div style="width: 2.99px; height: 0.80px; left: 0px; top: 14.19px; position: absolute; opacity: 0.20; background: black"></div>
+                    </div>
+                    <div style="width: 19.61px; height: 14.99px; left: 15.45px; top: 79.53px; position: absolute">
+                        <div style="width: 8.58px; height: 13.39px; left: 1.08px; top: 0.80px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 8.58px; height: 13.39px; left: 1.08px; top: 0.80px; position: absolute; opacity: 0.20; background: black"></div>
+                        <div style="width: 8.58px; height: 13.39px; left: 9.66px; top: 0.80px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 19.61px; height: 0.80px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 19.61px; height: 0.80px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: white"></div>
+                        <div style="width: 7.47px; height: 7.10px; left: 1.50px; top: 2.85px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 7.47px; height: 7.44px; left: 1.50px; top: 4.34px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 7.47px; height: 7.67px; left: 1.50px; top: 5.60px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 7.47px; height: 7.10px; left: 10.22px; top: 1.59px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 7.47px; height: 7.10px; left: 10.22px; top: 6.73px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 7.47px; height: 8.93px; left: 10.22px; top: 3.07px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 2.99px; height: 0.80px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                        <div style="width: 19.61px; height: 0.80px; left: 0px; top: 14.19px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 19.61px; height: 0.80px; left: 0px; top: 14.19px; position: absolute; opacity: 0.20; background: white"></div>
+                        <div style="width: 2.99px; height: 0.80px; left: 0px; top: 14.19px; position: absolute; opacity: 0.20; background: black"></div>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 48.54px; height: 164.09px; left: 166.89px; top: 24.20px; position: absolute">
+                <div style="width: 43.28px; height: 31.05px; left: 2.92px; top: -0px; position: absolute; background: #407BFF"></div>
+                <div style="width: 43.29px; height: 133.04px; left: 2.92px; top: 31.05px; position: absolute">
+                    <div style="width: 43.29px; height: 133.04px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 43.29px; height: 133.04px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: white"></div>
+                    <div style="width: 13.70px; height: 133.04px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                </div>
+                <div style="width: 36.50px; height: 127.70px; left: 6.87px; top: 35.48px; position: absolute">
+                    <div style="width: 5.80px; height: 127.70px; left: 12.58px; top: -0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 5.80px; height: 127.70px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 5.80px; height: 127.70px; left: 21.64px; top: -0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 5.80px; height: 127.70px; left: 30.70px; top: -0px; position: absolute; background: #407BFF"></div>
+                </div>
+                <div style="width: 36.50px; height: 127.70px; left: 6.87px; top: 35.48px; position: absolute; opacity: 0.20">
+                    <div style="width: 5.80px; height: 127.70px; left: 12.58px; top: -0px; position: absolute; background: black"></div>
+                    <div style="width: 5.80px; height: 127.70px; left: 0px; top: 0px; position: absolute; background: black"></div>
+                    <div style="width: 5.80px; height: 127.70px; left: 21.64px; top: -0px; position: absolute; background: black"></div>
+                    <div style="width: 5.80px; height: 127.70px; left: 30.70px; top: -0px; position: absolute; background: black"></div>
+                </div>
+                <div style="width: 29.58px; height: 31.05px; left: 16.62px; top: -0px; position: absolute; opacity: 0.20; background: black"></div>
+                <div style="width: 43.28px; height: 31.05px; left: 2.92px; top: -0px; position: absolute"></div>
+                <div style="width: 29.58px; height: 31.05px; left: 16.62px; top: -0px; position: absolute; opacity: 0.40; background: white"></div>
+                <div style="width: 31.91px; height: 1.83px; left: 16.62px; top: 47.79px; position: absolute">
+                    <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 4.42px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.10; background: black"></div>
+                    </div>
+                </div>
+                <div style="width: 12.67px; height: 1.83px; left: 0px; top: 47.78px; position: absolute">
+                    <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                    <div style="width: 12.67px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                        <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.40; background: white"></div>
+                        <div style="width: 1.75px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.10; background: black"></div>
+                    </div>
+                </div>
+                <div style="width: 48.53px; height: 1.83px; left: 0px; top: 64.05px; position: absolute">
+                    <div style="width: 31.91px; height: 1.83px; left: 16.62px; top: -0px; position: absolute">
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                            <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.40; background: white"></div>
+                            <div style="width: 4.42px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.10; background: black"></div>
+                        </div>
+                    </div>
+                    <div style="width: 12.67px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                        <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                        <div style="width: 12.67px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                            <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.40; background: white"></div>
+                            <div style="width: 1.75px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.10; background: black"></div>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 48.53px; height: 1.83px; left: 0px; top: 80.31px; position: absolute">
+                    <div style="width: 31.91px; height: 1.83px; left: 16.62px; top: -0px; position: absolute">
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                            <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.40; background: white"></div>
+                            <div style="width: 4.42px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.10; background: black"></div>
+                        </div>
+                    </div>
+                    <div style="width: 12.67px; height: 1.83px; left: 0px; top: 0.01px; position: absolute">
+                        <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                        <div style="width: 12.67px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                            <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.40; background: white"></div>
+                            <div style="width: 1.75px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.10; background: black"></div>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 48.53px; height: 1.83px; left: 0px; top: 96.57px; position: absolute">
+                    <div style="width: 31.91px; height: 1.83px; left: 16.62px; top: 0px; position: absolute">
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                            <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.40; background: white"></div>
+                            <div style="width: 4.42px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.10; background: black"></div>
+                        </div>
+                    </div>
+                    <div style="width: 12.67px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                        <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                        <div style="width: 12.67px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                            <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.40; background: white"></div>
+                            <div style="width: 1.75px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.10; background: black"></div>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 48.53px; height: 1.83px; left: 0px; top: 112.84px; position: absolute">
+                    <div style="width: 31.91px; height: 1.83px; left: 16.62px; top: 0px; position: absolute">
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                            <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.40; background: white"></div>
+                            <div style="width: 4.42px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.10; background: black"></div>
+                        </div>
+                    </div>
+                    <div style="width: 12.67px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                        <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                        <div style="width: 12.67px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                            <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.40; background: white"></div>
+                            <div style="width: 1.75px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.10; background: black"></div>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 48.53px; height: 1.83px; left: 0px; top: 129.09px; position: absolute">
+                    <div style="width: 31.91px; height: 1.83px; left: 16.62px; top: 0px; position: absolute">
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                            <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.40; background: white"></div>
+                            <div style="width: 4.42px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.10; background: black"></div>
+                        </div>
+                    </div>
+                    <div style="width: 12.67px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                        <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                        <div style="width: 12.67px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                            <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.40; background: white"></div>
+                            <div style="width: 1.75px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.10; background: black"></div>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 48.53px; height: 1.83px; left: 0px; top: 145.36px; position: absolute">
+                    <div style="width: 31.91px; height: 1.83px; left: 16.62px; top: -0px; position: absolute">
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                            <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.40; background: white"></div>
+                            <div style="width: 4.42px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.10; background: black"></div>
+                        </div>
+                    </div>
+                    <div style="width: 12.67px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                        <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                        <div style="width: 12.67px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                            <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.40; background: white"></div>
+                            <div style="width: 1.75px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.10; background: black"></div>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 48.53px; height: 1.83px; left: 0px; top: 162.26px; position: absolute">
+                    <div style="width: 31.91px; height: 1.83px; left: 16.62px; top: 0px; position: absolute">
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                            <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.40; background: white"></div>
+                            <div style="width: 4.42px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.10; background: black"></div>
+                        </div>
+                    </div>
+                    <div style="width: 12.67px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                        <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                        <div style="width: 12.67px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                            <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.40; background: white"></div>
+                            <div style="width: 1.75px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.10; background: black"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 69.18px; height: 104.96px; left: 125.07px; top: 83.33px; position: absolute">
+                <div style="width: 65.62px; height: 34.31px; left: 1.78px; top: 70.65px; position: absolute; background: #407BFF"></div>
+                <div style="width: 65.62px; height: 34.31px; left: 1.78px; top: 70.65px; position: absolute; opacity: 0.70; background: white"></div>
+                <div style="width: 22.48px; height: 34.31px; left: 1.78px; top: 70.65px; position: absolute; opacity: 0.20; background: black"></div>
+                <div style="width: 15.26px; height: 23.82px; left: 31.19px; top: 81.14px; position: absolute; background: #407BFF"></div>
+                <div style="width: 15.26px; height: 23.82px; left: 31.19px; top: 81.14px; position: absolute; opacity: 0.20; background: black"></div>
+                <div style="width: 15.26px; height: 23.82px; left: 46.46px; top: 81.14px; position: absolute; background: #407BFF"></div>
+                <div style="width: 34.88px; height: 1.42px; left: 29.26px; top: 79.72px; position: absolute; background: #407BFF"></div>
+                <div style="width: 34.88px; height: 1.42px; left: 29.26px; top: 79.72px; position: absolute; opacity: 0.30; background: white"></div>
+                <div style="width: 28.80px; height: 21.78px; left: 31.93px; top: 82.54px; position: absolute; opacity: 0.30">
+                    <div style="width: 13.29px; height: 12.63px; left: 0px; top: 2.24px; position: absolute; background: white"></div>
+                    <div style="width: 13.29px; height: 13.24px; left: 0px; top: 4.88px; position: absolute; background: white"></div>
+                    <div style="width: 13.29px; height: 13.64px; left: 0px; top: 7.13px; position: absolute; background: white"></div>
+                    <div style="width: 13.29px; height: 12.63px; left: 15.52px; top: -0px; position: absolute; background: white"></div>
+                    <div style="width: 13.29px; height: 12.63px; left: 15.52px; top: 9.15px; position: absolute; background: white"></div>
+                    <div style="width: 13.29px; height: 15.88px; left: 15.52px; top: 2.64px; position: absolute; background: white"></div>
+                </div>
+                <div style="width: 45.62px; height: 69.96px; left: 12.51px; top: -0px; position: absolute">
+                    <div style="width: 43.29px; height: 69.96px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 43.29px; height: 69.96px; left: 0px; top: 0px; position: absolute; opacity: 0.60; background: white"></div>
+                    <div style="width: 13.70px; height: 69.96px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 5.80px; height: 67.15px; left: 16.54px; top: 2.33px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 5.80px; height: 67.15px; left: 25.59px; top: 2.33px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 5.80px; height: 67.15px; left: 34.65px; top: 2.33px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 31.91px; height: 0.96px; left: 13.71px; top: 17.36px; position: absolute">
+                        <div style="width: 27.49px; height: 0.96px; left: 4.42px; top: -0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 31.91px; height: 0.96px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 31.91px; height: 0.96px; left: 0px; top: 0px; position: absolute; opacity: 0.50; background: white"></div>
+                        <div style="width: 4.42px; height: 0.96px; left: 0px; top: 0px; position: absolute; opacity: 0.10; background: black"></div>
+                    </div>
+                    <div style="width: 31.91px; height: 0.96px; left: 13.71px; top: 34.57px; position: absolute">
+                        <div style="width: 27.49px; height: 0.96px; left: 4.42px; top: -0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 31.91px; height: 0.96px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 31.91px; height: 0.96px; left: 0px; top: 0px; position: absolute; opacity: 0.50; background: white"></div>
+                        <div style="width: 4.42px; height: 0.96px; left: 0px; top: 0px; position: absolute; opacity: 0.10; background: black"></div>
+                    </div>
+                    <div style="width: 31.91px; height: 0.96px; left: 13.71px; top: 51.79px; position: absolute">
+                        <div style="width: 27.49px; height: 0.96px; left: 4.42px; top: -0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 31.91px; height: 0.96px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 31.91px; height: 0.96px; left: 0px; top: 0px; position: absolute; opacity: 0.50; background: white"></div>
+                        <div style="width: 4.42px; height: 0.96px; left: 0px; top: 0px; position: absolute; opacity: 0.10; background: black"></div>
+                    </div>
+                    <div style="width: 31.91px; height: 0.96px; left: 13.71px; top: 69px; position: absolute">
+                        <div style="width: 27.49px; height: 0.96px; left: 4.42px; top: -0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 31.91px; height: 0.96px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 31.91px; height: 0.96px; left: 0px; top: 0px; position: absolute; opacity: 0.50; background: white"></div>
+                        <div style="width: 4.42px; height: 0.96px; left: 0px; top: 0px; position: absolute; opacity: 0.10; background: black"></div>
+                    </div>
+                </div>
+                <div style="width: 69.18px; height: 0.89px; left: 0px; top: 69.75px; position: absolute">
+                    <div style="width: 69.18px; height: 0.89px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 69.18px; height: 0.89px; left: 0px; top: 0px; position: absolute; opacity: 0.30; background: white"></div>
+                    <div style="width: 23.73px; height: 0.89px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                </div>
+                <div style="width: 5.33px; height: 1.42px; left: 29.26px; top: 79.72px; position: absolute; opacity: 0.20; background: black"></div>
+            </div>
+            <div style="width: 43.29px; height: 152.07px; left: 101.84px; top: 36.22px; position: absolute">
+                <div style="width: 33.65px; height: 17.87px; left: 5.22px; top: -0px; position: absolute; background: #407BFF"></div>
+                <div style="width: 33.65px; height: 17.87px; left: 5.22px; top: -0px; position: absolute; opacity: 0.30; background: white"></div>
+                <div style="width: 9.18px; height: 17.87px; left: 5.22px; top: -0px; position: absolute; opacity: 0.20; background: black"></div>
+                <div style="width: 43.29px; height: 134.16px; left: 0px; top: 17.87px; position: absolute; background: #407BFF"></div>
+                <div style="width: 43.29px; height: 134.16px; left: 0px; top: 17.87px; position: absolute; opacity: 0.30; background: white"></div>
+                <div style="width: 13.70px; height: 134.16px; left: 0px; top: 17.87px; position: absolute; opacity: 0.20; background: black"></div>
+                <div style="width: 8.38px; height: 13.08px; left: 20.77px; top: 138.99px; position: absolute; background: #407BFF"></div>
+                <div style="width: 8.38px; height: 13.08px; left: 20.77px; top: 138.99px; position: absolute; opacity: 0.20; background: black"></div>
+                <div style="width: 8.38px; height: 13.08px; left: 29.16px; top: 138.99px; position: absolute; background: #407BFF"></div>
+                <div style="width: 19.15px; height: 0.78px; left: 19.72px; top: 138.21px; position: absolute; background: #407BFF"></div>
+                <div style="width: 19.15px; height: 0.78px; left: 19.72px; top: 138.21px; position: absolute; opacity: 0.40; background: white"></div>
+                <div style="width: 15.95px; height: 3.92px; left: 18.32px; top: -0px; position: absolute; transform: rotate(90deg); transform-origin: 0 0; background: #407BFF"></div>
+                <div style="width: 15.95px; height: 3.92px; left: 26.17px; top: -0px; position: absolute; transform: rotate(90deg); transform-origin: 0 0; background: #407BFF"></div>
+                <div style="width: 15.95px; height: 3.92px; left: 9.14px; top: -0px; position: absolute; transform: rotate(90deg); transform-origin: 0 0; background: #407BFF"></div>
+                <div style="width: 15.95px; height: 3.92px; left: 34.01px; top: -0px; position: absolute; transform: rotate(90deg); transform-origin: 0 0; background: #407BFF"></div>
+                <div style="width: 13.70px; height: 117.12px; left: 0px; top: 17.87px; position: absolute">
+                    <div style="width: 13.70px; height: 2.72px; left: 0px; top: 114.40px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 13.70px; height: 2.72px; left: 0px; top: 108.95px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 13.70px; height: 2.72px; left: 0px; top: 103.50px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 13.70px; height: 2.72px; left: 0px; top: 98.06px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 13.70px; height: 2.72px; left: 0px; top: 92.61px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 13.70px; height: 2.72px; left: 0px; top: 87.16px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 13.70px; height: 2.72px; left: 0px; top: 81.71px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 13.70px; height: 2.72px; left: 0px; top: 76.27px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 13.70px; height: 2.72px; left: 0px; top: 70.82px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 13.70px; height: 2.72px; left: 0px; top: 65.37px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 13.70px; height: 2.72px; left: 0px; top: 59.93px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 13.70px; height: 2.72px; left: 0px; top: 54.48px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 13.70px; height: 2.72px; left: 0px; top: 49.03px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 13.70px; height: 2.72px; left: 0px; top: 43.58px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 13.70px; height: 2.72px; left: 0px; top: 38.13px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 13.70px; height: 2.72px; left: 0px; top: 32.69px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 13.70px; height: 2.72px; left: 0px; top: 27.24px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 13.70px; height: 2.72px; left: 0px; top: 21.79px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 13.70px; height: 2.72px; left: 0px; top: 16.34px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 13.70px; height: 2.72px; left: 0px; top: 10.90px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 13.70px; height: 2.72px; left: 0px; top: 5.45px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 13.70px; height: 2.72px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                </div>
+                <div style="width: 29.58px; height: 2.72px; left: 13.70px; top: 17.87px; position: absolute; background: #407BFF"></div>
+                <div style="width: 29.58px; height: 2.72px; left: 13.70px; top: 23.32px; position: absolute; background: #407BFF"></div>
+                <div style="width: 29.58px; height: 2.72px; left: 13.70px; top: 28.77px; position: absolute; background: #407BFF"></div>
+                <div style="width: 29.58px; height: 2.72px; left: 13.70px; top: 34.22px; position: absolute; background: #407BFF"></div>
+                <div style="width: 29.58px; height: 2.72px; left: 13.70px; top: 39.66px; position: absolute; background: #407BFF"></div>
+                <div style="width: 29.58px; height: 2.72px; left: 13.70px; top: 45.11px; position: absolute; background: #407BFF"></div>
+                <div style="width: 29.58px; height: 2.72px; left: 13.70px; top: 50.56px; position: absolute; background: #407BFF"></div>
+                <div style="width: 29.58px; height: 2.72px; left: 13.70px; top: 56.01px; position: absolute; background: #407BFF"></div>
+                <div style="width: 29.58px; height: 2.72px; left: 13.70px; top: 61.45px; position: absolute; background: #407BFF"></div>
+                <div style="width: 29.58px; height: 2.72px; left: 13.70px; top: 66.90px; position: absolute; background: #407BFF"></div>
+                <div style="width: 29.58px; height: 2.72px; left: 13.70px; top: 72.35px; position: absolute; background: #407BFF"></div>
+                <div style="width: 29.58px; height: 2.72px; left: 13.70px; top: 77.80px; position: absolute; background: #407BFF"></div>
+                <div style="width: 29.58px; height: 2.72px; left: 13.70px; top: 83.24px; position: absolute; background: #407BFF"></div>
+                <div style="width: 29.58px; height: 2.72px; left: 13.70px; top: 88.69px; position: absolute; background: #407BFF"></div>
+                <div style="width: 29.58px; height: 2.72px; left: 13.70px; top: 94.14px; position: absolute; background: #407BFF"></div>
+                <div style="width: 29.58px; height: 2.72px; left: 13.70px; top: 99.59px; position: absolute; background: #407BFF"></div>
+                <div style="width: 29.58px; height: 2.72px; left: 13.70px; top: 105.03px; position: absolute; background: #407BFF"></div>
+                <div style="width: 29.58px; height: 2.72px; left: 13.70px; top: 110.48px; position: absolute; background: #407BFF"></div>
+                <div style="width: 29.58px; height: 2.72px; left: 13.70px; top: 115.93px; position: absolute; background: #407BFF"></div>
+                <div style="width: 29.58px; height: 2.72px; left: 13.70px; top: 121.38px; position: absolute; background: #407BFF"></div>
+                <div style="width: 29.58px; height: 2.72px; left: 13.70px; top: 126.83px; position: absolute; background: #407BFF"></div>
+                <div style="width: 29.58px; height: 2.72px; left: 13.70px; top: 132.27px; position: absolute; background: #407BFF"></div>
+                <div style="width: 2.92px; height: 0.78px; left: 19.72px; top: 138.21px; position: absolute; opacity: 0.20; background: black"></div>
+            </div>
+            <div style="width: 47.75px; height: 86.07px; left: 82.50px; top: 102.22px; position: absolute">
+                <div style="width: 47.75px; height: 86.07px; left: 0px; top: 0px; position: absolute">
+                    <div style="width: 47.75px; height: 86.07px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 47.75px; height: 86.07px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: white"></div>
+                    <div style="width: 15.12px; height: 86.07px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                </div>
+                <div style="width: 44.66px; height: 82.17px; left: 0.93px; top: 3.86px; position: absolute">
+                    <div style="width: 11.85px; height: 1px; left: 0px; top: 13.41px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 11.85px; height: 1px; left: 18.44px; top: 13.41px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 11.85px; height: 1px; left: 32.81px; top: 13.41px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 11.85px; height: 1px; left: 0px; top: 33.75px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 11.85px; height: 1px; left: 18.44px; top: 33.75px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 11.85px; height: 1px; left: 32.81px; top: 33.75px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 11.85px; height: 1px; left: 0px; top: 54.10px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 11.85px; height: 1px; left: 18.44px; top: 54.10px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 11.85px; height: 1px; left: 32.81px; top: 54.10px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 41.84px; height: 82.17px; left: 1.41px; top: -0px; position: absolute">
+                        <div style="width: 10.44px; height: 13.40px; left: 17.03px; top: -0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 10.44px; height: 13.40px; left: 31.40px; top: -0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 10.44px; height: 13.40px; left: 17.03px; top: 20.34px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 10.44px; height: 13.40px; left: 31.40px; top: 20.34px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 10.44px; height: 13.40px; left: 17.03px; top: 40.69px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 10.44px; height: 13.40px; left: 31.40px; top: 40.69px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 10.44px; height: 13.40px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 10.44px; height: 13.40px; left: 0px; top: 20.34px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 10.44px; height: 13.40px; left: 0px; top: 40.69px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 10.44px; height: 13.40px; left: 0px; top: 61.03px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 14.66px; height: 18.83px; left: 21.95px; top: 63.34px; position: absolute; background: #407BFF"></div>
+                    </div>
+                    <div style="width: 41.84px; height: 82.17px; left: 1.41px; top: -0px; position: absolute; opacity: 0.20">
+                        <div style="width: 10.44px; height: 13.40px; left: 17.03px; top: -0px; position: absolute; background: white"></div>
+                        <div style="width: 10.44px; height: 13.40px; left: 31.40px; top: -0px; position: absolute; background: white"></div>
+                        <div style="width: 10.44px; height: 13.40px; left: 17.03px; top: 20.34px; position: absolute; background: white"></div>
+                        <div style="width: 10.44px; height: 13.40px; left: 31.40px; top: 20.34px; position: absolute; background: white"></div>
+                        <div style="width: 10.44px; height: 13.40px; left: 17.03px; top: 40.69px; position: absolute; background: white"></div>
+                        <div style="width: 10.44px; height: 13.40px; left: 31.40px; top: 40.69px; position: absolute; background: white"></div>
+                        <div style="width: 10.44px; height: 13.40px; left: 0px; top: 0px; position: absolute; background: white"></div>
+                        <div style="width: 10.44px; height: 13.40px; left: 0px; top: 20.34px; position: absolute; background: white"></div>
+                        <div style="width: 10.44px; height: 13.40px; left: 0px; top: 40.69px; position: absolute; background: white"></div>
+                        <div style="width: 10.44px; height: 13.40px; left: 0px; top: 61.03px; position: absolute; background: white"></div>
+                        <div style="width: 14.66px; height: 18.83px; left: 21.95px; top: 63.34px; position: absolute; background: white"></div>
+                    </div>
+                    <div style="width: 38.24px; height: 79.16px; left: 3.21px; top: 1.25px; position: absolute; opacity: 0.70">
+                        <div style="width: 21.21px; height: 10.91px; left: 17.03px; top: -0px; position: absolute">
+                            <div style="width: 2.92px; height: 3.06px; left: 3.92px; top: -0px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.11px; left: 3.92px; top: 3.76px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.11px; left: 0px; top: 3.76px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.06px; left: 0px; top: 0px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.34px; left: 0px; top: 7.57px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.34px; left: 3.92px; top: 7.57px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.06px; left: 18.30px; top: -0px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.11px; left: 18.30px; top: 3.76px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.11px; left: 14.38px; top: 3.76px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.06px; left: 14.38px; top: -0px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.34px; left: 14.38px; top: 7.57px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.34px; left: 18.30px; top: 7.57px; position: absolute; opacity: 0.80; background: white"></div>
+                        </div>
+                        <div style="width: 6.84px; height: 10.91px; left: 17.03px; top: 20.34px; position: absolute">
+                            <div style="width: 2.92px; height: 3.06px; left: 3.92px; top: -0px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.11px; left: 3.92px; top: 3.76px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.11px; left: 0px; top: 3.76px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.06px; left: 0px; top: 0px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.34px; left: 0px; top: 7.57px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.34px; left: 3.92px; top: 7.57px; position: absolute; opacity: 0.80; background: white"></div>
+                        </div>
+                        <div style="width: 6.84px; height: 10.91px; left: 31.40px; top: 20.34px; position: absolute; opacity: 0.80">
+                            <div style="width: 2.92px; height: 3.06px; left: 3.92px; top: -0px; position: absolute; background: white"></div>
+                            <div style="width: 2.92px; height: 3.11px; left: 3.92px; top: 3.76px; position: absolute; background: white"></div>
+                            <div style="width: 2.92px; height: 3.11px; left: 0px; top: 3.76px; position: absolute; background: white"></div>
+                            <div style="width: 2.92px; height: 3.06px; left: 0px; top: 0px; position: absolute; background: white"></div>
+                            <div style="width: 2.92px; height: 3.34px; left: 0px; top: 7.57px; position: absolute; background: white"></div>
+                            <div style="width: 2.92px; height: 3.34px; left: 3.92px; top: 7.57px; position: absolute; background: white"></div>
+                        </div>
+                        <div style="width: 6.84px; height: 10.91px; left: 17.03px; top: 40.69px; position: absolute">
+                            <div style="width: 2.92px; height: 3.06px; left: 3.92px; top: -0px; position: absolute; background: white"></div>
+                            <div style="width: 2.92px; height: 3.11px; left: 3.92px; top: 3.75px; position: absolute; background: white"></div>
+                            <div style="width: 2.92px; height: 3.11px; left: 0px; top: 3.75px; position: absolute; background: white"></div>
+                            <div style="width: 2.92px; height: 3.06px; left: 0px; top: 0px; position: absolute; background: white"></div>
+                            <div style="width: 2.92px; height: 3.34px; left: 0px; top: 7.57px; position: absolute; background: white"></div>
+                            <div style="width: 2.92px; height: 3.34px; left: 3.92px; top: 7.57px; position: absolute; background: white"></div>
+                        </div>
+                        <div style="width: 6.84px; height: 10.91px; left: 31.40px; top: 40.69px; position: absolute">
+                            <div style="width: 2.92px; height: 3.06px; left: 3.92px; top: -0px; position: absolute; background: white"></div>
+                            <div style="width: 2.92px; height: 3.11px; left: 3.92px; top: 3.75px; position: absolute; background: white"></div>
+                            <div style="width: 2.92px; height: 3.11px; left: 0px; top: 3.75px; position: absolute; background: white"></div>
+                            <div style="width: 2.92px; height: 3.06px; left: 0px; top: 0px; position: absolute; background: white"></div>
+                            <div style="width: 2.92px; height: 3.34px; left: 0px; top: 7.57px; position: absolute; background: white"></div>
+                            <div style="width: 2.92px; height: 3.34px; left: 3.92px; top: 7.57px; position: absolute; background: white"></div>
+                        </div>
+                        <div style="width: 6.84px; height: 10.91px; left: 0px; top: 0px; position: absolute">
+                            <div style="width: 2.92px; height: 3.06px; left: 3.92px; top: -0px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.11px; left: 3.92px; top: 3.76px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.11px; left: 0px; top: 3.76px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.06px; left: 0px; top: 0px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.34px; left: 0px; top: 7.57px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.34px; left: 3.92px; top: 7.57px; position: absolute; opacity: 0.80; background: white"></div>
+                        </div>
+                        <div style="width: 6.84px; height: 10.91px; left: 0px; top: 20.34px; position: absolute">
+                            <div style="width: 2.92px; height: 3.06px; left: 3.92px; top: -0px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.11px; left: 3.92px; top: 3.76px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.11px; left: 0px; top: 3.76px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.06px; left: 0px; top: 0px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.34px; left: 0px; top: 7.57px; position: absolute; opacity: 0.80; background: white"></div>
+                            <div style="width: 2.92px; height: 3.34px; left: 3.92px; top: 7.57px; position: absolute; opacity: 0.80; background: white"></div>
+                        </div>
+                        <div style="width: 6.84px; height: 10.91px; left: 0px; top: 40.69px; position: absolute; opacity: 0.80">
+                            <div style="width: 2.92px; height: 3.06px; left: 3.92px; top: -0px; position: absolute; background: white"></div>
+                            <div style="width: 2.92px; height: 3.11px; left: 3.92px; top: 3.75px; position: absolute; background: white"></div>
+                            <div style="width: 2.92px; height: 3.11px; left: 0px; top: 3.75px; position: absolute; background: white"></div>
+                            <div style="width: 2.92px; height: 3.06px; left: 0px; top: 0px; position: absolute; background: white"></div>
+                            <div style="width: 2.92px; height: 3.34px; left: 0px; top: 7.57px; position: absolute; background: white"></div>
+                            <div style="width: 2.92px; height: 3.34px; left: 3.92px; top: 7.57px; position: absolute; background: white"></div>
+                        </div>
+                        <div style="width: 6.84px; height: 10.91px; left: 0px; top: 61.03px; position: absolute">
+                            <div style="width: 2.92px; height: 3.06px; left: 3.92px; top: -0px; position: absolute; background: white"></div>
+                            <div style="width: 2.92px; height: 3.11px; left: 3.92px; top: 3.76px; position: absolute; background: white"></div>
+                            <div style="width: 2.92px; height: 3.11px; left: 0px; top: 3.76px; position: absolute; background: white"></div>
+                            <div style="width: 2.92px; height: 3.06px; left: 0px; top: 0px; position: absolute; background: white"></div>
+                            <div style="width: 2.92px; height: 3.34px; left: 0px; top: 7.57px; position: absolute; background: white"></div>
+                            <div style="width: 2.92px; height: 3.34px; left: 3.92px; top: 7.57px; position: absolute; background: white"></div>
+                        </div>
+                        <div style="width: 9.60px; height: 15.31px; left: 22.67px; top: 63.85px; position: absolute">
+                            <div style="width: 4.10px; height: 4.30px; left: 5.50px; top: -0px; position: absolute; background: white"></div>
+                            <div style="width: 4.10px; height: 4.37px; left: 5.51px; top: 5.28px; position: absolute; background: white"></div>
+                            <div style="width: 4.10px; height: 4.37px; left: 0px; top: 5.28px; position: absolute; background: white"></div>
+                            <div style="width: 4.10px; height: 4.30px; left: 0px; top: 0px; position: absolute; background: white"></div>
+                            <div style="width: 4.10px; height: 4.69px; left: 0px; top: 10.63px; position: absolute; background: white"></div>
+                            <div style="width: 4.10px; height: 4.69px; left: 5.51px; top: 10.62px; position: absolute; background: white"></div>
+                        </div>
+                    </div>
+                    <div style="width: 11.85px; height: 1px; left: 0px; top: 74.44px; position: absolute; background: #407BFF"></div>
+                </div>
+                <div style="width: 16.17px; height: 1px; left: 24.29px; top: 85.07px; position: absolute; background: #407BFF"></div>
+            </div>
+            <div style="width: 48.53px; height: 153.51px; left: 242.28px; top: 34.78px; position: absolute">
+                <div style="width: 36.50px; height: 8.93px; left: 6.87px; top: 11.53px; position: absolute; background: #407BFF"></div>
+                <div style="width: 36.50px; height: 8.93px; left: 6.87px; top: 11.53px; position: absolute; opacity: 0.50; background: white"></div>
+                <div style="width: 24.16px; height: 5.91px; left: 13.04px; top: 5.62px; position: absolute; background: #407BFF"></div>
+                <div style="width: 24.16px; height: 5.91px; left: 13.04px; top: 5.62px; position: absolute; opacity: 0.40; background: white"></div>
+                <div style="width: 15.29px; height: 3.74px; left: 17.47px; top: 1.87px; position: absolute; background: #407BFF"></div>
+                <div style="width: 15.29px; height: 3.74px; left: 17.47px; top: 1.87px; position: absolute; opacity: 0.30; background: white"></div>
+                <div style="width: 7.93px; height: 1.94px; left: 21.16px; top: -0px; position: absolute; background: #407BFF"></div>
+                <div style="width: 7.93px; height: 1.94px; left: 21.16px; top: -0px; position: absolute; opacity: 0.20; background: white"></div>
+                <div style="width: 43.29px; height: 133.04px; left: 2.92px; top: 20.47px; position: absolute; background: #407BFF"></div>
+                <div style="width: 43.29px; height: 133.04px; left: 2.92px; top: 20.47px; position: absolute; opacity: 0.70; background: white"></div>
+                <div style="width: 13.70px; height: 133.04px; left: 2.92px; top: 20.47px; position: absolute; opacity: 0.10; background: black"></div>
+                <div style="width: 36.50px; height: 127.70px; left: 6.87px; top: 24.89px; position: absolute">
+                    <div style="width: 5.80px; height: 127.70px; left: 12.58px; top: -0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 5.80px; height: 127.70px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 5.80px; height: 127.70px; left: 21.64px; top: -0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 5.80px; height: 127.70px; left: 30.70px; top: -0px; position: absolute; background: #407BFF"></div>
+                </div>
+                <div style="width: 16.41px; height: 20.46px; left: 6.87px; top: -0px; position: absolute">
+                    <div style="width: 9.75px; height: 8.93px; left: 0px; top: 11.53px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 6.46px; height: 5.91px; left: 6.17px; top: 5.61px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 4.09px; height: 3.74px; left: 10.60px; top: 1.87px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 2.12px; height: 1.94px; left: 14.29px; top: -0px; position: absolute; opacity: 0.20; background: black"></div>
+                </div>
+                <div style="width: 48.53px; height: 1.83px; left: 0px; top: 37.20px; position: absolute">
+                    <div style="width: 31.91px; height: 1.83px; left: 16.62px; top: 0px; position: absolute">
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.30; background: white"></div>
+                        <div style="width: 4.42px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                    </div>
+                    <div style="width: 12.67px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                        <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                        <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: white"></div>
+                        <div style="width: 1.75px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.20; background: black"></div>
+                    </div>
+                </div>
+                <div style="width: 48.53px; height: 1.83px; left: 0px; top: 53.50px; position: absolute">
+                    <div style="width: 31.91px; height: 1.83px; left: 16.62px; top: 0px; position: absolute">
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.30; background: white"></div>
+                        <div style="width: 4.42px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                    </div>
+                    <div style="width: 12.67px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                        <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                        <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: white"></div>
+                        <div style="width: 1.75px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.20; background: black"></div>
+                    </div>
+                </div>
+                <div style="width: 48.53px; height: 1.83px; left: 0px; top: 69.81px; position: absolute">
+                    <div style="width: 31.91px; height: 1.83px; left: 16.62px; top: 0px; position: absolute">
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.30; background: white"></div>
+                        <div style="width: 4.42px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                    </div>
+                    <div style="width: 12.67px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                        <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                        <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: white"></div>
+                        <div style="width: 1.75px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.20; background: black"></div>
+                    </div>
+                </div>
+                <div style="width: 48.53px; height: 1.83px; left: 0px; top: 86.11px; position: absolute">
+                    <div style="width: 31.91px; height: 1.83px; left: 16.62px; top: 0px; position: absolute">
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.30; background: white"></div>
+                        <div style="width: 4.42px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                    </div>
+                    <div style="width: 12.67px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                        <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                        <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: white"></div>
+                        <div style="width: 1.75px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.20; background: black"></div>
+                    </div>
+                </div>
+                <div style="width: 48.53px; height: 1.83px; left: 0px; top: 102.41px; position: absolute">
+                    <div style="width: 31.91px; height: 1.83px; left: 16.62px; top: -0px; position: absolute">
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.30; background: white"></div>
+                        <div style="width: 4.42px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                    </div>
+                    <div style="width: 12.67px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                        <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                        <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: white"></div>
+                        <div style="width: 1.75px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.20; background: black"></div>
+                    </div>
+                </div>
+                <div style="width: 48.53px; height: 1.83px; left: 0px; top: 118.71px; position: absolute">
+                    <div style="width: 31.91px; height: 1.83px; left: 16.62px; top: 0px; position: absolute">
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.30; background: white"></div>
+                        <div style="width: 4.42px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                    </div>
+                    <div style="width: 12.67px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                        <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                        <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: white"></div>
+                        <div style="width: 1.75px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.20; background: black"></div>
+                    </div>
+                </div>
+                <div style="width: 48.53px; height: 1.83px; left: 0px; top: 135.02px; position: absolute">
+                    <div style="width: 31.91px; height: 1.83px; left: 16.62px; top: 0px; position: absolute">
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 31.91px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.30; background: white"></div>
+                        <div style="width: 4.42px; height: 1.83px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                    </div>
+                    <div style="width: 12.67px; height: 1.83px; left: 0px; top: 0px; position: absolute">
+                        <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; background: #407BFF"></div>
+                        <div style="width: 12.67px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.30; background: white"></div>
+                        <div style="width: 1.75px; height: 1.83px; left: 12.67px; top: 1.83px; position: absolute; transform: rotate(180deg); transform-origin: 0 0; opacity: 0.20; background: black"></div>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 50.17px; height: 83.69px; left: 200.50px; top: 104.60px; position: absolute">
+                <div style="width: 43.28px; height: 79.73px; left: 3.44px; top: 3.32px; position: absolute; background: #407BFF"></div>
+                <div style="width: 43.28px; height: 79.73px; left: 3.44px; top: 3.32px; position: absolute; opacity: 0.70; background: white"></div>
+                <div style="width: 13.70px; height: 79.73px; left: 3.44px; top: 3.32px; position: absolute; opacity: 0.20; background: black"></div>
+                <div style="width: 50.17px; height: 83.69px; left: 0px; top: 0px; position: absolute">
+                    <div style="width: 5.80px; height: 8.99px; left: 19.98px; top: 5.10px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 5.80px; height: 8.99px; left: 29.03px; top: 5.10px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 5.80px; height: 8.99px; left: 38.09px; top: 5.10px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 5.80px; height: 8.99px; left: 19.98px; top: 15.93px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 5.80px; height: 8.99px; left: 29.03px; top: 15.93px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 5.80px; height: 8.99px; left: 7.39px; top: 5.10px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 5.80px; height: 8.99px; left: 7.39px; top: 15.93px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 5.80px; height: 8.99px; left: 38.09px; top: 15.93px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 5.80px; height: 8.99px; left: 19.98px; top: 31.97px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 5.80px; height: 8.99px; left: 29.03px; top: 31.97px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 5.80px; height: 8.99px; left: 38.09px; top: 31.97px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 5.80px; height: 8.99px; left: 19.98px; top: 42.80px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 5.80px; height: 8.99px; left: 29.03px; top: 42.80px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 5.80px; height: 8.99px; left: 7.39px; top: 31.97px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 5.80px; height: 8.99px; left: 7.39px; top: 42.80px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 5.80px; height: 8.99px; left: 38.09px; top: 42.80px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 34.39px; height: 7.52px; left: 8.45px; top: 43.54px; position: absolute">
+                        <div style="width: 3.69px; height: 7.52px; left: 12.59px; top: -0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 3.69px; height: 7.52px; left: 21.64px; top: -0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 3.69px; height: 7.52px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 3.69px; height: 7.52px; left: 30.70px; top: -0px; position: absolute; background: #407BFF"></div>
+                    </div>
+                    <div style="width: 3.03px; height: 1.18px; left: 11.19px; top: 70.84px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 3.03px; height: 1.18px; left: 14.12px; top: 68.42px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 3.03px; height: 1.18px; left: 20.28px; top: 65.37px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 3.03px; height: 1.18px; left: 23.20px; top: 67.66px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 3.03px; height: 1.18px; left: 23.20px; top: 62.95px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 3.03px; height: 1.18px; left: 24.72px; top: 65.37px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 3.03px; height: 1.18px; left: 31.09px; top: 60.74px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 3.03px; height: 1.18px; left: 34.02px; top: 63.04px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 3.03px; height: 1.18px; left: 34.02px; top: 58.33px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 3.03px; height: 1.18px; left: 35.54px; top: 60.74px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 3.03px; height: 1.18px; left: 35.45px; top: 65.87px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 3.03px; height: 1.18px; left: 38.38px; top: 68.16px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 3.03px; height: 1.18px; left: 38.38px; top: 63.45px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 3.03px; height: 1.18px; left: 43.79px; top: 60.94px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 3.03px; height: 1.18px; left: 39.90px; top: 65.87px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 3.03px; height: 1.18px; left: 3.49px; top: 61.27px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 3.03px; height: 1.18px; left: 6.42px; top: 63.56px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 3.03px; height: 1.18px; left: 6.42px; top: 58.85px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 3.03px; height: 1.18px; left: 3.49px; top: 77.32px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 3.03px; height: 1.18px; left: 6.42px; top: 79.61px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 3.03px; height: 1.18px; left: 6.42px; top: 74.91px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 3.03px; height: 1.18px; left: 7.94px; top: 61.27px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 3.03px; height: 1.18px; left: 21.36px; top: 59px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 50.17px; height: 3.56px; left: 0px; top: 0px; position: absolute">
+                        <div style="width: 46.98px; height: 1.78px; left: 1.60px; top: 1.78px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 46.98px; height: 1.78px; left: 1.60px; top: 1.78px; position: absolute; opacity: 0.20; background: white"></div>
+                        <div style="width: 50.17px; height: 1.78px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 50.17px; height: 1.78px; left: 0px; top: 0px; position: absolute; opacity: 0.40; background: white"></div>
+                        <div style="width: 15.61px; height: 1.78px; left: 1.60px; top: 1.78px; position: absolute; opacity: 0.20; background: black"></div>
+                        <div style="width: 17.21px; height: 1.78px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                    </div>
+                    <div style="width: 46.98px; height: 1.78px; left: 1.59px; top: 27.86px; position: absolute">
+                        <div style="width: 46.98px; height: 1.78px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 46.98px; height: 1.78px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: white"></div>
+                        <div style="width: 15.61px; height: 1.78px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                    </div>
+                    <div style="width: 46.98px; height: 1.78px; left: 1.59px; top: 54.74px; position: absolute">
+                        <div style="width: 46.98px; height: 1.78px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 46.98px; height: 1.78px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: white"></div>
+                        <div style="width: 15.61px; height: 1.78px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                    </div>
+                    <div style="width: 46.98px; height: 1.78px; left: 1.59px; top: 81.91px; position: absolute">
+                        <div style="width: 46.98px; height: 1.78px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 46.98px; height: 1.78px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: white"></div>
+                        <div style="width: 15.61px; height: 1.78px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                    </div>
+                    <div style="width: 34.39px; height: 34.39px; left: 8.45px; top: 5.83px; position: absolute">
+                        <div style="width: 3.69px; height: 7.52px; left: 12.59px; top: -0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 3.69px; height: 7.52px; left: 21.64px; top: -0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 3.69px; height: 7.52px; left: 30.70px; top: -0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 3.69px; height: 7.52px; left: 12.59px; top: 10.83px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 3.69px; height: 7.52px; left: 21.64px; top: 10.83px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 3.69px; height: 7.52px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 3.69px; height: 7.52px; left: 0px; top: 10.83px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 3.69px; height: 7.52px; left: 30.70px; top: 10.83px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 3.69px; height: 7.52px; left: 12.59px; top: 26.88px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 3.69px; height: 7.52px; left: 21.64px; top: 26.88px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 3.69px; height: 7.52px; left: 30.70px; top: 26.88px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 3.69px; height: 7.52px; left: 0px; top: 26.88px; position: absolute; background: #407BFF"></div>
+                    </div>
+                    <div style="width: 7.26px; height: 11.23px; left: 24.68px; top: 72.23px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 4.61px; height: 9.40px; left: 26px; top: 73.15px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 7.26px; height: 11.23px; left: 31.93px; top: 72.23px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 4.61px; height: 9.40px; left: 33.26px; top: 73.15px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 38.28px; height: 58.15px; left: 6.50px; top: 14.08px; position: absolute">
+                        <div style="width: 7.58px; height: 0.62px; left: 12.58px; top: -0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 7.58px; height: 0.62px; left: 21.64px; top: -0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 7.58px; height: 0.62px; left: 30.70px; top: -0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 7.58px; height: 0.62px; left: 12.58px; top: 10.83px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 7.58px; height: 0.62px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 7.58px; height: 0.62px; left: 0px; top: 10.83px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 7.58px; height: 0.62px; left: 21.64px; top: 10.83px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 7.58px; height: 0.62px; left: 30.70px; top: 10.83px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 7.58px; height: 0.62px; left: 12.58px; top: 26.88px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 7.58px; height: 0.62px; left: 21.64px; top: 26.88px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 7.58px; height: 0.62px; left: 30.70px; top: 26.88px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 7.58px; height: 0.62px; left: 12.58px; top: 37.71px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 7.58px; height: 0.62px; left: 0px; top: 26.88px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 7.58px; height: 0.62px; left: 0px; top: 37.71px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 7.58px; height: 0.62px; left: 21.64px; top: 37.71px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 7.58px; height: 0.62px; left: 30.70px; top: 37.71px; position: absolute; background: #407BFF"></div>
+                        <div style="width: 17.64px; height: 0.62px; left: 16.85px; top: 57.53px; position: absolute; background: #407BFF"></div>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 298.69px; height: 35.16px; left: 35.32px; top: 153.37px; position: absolute">
+                <div style="width: 27.76px; height: 31.99px; left: 0px; top: 3.16px; position: absolute">
+                    <div style="width: 27.76px; height: 17.15px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 27.76px; height: 17.15px; left: 0px; top: 0px; position: absolute; opacity: 0.30; background: black"></div>
+                    <div style="width: 26.62px; height: 7.84px; left: 0.01px; top: 9.30px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 15.26px; height: 21.51px; left: 7.48px; top: 10.48px; position: absolute; background: #263238"></div>
+                </div>
+                <div style="width: 30.50px; height: 35.15px; left: 163.30px; top: -0px; position: absolute">
+                    <div style="width: 30.50px; height: 18.84px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 30.50px; height: 18.84px; left: 0px; top: 0px; position: absolute; opacity: 0.30; background: black"></div>
+                    <div style="width: 29.24px; height: 8.62px; left: 1.25px; top: 10.22px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 16.76px; height: 23.63px; left: 5.52px; top: 11.52px; position: absolute; background: #263238"></div>
+                </div>
+                <div style="width: 27.77px; height: 32.01px; left: 270.91px; top: 3.15px; position: absolute">
+                    <div style="width: 27.77px; height: 17.15px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 27.77px; height: 17.15px; left: 0px; top: 0px; position: absolute; opacity: 0.30; background: black"></div>
+                    <div style="width: 26.63px; height: 7.85px; left: 1.14px; top: 9.31px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 15.26px; height: 21.52px; left: 5.03px; top: 10.49px; position: absolute; background: #263238"></div>
+                </div>
+            </div>
+            <div style="width: 262.16px; height: 37.32px; left: 61.36px; top: 151.30px; position: absolute">
+                <div style="width: 42.29px; height: 37.32px; left: 219.87px; top: -0px; position: absolute">
+                    <div style="width: 14.17px; height: 11.48px; left: 20.80px; top: 0.62px; position: absolute; background: black"></div>
+                    <div style="width: 14.17px; height: 11.48px; left: 7.32px; top: 0.62px; position: absolute; background: #263238"></div>
+                    <div style="width: 14.17px; height: 11.48px; left: 7.32px; top: 0.62px; position: absolute; background: white"></div>
+                    <div style="width: 14.17px; height: 11.48px; left: 20.80px; top: 0.62px; position: absolute; background: #263238"></div>
+                    <div style="width: 14.17px; height: 11.48px; left: 20.80px; top: 0.62px; position: absolute; background: white"></div>
+                    <div style="width: 8.31px; height: 1.61px; left: 33.98px; top: -0px; position: absolute; background: #263238"></div>
+                    <div style="width: 8.31px; height: 1.61px; left: 33.98px; top: -0px; position: absolute; opacity: 0.50; background: white"></div>
+                    <div style="width: 8.31px; height: 0.66px; left: 33.98px; top: 1.62px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 8.31px; height: 1.61px; left: 0px; top: 0px; position: absolute; background: #263238"></div>
+                    <div style="width: 8.31px; height: 1.61px; left: 0px; top: 0px; position: absolute; opacity: 0.50; background: white"></div>
+                    <div style="width: 8.31px; height: 0.66px; left: 0px; top: 1.62px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 8.31px; height: 0.66px; left: 33.98px; top: 1.62px; position: absolute; opacity: 0.80; background: white"></div>
+                    <div style="width: 8.31px; height: 0.66px; left: 0px; top: 1.62px; position: absolute; opacity: 0.80; background: white"></div>
+                    <div style="width: 4.34px; height: 9.01px; left: 18.97px; top: 28.31px; position: absolute; background: #263238"></div>
+                    <div style="width: 1.69px; height: 18.25px; left: 20.30px; top: 10.76px; position: absolute; background: #263238"></div>
+                </div>
+                <div style="width: 42.29px; height: 37.32px; left: 114px; top: -0px; position: absolute">
+                    <div style="width: 14.17px; height: 11.48px; left: 20.80px; top: 0.62px; position: absolute; background: black"></div>
+                    <div style="width: 14.17px; height: 11.48px; left: 7.32px; top: 0.62px; position: absolute; background: #263238"></div>
+                    <div style="width: 14.17px; height: 11.48px; left: 7.32px; top: 0.62px; position: absolute; background: white"></div>
+                    <div style="width: 14.17px; height: 11.48px; left: 20.80px; top: 0.62px; position: absolute; background: #263238"></div>
+                    <div style="width: 14.17px; height: 11.48px; left: 20.80px; top: 0.62px; position: absolute; background: white"></div>
+                    <div style="width: 8.31px; height: 1.61px; left: 33.98px; top: -0px; position: absolute; background: #263238"></div>
+                    <div style="width: 8.31px; height: 1.61px; left: 33.98px; top: -0px; position: absolute; opacity: 0.50; background: white"></div>
+                    <div style="width: 8.31px; height: 0.66px; left: 33.98px; top: 1.62px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 8.31px; height: 1.61px; left: 0px; top: 0px; position: absolute; background: #263238"></div>
+                    <div style="width: 8.31px; height: 1.61px; left: 0px; top: 0px; position: absolute; opacity: 0.50; background: white"></div>
+                    <div style="width: 8.31px; height: 0.66px; left: 0px; top: 1.62px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 8.31px; height: 0.66px; left: 33.98px; top: 1.62px; position: absolute; opacity: 0.80; background: white"></div>
+                    <div style="width: 8.31px; height: 0.66px; left: 0px; top: 1.62px; position: absolute; opacity: 0.80; background: white"></div>
+                    <div style="width: 4.34px; height: 9.01px; left: 18.98px; top: 28.31px; position: absolute; background: #263238"></div>
+                    <div style="width: 1.69px; height: 18.25px; left: 20.30px; top: 10.76px; position: absolute; background: #263238"></div>
+                </div>
+                <div style="width: 42.29px; height: 37.32px; left: 0px; top: 0px; position: absolute">
+                    <div style="width: 14.17px; height: 11.48px; left: 20.80px; top: 0.62px; position: absolute; background: black"></div>
+                    <div style="width: 14.17px; height: 11.48px; left: 7.32px; top: 0.62px; position: absolute; background: #263238"></div>
+                    <div style="width: 14.17px; height: 11.48px; left: 7.32px; top: 0.62px; position: absolute; background: white"></div>
+                    <div style="width: 14.17px; height: 11.48px; left: 20.80px; top: 0.62px; position: absolute; background: #263238"></div>
+                    <div style="width: 14.17px; height: 11.48px; left: 20.80px; top: 0.62px; position: absolute; background: white"></div>
+                    <div style="width: 8.31px; height: 1.61px; left: 33.98px; top: -0px; position: absolute; background: #263238"></div>
+                    <div style="width: 8.31px; height: 1.61px; left: 33.98px; top: -0px; position: absolute; opacity: 0.50; background: white"></div>
+                    <div style="width: 8.31px; height: 0.66px; left: 33.98px; top: 1.62px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 8.31px; height: 1.61px; left: 0px; top: 0px; position: absolute; background: #263238"></div>
+                    <div style="width: 8.31px; height: 1.61px; left: 0px; top: 0px; position: absolute; opacity: 0.50; background: white"></div>
+                    <div style="width: 8.31px; height: 0.66px; left: 0px; top: 1.62px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 8.31px; height: 0.66px; left: 33.98px; top: 1.62px; position: absolute; opacity: 0.80; background: white"></div>
+                    <div style="width: 8.31px; height: 0.66px; left: 0px; top: 1.62px; position: absolute; opacity: 0.80; background: white"></div>
+                    <div style="width: 4.34px; height: 9.01px; left: 18.97px; top: 28.31px; position: absolute; background: #263238"></div>
+                    <div style="width: 1.69px; height: 18.25px; left: 20.30px; top: 10.76px; position: absolute; background: #263238"></div>
+                </div>
+            </div>
+            <div style="width: 307.05px; height: 1.11px; left: 26.56px; top: 188.29px; position: absolute">
+                <div style="width: 30.63px; height: 1.11px; left: 0px; top: 0px; position: absolute">
+                    <div style="width: 15.31px; height: 1.11px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 15.31px; top: -0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 15.31px; top: -0px; position: absolute; opacity: 0.60; background: white"></div>
+                </div>
+                <div style="width: 30.63px; height: 1.11px; left: 30.71px; top: -0px; position: absolute">
+                    <div style="width: 15.31px; height: 1.11px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 15.32px; top: -0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 15.32px; top: -0px; position: absolute; opacity: 0.60; background: white"></div>
+                </div>
+                <div style="width: 30.63px; height: 1.11px; left: 61.43px; top: -0px; position: absolute">
+                    <div style="width: 15.31px; height: 1.11px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 15.31px; top: -0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 15.31px; top: -0px; position: absolute; opacity: 0.60; background: white"></div>
+                </div>
+                <div style="width: 30.63px; height: 1.11px; left: 92.14px; top: -0px; position: absolute">
+                    <div style="width: 15.31px; height: 1.11px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 15.31px; top: -0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 15.31px; top: -0px; position: absolute; opacity: 0.60; background: white"></div>
+                </div>
+                <div style="width: 30.63px; height: 1.11px; left: 122.85px; top: -0px; position: absolute">
+                    <div style="width: 15.31px; height: 1.11px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 15.31px; top: -0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 15.31px; top: -0px; position: absolute; opacity: 0.60; background: white"></div>
+                </div>
+                <div style="width: 30.63px; height: 1.11px; left: 153.57px; top: -0px; position: absolute">
+                    <div style="width: 15.31px; height: 1.11px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 15.31px; top: -0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 15.31px; top: -0px; position: absolute; opacity: 0.60; background: white"></div>
+                </div>
+                <div style="width: 30.63px; height: 1.11px; left: 184.28px; top: -0px; position: absolute">
+                    <div style="width: 15.31px; height: 1.11px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 15.32px; top: -0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 15.32px; top: -0px; position: absolute; opacity: 0.60; background: white"></div>
+                </div>
+                <div style="width: 30.63px; height: 1.11px; left: 214.99px; top: -0px; position: absolute">
+                    <div style="width: 15.31px; height: 1.11px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 15.31px; top: -0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 15.31px; top: -0px; position: absolute; opacity: 0.60; background: white"></div>
+                </div>
+                <div style="width: 30.63px; height: 1.11px; left: 245.71px; top: -0px; position: absolute">
+                    <div style="width: 15.31px; height: 1.11px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 15.32px; top: -0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 15.32px; top: -0px; position: absolute; opacity: 0.60; background: white"></div>
+                </div>
+                <div style="width: 30.63px; height: 1.11px; left: 276.42px; top: -0px; position: absolute">
+                    <div style="width: 15.31px; height: 1.11px; left: 0px; top: 0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 0px; top: 0px; position: absolute; opacity: 0.20; background: black"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 15.32px; top: -0px; position: absolute; background: #407BFF"></div>
+                    <div style="width: 15.31px; height: 1.11px; left: 15.32px; top: -0px; position: absolute; opacity: 0.60; background: white"></div>
+                </div>
+            </div>
+        </div>
+        <div style="width: 254.38px; height: 207.57px; left: 105.81px; top: 61.83px; position: absolute">
+            <img src="../assets/everbooking.svg" alt="">
+        </div>
+        <div style="left: 16px; top: 0px; position: absolute; text-align: center; color: #95A2CA; font-size: 18px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Navigating cities,<br/>Empowering lives</div>
+    </div>
 </div>

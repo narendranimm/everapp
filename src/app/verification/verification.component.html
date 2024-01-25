@@ -11,38 +11,43 @@
 <form  [formGroup]="verficationForm" >
   <div style="width: 100%; height: 100%; flex-direction: column; justify-content: flex-start; align-items: center; gap: 16px; display: inline-flex">
     <div style="height: 76px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
-        <div style="color: #3355B9; font-size: 24px; font-family: Open Sans Hebrew; font-weight: 700; line-height: 20px; word-wrap: break-word">Enter verification code</div>
-        <div style="width: 315px; color: #363636; font-size: 16px; font-family: Open Sans Hebrew; font-weight: 400; word-wrap: break-word">A 6 digit code has sent to your mobile number</div>
+        <div style="color: #3355B9; font-size: 24px;  font-weight: 700; line-height: 20px; word-wrap: break-word">Enter verification code</div>
+        <div style="width: 315px; color: #363636; font-size: 16px;  font-weight: 400; word-wrap: break-word">A 6 digit code has sent to your mobile number</div>
     </div>
     <div class="btn-container">
     <div style="align-self: stretch; height: 76px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 10px; display: flex">
-        <div style="align-self: stretch; color: #363636; font-size: 16px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Verification Code</div>
+        <div style="align-self: stretch; color: #363636; font-size: 16px;  font-weight: 700; word-wrap: break-word">Verification Code</div>
         <div style="align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
-            <div style="flex: 1 1 0; height: 44px; position: relative">
-              <ion-input type="number" #otp1  class="otp" maxlength="6" (keyup)="otpController($event,otp2,'')" formControlName="fst" oninput="this.value=this.value.replace(/[^0-9]/g,'');"  ></ion-input>
+            <!-- <div style="flex: 1 1 0; height: 44px; position: relative">
+              <ion-input type="number" #otp1  class="otp" maxlength="6" onKeyPress="if(this.value.length==1) return false;"   (keyup)="otpController($event,otp2,'')" formControlName="fst" oninput="this.value=this.value.replace(/[^0-9]/g,'');"  ></ion-input>
             </div>
             <div style="flex: 1 1 0; height: 44px; position: relative">
-              <ion-input type="number" #otp2 class="otp" maxlength="1" (keyup)="otpController($event,otp3,otp1)" formControlName="scn" oninput="this.value=this.value.replace(/[^0-9]/g,'');"   ></ion-input>
+              <ion-input type="number" #otp2 class="otp" maxlength="1" onKeyPress="if(this.value.length==1) return false;"   (keyup)="otpController($event,otp3,otp1)" formControlName="scn" oninput="this.value=this.value.replace(/[^0-9]/g,'');"   ></ion-input>
             </div>
             <div style="flex: 1 1 0; height: 44px; position: relative">
-              <ion-input type="number" #otp3 class="otp" maxlength="1" (keyup)="otpController($event,otp4,otp2)" formControlName="thrd" oninput="this.value=this.value.replace(/[^0-9]/g,'');"   ></ion-input>
+              <ion-input type="number" #otp3 class="otp" maxlength="1" onKeyPress="if(this.value.length==1) return false;"  (keyup)="otpController($event,otp4,otp2)" formControlName="thrd" oninput="this.value=this.value.replace(/[^0-9]/g,'');"   ></ion-input>
             </div>
             <div style="flex: 1 1 0; height: 44px; position: relative">
-              <ion-input type="number" #otp4 class="otp" maxlength="1" (keyup)="otpController($event,otp5,otp3)" formControlName="fth" oninput="this.value=this.value.replace(/[^0-9]/g,'');"   ></ion-input>
+              <ion-input type="number" #otp4 class="otp" maxlength="1" onKeyPress="if(this.value.length==1) return false;"  (keyup)="otpController($event,otp5,otp3)" formControlName="fth" oninput="this.value=this.value.replace(/[^0-9]/g,'');"   ></ion-input>
             </div>
             <div style="flex: 1 1 0; height: 44px; position: relative">
-              <ion-input type="number" #otp5 class="otp" maxlength="1" (keyup)="otpController($event,otp6,otp4)" formControlName="fifth" oninput="this.value=this.value.replace(/[^0-9]/g,'');"   ></ion-input>
+              <ion-input type="number" #otp5 class="otp" maxlength="1" onKeyPress="if(this.value.length==1) return false;"   (keyup)="otpController($event,otp6,otp4)" formControlName="fifth" oninput="this.value=this.value.replace(/[^0-9]/g,'');"   ></ion-input>
             </div>
             <div style="flex: 1 1 0; height: 44px; position: relative">
-              <ion-input type="number" #otp6 class="otp" maxlength="1" (keyup)="otpController($event,'',otp5)" formControlName="sth" oninput="this.value=this.value.replace(/[^0-9]/g,'');"   ></ion-input>
-            </div>
+              <ion-input type="number" #otp6 class="otp" maxlength="1" onKeyPress="if(this.value.length==1) return false;"  (keyup)="otpController($event,'',otp5)" formControlName="sth" oninput="this.value=this.value.replace(/[^0-9]/g,'');"   ></ion-input>
+            </div> -->
+
+            <ng-otp-input (onInputChange)="handle($event)"  [formCtrl]="otp"  [config]="otpConfig"></ng-otp-input>
+           
         </div>
+      
     </div>
     </div>
-    <button matRipple   [disabled] = "!verficationForm.valid" [ngClass] = "{'my-color': !verficationForm.valid}" [ngClass] = "{'color': verficationForm.valid}"  (click)=" verifyOTP()" style="width:100%; padding-left: 24px; padding-right: 24px; padding-top: 16px; padding-bottom: 16px;  border-radius: 100px; overflow: hidden; flex-direction: column; justify-content: center; align-items: center; gap: 10px; display: inline-flex" >
-        <div style="text-align: center;  font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; letter-spacing: 0.10px; word-wrap: break-word">Continue</div>
+   
+    <button matRipple   [disabled] = "!otp" [ngClass] = "{'my-color': !otp}" [ngClass] = "{'color': otp}"  (click)=" verifyOTP()" style="width:100%; padding-left: 24px; padding-right: 24px; padding-top: 16px; padding-bottom: 16px;  border-radius: 100px; overflow: hidden; flex-direction: column; justify-content: center; align-items: center; gap: 10px; display: inline-flex" >
+        <div style="text-align: center;  font-size: 14px;  font-weight: 700; letter-spacing: 0.10px; word-wrap: break-word">Continue</div>
     </button>
-    <a (click)="resend()" style="text-align: center; color: #3355B9; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; text-decoration: underline; letter-spacing: 0.10px; word-wrap: break-word">Resend code</a>
+    <a (click)="resend()" style="text-align: center; color: #3355B9; font-size: 14px;  font-weight: 700; text-decoration: underline; letter-spacing: 0.10px; word-wrap: break-word">Resend code</a>
   </div>
   </form>
 

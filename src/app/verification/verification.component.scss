@@ -1,14 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
 
 .otp {
+
  width: 44px;
   height: 44px;
   border: none;
   border-bottom: 2px #E2E1E5 solid;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+
   background: transparent;
 }
 input:focus
@@ -362,3 +360,29 @@ $width: 100px;
   background: #3355B9;
   color: white;
  }
+ .otp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.otp__input {
+  text-align: center;
+}
+.otp__input {
+  border: none;
+  border-bottom: 2px solid rgb(203 213 225);
+  font-size: 2rem;
+  outline: none;
+}
+
+::ng-deep .each_input{
+  width: 44px !important;
+  height: 44px !important;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 2px solid #E2E1E5!important;
+}
+::ng-deep .mydialog{
+  border-radius: 24px !important;
+}

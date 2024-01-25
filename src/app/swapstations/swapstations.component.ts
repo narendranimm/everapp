@@ -38,7 +38,7 @@ export class SwapstationsComponent  implements OnInit {
   show: boolean = true; 
   useraddress:any;
   isModelOpen=false;
- 
+  greeting:any;
   private breakpointObserver = inject(BreakpointObserver);
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(map(result => result.matches), shareReplay());
@@ -62,7 +62,7 @@ export class SwapstationsComponent  implements OnInit {
     this.getbranchesByBID()
     this.printCurrentPosition();
   
-
+this.status()
     this.getNearByHubs();
     
   }
@@ -114,7 +114,7 @@ export class SwapstationsComponent  implements OnInit {
         console.log(res)
         })
 
-      this.getNearByHubs()
+      // this.getNearByHubs()
     })
 console.log(coordinates)
   };
@@ -190,6 +190,13 @@ console.log(coordinates)
 
     this.isModelOpen=true;
   }
-
+  status(){
+    const date = new Date;
+    const hours = date.getHours();
+    const time=(hours < 12)? "morning" :
+               (((hours) <= 18 && hours >= 12 ) ? "afternoon" : "night");
+console.log(time);
+this.greeting=time
+}
 }
 

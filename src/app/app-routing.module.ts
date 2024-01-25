@@ -113,7 +113,7 @@ const routes: Routes = [
 {path:'login',component:LogComponent},
 {path:'communication-allow-permission',component:CommunicationAllowPermissionComponent},
 {path:'nav',component:NavComponent},
-{path:'',component:SplashComponent,pathMatch:'full'},
+{path:'',component:GetComponent,pathMatch:'full'},
 {path:'verification',component:VerificationComponent},
 {path:'adhar',component:AadharComponent},
 {path:'selfie',component:SelfieComponent},
@@ -218,7 +218,7 @@ const routes: Routes = [
   {path:'nobookings',component:NobookingComponent},
   {path:'invoice',component:ViewsummaryComponent},
   {path:'view-all-images',component:ViewAllImagesComponent},
-  {path:'**',component:PagenotfoundComponent}
+
 
 
 

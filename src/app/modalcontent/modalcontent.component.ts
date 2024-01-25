@@ -1,21 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { OrderService } from '../services/Order.service';
 import { ActivatedRoute } from '@angular/router';
 import { UserData } from '../providers/user-data';
-
+import { ViewEncapsulation } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
   selector: 'app-modalcontent',
   templateUrl: './modalcontent.component.html',
   styleUrls: ['./modalcontent.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ModalcontentComponent  implements OnInit {
   filteredItems:any;
   offerID:any;
-  constructor(private modal:ModalController,private os:OrderService,private route:ActivatedRoute,private user:UserData) {
-    this.offerID = route.snapshot.params["ID"];
-    console.log("this is productID value = "+ this.offerID);
-    this.user.setpId(this.offerID)
+  
+  constructor(private modal:ModalController,private os:OrderService,private route:ActivatedRoute,private user:UserData ,@Inject(MAT_DIALOG_DATA) public data: any) {
+   console.log(data)
+    
   }
 
   closeModal() {
@@ -25,14 +27,8 @@ export class ModalcontentComponent  implements OnInit {
     this.modal.dismiss();
   }
   ngOnInit(): void {
-    this.getall()
+
   }
-  getall(){
-    this.os.getAlloffersById(this.offerID).subscribe(res=>{
-      this.filteredItems=res;
-      this.offerID=res;
-      console.log(res)
-    })
-  }
+
 
 }

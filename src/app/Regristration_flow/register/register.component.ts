@@ -50,7 +50,7 @@ export class RegisterComponent implements OnInit {
       LastName: ['', [Validators.required, Validators.pattern('^[a-zA-Z \-\']+')]],
       EmailID: ['', Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'), Validators.email])],
       country: '+91',
-      MobileNo: ['', [Validators.required, Validators.pattern("[0-9 ]{10}")]],
+      MobileNo: ['', [Validators.required, this.mobileNumberValidator]],
       DateofBirth: ['', [Validators.compose([Validators.required]), ValidateUrl]],
       Password: ['12345', Validators.compose([Validators.required])],
       MemberType: "0",
@@ -68,6 +68,8 @@ export class RegisterComponent implements OnInit {
       userId: 0,
       Gender: 1000
     })
+
+    
   }
 
   get f() { return this.regForm.controls; }
@@ -90,6 +92,12 @@ export class RegisterComponent implements OnInit {
     this.maxDate.setMonth(this.maxDate.getMonth() - 12 * 18);
 
 
+  }
+
+  mobileNumberValidator(control:any) {
+  const isValid =/^\d{10}$/.test(control.value);  
+ 
+  return isValid ? null : {invalidMobile: true };
   }
   isModalOpen = false;
 
@@ -182,4 +190,18 @@ export class RegisterComponent implements OnInit {
       this.regForm.markAllAsTouched();
     }
   }
+
+  setInterval(lastCharRemove: any) {
+
+const  original = (document.getElementById("displayResult")  as HTMLFormElement).Value;
+
+  if (original?.length > 10) {
+   lastCharRemove =
+      original.slice(0, original.length - 1);
+     lastCharRemove =  (document.getElementById("displayResult")  as HTMLFormElement).Value
+
+  }
+}
+
+  
 }
