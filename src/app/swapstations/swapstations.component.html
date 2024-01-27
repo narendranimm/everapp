@@ -197,178 +197,111 @@
       <span class="example-spacer"></span>
       <img src="./assets/tdesign_notification-filled.svg" alt="" routerLink="/notification">
     </mat-toolbar>
-    <!-- <ion-toolbar class="toolbar">
-      <div style="width: 100%; height: 100%; padding-top: 8px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; background: white; box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16); justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-        <div style="flex: 1 1 0; height: 41px; justify-content: space-between; align-items: flex-start; display: flex">
-            <div routerLink="/enableloaction" style="width: 72px; flex-direction: column; justify-content: center; align-items: center; gap: 8px; display: inline-flex">
-                <div style="width: 24px; height: 24px; position: relative">
-                 
-                    <img src="../assets/Frame 2608398 (2).svg" style="width: 18.06px; height: 18.06px; left: 7.64px; top: 0px; position: absolute; transform: rotate(25.04deg); transform-origin: 0 0;" >
-              
-                  </div>
-                <div style="color: rgba(54, 54, 54, 0.60); font-size: 12px;  font-weight: 700; word-wrap: break-word">Ever</div>
-            </div>
-            <div routerLink="/homepage" style="width: 72px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 8px; display: inline-flex">
-                <div style="width: 24px; height: 24px; position: relative">
-                  <img src="../assets/mdi_motorbike-electric (2).svg" style="width: 18.06px; height: 18.06px; left: 7.64px; top: 0px; position: absolute;  transform-origin: 0 0;" >
-                </div>
-                <div style="color: rgba(54, 54, 54, 0.60); font-size: 12px;  font-weight: 400; word-wrap: break-word">EV Rentals</div>
-            </div>
-            <div routerLink="/swapstation" style="width: 72px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 8px; display: inline-flex">
-                <div style="width: 24px; height: 24px; position: relative">
-                  <img src="../assets/clarity_battery-solid (3).svg" style="width: 18.06px; height: 18.06px; left: 7.64px; top: 0px; position: absolute;  transform-origin: 0 0;" >
-                </div>
-                <div style="color: #3355B9; font-size: 12px;  font-weight: 400; word-wrap: break-word">Swap station</div>
-            </div>
-            <div routerLink="/services" style="width: 72px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 8px; display: inline-flex">
-                <div style="width: 24px; height: 24px; position: relative">
-                  <img src="../assets/ri_hand-heart-fill.svg" style="width: 18.06px; height: 18.06px; left: 7.64px; top: 0px; position: absolute; transform-origin: 0 0;" >
-                </div>
-                <div style="color: rgba(54, 54, 54, 0.60); font-size: 12px;  font-weight: 400; word-wrap: break-word">Services</div>
-            </div>
-        </div>
-    </div>
-  
-   </ion-toolbar> -->
-    <ion-content class="scroller" style="background: white;">
+   <ion-content class="scroller" style="background: white;">
    
-      <div class="btn-container" style="background: white;height: 100%;">
-        <div class="search-result-bike">
-          <h1 class="greeting-head">Good{{greeting}},{{username}}</h1>
-          <!-- <p class="notify-content" *ngIf="show">  Share your location</p> -->
-      <button style="background: none;" (click)="open()"> <img src="./assets/mdi_location.svg" alt="">{{useraddress | slice:0:35}}<img src="../assets/fe_arrow-down.svg" alt=""></button> 
-      <ion-modal [isOpen]="isModelOpen" [initialBreakpoint]="0.5" >
-        <ng-template>
-  
-      </ng-template>
-      </ion-modal>
-          <!-- <div id="submit" > -->
-            <!-- <img src="./assets/mdi_location.svg" alt=""> -->
-            <!-- {{lat}} - {{lng}} -->
-          <!-- </div> -->
-          <!-- <input id="latlng" type="text" value="{{lat}},{{lng}}" /> -->
-        
-        
-          <!-- <input type="text" value="{{lat}},{{lng}}" id="latlng"> -->
-
-      <br>
-
-          <div style="display: flex; align-items: center;justify-content: center;">
-          
-              <div routerLink="/search-result-bike"
-              style="width: 100%;  padding: 1px; background: #F2F2F2; border-radius: 20px; overflow: hidden; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex" >
-                <div style="width: 18px; height: 18px; position: relative">
-                <img src="../assets/tabler_search.svg" >
-                </div>
-                <div  style="color: #3355B9; font-size: 12px;  font-weight: 400; word-wrap: break-word">
-                  </div>
-                    <input matInput  name="searchValue" (input)="search($event)" class="search" 
-                    placeholder="Search by stations, battery model ">
-                
-              </div>
-          </div>
-    <br>
-         
-         
-           
-        </div>
-        <div style="width: 100%;  justify-content: space-between; align-items: center; display: inline-flex">
-          <div class="nearhub">Battery Stations near you</div>
-          <img src="./assets/ri_arrow-right-s-line.svg"
-            style="width: 24px; height: 24px; position: relative; background: #3355B9; border-radius: 24px; overflow: hidden"
-            routerLink="/battery-staion-list">
-        </div>
-
-
-
-
-        <br> 
-
-        <app-swap-battery-scroll [slides]="hubsnearby"></app-swap-battery-scroll>
-        <!-- <app-nearhub [slides]="bikeHubID"></app-nearhub> -->
-        <!-- all hubs -->
-        <div style="width: 100%;  justify-content: space-between; align-items: center; display: inline-flex">
-          <div class="allhub">All Stations</div>
-          <img src="./assets/ri_arrow-right-s-line.svg"
-            style="width: 24px; height: 24px; position: relative; background: #3355B9; border-radius: 24px; overflow: hidden"
-            routerLink="/hublist">
-        </div>
-
-        <br><br>
-        <!-- near by hubs -->
-
-        <div class="hub-container">
-
-          <div class="hub-card" *ngFor="let b of bikeHub">
-            <div (click)="gotohubdetails(b.BranchID)"
-              style="width: 100%; height: 100%;  background: #F1F1F1; border-radius: 10px;  justify-content:flex-start; align-items: center; gap: 12px; display: inline-flex">
-              <img style="width: 56px; height: 84px; border-radius: 10px" src="{{azimageUrl}}{{b.ProfileImage}}" />
-              <div
-                style="flex: 1 1 0; height: 58px; flex-direction: column; justify-content: center; align-items: flex-start; gap: 8px; display: inline-flex">
-                <div class="hub-content">{{b.BranchName | lowercase}}</div>
-              </div>
+    <div class="container">
+      <div class="header">
+        <svg
+          class="ic-round-arrow-back"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M18.9999 11.0002H7.82992L12.7099 6.12016C13.0999 5.73016 13.0999 5.09016 12.7099 4.70016C12.6174 4.60746 12.5075 4.53391 12.3865 4.48373C12.2656 4.43354 12.1359 4.40771 12.0049 4.40771C11.874 4.40771 11.7443 4.43354 11.6233 4.48373C11.5023 4.53391 11.3924 4.60746 11.2999 4.70016L4.70992 11.2902C4.61722 11.3827 4.54367 11.4926 4.49349 11.6135C4.44331 11.7345 4.41748 11.8642 4.41748 11.9952C4.41748 12.1261 4.44331 12.2558 4.49349 12.3768C4.54367 12.4978 4.61722 12.6076 4.70992 12.7002L11.2999 19.2902C11.3925 19.3827 11.5024 19.4562 11.6234 19.5063C11.7443 19.5564 11.874 19.5822 12.0049 19.5822C12.1359 19.5822 12.2655 19.5564 12.3865 19.5063C12.5074 19.4562 12.6173 19.3827 12.7099 19.2902C12.8025 19.1976 12.8759 19.0877 12.9261 18.9667C12.9762 18.8457 13.0019 18.7161 13.0019 18.5852C13.0019 18.4542 12.9762 18.3246 12.9261 18.2036C12.8759 18.0827 12.8025 17.9727 12.7099 17.8802L7.82992 13.0002H18.9999C19.5499 13.0002 19.9999 12.5502 19.9999 12.0002C19.9999 11.4502 19.5499 11.0002 18.9999 11.0002Z"
+            fill="black"
+          />
+        </svg>
+        <div class="swapping-station">Swapping station</div>
+      </div>
+      <div class="frame-2608277">
+        <div class="frame">
+          <div class="frame-2608404">
+            <svg
+              class="city"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 19.0001V9.0001C3 8.4501 3.196 7.97943 3.588 7.5881C3.98 7.19676 4.45067 7.00076 5 7.0001H9V5.8251C9 5.55843 9.05 5.3041 9.15 5.0621C9.25 4.8201 9.39167 4.60776 9.575 4.4251L10.575 3.4251C10.9583 3.04176 11.4333 2.8501 12 2.8501C12.5667 2.8501 13.0417 3.04176 13.425 3.4251L14.425 4.4251C14.6083 4.60843 14.75 4.8211 14.85 5.0631C14.95 5.3051 15 5.5591 15 5.8251V11.0001H19C19.55 11.0001 20.021 11.1961 20.413 11.5881C20.805 11.9801 21.0007 12.4508 21 13.0001V19.0001C21 19.5501 20.8043 20.0211 20.413 20.4131C20.0217 20.8051 19.5507 21.0008 19 21.0001H5C4.45 21.0001 3.97933 20.8044 3.588 20.4131C3.19667 20.0218 3.00067 19.5508 3 19.0001ZM5 19.0001H7V17.0001H5V19.0001ZM5 15.0001H7V13.0001H5V15.0001ZM5 11.0001H7V9.0001H5V11.0001ZM11 19.0001H13V17.0001H11V19.0001ZM11 15.0001H13V13.0001H11V15.0001ZM11 11.0001H13V9.0001H11V11.0001ZM11 7.0001H13V5.0001H11V7.0001ZM17 19.0001H19V17.0001H17V19.0001ZM17 15.0001H19V13.0001H17V15.0001Z"
+                fill="#3355B9"
+              />
+            </svg>
+            <div class="frame-2608379">
+              <div class="name">City</div>
             </div>
           </div>
-
-
+          <div class="fe-arrow-down">
+            <svg
+              class="fe-arrow-down-0"
+              width="12"
+              height="8"
+              viewBox="0 0 12 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M1.5 0.25L6 4.75L10.5 0.25L12 1.75L6 7.75L0 1.75L1.5 0.25Z"
+                fill="#363636"
+              />
+            </svg>
+          </div>
         </div>
-        
-        
-
-
-        <!-- <app-swap-battery-scroll [slides]="slider"></app-swap-battery-scroll> -->
-
+        <div class="frame">
+          <div class="frame-2608403">
+            <svg
+              class="hub-station"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M23 19H21V10C21 9.73478 20.8946 9.48043 20.7071 9.29289C20.5196 9.10536 20.2652 9 20 9H17V19H15V4C15 3.73478 14.8946 3.48043 14.7071 3.29289C14.5196 3.10536 14.2652 3 14 3H4C3.73478 3 3.48043 3.10536 3.29289 3.29289C3.10536 3.48043 3 3.73478 3 4V19H1V21H23V19ZM6.93699 12.73L9.14732 12.56L8.66288 15.7211C8.63669 15.8748 8.67103 16.0096 8.7659 16.1255C8.86077 16.2415 8.968 16.2849 9.08759 16.2558C9.15942 16.2386 9.2139 16.2152 9.25101 16.1856C9.28813 16.1559 9.31694 16.1182 9.33743 16.0723L11.9002 10.6381C11.9761 10.4805 11.969 10.3145 11.8789 10.1401C11.7888 9.96574 11.6662 9.88516 11.5111 9.89839L9.30075 10.0684L9.78519 6.9073C9.81138 6.75367 9.77704 6.61887 9.68217 6.5029C9.5873 6.38693 9.48007 6.3435 9.36047 6.37262C9.2888 6.3904 9.23436 6.41396 9.19717 6.44331C9.15997 6.47265 9.13113 6.51027 9.11063 6.55616L6.54787 11.9904C6.47197 12.1479 6.47906 12.3139 6.56916 12.4883C6.65925 12.6627 6.78186 12.7433 6.93699 12.73Z"
+                fill="#3355B9"
+              />
+            </svg>
+            <div class="frame-2608379">
+              <div class="name">Hub station</div>
+            </div>
+          </div>
+          <div class="fe-arrow-down">
+            <svg
+              class="fe-arrow-down-02"
+              width="12"
+              height="8"
+              viewBox="0 0 12 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M1.5 0.25L6 4.75L10.5 0.25L12 1.75L6 7.75L0 1.75L1.5 0.25Z"
+                fill="#363636"
+              />
+            </svg>
+          </div>
+        </div>
       </div>
+      <div class="button-2">
+        <div class="name2" routerLink="../battery-list">Search battery</div>
+      </div>
+    </div>
+    
   
     </ion-content>
-    <!-- <ion-modal [isOpen]="isModelOpen" [initialBreakpoint]="0.5" style="border-top-left-radius: 20px; border-top-right-radius: 20px;">
-      <ng-template>
-    <div style="width: 100%; height: 100%; padding: 16px; background: white; border-top-left-radius: 20px; border-top-right-radius: 20px; overflow: hidden; flex-direction: column; justify-content: flex-start; align-items: center; gap: 11px; display: inline-flex">
-      <div style="align-self: stretch; height: 291px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 11px; display: flex">
-          <div style="width: 328px; justify-content: space-between; align-items: center; display: inline-flex">
-              <div style="justify-content: flex-start; align-items: center; gap: 10px; display: flex">
-                  <div style="width: 24px; height: 24px; position: relative">
-                      <div style="width: 24px; height: 24px; left: 0px; top: 0px; position: absolute; background: #3355B9"></div>
-                  </div>
-                  <div style="color: #363636; font-size: 14px;  font-weight: 700; word-wrap: break-word">Location permission is off</div>
-              </div>
-              <div style="padding-left: 14px; padding-right: 14px; padding-top: 8px; padding-bottom: 8px; background: #3355B9; border-radius: 24px; justify-content: center; align-items: center; gap: 10px; display: flex">
-                  <div style="color: white; font-size: 14px;  font-weight: 700; word-wrap: break-word">Allow</div>
-              </div>
-          </div>
-          <div style="width: 328px; height: 0px; border: 1px #E8E7E7 solid"></div>
-          <div style="height: 170px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: flex">
-              <div style="align-self: stretch; justify-content: space-between; align-items: center; display: inline-flex">
-                  <div style="color: #363636; font-size: 16px;  font-weight: 700; word-wrap: break-word">Saved address</div>
-                  <div style="width: 24px; height: 24px; position: relative; background: #3355B9; border-radius: 24px; overflow: hidden">
-                      <div style="width: 6px; height: 10px; left: 10px; top: 7px; position: absolute; background: white"></div>
-                  </div>
-              </div>
-              <div style="align-self: stretch; height: 134px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 8px; display: flex">
-                  <div style="align-self: stretch; height: 63px; padding-left: 8px; padding-right: 8px; padding-top: 12px; padding-bottom: 12px; background: #EBEEF8; border-radius: 8px; overflow: hidden;  justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex">
-                      <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 4px; display: inline-flex">
-                          <div style="text-align: center; color: black; font-size: 14px;  font-weight: 700; word-wrap: break-word">Address 1</div>
-                          <div style="align-self: stretch; color: rgba(0, 0, 0, 0.70); font-size: 12px;  font-weight: 400; word-wrap: break-word">2/50, AFG Road, Hyderabad, Telengana</div>
-                      </div>
-                  </div>
-              
-              </div>
-          </div>
-          <div style="width: 328px; height: 0px; border: 1px #E8E7E7 solid"></div>
-          <ion-searchbar style="width: 100%;" class="search"
-        placeholder="Search by location"
-   
-       name="searchValue" 
-       showCancelButton="focus"
-      
-      
-       animated
-       ></ion-searchbar>
-      </div>
-  </div>
-  </ng-template>
-  </ion-modal> -->
-  </mat-sidenav-content>
+ </mat-sidenav-content>
 </mat-sidenav-container>
 
 
