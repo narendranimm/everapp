@@ -1,0 +1,39 @@
+
+<h1 mat-dialog-title>payments</h1>
+
+<!-- <mat-card class="example-card">
+
+  <img mat-card-image src="https://imgs.search.brave.com/pUYCL8YqQ3QXI-Zn4wBzQ9qTqh_fsOslMTZc-VQ62sk/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9naXZl/d3AuY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDIwLzAzL1Jh/em9ycGF5LmpwZw" alt="Photo of a Shiba Inu">
+ 
+
+</mat-card> -->
+
+<div class="rechargedialog">
+    <form action="" [formGroup]="recharge">
+  <label>Name</label><br>
+  <input type="text" name="name"  class="rec" formControlName="name" [(ngModel)]="Name">
+  <br>
+  <label>phone</label><br>
+  <input type="tel" name="name" class="rec" formControlName="contact" [(ngModel)]="phoneNo">
+  <br>
+  <label>Email</label><br>
+  <input type="email" name="name"  class="rec" formControlName="email"  [(ngModel)]="Email">
+  <br>
+  <label>productname</label><br>
+  <input type="text" name="name"  class="rec" formControlName="product_name"> 
+  <br>
+  <label>amount</label><br>
+  <input type="number" name="name" class="rec" formControlName="amount" [(ngModel)]="inputValue">
+  <br>
+  <label>discription</label><br>
+  <input type="text" name="name" class="rec `" formControlName="discription">
+  </form>
+  </div>
+<br>
+<button mat-stroked-button color="primary" style="width: 100px;" (click)="onButtonClick('1000')">1000</button>
+<button mat-stroked-button color="accent"style="width: 100px;" (click)="onButtonClick('2000')">2000</button>
+<button mat-stroked-button color="warn"style="width: 100px;" (click)="onButtonClick('500')">500</button><br><br>
+<button mat-raised-button color="accent" (click)="paynow()">Paynow</button><br >
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</div> 

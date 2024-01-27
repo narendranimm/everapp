@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { IonContent } from '@ionic/angular';
+import { IonContent, ModalController } from '@ionic/angular';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { ProductServicesService } from 'services/product-services/product-services.service';
 import { UserData } from 'src/app/providers/user-data';
@@ -9,6 +9,8 @@ import { LoadingService } from 'src/app/services/loading.service';
 import { GoogleMap } from '@capacitor/google-maps';
 import { OrderService } from 'src/app/services/Order.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ModalcontentComponent } from 'src/app/modalcontent/modalcontent.component';
+import { MatDialog } from '@angular/material/dialog';
 interface Food {
   value: string;
   viewValue: number;
@@ -30,7 +32,7 @@ export class BikedetailsComponent  implements OnInit {
    bookingNo!: string;
    securitydeposit: number=0;
   constructor(private route: ActivatedRoute,private loader:LoadingService,
-    private _pd:ProductServicesService,private router:Router,private user:UserData,private _bh:BookingService, private snackBar: MatSnackBar,
+    private _pd:ProductServicesService,private router:Router,private user:UserData,private _bh:BookingService, private snackBar: MatSnackBar,private os:OrderService,private modalController:ModalController,public dialog: MatDialog,
  private _od: OrderService,
    
     private booking: BookingService) {
@@ -42,12 +44,12 @@ ProductDetails:any;
   ngOnInit() {
     this.getDetails();
  this.getDetail()
-
+ this.getAll()
   }
   
   gotobooking(){
     this.user.setpId(this.productID)
-    this.router.navigateByUrl('/slotbooking')
+    this.router.navigateByUrl('/recharge')
   }
 
   getDetails(){
@@ -68,12 +70,12 @@ ProductDetails:any;
 
   scrollToBottom() {
   
-    this.content.scrollToBottom(800);
+    this.content.scrollToBottom(1200);
   }
 
   scrollToTop() {
     
-    this.content.scrollToTop(800);
+    this.content.scrollToTop(1200);
   }
 
   getDetail() {
@@ -148,5 +150,40 @@ ProductDetails:any;
         zoom: 8,
       },
     });
+  }
+
+  offers: any;
+
+
+
+ 
+  getAll(){
+    this.os.getAlloffers().subscribe(res=>{
+      console.log(res)
+      this.offers=res;
+    })
+
+  }
+  applyCoupon(id:number){
+    this.presentModal()
+  }
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: ModalcontentComponent, // Your modal component
+      cssClass: 'custom-modal-class', // Optional: Add a custom CSS class for styling
+    });
+
+    await modal.present();
+  }
+  opendialog(data:any){
+    this.dialog.open(ModalcontentComponent, {
+      width: '320px',
+      height: '300px',
+      panelClass: 'custom-modalbox',
+      data:data
+    });
+    setTimeout(() => {
+      this.dialog.closeAll()
+   }, 3000)
   }
 }

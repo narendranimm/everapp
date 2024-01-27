@@ -86,7 +86,7 @@ export class HubdetailsComponent  implements OnInit {
   disableSelect = new FormControl(false);
 
   bikeHubID: any =3502;
-  bikeHub:any;
+  bikeHub:any[]=[];
   taskId:any;
   azimageUrl:any='https://everdevuat.blob.core.windows.net/hubs/';
   @ViewChild(IonContent) content!: IonContent;
@@ -99,6 +99,7 @@ export class HubdetailsComponent  implements OnInit {
           console.log(res)
           if (res !== null) {
             this.bikeHubID = res;
+            console.log(res)
         this.getbranchesByBID()
           } else {
             console.log('Data is null. Handle accordingly.');
@@ -126,6 +127,7 @@ export class HubdetailsComponent  implements OnInit {
     this._bh.getbranchesByBID(this.bikeHubID,null).subscribe((res:any) => {
       console.log('tests',res)
       this.bikeHub = res;
+      console.log(this.bikeHub)
 
   })
 }

@@ -98,6 +98,7 @@ import { ViewsummaryComponent } from './viewsummary/viewsummary.component';
 import { ViewAllImagesComponent } from './view-all-images/view-all-images.component';
 import { PreviousBookingComponent } from './previous-booking/previous-booking.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { RechargedialogComponent } from './rechargedialog/rechargedialog.component';
 
 
 
@@ -218,6 +219,7 @@ const routes: Routes = [
   {path:'nobookings',component:NobookingComponent},
   {path:'invoice',component:ViewsummaryComponent},
   {path:'view-all-images',component:ViewAllImagesComponent},
+  {path:'recharge',component:RechargedialogComponent}
 
 
 

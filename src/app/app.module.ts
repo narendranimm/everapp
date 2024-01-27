@@ -146,6 +146,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 
 import {MatRippleModule} from '@angular/material/core';
 import { NgOtpInputModule } from  'ng-otp-input';
+import { RechargedialogComponent } from './rechargedialog/rechargedialog.component';
 
 
 providers: [Storage]
@@ -216,6 +217,7 @@ providers: [Storage]
     ModalcontentComponent,
     ViewAllImagesComponent,
     PreviousBookingComponent,
+    RechargedialogComponent
    
   
 
