@@ -99,6 +99,8 @@ import { ViewAllImagesComponent } from './view-all-images/view-all-images.compon
 import { PreviousBookingComponent } from './previous-booking/previous-booking.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RechargedialogComponent } from './rechargedialog/rechargedialog.component';
+import { CancelbookingComponent } from './cancelbooking/cancelbooking.component';
+import { BatteryCancellationComponent } from './battery-cancellation/battery-cancellation.component';
 
 
 
@@ -150,7 +152,7 @@ const routes: Routes = [
 {path:'battery-staion-list',component:BatteryStationListComponent},
 {path:'battery-station',component:BatteryStationComponent},
 {path:'battery-list',component:BatteryListComponent},
-{path:'battery-details-available/:id',component:BatteryDetailsAvailableComponent},
+{path:'battery-details-available',component:BatteryDetailsAvailableComponent},
 {path:'battery-details-unavailable',component:BatteryDetailsUnavailableComponent},
 {path:'booking-details-b',component:BookingDetailsComponent},
 {path:'offer-b',component:OffersComponent},
@@ -219,7 +221,9 @@ const routes: Routes = [
   {path:'nobookings',component:NobookingComponent},
   {path:'invoice',component:ViewsummaryComponent},
   {path:'view-all-images',component:ViewAllImagesComponent},
-  {path:'recharge',component:RechargedialogComponent}
+  {path:'recharge',component:RechargedialogComponent},
+  {path:'cancelbooking',component:CancelbookingComponent},
+  {path:'cancel-battery',component:BatteryCancellationComponent}
 
 
 

@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { GoogleMap } from '@capacitor/google-maps';
 import { IonContent } from '@ionic/angular';
 import { ProductServicesService } from 'services/product-services/product-services.service';
 import { BookingService } from 'src/app/E-booking-flow-services/booking.service';
@@ -30,6 +31,7 @@ export class BatteryDetailsAvailableComponent  implements OnInit {
 ProductDetails:any;
   ngOnInit() {
     this.getDetails();
+    this.createMap()
   }
   
   gotobooking(){
@@ -38,7 +40,7 @@ ProductDetails:any;
   }
 
   getDetails(){
-     this.loader.simpleLoader('Loading...')
+    //  this.loader.simpleLoader('Loading...')
     this._pd.productDetails(this.productID).subscribe((res)=>{
       this.ProductDetails=res;
       console.log(res)
@@ -46,6 +48,7 @@ ProductDetails:any;
       console.log(this.imageUrl)
 
       this.loader.dismissLoader();
+   
     })
   }
 
@@ -59,7 +62,28 @@ ProductDetails:any;
     this.content.scrollToTop(800);
   }
 
+  apiKey = 'AIzaSyCU4W4iQLV5ydrW3UxZncI_JdLi1EsKH5A';
 
+  @ViewChild('map')
+   mapRef!: ElementRef<HTMLElement>;
+   newMap!: GoogleMap;
+ 
+   async createMap() {
+     this.newMap = await GoogleMap.create({
+       id: 'my-cool-map',
+       element: this.mapRef.nativeElement,
+       apiKey: this.apiKey,
+       config: {
+         center: {
+           
+           lat:  17.448294,
+           lng: 78.391487,
+         },
+         zoom: 8,
+       },
+     });
+   }
+ 
 
 
 

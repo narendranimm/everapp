@@ -99,13 +99,7 @@ export class SelfieComponent implements OnInit {
       this.router.navigate(['/selfie'])
     }else{
      
-        this.dialog.open(CommunicationAllowPermissionComponent, {
-          width: '320px',
-          height: '300px'
-        });
-        setTimeout(() => {
-          this.dialog.closeAll()
-       }, 3000)
+     
  
       this.router.navigate(['/enableloaction'])
     }

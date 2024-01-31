@@ -11,6 +11,7 @@ import { OrderService } from 'src/app/services/Order.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ModalcontentComponent } from 'src/app/modalcontent/modalcontent.component';
 import { MatDialog } from '@angular/material/dialog';
+import { CommunicationAllowPermissionComponent } from 'src/app/communication-allow-permission/communication-allow-permission.component';
 interface Food {
   value: string;
   viewValue: number;
@@ -49,7 +50,14 @@ ProductDetails:any;
   
   gotobooking(){
     this.user.setpId(this.productID)
-    this.router.navigateByUrl('/recharge')
+    this.dialog.open(CommunicationAllowPermissionComponent, {
+      width: '320px',
+      height: '300px'
+    });
+    setTimeout(() => {
+      this.dialog.closeAll()
+   }, 3000)
+    this.router.navigateByUrl('booking_summary/BKEV-02231100002')
   }
 
   getDetails(){
@@ -61,7 +69,8 @@ ProductDetails:any;
 
       this.imageUrl=this.azimageUrl+this.ProductDetails.ImageName;
       this.loader.dismissLoader();
-      this.createMap()
+      this.createMap();
+      
     },(error)=>{
       this.loader.dismissLoader();
     }

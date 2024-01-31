@@ -79,7 +79,7 @@
           <button style="background: transparent;border: none;" routerLink="/enableloaction">
             <img class="icon" src="./assets/ic_round-arrow-back (3).svg" alt=""></button>
         </div>
-        <div style="color: #363636; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">EV Rentals</div>
+        <div style="color: #363636; font-size: 14px;  font-weight: 700; word-wrap: break-word">EV Rentals</div>
     </div>
     <div style="align-self: stretch; height: 276px; flex-direction: column; justify-content: center; align-items: center; gap: 2px; display: flex;">
 
@@ -98,15 +98,22 @@
          
          
      
-                <mat-form-field class="city-field" appearance="outline" >
+                <!-- <mat-form-field class="city-field" appearance="outline" >
                   <ion-icon matPrefix name="business-outline" style="color: blue;" class="icon"></ion-icon>
                   <mat-label class="label"> Hub station</mat-label>
                   <mat-select  >
-                   
-                    <mat-option *ngFor="let h of bikeHub" >{{h.BranchName}}</mat-option>
+                    <mat-option value="option1">MADHAPUR</mat-option>
+                    <mat-option value="option1">KPHB COLONY</mat-option>
+                    <mat-option value="option1">GACHIBOWLI</mat-option>
+                    <mat-option value="option1">HITECH CITY</mat-option>
+                    <mat-option  value="option1" >BANJARA HILLS</mat-option>
              
                   </mat-select>
-                </mat-form-field>
+                </mat-form-field> -->
+                <ion-select label="Outline select" label-placement="floating" fill="outline">
+                    <ion-select-option *ngFor="let n of bikeHub" value="{{n.BranchName}}">{{n.BranchName}}</ion-select-option>
+                 
+                  </ion-select>
                 <mat-form-field class="city-field" appearance="outline" routerLink="/customselection">
                   <ion-icon matPrefix name="calendar-outline"  style="color: blue;" class="icon"></ion-icon>
                  
@@ -126,7 +133,7 @@
                 </mat-form-field>
               
                     <button (click)="gotobikelist()" style="width: 328px; height: 48px; padding-left: 16px; padding-right: 16px; padding-top: 10px; padding-bottom: 10px; background: #3355B9; border-radius: 24px;">
-                        <div style="color: white; font-size: 14px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Search bike</div>
+                        <div style="color: white; font-size: 14px;  font-weight: 700; word-wrap: break-word">Search bike</div>
                     </button>
            
             </div>
@@ -1448,6 +1455,6 @@
         <div style="width: 254.38px; height: 207.57px; left: 105.81px; top: 61.83px; position: absolute">
             <img src="../assets/everbooking.svg" alt="">
         </div>
-        <div style="left: 16px; top: 0px; position: absolute; text-align: center; color: #95A2CA; font-size: 18px; font-family: Open Sans Hebrew; font-weight: 700; word-wrap: break-word">Navigating cities,<br/>Empowering lives</div>
+        <div style="left: 16px; top: 0px; position: absolute; text-align: center; color: #95A2CA; font-size: 18px;  font-weight: 700; word-wrap: break-word">Navigating cities,<br/>Empowering lives</div>
     </div>
 </div>

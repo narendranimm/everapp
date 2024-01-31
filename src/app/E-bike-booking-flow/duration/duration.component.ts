@@ -347,7 +347,8 @@ if(!res.Id){
           this.user.setNew('startTime',this.startDate)
           this.user.setNew('endTime',this.endDate)
           this.snackBar.open(JSON.stringify(res.message));
-          this.router.navigateByUrl('/booking_summary/'+this.BookingID);
+        
+          
         }else{
           this.loader.dismissLoader();
         }

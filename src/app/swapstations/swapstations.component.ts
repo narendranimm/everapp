@@ -76,7 +76,7 @@ this.status()
     this._bh.getbranchesByBID(this.bikeHubID, null).subscribe(
       (res: any) => {
         console.log('tests', res)
-        this.bikeHub = res.slice(0, 4);
+        this.bikeHub = res;
 
         this.loadingservice.dismissLoader();
 

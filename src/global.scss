@@ -74,6 +74,7 @@
     --ion-background-color: #f9f9f9;
     --ion-toolbar-background: var(--ion-background-color);
     --ion-item-background: #fff;
+    --ion-font-family:: 'Open Sans', sans-serif !important;
   }
   
   /* This is added for the flashing that happens when toggling between themes */
@@ -84,7 +85,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
 
   *{
-    font-family: 'Open Sans', sans-serif;
+    --ion-font-family:: 'Open Sans', sans-serif !important;
   }
 .each_input{
   --border:none;

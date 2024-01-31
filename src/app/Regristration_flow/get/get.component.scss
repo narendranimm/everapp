@@ -129,8 +129,8 @@ line-height: 28px;
 }
 
 ion-modal {
-    --width:300px;
-  --height:320px ;
+    --width:320px;
+  --height:360px ;
   --border-radius: 16px;
   --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
@@ -239,3 +239,42 @@ background: var(--Primary, #3355B9);
     }
 }
 
+.first_div{
+left: 143px; top: 35.76px; position: absolute; flex-direction: column; justify-content: center; align-items: center; gap: 6.47px; display: inline-flex
+}
+.second_div{
+   width: 100%; height: 100%; flex-direction: column; justify-content: center; align-items: center; gap: 6.47px; display: inline-flex
+}
+.third_div{
+    width: 285.27px; height: 200.87px; left: 37px; top: 216px; position: absolute
+}
+.fourth_div{
+   width: 235.43px; height: 187.23px; left: 15px; top: 0px; position: absolute; opacity: 1.15
+}
+.image_first{
+ width: 235.43px; height: 187.23px; left: 0px; top: 0px; position: absolute; opacity: 1.0; 
+}
+.image_second{
+   width: 44.98px; height: 26.34px; left: 105.09px; top: 0px; position: absolute; 
+}
+.image_third{
+   width: 28.54px; height: 16.82px; left: 157.35px; top: 39.46px; position: absolute; 
+}
+.image_fourth{
+   width: 17.46px; height: 10.32px; left: 230.84px; top: 11.56px; position: absolute; 
+}
+.image_fifth{
+  width: 36.60px; height: 20.86px; left: 212.19px; top: 144.32px; position: absolute;
+}
+.image_sixth{
+ width: 55.86px; height: 31.80px; left: 5.46px; top: 133.37px; position: absolute;
+}
+.image_seventh{
+   width: 221.24px; height: 12.92px; left: 32.01px; top: 187.95px; position: absolute; 
+}
+.image_eigth{
+   width: 96.39px; height: 173.36px; left: 42.25px; top: 15.63px; position: absolute
+}
+.image_nine{
+  width: 117.83px; height: 128.48px; left: 115.29px; top: 67.36px; position: absolute
+}
