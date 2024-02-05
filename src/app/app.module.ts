@@ -149,6 +149,7 @@ import { NgOtpInputModule } from  'ng-otp-input';
 import { RechargedialogComponent } from './rechargedialog/rechargedialog.component';
 import { CancelbookingComponent } from './cancelbooking/cancelbooking.component';
 import { BatteryCancellationComponent } from './battery-cancellation/battery-cancellation.component';
+import { DirectionComponent } from './direction/direction.component';
 
 
 providers: [Storage]
@@ -221,7 +222,8 @@ providers: [Storage]
     PreviousBookingComponent,
     RechargedialogComponent,
     CancelbookingComponent,
-    BatteryCancellationComponent
+    BatteryCancellationComponent,
+    DirectionComponent
    
   
 
